@@ -62,7 +62,7 @@
     pageControl.frame = CGRectMake(x, self.height-30, width, 30);
     pageControl.numberOfPages = self.dataSource.count;  //指定页面个数
     pageControl.currentPage = 0;                        //指定pagecontroll的值，默认选中的小白点（第一个）
-    pageControl.backgroundColor = [UIColor redColor];
+    pageControl.backgroundColor = [UIColor clearColor];
     pageControl.hidesForSinglePage = YES;
 
 

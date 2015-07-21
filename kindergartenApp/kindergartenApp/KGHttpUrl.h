@@ -29,4 +29,12 @@
 //phone code
 + (NSString *)getPhoneCodeUrl;
 
+
+//AnnouncementList
++ (NSString *)getAnnouncementListUrl;
+
+
+//Announcement Info
++ (NSString *)getAnnouncementInfoUrl:(NSString *)uuid;
+
 @end

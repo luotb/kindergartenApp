@@ -151,7 +151,7 @@ static const char MJIgnoredCodingPropertyNamesKey;
             free(properties);
         }];
         //*** 在此时设置当前这个类为关联对象，这样下次就不会重复获取类的相关属性。
-        objc_setAssociatedObject(self, &MJCachedPropertiesKey, cachedProperties, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+//        objc_setAssociatedObject(self, &MJCachedPropertiesKey, cachedProperties, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
         //***
     }
     

@@ -12,6 +12,8 @@
 #import "KGUser.h"
 #import "LoginViewController.h"
 #import "KGNavigationController.h"
+#import "KGHttpService.h"
+#import "KGHUD.h"
 
 @interface MeViewController () <UIAlertViewDelegate>
 
@@ -44,11 +46,16 @@
         loginVC.userNameTextField.text = currentUser.loginname;
         loginVC.userPwdTextField.text = currentUser.password;
         
-        [KGAccountTool delAccount];
-
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.4 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-             [UIApplication sharedApplication].keyWindow.rootViewController = [[KGNavigationController alloc] initWithRootViewController:loginVC];
-        });
+        [[KGHttpService sharedService] logout:^(NSString *msgStr) {
+            [KGAccountTool delAccount];
+            [[KGHUD sharedHud] show:self.view onlyMsg:msgStr];
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                [UIApplication sharedApplication].keyWindow.rootViewController = [[KGNavigationController alloc] initWithRootViewController:loginVC];
+            });
+        } faild:^(NSString *errorMsg) {
+            [[KGHUD sharedHud] show:self.view onlyMsg:errorMsg];
+        }];
+        
        
     }
 }

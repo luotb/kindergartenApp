@@ -72,6 +72,7 @@
 		24A176041B5550EB00295997 /* TestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24A176021B5550EB00295997 /* TestViewController.xib */; };
 		24A176081B55563E00295997 /* TestTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A176061B55563E00295997 /* TestTableViewCell.m */; };
 		24A176091B55563E00295997 /* TestTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24A176071B55563E00295997 /* TestTableViewCell.xib */; };
+		24A3D3761B5E874600D4C212 /* KGHomeItemButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A3D3751B5E874600D4C212 /* KGHomeItemButton.m */; };
 		24C46B281B5A28CF00A58F92 /* BaseKeyboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24C46B271B5A28CF00A58F92 /* BaseKeyboardViewController.m */; };
 		24C46B371B5A2A9900A58F92 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24C46B351B5A2A9900A58F92 /* HomeViewController.m */; };
 		24C46B381B5A2A9900A58F92 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24C46B361B5A2A9900A58F92 /* HomeViewController.xib */; };
@@ -82,6 +83,10 @@
 		24C46B521B5A2BC800A58F92 /* MessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24C46B501B5A2BC800A58F92 /* MessageViewController.m */; };
 		24C46B531B5A2BC800A58F92 /* MessageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24C46B511B5A2BC800A58F92 /* MessageViewController.xib */; };
 		F45EABD11B563F9F003C367C /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F45EABD01B563F9F003C367C /* BaseViewController.m */; };
+		F47AFEAE1B5E22EA00D43F38 /* AnnouncementListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F47AFEAC1B5E22EA00D43F38 /* AnnouncementListViewController.m */; };
+		F47AFEAF1B5E22EA00D43F38 /* AnnouncementListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F47AFEAD1B5E22EA00D43F38 /* AnnouncementListViewController.xib */; };
+		F47AFEB21B5E24BD00D43F38 /* AnnouncementDomain.m in Sources */ = {isa = PBXBuildFile; fileRef = F47AFEB11B5E24BD00D43F38 /* AnnouncementDomain.m */; };
+		F47AFEB51B5E2BF800D43F38 /* PageInfoDomain.m in Sources */ = {isa = PBXBuildFile; fileRef = F47AFEB41B5E2BF800D43F38 /* PageInfoDomain.m */; };
 		F487838B1B58DA1700CDC1A8 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = F48783101B58DA1700CDC1A8 /* AFHTTPRequestOperation.m */; };
 		F487838C1B58DA1700CDC1A8 /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F48783121B58DA1700CDC1A8 /* AFHTTPRequestOperationManager.m */; };
 		F487838D1B58DA1700CDC1A8 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F48783141B58DA1700CDC1A8 /* AFHTTPSessionManager.m */; };
@@ -291,6 +296,8 @@
 		24A176051B55563E00295997 /* TestTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestTableViewCell.h; sourceTree = "<group>"; };
 		24A176061B55563E00295997 /* TestTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestTableViewCell.m; sourceTree = "<group>"; };
 		24A176071B55563E00295997 /* TestTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestTableViewCell.xib; sourceTree = "<group>"; };
+		24A3D3741B5E874600D4C212 /* KGHomeItemButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KGHomeItemButton.h; sourceTree = "<group>"; };
+		24A3D3751B5E874600D4C212 /* KGHomeItemButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KGHomeItemButton.m; sourceTree = "<group>"; };
 		24C46B261B5A28CF00A58F92 /* BaseKeyboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseKeyboardViewController.h; sourceTree = "<group>"; };
 		24C46B271B5A28CF00A58F92 /* BaseKeyboardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseKeyboardViewController.m; sourceTree = "<group>"; };
 		24C46B341B5A2A9900A58F92 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
@@ -307,6 +314,13 @@
 		24C46B511B5A2BC800A58F92 /* MessageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageViewController.xib; sourceTree = "<group>"; };
 		F45EABCF1B563F9F003C367C /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		F45EABD01B563F9F003C367C /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
+		F47AFEAB1B5E22EA00D43F38 /* AnnouncementListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnnouncementListViewController.h; sourceTree = "<group>"; };
+		F47AFEAC1B5E22EA00D43F38 /* AnnouncementListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnnouncementListViewController.m; sourceTree = "<group>"; };
+		F47AFEAD1B5E22EA00D43F38 /* AnnouncementListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AnnouncementListViewController.xib; sourceTree = "<group>"; };
+		F47AFEB01B5E24BD00D43F38 /* AnnouncementDomain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnnouncementDomain.h; sourceTree = "<group>"; };
+		F47AFEB11B5E24BD00D43F38 /* AnnouncementDomain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnnouncementDomain.m; sourceTree = "<group>"; };
+		F47AFEB31B5E2BF800D43F38 /* PageInfoDomain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageInfoDomain.h; sourceTree = "<group>"; };
+		F47AFEB41B5E2BF800D43F38 /* PageInfoDomain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageInfoDomain.m; sourceTree = "<group>"; };
 		F487830F1B58DA1700CDC1A8 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
 		F48783101B58DA1700CDC1A8 /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
 		F48783111B58DA1700CDC1A8 /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
@@ -477,6 +491,8 @@
 				248B6AA91B19AD7A00FCB98F /* KGBaseDomain.m */,
 				2469E2141B5B6039004888A4 /* ResMsgDomain.h */,
 				2469E2151B5B6039004888A4 /* ResMsgDomain.m */,
+				F47AFEB31B5E2BF800D43F38 /* PageInfoDomain.h */,
+				F47AFEB41B5E2BF800D43F38 /* PageInfoDomain.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -877,6 +893,7 @@
 		248B6AA51B19AD3800FCB98F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				24A3D3731B5E870E00D4C212 /* ItemBtn */,
 				2489B6321B5AB31800039E70 /* ImageCollectionView */,
 			);
 			name = View;
@@ -885,6 +902,8 @@
 		248B6AA61B19AD4000FCB98F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				F47AFEB01B5E24BD00D43F38 /* AnnouncementDomain.h */,
+				F47AFEB11B5E24BD00D43F38 /* AnnouncementDomain.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -892,6 +911,7 @@
 		248B6AA71B19AD4700FCB98F /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				F47AFEAA1B5E22C100D43F38 /* Announcement */,
 				2489B66F1B5AB75200039E70 /* Introduction */,
 				24C46B341B5A2A9900A58F92 /* HomeViewController.h */,
 				24C46B351B5A2A9900A58F92 /* HomeViewController.m */,
@@ -980,6 +1000,15 @@
 				2489B61D1B5A39AB00039E70 /* View */,
 			);
 			name = Login;
+			sourceTree = "<group>";
+		};
+		24A3D3731B5E870E00D4C212 /* ItemBtn */ = {
+			isa = PBXGroup;
+			children = (
+				24A3D3741B5E874600D4C212 /* KGHomeItemButton.h */,
+				24A3D3751B5E874600D4C212 /* KGHomeItemButton.m */,
+			);
+			name = ItemBtn;
 			sourceTree = "<group>";
 		};
 		24C46B2A1B5A29F700A58F92 /* MessageView */ = {
@@ -1121,6 +1150,16 @@
 				24C46B271B5A28CF00A58F92 /* BaseKeyboardViewController.m */,
 			);
 			name = Controller;
+			sourceTree = "<group>";
+		};
+		F47AFEAA1B5E22C100D43F38 /* Announcement */ = {
+			isa = PBXGroup;
+			children = (
+				F47AFEAB1B5E22EA00D43F38 /* AnnouncementListViewController.h */,
+				F47AFEAC1B5E22EA00D43F38 /* AnnouncementListViewController.m */,
+				F47AFEAD1B5E22EA00D43F38 /* AnnouncementListViewController.xib */,
+			);
+			name = Announcement;
 			sourceTree = "<group>";
 		};
 		F487830C1B58DA1700CDC1A8 /* Frameworks */ = {
@@ -1435,6 +1474,7 @@
 			files = (
 				2489B67D1B5ABAAB00039E70 /* AddressBooksViewController.xib in Resources */,
 				24C46B411B5A2B1100A58F92 /* MeViewController.xib in Resources */,
+				F47AFEAF1B5E22EA00D43F38 /* AnnouncementListViewController.xib in Resources */,
 				24A175FF1B5550B000295997 /* LoginViewController.xib in Resources */,
 				F48783D41B58E46000CDC1A8 /* MJRefresh.bundle in Resources */,
 				2489B6241B5A40E200039E70 /* RegViewController.xib in Resources */,
@@ -1480,12 +1520,14 @@
 				F48783D51B58E46000CDC1A8 /* MJRefreshBaseView.m in Sources */,
 				F48783A31B58DA1700CDC1A8 /* MASViewAttribute.m in Sources */,
 				F4C0AB901B1C3B29007B0E35 /* SandboxFile.m in Sources */,
+				F47AFEB21B5E24BD00D43F38 /* AnnouncementDomain.m in Sources */,
 				F48783A71B58DA1700CDC1A8 /* View+MASAdditions.m in Sources */,
 				F487839C1B58DA1700CDC1A8 /* UIRefreshControl+AFNetworking.m in Sources */,
 				24C46B281B5A28CF00A58F92 /* BaseKeyboardViewController.m in Sources */,
 				2469E2131B5B5E45004888A4 /* LoginRespDomain.m in Sources */,
 				F48783951B58DA1700CDC1A8 /* README.md in Sources */,
 				248B6A951B19A9D900FCB98F /* UIWindow+Extension.m in Sources */,
+				F47AFEB51B5E2BF800D43F38 /* PageInfoDomain.m in Sources */,
 				F48783AA1B58DA1700CDC1A8 /* MBProgressHUD.m in Sources */,
 				2489B6681B5AB49E00039E70 /* UIView+WebCacheOperation.m in Sources */,
 				248B6ABE1B19B53000FCB98F /* QCSlideSwitchDto.m in Sources */,
@@ -1518,12 +1560,14 @@
 				F48783A01B58DA1700CDC1A8 /* MASConstraint.m in Sources */,
 				F48783961B58DA1700CDC1A8 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				2489B62E1B5A62A900039E70 /* KGTabBarViewController.m in Sources */,
+				F47AFEAE1B5E22EA00D43F38 /* AnnouncementListViewController.m in Sources */,
 				F487839B1B58DA1700CDC1A8 /* UIProgressView+AFNetworking.m in Sources */,
 				24C46B371B5A2A9900A58F92 /* HomeViewController.m in Sources */,
 				24C46B521B5A2BC800A58F92 /* MessageViewController.m in Sources */,
 				248B6ACE1B19B57400FCB98F /* FuniKeyChain.m in Sources */,
 				248B6A921B19A9D900FCB98F /* UIBarButtonItem+Extension.m in Sources */,
 				2489B66D1B5AB49E00039E70 /* SDWebImageManager.m in Sources */,
+				24A3D3761B5E874600D4C212 /* KGHomeItemButton.m in Sources */,
 				2489B67C1B5ABAAB00039E70 /* AddressBooksViewController.m in Sources */,
 				F4C0AB971B1C3C54007B0E35 /* KGHttpService.m in Sources */,
 				248B6AC61B19B54500FCB98F /* KGFormVerify.m in Sources */,

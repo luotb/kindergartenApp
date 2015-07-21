@@ -70,6 +70,8 @@
 
 - (IBAction)savePwdBtnClicked:(UIButton *)sender {
     savePwdBtn.selected = !sender.selected;
+    savePwdImageView.image = [UIImage imageNamed:savePwdBtn.selected ? @"jizhu" : @"bujizhu"];
+//    savePwdBtn.backgroundColor = [UIColor clearColor];
 }
 
 
@@ -124,7 +126,6 @@
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         UIWindow* window = [UIApplication sharedApplication].keyWindow;
         window.rootViewController = [[KGTabBarViewController alloc] init];
-//        [window makeKeyAndVisible];
     });
 }
 

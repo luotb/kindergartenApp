@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0630"
+   LastUpgradeVersion = "0640"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "248B6A581B19A39200FCB98F"
-               BuildableName = "FuniFrame.app"
-               BlueprintName = "FuniFrame"
-               ReferencedContainer = "container:FuniFrame.xcodeproj">
+               BuildableName = "kindergartenApp.app"
+               BlueprintName = "kindergartenApp"
+               ReferencedContainer = "container:kindergartenApp.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -29,9 +29,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "248B6A711B19A39200FCB98F"
-               BuildableName = "FuniFrameTests.xctest"
-               BlueprintName = "FuniFrameTests"
-               ReferencedContainer = "container:FuniFrame.xcodeproj">
+               BuildableName = "kindergartenAppTests.xctest"
+               BlueprintName = "kindergartenAppTests"
+               ReferencedContainer = "container:kindergartenApp.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -47,9 +47,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "248B6A711B19A39200FCB98F"
-               BuildableName = "FuniFrameTests.xctest"
-               BlueprintName = "FuniFrameTests"
-               ReferencedContainer = "container:FuniFrame.xcodeproj">
+               BuildableName = "kindergartenAppTests.xctest"
+               BlueprintName = "kindergartenAppTests"
+               ReferencedContainer = "container:kindergartenApp.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -57,9 +57,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "248B6A581B19A39200FCB98F"
-            BuildableName = "FuniFrame.app"
-            BlueprintName = "FuniFrame"
-            ReferencedContainer = "container:FuniFrame.xcodeproj">
+            BuildableName = "kindergartenApp.app"
+            BlueprintName = "kindergartenApp"
+            ReferencedContainer = "container:kindergartenApp.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -77,9 +77,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "248B6A581B19A39200FCB98F"
-            BuildableName = "FuniFrame.app"
-            BlueprintName = "FuniFrame"
-            ReferencedContainer = "container:FuniFrame.xcodeproj">
+            BuildableName = "kindergartenApp.app"
+            BlueprintName = "kindergartenApp"
+            ReferencedContainer = "container:kindergartenApp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -96,9 +96,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "248B6A581B19A39200FCB98F"
-            BuildableName = "FuniFrame.app"
-            BlueprintName = "FuniFrame"
-            ReferencedContainer = "container:FuniFrame.xcodeproj">
+            BuildableName = "kindergartenApp.app"
+            BlueprintName = "kindergartenApp"
+            ReferencedContainer = "container:kindergartenApp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

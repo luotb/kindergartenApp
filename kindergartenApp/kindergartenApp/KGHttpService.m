@@ -90,6 +90,16 @@
 }
 
 
+- (void)logout:(void (^)(NSString * msgStr))success faild:(void (^)(NSString * errorMsg))faild {
+    
+    [self POST:[KGHttpUrl getLogoutUrl] param:nil success:^(NSString *msgStr) {
+        success(msgStr);
+    } faild:^(NSString *errorMsg) {
+        faild(errorMsg);
+    }];
+}
+
+
 - (void)reg:(KGUser *)user success:(void (^)(NSString * msgStr))success faild:(void (^)(NSString * errorMsg))faild {
     
 //    AFHTTPRequestSerializer* requestSerializer = [AFAppDotNetAPIClient sharedClient].requestSerializer;

@@ -10,6 +10,7 @@
 #import "ImageCollectionView.h"
 #import "Masonry.h"
 #import "KGIntroductionViewController.h"
+#import "UIView+Extension.h"
 
 @interface HomeViewController () <ImageCollectionViewDelegate> {
     
@@ -27,7 +28,19 @@
     [super viewDidLoad];
     scrollView.contentSize = CGSizeMake(self.view.width, funiView.y + funiView.height + Number_Ten);
     [self loadPhotoView];
+    [self funBtnParam];
+    
+    
+//    [MFBHomeData setupObjectClassInArray:^NSDictionary* {
+//        return @{ @"ListItems" : @"MFBFloor" };
+//    }];
 }
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+//    [self funBtnParam];
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -52,6 +65,34 @@
     
     [imgcollview showImageCollectionView];
 }
+
+
+- (void)funBtnParam {
+    UIButton * btn = nil;
+    for(NSInteger i=Number_Ten; i<Number_Twenty; i++) {
+        btn = (UIButton *)[self.view viewWithTag:i];
+        
+        CGPoint center = btn.imageView.center;
+        center.x = btn.width/2;
+        center.y = btn.imageView.height/2;
+        btn.imageView.center = center;
+        
+        CGRect newFrame = [btn titleLabel].frame;
+//        newFrame.origin.x =0;
+//        newFrame.origin.y = btn.imageView.height + 5;
+//        newFrame.size.width = btn.frame.size.width;
+//        
+//        btn.titleLabel.frame = newFrame;
+//        btn.titleLabel.textAlignment = NSTextAlignmentCenter;
+        
+//        UIEdgeInsetsMake(top, <#CGFloat left#>, <#CGFloat bottom#>, <#CGFloat right#>)
+//        CGFloat x = (btn.width - newFrame.size.width) / 2;
+//        [btn setTitleEdgeInsets:UIEdgeInsetsMake(btn.imageView.y + btn.imageView.height + 15, 1, 1, x)];
+        center.y += 40;
+        btn.titleLabel.center = center;
+    }
+}
+
 
 #pragma ImageCollectionViewDelegate
 

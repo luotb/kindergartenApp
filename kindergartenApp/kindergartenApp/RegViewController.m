@@ -50,7 +50,7 @@
         pwdLabel.text = @"旧密码";
     }
     
-    [self setViewParame];
+//    [self setViewParame];
 //    [self registerBtnEnable:NO alpha:Number_ViewAlpha_Three];
 }
 

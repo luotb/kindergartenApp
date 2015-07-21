@@ -8,10 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import "ResMsgDomain.h"
+#import "PageInfoDomain.h"
 
 @interface KGBaseDomain : NSObject
 
-@property (strong, nonatomic) ResMsgDomain * ResMsg;
+@property (strong, nonatomic) NSString       * uuid;
+@property (strong, nonatomic) ResMsgDomain   * ResMsg;
+@property (strong, nonatomic) PageInfoDomain * list;
 
 
 @end

@@ -8,6 +8,8 @@
 
 #import "KGHttpUrl.h"
 
+#define URL(baseURL, businessURL) [NSString stringWithFormat:@"%@%@", baseURL, businessURL];
+
 #define baseServiceURL       @"http://120.25.248.31/px-mobile/"      //正式
 #define loginURL             @"rest/userinfo/login.json"             //登录
 #define logoutURL            @"rest/userinfo/logout.json"            //登出
@@ -17,35 +19,68 @@
 #define phoneCodeURL         @"rest/sms/sendCode.json"               //短信验证码
 
 
+
+
+
+#define announcementListURL      @"rest/announcements/queryMyAnnouncements.json"               //公告列表
+#define myChildrenURL         @"rest/student/listByMyChildren.json"               //我的孩子列表
+#define saveChildrenURL       @"rest/student/save.json"                           //保存孩子
+
+
 @implementation KGHttpUrl
 
 //login
 + (NSString *)getLoginUrl {
-    return [NSString stringWithFormat:@"%@%@", baseServiceURL, loginURL];
+    return URL(baseServiceURL, loginURL);
 }
 
 
 //logout
 + (NSString *)getLogoutUrl {
-    return [NSString stringWithFormat:@"%@%@", baseServiceURL, logoutURL];
+    return URL(baseServiceURL, logoutURL);
 }
 
 
 //reg
 + (NSString *)getRegUrl {
-    return [NSString stringWithFormat:@"%@%@", baseServiceURL, regURL];
+    return URL(baseServiceURL, regURL);
 }
 
 
 //updatepassword
 + (NSString *)getUpdatepasswordUrl {
-    return [NSString stringWithFormat:@"%@%@", baseServiceURL, updatepasswordURL];
+    return URL(baseServiceURL, updatepasswordURL);
 }
 
 
 //phone code
 + (NSString *)getPhoneCodeUrl {
-    return [NSString stringWithFormat:@"%@%@", baseServiceURL, phoneCodeURL];
+    return URL(baseServiceURL, phoneCodeURL);
 }
+
+
+//AnnouncementList
++ (NSString *)getAnnouncementListUrl {
+    return URL(baseServiceURL, announcementListURL);
+}
+
+
+//Announcement Info
++ (NSString *)getAnnouncementInfoUrl:(NSString *)uuid {
+    return [NSString stringWithFormat:@"%@rest/announcements/%@.json", baseServiceURL, uuid];
+}
+
+
+//MyChildren
++ (NSString *)getMyChildrenUrl {
+    return URL(baseServiceURL, myChildrenURL);
+}
+
+
+//SaveChildren
++ (NSString *)getSaveChildrenUrl {
+    return URL(baseServiceURL, saveChildrenURL);
+}
+
 
 @end

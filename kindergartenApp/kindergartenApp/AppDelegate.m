@@ -37,6 +37,7 @@
     // 启动tag页面
     [self.window switchRootViewController];
     
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
 //    [self.window makeKeyAndVisible];
     return YES;
 }
