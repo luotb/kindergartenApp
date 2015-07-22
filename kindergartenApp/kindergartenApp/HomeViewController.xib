@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController">
@@ -38,188 +38,318 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="baO-Ka-cog">
                                             <rect key="frame" x="0.0" y="178" width="320" height="390"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DWo-F0-LBi">
-                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="75"/>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DWo-F0-LBi">
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="77"/>
                                                     <subviews>
-                                                        <button opaque="NO" tag="10" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="89d-cO-PbH">
-                                                            <rect key="frame" x="0.0" y="0.0" width="80" height="75"/>
-                                                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                                            <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                            <state key="normal" image="yuan">
-                                                                <attributedString key="attributedTitle">
-                                                                    <fragment content="校园相关">
-                                                                        <attributes>
-                                                                            <font key="NSFont" size="13" name="STHeitiSC-Light"/>
-                                                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                                                        </attributes>
-                                                                    </fragment>
-                                                                </attributedString>
-                                                            </state>
-                                                            <connections>
-                                                                <action selector="funBtnClicked:" destination="-1" eventType="touchUpInside" id="5Wk-Ne-CxS"/>
-                                                            </connections>
-                                                        </button>
-                                                        <button opaque="NO" tag="11" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cHq-uh-snQ">
-                                                            <rect key="frame" x="80" y="0.0" width="80" height="75"/>
-                                                            <state key="normal" image="yuan">
-                                                                <attributedString key="attributedTitle">
-                                                                    <fragment content="公告">
-                                                                        <attributes>
-                                                                            <font key="NSFont" size="13" name="STHeitiSC-Light"/>
-                                                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                                                        </attributes>
-                                                                    </fragment>
-                                                                </attributedString>
-                                                            </state>
-                                                            <connections>
-                                                                <action selector="funBtnClicked:" destination="-1" eventType="touchUpInside" id="aXB-2M-gfW"/>
-                                                            </connections>
-                                                        </button>
-                                                        <button opaque="NO" tag="12" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uYI-mA-lPD">
-                                                            <rect key="frame" x="160" y="0.0" width="80" height="75"/>
-                                                            <state key="normal" image="yuan">
-                                                                <attributedString key="attributedTitle">
-                                                                    <fragment content="签到记录">
-                                                                        <attributes>
-                                                                            <font key="NSFont" size="13" name="STHeitiSC-Light"/>
-                                                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                                                        </attributes>
-                                                                    </fragment>
-                                                                </attributedString>
-                                                            </state>
-                                                            <connections>
-                                                                <action selector="funBtnClicked:" destination="-1" eventType="touchUpInside" id="EbK-SJ-vcg"/>
-                                                            </connections>
-                                                        </button>
-                                                        <button opaque="NO" tag="13" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6Fs-oc-WTM">
-                                                            <rect key="frame" x="240" y="0.0" width="80" height="75"/>
-                                                            <state key="normal" image="yuan">
-                                                                <attributedString key="attributedTitle">
-                                                                    <fragment content="课程表">
-                                                                        <attributes>
-                                                                            <font key="NSFont" size="13" name="STHeitiSC-Light"/>
-                                                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                                                        </attributes>
-                                                                    </fragment>
-                                                                </attributedString>
-                                                            </state>
-                                                            <connections>
-                                                                <action selector="funBtnClicked:" destination="-1" eventType="touchUpInside" id="1fs-LW-fSB"/>
-                                                            </connections>
-                                                        </button>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jyR-kJ-sEQ" userLabel="View1">
+                                                            <rect key="frame" x="0.0" y="0.0" width="80" height="77"/>
+                                                            <subviews>
+                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="yuan" translatesAutoresizingMaskIntoConstraints="NO" id="Knf-JA-9CX">
+                                                                    <rect key="frame" x="17" y="15" width="45" height="45"/>
+                                                                </imageView>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="校园相关" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G53-Cj-SQg">
+                                                                    <rect key="frame" x="19" y="67" width="50" height="10"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <button opaque="NO" tag="10" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="17A-MJ-Zf2">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="80" height="77"/>
+                                                                    <state key="normal">
+                                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                                    </state>
+                                                                    <connections>
+                                                                        <action selector="funBtnClicked:" destination="-1" eventType="touchUpInside" id="on6-9u-hVk"/>
+                                                                    </connections>
+                                                                </button>
+                                                            </subviews>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        </view>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="55y-3E-OnQ" userLabel="View2">
+                                                            <rect key="frame" x="80" y="0.0" width="80" height="77"/>
+                                                            <subviews>
+                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="yuan" translatesAutoresizingMaskIntoConstraints="NO" id="Tbz-Sd-wLH">
+                                                                    <rect key="frame" x="17" y="15" width="45" height="45"/>
+                                                                </imageView>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="公告" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XJR-lZ-KY0">
+                                                                    <rect key="frame" x="19" y="67" width="50" height="10"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <button opaque="NO" tag="10" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="scf-ms-NV6">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="80" height="77"/>
+                                                                    <state key="normal">
+                                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                                    </state>
+                                                                    <connections>
+                                                                        <action selector="funBtnClicked:" destination="-1" eventType="touchUpInside" id="R6R-e0-crt"/>
+                                                                    </connections>
+                                                                </button>
+                                                            </subviews>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        </view>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="is3-Xz-hvy" userLabel="View3">
+                                                            <rect key="frame" x="160" y="0.0" width="80" height="77"/>
+                                                            <subviews>
+                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="yuan" translatesAutoresizingMaskIntoConstraints="NO" id="0bd-EA-aMl">
+                                                                    <rect key="frame" x="17" y="15" width="45" height="45"/>
+                                                                </imageView>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="签到记录" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3DW-PM-W8c">
+                                                                    <rect key="frame" x="19" y="67" width="50" height="10"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <button opaque="NO" tag="10" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bka-TO-8oG">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="80" height="77"/>
+                                                                    <state key="normal">
+                                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                                    </state>
+                                                                    <connections>
+                                                                        <action selector="funBtnClicked:" destination="-1" eventType="touchUpInside" id="Rz2-kZ-ewC"/>
+                                                                    </connections>
+                                                                </button>
+                                                            </subviews>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        </view>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6qQ-Xs-su5" userLabel="View4">
+                                                            <rect key="frame" x="240" y="0.0" width="80" height="77"/>
+                                                            <subviews>
+                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="yuan" translatesAutoresizingMaskIntoConstraints="NO" id="X4g-6a-BCc">
+                                                                    <rect key="frame" x="17" y="15" width="45" height="45"/>
+                                                                </imageView>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="课程表" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gxK-mM-ucY">
+                                                                    <rect key="frame" x="19" y="67" width="50" height="10"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <button opaque="NO" tag="10" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UJE-pn-HvC">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="80" height="77"/>
+                                                                    <state key="normal">
+                                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                                    </state>
+                                                                    <connections>
+                                                                        <action selector="funBtnClicked:" destination="-1" eventType="touchUpInside" id="ySq-IV-XAG"/>
+                                                                    </connections>
+                                                                </button>
+                                                            </subviews>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        </view>
                                                     </subviews>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstItem="6qQ-Xs-su5" firstAttribute="top" secondItem="DWo-F0-LBi" secondAttribute="top" id="0SD-fv-c2V"/>
+                                                        <constraint firstItem="jyR-kJ-sEQ" firstAttribute="top" secondItem="DWo-F0-LBi" secondAttribute="top" id="0U2-DW-jzb"/>
+                                                        <constraint firstItem="55y-3E-OnQ" firstAttribute="leading" secondItem="jyR-kJ-sEQ" secondAttribute="trailing" id="5sd-Dj-Gan"/>
+                                                        <constraint firstItem="55y-3E-OnQ" firstAttribute="leading" secondItem="jyR-kJ-sEQ" secondAttribute="trailing" id="5yb-za-PMX"/>
+                                                        <constraint firstAttribute="height" constant="77" id="6uP-so-khR"/>
+                                                        <constraint firstItem="is3-Xz-hvy" firstAttribute="leading" secondItem="55y-3E-OnQ" secondAttribute="trailing" id="7wr-nh-Xlu"/>
+                                                        <constraint firstItem="is3-Xz-hvy" firstAttribute="leading" secondItem="55y-3E-OnQ" secondAttribute="trailing" id="9Tp-IM-h03"/>
+                                                        <constraint firstItem="6qQ-Xs-su5" firstAttribute="leading" secondItem="is3-Xz-hvy" secondAttribute="trailing" id="D4m-WS-a62"/>
+                                                        <constraint firstItem="is3-Xz-hvy" firstAttribute="top" secondItem="DWo-F0-LBi" secondAttribute="top" id="I9q-Un-u8Z"/>
+                                                        <constraint firstAttribute="bottom" secondItem="55y-3E-OnQ" secondAttribute="bottom" id="LVe-vM-1sX"/>
+                                                        <constraint firstAttribute="bottom" secondItem="6qQ-Xs-su5" secondAttribute="bottom" id="Pjt-zs-TSb"/>
+                                                        <constraint firstItem="is3-Xz-hvy" firstAttribute="leading" secondItem="DWo-F0-LBi" secondAttribute="leading" constant="160" id="QfM-ag-bpo"/>
+                                                        <constraint firstAttribute="trailing" secondItem="is3-Xz-hvy" secondAttribute="trailing" constant="80" id="R93-qB-hBr"/>
+                                                        <constraint firstAttribute="bottom" secondItem="jyR-kJ-sEQ" secondAttribute="bottom" id="Tyv-Ql-mdX"/>
+                                                        <constraint firstItem="jyR-kJ-sEQ" firstAttribute="top" secondItem="DWo-F0-LBi" secondAttribute="top" id="f3H-Fv-frW"/>
+                                                        <constraint firstItem="jyR-kJ-sEQ" firstAttribute="leading" secondItem="DWo-F0-LBi" secondAttribute="leading" id="fVm-gU-Zfi"/>
+                                                        <constraint firstAttribute="trailing" secondItem="6qQ-Xs-su5" secondAttribute="trailing" id="gt3-LF-f7R"/>
+                                                        <constraint firstAttribute="bottom" secondItem="is3-Xz-hvy" secondAttribute="bottom" id="hyp-vL-two"/>
+                                                        <constraint firstItem="55y-3E-OnQ" firstAttribute="leading" secondItem="jyR-kJ-sEQ" secondAttribute="trailing" id="jBF-2i-4bv"/>
+                                                        <constraint firstItem="6qQ-Xs-su5" firstAttribute="leading" secondItem="is3-Xz-hvy" secondAttribute="trailing" id="kgN-hl-3go"/>
+                                                        <constraint firstAttribute="centerY" secondItem="6qQ-Xs-su5" secondAttribute="centerY" id="mJG-cK-s78"/>
+                                                        <constraint firstItem="55y-3E-OnQ" firstAttribute="leading" secondItem="DWo-F0-LBi" secondAttribute="leading" constant="80" id="moH-bI-0qw"/>
+                                                        <constraint firstAttribute="bottom" secondItem="jyR-kJ-sEQ" secondAttribute="bottom" id="qnG-1q-GnS"/>
+                                                        <constraint firstItem="jyR-kJ-sEQ" firstAttribute="leading" secondItem="DWo-F0-LBi" secondAttribute="leading" id="vbq-R0-Rhg"/>
+                                                        <constraint firstItem="55y-3E-OnQ" firstAttribute="top" secondItem="DWo-F0-LBi" secondAttribute="top" id="zan-wg-8ri"/>
+                                                    </constraints>
                                                 </view>
-                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="REw-vv-ZTc">
-                                                    <rect key="frame" x="0.0" y="75" width="320" height="75"/>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FVR-7w-RwP">
+                                                    <rect key="frame" x="0.0" y="77" width="320" height="77"/>
                                                     <subviews>
-                                                        <button opaque="NO" tag="14" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S5P-iO-Nac">
-                                                            <rect key="frame" x="0.0" y="0.0" width="80" height="75"/>
-                                                            <state key="normal" image="yuan">
-                                                                <attributedString key="attributedTitle">
-                                                                    <fragment content="每日食谱">
-                                                                        <attributes>
-                                                                            <font key="NSFont" size="13" name="STHeitiSC-Light"/>
-                                                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                                                        </attributes>
-                                                                    </fragment>
-                                                                </attributedString>
-                                                            </state>
-                                                            <connections>
-                                                                <action selector="funBtnClicked:" destination="-1" eventType="touchUpInside" id="7Ax-nR-qlY"/>
-                                                            </connections>
-                                                        </button>
-                                                        <button opaque="NO" tag="15" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BmF-dQ-tFM">
-                                                            <rect key="frame" x="80" y="0.0" width="80" height="75"/>
-                                                            <state key="normal" image="yuan">
-                                                                <attributedString key="attributedTitle">
-                                                                    <fragment content="精品文章">
-                                                                        <attributes>
-                                                                            <font key="NSFont" size="13" name="STHeitiSC-Light"/>
-                                                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                                                        </attributes>
-                                                                    </fragment>
-                                                                </attributedString>
-                                                            </state>
-                                                            <connections>
-                                                                <action selector="funBtnClicked:" destination="-1" eventType="touchUpInside" id="dsI-y7-SvD"/>
-                                                            </connections>
-                                                        </button>
-                                                        <button opaque="NO" tag="16" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YgF-Cz-yZR">
-                                                            <rect key="frame" x="160" y="0.0" width="80" height="75"/>
-                                                            <state key="normal" image="yuan">
-                                                                <attributedString key="attributedTitle">
-                                                                    <fragment content="特长课程">
-                                                                        <attributes>
-                                                                            <font key="NSFont" size="13" name="STHeitiSC-Light"/>
-                                                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                                                        </attributes>
-                                                                    </fragment>
-                                                                </attributedString>
-                                                            </state>
-                                                            <connections>
-                                                                <action selector="funBtnClicked:" destination="-1" eventType="touchUpInside" id="x4k-HT-yQy"/>
-                                                            </connections>
-                                                        </button>
-                                                        <button opaque="NO" tag="17" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JG0-b1-dSf">
-                                                            <rect key="frame" x="240" y="0.0" width="80" height="75"/>
-                                                            <state key="normal" image="yuan">
-                                                                <attributedString key="attributedTitle">
-                                                                    <fragment content="评价老师">
-                                                                        <attributes>
-                                                                            <font key="NSFont" size="13" name="STHeitiSC-Light"/>
-                                                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                                                        </attributes>
-                                                                    </fragment>
-                                                                </attributedString>
-                                                            </state>
-                                                            <connections>
-                                                                <action selector="funBtnClicked:" destination="-1" eventType="touchUpInside" id="zhi-GO-e5k"/>
-                                                            </connections>
-                                                        </button>
+                                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="O9l-pr-1Dw">
+                                                            <rect key="frame" x="0.0" y="0.0" width="80" height="77"/>
+                                                            <subviews>
+                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="yuan" translatesAutoresizingMaskIntoConstraints="NO" id="hWN-vt-DlG">
+                                                                    <rect key="frame" x="17" y="15" width="45" height="45"/>
+                                                                </imageView>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="每日食谱" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sY8-TL-R8I">
+                                                                    <rect key="frame" x="19" y="67" width="50" height="10"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <button opaque="NO" tag="10" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I84-Y2-B7C">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="80" height="77"/>
+                                                                    <state key="normal">
+                                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                                    </state>
+                                                                    <connections>
+                                                                        <action selector="funBtnClicked:" destination="-1" eventType="touchUpInside" id="Glk-5D-21E"/>
+                                                                    </connections>
+                                                                </button>
+                                                            </subviews>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        </view>
+                                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9ET-ff-4YF">
+                                                            <rect key="frame" x="80" y="0.0" width="80" height="77"/>
+                                                            <subviews>
+                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="yuan" translatesAutoresizingMaskIntoConstraints="NO" id="EAF-mt-05f">
+                                                                    <rect key="frame" x="17" y="15" width="45" height="45"/>
+                                                                </imageView>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="精品文章" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bzq-m6-9J8">
+                                                                    <rect key="frame" x="19" y="67" width="50" height="10"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <button opaque="NO" tag="10" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PZE-JB-tey">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="80" height="77"/>
+                                                                    <state key="normal">
+                                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                                    </state>
+                                                                    <connections>
+                                                                        <action selector="funBtnClicked:" destination="-1" eventType="touchUpInside" id="ZNf-t5-AI1"/>
+                                                                    </connections>
+                                                                </button>
+                                                            </subviews>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        </view>
+                                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UKv-tx-Ssx">
+                                                            <rect key="frame" x="160" y="0.0" width="80" height="77"/>
+                                                            <subviews>
+                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="yuan" translatesAutoresizingMaskIntoConstraints="NO" id="FPD-xq-8E8">
+                                                                    <rect key="frame" x="17" y="15" width="45" height="45"/>
+                                                                </imageView>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="特长课程" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FhZ-OV-jjS">
+                                                                    <rect key="frame" x="19" y="67" width="50" height="10"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <button opaque="NO" tag="10" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IwI-gM-LWv">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="80" height="77"/>
+                                                                    <state key="normal">
+                                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                                    </state>
+                                                                    <connections>
+                                                                        <action selector="funBtnClicked:" destination="-1" eventType="touchUpInside" id="zbQ-Lm-tLx"/>
+                                                                    </connections>
+                                                                </button>
+                                                            </subviews>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        </view>
+                                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Trn-44-Whw">
+                                                            <rect key="frame" x="240" y="0.0" width="80" height="77"/>
+                                                            <subviews>
+                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="yuan" translatesAutoresizingMaskIntoConstraints="NO" id="pas-je-UtD">
+                                                                    <rect key="frame" x="17" y="15" width="45" height="45"/>
+                                                                </imageView>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="评价老师" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aAQ-cn-8Za">
+                                                                    <rect key="frame" x="19" y="67" width="50" height="10"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <button opaque="NO" tag="10" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dm3-9L-aEi">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="80" height="77"/>
+                                                                    <state key="normal">
+                                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                                    </state>
+                                                                    <connections>
+                                                                        <action selector="funBtnClicked:" destination="-1" eventType="touchUpInside" id="LjQ-hc-YyM"/>
+                                                                    </connections>
+                                                                </button>
+                                                            </subviews>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        </view>
                                                     </subviews>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="77" id="cXf-xq-3Xr"/>
+                                                    </constraints>
                                                 </view>
-                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jp8-Xy-lSj">
-                                                    <rect key="frame" x="0.0" y="150" width="320" height="75"/>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="csO-1S-OIV">
+                                                    <rect key="frame" x="0.0" y="154" width="320" height="77"/>
                                                     <subviews>
-                                                        <button opaque="NO" tag="18" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EMt-zf-P06">
-                                                            <rect key="frame" x="0.0" y="0.0" width="80" height="75"/>
-                                                            <state key="normal" image="yuan">
-                                                                <attributedString key="attributedTitle">
-                                                                    <fragment content="我的宝贝">
-                                                                        <attributes>
-                                                                            <font key="NSFont" size="13" name="STHeitiSC-Light"/>
-                                                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                                                        </attributes>
-                                                                    </fragment>
-                                                                </attributedString>
-                                                            </state>
-                                                            <connections>
-                                                                <action selector="funBtnClicked:" destination="-1" eventType="touchUpInside" id="uPI-yc-r3Z"/>
-                                                            </connections>
-                                                        </button>
-                                                        <button opaque="NO" tag="19" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JhH-ki-9qY">
-                                                            <rect key="frame" x="80" y="0.0" width="80" height="75"/>
-                                                            <state key="normal" image="yuan">
-                                                                <attributedString key="attributedTitle">
-                                                                    <fragment content="更多">
-                                                                        <attributes>
-                                                                            <font key="NSFont" size="13" name="STHeitiSC-Light"/>
-                                                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                                                        </attributes>
-                                                                    </fragment>
-                                                                </attributedString>
-                                                            </state>
-                                                            <connections>
-                                                                <action selector="funBtnClicked:" destination="-1" eventType="touchUpInside" id="W6h-Rn-D32"/>
-                                                            </connections>
-                                                        </button>
+                                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DOc-Bc-Ye5">
+                                                            <rect key="frame" x="0.0" y="0.0" width="80" height="77"/>
+                                                            <subviews>
+                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="yuan" translatesAutoresizingMaskIntoConstraints="NO" id="dEE-hJ-EFQ">
+                                                                    <rect key="frame" x="17" y="15" width="45" height="45"/>
+                                                                </imageView>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="我的宝贝" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hGy-qR-El0">
+                                                                    <rect key="frame" x="19" y="67" width="50" height="10"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <button opaque="NO" tag="10" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dRw-a7-web">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="80" height="77"/>
+                                                                    <state key="normal">
+                                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                                    </state>
+                                                                    <connections>
+                                                                        <action selector="funBtnClicked:" destination="-1" eventType="touchUpInside" id="9gc-SR-uzu"/>
+                                                                    </connections>
+                                                                </button>
+                                                            </subviews>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        </view>
+                                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VuW-CI-GmI">
+                                                            <rect key="frame" x="80" y="0.0" width="80" height="77"/>
+                                                            <subviews>
+                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="yuan" translatesAutoresizingMaskIntoConstraints="NO" id="ebV-Ei-CmK">
+                                                                    <rect key="frame" x="17" y="15" width="45" height="45"/>
+                                                                </imageView>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="更多" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GfE-WL-FKQ">
+                                                                    <rect key="frame" x="19" y="67" width="50" height="10"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <button opaque="NO" tag="10" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z5y-7F-zkN">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="80" height="77"/>
+                                                                    <state key="normal">
+                                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                                    </state>
+                                                                    <connections>
+                                                                        <action selector="funBtnClicked:" destination="-1" eventType="touchUpInside" id="cRn-hM-2KS"/>
+                                                                    </connections>
+                                                                </button>
+                                                            </subviews>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        </view>
+                                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HfF-6C-Jvw">
+                                                            <rect key="frame" x="160" y="0.0" width="80" height="77"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        </view>
+                                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sxR-FS-2z3">
+                                                            <rect key="frame" x="240" y="0.0" width="80" height="77"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                        </view>
                                                     </subviews>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="77" id="Lak-wH-gFo"/>
+                                                    </constraints>
                                                 </view>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="DWo-F0-LBi" secondAttribute="trailing" id="BdV-UD-Yo0"/>
+                                                <constraint firstItem="FVR-7w-RwP" firstAttribute="top" secondItem="DWo-F0-LBi" secondAttribute="bottom" id="GcQ-QF-VAg"/>
+                                                <constraint firstAttribute="trailing" secondItem="FVR-7w-RwP" secondAttribute="trailing" id="JJY-YD-IE8"/>
+                                                <constraint firstItem="csO-1S-OIV" firstAttribute="top" secondItem="FVR-7w-RwP" secondAttribute="bottom" id="Pud-yj-Otd"/>
+                                                <constraint firstItem="csO-1S-OIV" firstAttribute="leading" secondItem="baO-Ka-cog" secondAttribute="leading" id="Pvk-2s-5UW"/>
+                                                <constraint firstItem="DWo-F0-LBi" firstAttribute="top" secondItem="baO-Ka-cog" secondAttribute="top" id="aaN-lf-Vjo"/>
+                                                <constraint firstAttribute="trailing" secondItem="csO-1S-OIV" secondAttribute="trailing" id="kzb-9P-0KZ"/>
+                                                <constraint firstItem="FVR-7w-RwP" firstAttribute="leading" secondItem="baO-Ka-cog" secondAttribute="leading" id="rWA-UY-ouY"/>
+                                                <constraint firstItem="DWo-F0-LBi" firstAttribute="leading" secondItem="baO-Ka-cog" secondAttribute="leading" id="zm6-ar-i0L"/>
+                                            </constraints>
                                         </view>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

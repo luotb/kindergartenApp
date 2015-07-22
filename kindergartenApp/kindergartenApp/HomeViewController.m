@@ -28,7 +28,7 @@
     [super viewDidLoad];
     scrollView.contentSize = CGSizeMake(self.view.width, funiView.y + funiView.height + Number_Ten);
     [self loadPhotoView];
-    [self funBtnParam];
+//    [self funBtnParam];
     
     
 //    [MFBHomeData setupObjectClassInArray:^NSDictionary* {
