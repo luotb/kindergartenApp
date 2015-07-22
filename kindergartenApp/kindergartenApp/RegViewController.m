@@ -45,6 +45,8 @@
     
     if(self.type == Number_One) {
         self.title = @"用户注册";
+        [submitBtn setBackgroundImage:[UIImage imageNamed:@"zhuche4"] forState:UIControlStateNormal];
+        [submitBtn setBackgroundImage:[UIImage imageNamed:@"zhuche3"] forState:UIControlStateHighlighted];
     } else {
         self.title = @"找回密码";
         pwdLabel.text = @"旧密码";

@@ -141,6 +141,7 @@
 
     [dataTask resume];
 
+    NSLog(@"POST URL:%@", URLString);
     return dataTask;
 }
 

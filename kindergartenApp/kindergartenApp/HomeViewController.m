@@ -11,6 +11,7 @@
 #import "Masonry.h"
 #import "KGIntroductionViewController.h"
 #import "UIView+Extension.h"
+#import "RegViewController.h"
 
 @interface HomeViewController () <ImageCollectionViewDelegate> {
     
@@ -28,18 +29,8 @@
     [super viewDidLoad];
     scrollView.contentSize = CGSizeMake(self.view.width, funiView.y + funiView.height + Number_Ten);
     [self loadPhotoView];
-//    [self funBtnParam];
-    
-    
-//    [MFBHomeData setupObjectClassInArray:^NSDictionary* {
-//        return @{ @"ListItems" : @"MFBFloor" };
-//    }];
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-//    [self funBtnParam];
-}
 
 
 - (void)didReceiveMemoryWarning {
@@ -51,6 +42,7 @@
     NSMutableArray * list = [[NSMutableArray alloc] initWithObjects:@"http://f.hiphotos.baidu.com/image/pic/item/a08b87d6277f9e2fa2e847f21c30e924b999f36f.jpg", @"http://a.hiphotos.baidu.com/image/pic/item/342ac65c10385343eb8dfdb69013b07ecb8088e2.jpg", @"http://h.hiphotos.baidu.com/image/pic/item/cefc1e178a82b901e592a725708da9773912efed.jpg", @"http://g.hiphotos.baidu.com/image/pic/item/dbb44aed2e738bd40df8d727a28b87d6267ff9cf.jpg", @"http://f.hiphotos.baidu.com/image/pic/item/3801213fb80e7beca940b6b12d2eb9389a506bcc.jpg", nil];
     
     ImageCollectionView * imgcollview = [[ImageCollectionView alloc] initWithFrame:CGRectMake(Number_Zero, Number_Zero, CGRectGetWidth(self.view.frame), CGRectGetHeight(photosView.frame))];
+//    ImageCollectionView * imgcollview = [[ImageCollectionView alloc] init];
     imgcollview.dataSource = list;
     imgcollview._delegate = self;
     
@@ -66,32 +58,6 @@
     [imgcollview showImageCollectionView];
 }
 
-
-- (void)funBtnParam {
-    UIButton * btn = nil;
-    for(NSInteger i=Number_Ten; i<Number_Twenty; i++) {
-        btn = (UIButton *)[self.view viewWithTag:i];
-        
-        CGPoint center = btn.imageView.center;
-        center.x = btn.width/2;
-        center.y = btn.imageView.height/2;
-        btn.imageView.center = center;
-        
-        CGRect newFrame = [btn titleLabel].frame;
-//        newFrame.origin.x =0;
-//        newFrame.origin.y = btn.imageView.height + 5;
-//        newFrame.size.width = btn.frame.size.width;
-//        
-//        btn.titleLabel.frame = newFrame;
-//        btn.titleLabel.textAlignment = NSTextAlignmentCenter;
-        
-//        UIEdgeInsetsMake(top, <#CGFloat left#>, <#CGFloat bottom#>, <#CGFloat right#>)
-//        CGFloat x = (btn.width - newFrame.size.width) / 2;
-//        [btn setTitleEdgeInsets:UIEdgeInsetsMake(btn.imageView.y + btn.imageView.height + 15, 1, 1, x)];
-        center.y += 40;
-        btn.titleLabel.center = center;
-    }
-}
 
 
 #pragma ImageCollectionViewDelegate
@@ -110,7 +76,7 @@
             baseVC = [[KGIntroductionViewController alloc] init];
             break;
         case 19:
-            baseVC = [[KGIntroductionViewController alloc] init];
+            baseVC = [[RegViewController alloc] init];
             break;
         default:
             break;

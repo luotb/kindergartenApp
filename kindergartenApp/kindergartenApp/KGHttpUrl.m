@@ -18,6 +18,8 @@
 #define updatepasswordURL    @"rest/userinfo/updatepasswordBySms.json"  //修改密码
 #define phoneCodeURL         @"rest/sms/sendCode.json"               //短信验证码
 
+#define classNewsMyURL           @"rest/classnews/getClassNewsByMy.json"   //我的孩子班级互动列表
+#define classNewsByClassIdURL  @"rest/classnews/getClassNewsByClassuuid.json"   //班级互动列表
 
 
 
@@ -79,6 +81,31 @@
 
 //SaveChildren
 + (NSString *)getSaveChildrenUrl {
+    return URL(baseServiceURL, saveChildrenURL);
+}
+
+
+//根据互动UUID获取单个互动详情
++ (NSString *)getClassNewsByIdUrl:(NSString *)uuid {
+    return [NSString stringWithFormat:@"%@rest/classnews/%@.json", baseServiceURL, uuid];
+}
+
+
+//分页获取班级互动列表
++ (NSString *)getClassNewsByClassIdUrl {
+    return URL(baseServiceURL, classNewsByClassIdURL);
+}
+
+
+//分页获取我的孩子相关班级互动列表
++ (NSString *)getClassNewsMyByClassIdUrl {
+    return URL(baseServiceURL, classNewsMyURL);
+}
+
+
+
+//更新学生资料
++ (NSString *)getSaveStudentInfoUrl {
     return URL(baseServiceURL, saveChildrenURL);
 }
 

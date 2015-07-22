@@ -10,7 +10,7 @@
 
 @interface KGUser : KGBaseDomain
 
-@property (strong, nonatomic) NSString * uuid;
+//@property (strong, nonatomic) NSString * uuid;
 @property (strong, nonatomic) NSString * loginname;
 @property (strong, nonatomic) NSString * name;
 @property (strong, nonatomic) NSString * oldpassowrd;

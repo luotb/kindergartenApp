@@ -11,31 +11,12 @@
 #import "BaseViewController.h"
 #import "LoginViewController.h"
 #import "UIColor+Extension.h"
+#import "RegViewController.h"
 
 @interface KGNavigationController()
 @end
 
 @implementation KGNavigationController
-
-
-//+ (void)initialize
-//{
-//    // 设置整个项目所有item的主题样式
-//    UIBarButtonItem *item = [UIBarButtonItem appearance];
-//    
-//    // 设置普通状态
-//    NSMutableDictionary *textAttrs = [NSMutableDictionary dictionary];
-//    textAttrs[NSForegroundColorAttributeName] = [UIColor whiteColor];
-//    textAttrs[NSFontAttributeName] = [UIFont systemFontOfSize:15];
-//    [item setTitleTextAttributes:textAttrs forState:UIControlStateNormal];
-//    
-//    
-//    // 设置不可用状态
-////    NSMutableDictionary *disableTextAttrs = [NSMutableDictionary dictionary];
-////    disableTextAttrs[NSForegroundColorAttributeName] = RGBA(225, 225, 225, 0.9);
-////    disableTextAttrs[NSFontAttributeName] = textAttrs[NSFontAttributeName];
-////    [item setTitleTextAttributes:disableTextAttrs forState:UIControlStateDisabled];
-//}
 
 
 /**
@@ -46,13 +27,21 @@
 - (void)pushViewController:(BaseViewController *)viewController animated:(BOOL)animated
 {
     //登陆页面排除
-    if (((BaseViewController *)self.topViewController).animating&&![self.topViewController isKindOfClass:[LoginViewController class]]) {
+//    if (((BaseViewController *)self.topViewController).animating&&![self.topViewController isKindOfClass:[LoginViewController class]]) {
+//        return;
+//    }
+    
+    if (
+        [viewController.childViewControllers.lastObject isKindOfClass:[LoginViewController class]]
+        ||
+        [viewController.childViewControllers.lastObject isKindOfClass:[RegViewController class]]) {
+        //判断用户是否登录
         return;
     }
+    
     if (self.viewControllers.count > 0) { // 这时push进来的控制器viewController，不是第一个子控制器（不是根控制器）
         /* 自动显示和隐藏tabbar */
         viewController.hidesBottomBarWhenPushed = YES;
-        
         /* 设置导航栏上面的内容 */
         // 设置左边的返回按钮
         viewController.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(back) image:@"fjiantou" highImage:@"fjiantou"];

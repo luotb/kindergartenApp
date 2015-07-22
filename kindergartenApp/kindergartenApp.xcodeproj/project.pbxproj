@@ -8,8 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		243918E41B5D1E5800F3727E /* KGNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 243918E31B5D1E5800F3727E /* KGNavigationController.m */; };
+		245474D91B5FDD6C00D49D40 /* StudentInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 245474D71B5FDD6C00D49D40 /* StudentInfoViewController.m */; };
+		245474DA1B5FDD6C00D49D40 /* StudentInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 245474D81B5FDD6C00D49D40 /* StudentInfoViewController.xib */; };
 		2469E2131B5B5E45004888A4 /* LoginRespDomain.m in Sources */ = {isa = PBXBuildFile; fileRef = 2469E2121B5B5E45004888A4 /* LoginRespDomain.m */; };
 		2469E2161B5B6039004888A4 /* ResMsgDomain.m in Sources */ = {isa = PBXBuildFile; fileRef = 2469E2151B5B6039004888A4 /* ResMsgDomain.m */; };
+		24759EAD1B5FC48500A3087D /* ClassNewsDomain.m in Sources */ = {isa = PBXBuildFile; fileRef = 24759EAC1B5FC48500A3087D /* ClassNewsDomain.m */; };
+		24759EB01B5FC89900A3087D /* KGListBaseDomain.m in Sources */ = {isa = PBXBuildFile; fileRef = 24759EAF1B5FC89900A3087D /* KGListBaseDomain.m */; };
 		2489B6231B5A40E200039E70 /* RegViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2489B6211B5A40E200039E70 /* RegViewController.m */; };
 		2489B6241B5A40E200039E70 /* RegViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2489B6221B5A40E200039E70 /* RegViewController.xib */; };
 		2489B6271B5A5FEB00039E70 /* KGUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 2489B6261B5A5FEB00039E70 /* KGUser.m */; };
@@ -163,10 +167,17 @@
 /* Begin PBXFileReference section */
 		243918E21B5D1E5800F3727E /* KGNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KGNavigationController.h; sourceTree = "<group>"; };
 		243918E31B5D1E5800F3727E /* KGNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KGNavigationController.m; sourceTree = "<group>"; };
+		245474D61B5FDD6C00D49D40 /* StudentInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StudentInfoViewController.h; sourceTree = "<group>"; };
+		245474D71B5FDD6C00D49D40 /* StudentInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StudentInfoViewController.m; sourceTree = "<group>"; };
+		245474D81B5FDD6C00D49D40 /* StudentInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StudentInfoViewController.xib; sourceTree = "<group>"; };
 		2469E2111B5B5E45004888A4 /* LoginRespDomain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginRespDomain.h; sourceTree = "<group>"; };
 		2469E2121B5B5E45004888A4 /* LoginRespDomain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginRespDomain.m; sourceTree = "<group>"; };
 		2469E2141B5B6039004888A4 /* ResMsgDomain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResMsgDomain.h; sourceTree = "<group>"; };
 		2469E2151B5B6039004888A4 /* ResMsgDomain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResMsgDomain.m; sourceTree = "<group>"; };
+		24759EAB1B5FC48500A3087D /* ClassNewsDomain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassNewsDomain.h; sourceTree = "<group>"; };
+		24759EAC1B5FC48500A3087D /* ClassNewsDomain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassNewsDomain.m; sourceTree = "<group>"; };
+		24759EAE1B5FC89900A3087D /* KGListBaseDomain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KGListBaseDomain.h; sourceTree = "<group>"; };
+		24759EAF1B5FC89900A3087D /* KGListBaseDomain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KGListBaseDomain.m; sourceTree = "<group>"; };
 		2489B6201B5A40E200039E70 /* RegViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegViewController.h; sourceTree = "<group>"; };
 		2489B6211B5A40E200039E70 /* RegViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegViewController.m; sourceTree = "<group>"; };
 		2489B6221B5A40E200039E70 /* RegViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegViewController.xib; sourceTree = "<group>"; };
@@ -475,6 +486,16 @@
 			name = Controller;
 			sourceTree = "<group>";
 		};
+		245474D51B5FDD2D00D49D40 /* Student */ = {
+			isa = PBXGroup;
+			children = (
+				245474D61B5FDD6C00D49D40 /* StudentInfoViewController.h */,
+				245474D71B5FDD6C00D49D40 /* StudentInfoViewController.m */,
+				245474D81B5FDD6C00D49D40 /* StudentInfoViewController.xib */,
+			);
+			name = Student;
+			sourceTree = "<group>";
+		};
 		2489B61B1B5A397900039E70 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -493,6 +514,8 @@
 				2469E2151B5B6039004888A4 /* ResMsgDomain.m */,
 				F47AFEB31B5E2BF800D43F38 /* PageInfoDomain.h */,
 				F47AFEB41B5E2BF800D43F38 /* PageInfoDomain.m */,
+				24759EAE1B5FC89900A3087D /* KGListBaseDomain.h */,
+				24759EAF1B5FC89900A3087D /* KGListBaseDomain.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -904,6 +927,8 @@
 			children = (
 				F47AFEB01B5E24BD00D43F38 /* AnnouncementDomain.h */,
 				F47AFEB11B5E24BD00D43F38 /* AnnouncementDomain.m */,
+				24759EAB1B5FC48500A3087D /* ClassNewsDomain.h */,
+				24759EAC1B5FC48500A3087D /* ClassNewsDomain.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -911,6 +936,7 @@
 		248B6AA71B19AD4700FCB98F /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				245474D51B5FDD2D00D49D40 /* Student */,
 				F47AFEAA1B5E22C100D43F38 /* Announcement */,
 				2489B66F1B5AB75200039E70 /* Introduction */,
 				24C46B341B5A2A9900A58F92 /* HomeViewController.h */,
@@ -1480,6 +1506,7 @@
 				2489B6241B5A40E200039E70 /* RegViewController.xib in Resources */,
 				F48783941B58DA1700CDC1A8 /* LICENSE in Resources */,
 				24A176041B5550EB00295997 /* TestViewController.xib in Resources */,
+				245474DA1B5FDD6C00D49D40 /* StudentInfoViewController.xib in Resources */,
 				F48783A91B58DA1700CDC1A8 /* LICENSE in Resources */,
 				24C46B4A1B5A2B7A00A58F92 /* InteractViewController.xib in Resources */,
 				F48783AC1B58DA1700CDC1A8 /* LICENSE in Resources */,
@@ -1510,6 +1537,7 @@
 			files = (
 				2489B6641B5AB49E00039E70 /* UIImage+MultiFormat.m in Sources */,
 				F48783901B58DA1700CDC1A8 /* AFURLConnectionOperation.m in Sources */,
+				24759EB01B5FC89900A3087D /* KGListBaseDomain.m in Sources */,
 				2489B6621B5AB49E00039E70 /* UIButton+WebCache.m in Sources */,
 				2489B66E1B5AB49E00039E70 /* SDWebImagePrefetcher.m in Sources */,
 				2489B6731B5AB77600039E70 /* KGIntroductionViewController.m in Sources */,
@@ -1552,6 +1580,7 @@
 				F48783B01B58DA1700CDC1A8 /* MJType.m in Sources */,
 				F4DCD0F21B1C2E87007D61CA /* UIButton+Extension.m in Sources */,
 				2489B6631B5AB49E00039E70 /* UIImage+GIF.m in Sources */,
+				245474D91B5FDD6C00D49D40 /* StudentInfoViewController.m in Sources */,
 				F48783D71B58E46000CDC1A8 /* MJRefreshFooterView.m in Sources */,
 				F48783B51B58DA1700CDC1A8 /* README.md in Sources */,
 				2469E2161B5B6039004888A4 /* ResMsgDomain.m in Sources */,
@@ -1600,6 +1629,7 @@
 				248B6AAA1B19AD7A00FCB98F /* KGBaseDomain.m in Sources */,
 				F487839F1B58DA1700CDC1A8 /* MASCompositeConstraint.m in Sources */,
 				2489B6271B5A5FEB00039E70 /* KGUser.m in Sources */,
+				24759EAD1B5FC48500A3087D /* ClassNewsDomain.m in Sources */,
 				2489B6601B5AB49E00039E70 /* MKAnnotationView+WebCache.m in Sources */,
 				2489B65F1B5AB49E00039E70 /* SDImageCache.m in Sources */,
 				24A175E71B5541BF00295997 /* KGDBHelper.m in Sources */,

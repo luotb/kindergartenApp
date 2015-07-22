@@ -10,4 +10,15 @@
 
 @implementation PageInfoDomain
 
+
+- (instancetype)initPageInfo:(NSInteger)page size:(NSInteger)size {
+    self = [super init];
+    if(self) {
+        _pageNo = page;
+        _pageSize = size;
+    }
+    
+    return self;
+}
+
 @end

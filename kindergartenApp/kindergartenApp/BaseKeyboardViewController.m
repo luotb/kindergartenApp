@@ -39,6 +39,12 @@ typedef enum : NSInteger {
 }
 
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [_keyBoardController removeKeyBoardNotification];
+}
+
+
 //添加手势
 - (void)addGestureBtn {
     UITapGestureRecognizer *singleTapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTap)];
