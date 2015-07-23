@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -15,16 +15,15 @@
                     <rect key="frame" x="16" y="15" width="5" height="13"/>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VMd-42-csj">
-                    <rect key="frame" x="29" y="15" width="60" height="15"/>
+                    <rect key="frame" x="29" y="15" width="200" height="15"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="youjiantou" translatesAutoresizingMaskIntoConstraints="NO" id="5SD-nV-Mds">
                     <rect key="frame" x="297" y="16" width="7" height="12"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="7" id="cUW-0Y-WbC"/>
-                        <constraint firstAttribute="height" constant="12" id="uiF-kN-StI"/>
+                        <constraint firstAttribute="width" constant="7" id="ODy-2E-zUQ"/>
+                        <constraint firstAttribute="height" constant="12" id="qTB-ns-nw6"/>
                     </constraints>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kdO-Fh-Ypn">
@@ -36,8 +35,9 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="5SD-nV-Mds" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="16" id="IVa-n1-Nik"/>
-                <constraint firstAttribute="trailing" secondItem="5SD-nV-Mds" secondAttribute="trailing" constant="16" id="vWP-bg-wkp"/>
+                <constraint firstItem="5SD-nV-Mds" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="16" id="BeD-1j-yGU"/>
+                <constraint firstAttribute="bottom" secondItem="5SD-nV-Mds" secondAttribute="bottom" constant="16" id="TNc-yf-SFe"/>
+                <constraint firstAttribute="trailing" secondItem="5SD-nV-Mds" secondAttribute="trailing" constant="16" id="hLd-AS-ra4"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

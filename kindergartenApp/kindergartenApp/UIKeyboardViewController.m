@@ -9,6 +9,7 @@
 #import "UIKeyboardViewController.h"
 #import "SystemResource.h"
 #import "AppDelegate.h"
+#import "KGTextField.h"
 
 //static CGFloat kboardHeight = 254.0f;
 //static CGFloat spacerY = 10.0f;
@@ -236,7 +237,8 @@ static CGFloat viewFrameY = 10;
         allInputFields =[[NSMutableArray alloc] init];
     }
     for (id aview in [self allSubviews:objectView]) {
-		if ([aview isKindOfClass:[UITextField class]] && ((UITextField*)aview).userInteractionEnabled && ((UITextField*)aview).enabled) {
+		if (([aview isKindOfClass:[UITextField class]] && ((UITextField*)aview).userInteractionEnabled && ((UITextField*)aview).enabled) ||
+            [aview isKindOfClass:[KGTextField class]]) {
 			((UITextField *)aview).delegate = self;
             [allInputFields addObject:(UITextField *)aview];
 		}

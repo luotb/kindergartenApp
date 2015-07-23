@@ -11,6 +11,8 @@
 #import "Masonry.h"
 #import "MeTableViewCell.h"
 #import "StudentInfoHeaderView.h"
+#import "UIColor+Extension.h"
+#import "StudentBaseInfoViewController.h"
 
 #define StudentInfoCellIdentifier @"StudentInfoCellIdentifier"
 #define StudentOtherInfoCellIdentifier @"StudentOtherInfoCellIdentifier"
@@ -27,8 +29,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    studentInfoTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    studentInfoTableView.separatorColor = [UIColor clearColor];
+    self.title = @"详细信息";
+    studentInfoTableView.backgroundColor = KGColorFrom16(0xE7E7EE);
     studentInfoTableView.delegate   = self;
     studentInfoTableView.dataSource = self;
 }
@@ -72,28 +74,28 @@
     StudentInfoItemVO * item4 = [[StudentInfoItemVO alloc] init];
     item4.head = @"爷爷";
     item4.contentMArray = [[NSMutableArray alloc] initWithObjects:
-                           [NSString stringWithFormat:@"姓名:%@", _studentInfo.ye_name],
+                           [NSString stringWithFormat:@"姓名:爷爷"],
                            [NSString stringWithFormat:@"电话:%@", _studentInfo.ye_tel], nil];
     [tableDataSource addObject:item4];
     
     StudentInfoItemVO * item5 = [[StudentInfoItemVO alloc] init];
     item5.head = @"奶奶";
     item5.contentMArray = [[NSMutableArray alloc] initWithObjects:
-                           [NSString stringWithFormat:@"姓名:%@", _studentInfo.nai_name],
+                           [NSString stringWithFormat:@"姓名:奶奶"],
                            [NSString stringWithFormat:@"电话:%@", _studentInfo.nai_tel], nil];
     [tableDataSource addObject:item5];
     
     StudentInfoItemVO * item6 = [[StudentInfoItemVO alloc] init];
     item6.head = @"外公";
     item6.contentMArray = [[NSMutableArray alloc] initWithObjects:
-                           [NSString stringWithFormat:@"姓名:%@", _studentInfo.waig_name],
+                           [NSString stringWithFormat:@"姓名:外公"],
                            [NSString stringWithFormat:@"电话:%@", _studentInfo.waigong_tel], nil];
     [tableDataSource addObject:item6];
     
     StudentInfoItemVO * item7 = [[StudentInfoItemVO alloc] init];
     item7.head = @"外婆";
     item7.contentMArray = [[NSMutableArray alloc] initWithObjects:
-                           [NSString stringWithFormat:@"姓名:%@", _studentInfo.waipo_name],
+                           [NSString stringWithFormat:@"姓名:外婆"],
                            [NSString stringWithFormat:@"电话:%@", _studentInfo.waipo_tel], nil];
     [tableDataSource addObject:item7];
     
@@ -143,7 +145,7 @@
         NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"StudentInfoHeaderView" owner:nil options:nil];
         StudentInfoHeaderView * view = (StudentInfoHeaderView *)[nib objectAtIndex:Number_Zero];
         view.titleLabel.text = itemVO.head;
-        view.backgroundColor = [UIColor grayColor];
+        view.backgroundColor = KGColorFrom16(0xE7E7EE);
         view.funBtn.tag = section;
         [view.funBtn addTarget:self action:@selector(sectionBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
         return view;
@@ -168,6 +170,7 @@
     if (cell == nil) {
         NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"MeTableViewCell" owner:nil options:nil];
         cell = [nib objectAtIndex:Number_Zero];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     [cell resetCellParam:_studentInfo];
     return cell;
@@ -178,6 +181,7 @@
     UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:StudentOtherInfoCellIdentifier];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:StudentOtherInfoCellIdentifier];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     
     StudentInfoItemVO * itemVO = [tableDataSource objectAtIndex:indexPath.section];
@@ -204,7 +208,9 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if(indexPath.section == Number_Zero) {
         //编辑学生基本资料
-        
+        StudentBaseInfoViewController * baseInfoVC = [[StudentBaseInfoViewController alloc] init];
+        baseInfoVC.studentInfo = _studentInfo;
+        [self.navigationController pushViewController:baseInfoVC animated:YES];
     }
 }
 

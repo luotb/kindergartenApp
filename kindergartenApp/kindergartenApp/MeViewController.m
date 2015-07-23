@@ -107,6 +107,7 @@
     if (cell == nil) {
         NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"MeTableViewCell" owner:nil options:nil];
         cell = [nib objectAtIndex:Number_Zero];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     [cell resetCellParam:(KGUser *)[studentMArray objectAtIndex:indexPath.row]];
     return cell;
@@ -118,6 +119,7 @@
     if (cell == nil) {
         NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"MeFunTableViewCell" owner:nil options:nil];
         cell = [nib objectAtIndex:Number_Zero];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     
     

@@ -20,6 +20,7 @@
     self.view.backgroundColor = [UIColor whiteColor];
     self.navigationController.navigationBar.hidden = NO;
     
+    [self.contentView setBackgroundColor:KGColorFrom16(0xE7E7EE)];
     [self setNavColor];
 }
 
