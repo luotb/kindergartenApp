@@ -11,7 +11,7 @@
 
 @interface LoginRespDomain : KGBaseDomain
 
-@property (strong, nonatomic) NSMutableArray * list;
+@property (strong, nonatomic) NSArray        * list;
 @property (strong, nonatomic) NSString       * JSESSIONID;
 @property (strong, nonatomic) KGUser         * userinfo;
 

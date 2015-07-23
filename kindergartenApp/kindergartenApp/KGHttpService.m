@@ -81,6 +81,10 @@
                                               NSString * cookies = ((NSHTTPURLResponse *)task.response).allHeaderFields[@"Set-Cookie"];
                                               NSLog(@"response cookies:%@",cookies);
 //                                              [self userCookie:cookies];
+                                              
+                                              
+                                              _loginRespDomain.list = [KGUser objectArrayWithKeyValuesArray:_loginRespDomain.list];
+                                              
                                               success(_loginRespDomain.ResMsg.message);
                                           } else {
 //                                              faild(String_LoginFail);

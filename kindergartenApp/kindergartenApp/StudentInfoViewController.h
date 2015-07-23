@@ -7,7 +7,10 @@
 //
 
 #import "BaseKeyboardViewController.h"
+#import "KGUser.h"
 
 @interface StudentInfoViewController : BaseKeyboardViewController
+
+@property (strong, nonatomic) KGUser * studentInfo;
 
 @end
