@@ -10,6 +10,7 @@
 #import "UIColor+Extension.h"
 #import "TopicFrame.h"
 #import "UIButton+Extension.h"
+#import "UIView+Extension.h"
 #import "ClassNewsDomain.h"
 
 #define TOPICTABLECELL @"topicTableCell"
@@ -33,6 +34,7 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         self.selectionStyle = UITableViewCellSelectionStyleNone;
+        self.backgroundColor = KGColorFrom16(0xEBEBF2);
         //用户信息加载
         [self initUserView];
         
@@ -62,6 +64,7 @@
 -(void)initUserView{
     UIView * userview = [[UIView alloc] init];
     userview.backgroundColor = CLEARCOLOR;
+//    userview.backgroundColor = [UIColor brownColor];
     [self addSubview:userview];
     _userView = userview;
     
@@ -71,16 +74,16 @@
     
     UILabel * namelab = [[UILabel alloc] init];
     namelab.backgroundColor = CLEARCOLOR;
-    namelab.font = [UIFont boldSystemFontOfSize:14];
-    namelab.textColor = [UIColor redColor];
+    namelab.font = MYTopicCellNameFont;
+    namelab.textColor = [UIColor blackColor];
     [userview addSubview:namelab];
     
     _nameLab = namelab;
     
     UILabel  * titlelab = [[UILabel alloc] init];
     titlelab.backgroundColor = CLEARCOLOR;
-    titlelab.font = MYTopicCellTitleFont;
-    titlelab.numberOfLines = 0;
+    titlelab.font = MYTopicCellNameFont;
+//    titlelab.numberOfLines = 0;
     [userview addSubview:titlelab];
     _titleLab = titlelab;
     
@@ -90,8 +93,12 @@
 //加载帖子内容
 - (void)initContentView {
     UIWebView * contentWebView = [[UIWebView alloc] init];
-    contentWebView.backgroundColor = CLEARCOLOR;
+//    contentWebView.backgroundColor = KGColorFrom16(0xEBEBF2);
+    [contentWebView stringByEvaluatingJavaScriptFromString:@"document.getElementsByTagName('body')[0].style.background='#EBEBF2'"];
     [self addSubview:contentWebView];
+    
+    [contentWebView.layer setCornerRadius:10.0];
+    [contentWebView.layer setMasksToBounds:YES];
     
     _contentWebView = contentWebView;
 }
@@ -101,6 +108,7 @@
 - (void)initFunView {
     UIView * funView = [[UIView alloc] init];
     funView.backgroundColor = CLEARCOLOR;
+//    funView.backgroundColor = [UIColor grayColor];
     [self addSubview:funView];
     
     _funView = funView;
@@ -108,6 +116,7 @@
     UILabel * datelab = [[UILabel alloc] init];
     datelab.backgroundColor = CLEARCOLOR;
     datelab.font = MYTopicCellDateFont;
+    datelab.textColor = KGColorFrom16(0x666666);
     [funView addSubview:datelab];
     _dateLabel = datelab;
     
@@ -126,12 +135,15 @@
 - (void)initDZLabel {
     UIView * dzView = [[UIView alloc] init];
     dzView.backgroundColor = CLEARCOLOR;
+//    dzView.backgroundColor = [UIColor brownColor];
+    
     [self addSubview:dzView];
     
     _dianzanView = dzView;
     
     UIImageView * dzImage = [[UIImageView alloc] init];
-    dzImage.image = [UIImage imageNamed:@""];
+    dzImage.image = [UIImage imageNamed:@"wodehuizan"];
+//    dzImage.backgroundColor = [UIColor redColor];
     [dzView addSubview:dzImage];
     
     _dianzanIconImg = dzImage;
@@ -147,6 +159,8 @@
 - (void)inirReplyView {
     UITextView * replyView = [[UITextView alloc] init];
     replyView.backgroundColor = CLEARCOLOR;
+    replyView.backgroundColor = [UIColor blueColor];
+    
     replyView.font = MYTopicCellDateFont;
     _replyView = replyView;
 }
@@ -155,6 +169,11 @@
 //加载回复输入框
 - (void)initReplyTextField {
     UITextField * replyTextField = [[UITextField alloc] init];
+    replyTextField.placeholder = @"我来说一句...";
+    [self addSubview:replyTextField];
+    
+    [replyTextField setBorderWithWidth:1 color:[UIColor blackColor] radian:10.0];
+    
     _replyTextField = replyTextField;
 }
 
@@ -164,6 +183,7 @@
     UILabel * levelab = [[UILabel alloc] init];
     levelab.backgroundColor = KGColor(225, 225, 225, 1);
     [self addSubview:levelab];
+    
     _levelab = levelab;
 }
 
@@ -191,16 +211,20 @@
     
     //功能按钮
     self.funView.frame = self.topicFrame.funViewF;
+    self.dateLabel.frame = self.topicFrame.dateLabelF;
+    self.dianzanBtn.frame = self.topicFrame.dianzanBtnF;
+    self.replyBtn.frame   = self.topicFrame.replyBtnF;
     
     //时间
-    self.titleLab.frame = self.topicFrame.titleLabF;
     self.dateLabel.text = topic.create_time;
     
     //点赞
     self.dianzanView.frame = self.topicFrame.dianzanViewF;
+    self.dianzanIconImg.frame = self.topicFrame.dianzanIconImgF;
     
     //点赞文本
     self.dianzanLabel.frame = self.topicFrame.dianzanLabelF;
+    self.dianzanLabel.text = @"张小龙,城建,赵小刚,李四等9人觉得很赞";
     
     //回复
     self.replyView.frame = self.topicFrame.replyViewF;

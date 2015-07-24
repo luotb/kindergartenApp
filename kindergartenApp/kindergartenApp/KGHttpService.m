@@ -159,10 +159,7 @@
 // 分页获取班级互动列表
 - (void)getClassNews:(PageInfoDomain *)pageObj success:(void (^)(PageInfoDomain * pageInfo))success faild:(void (^)(NSString * errorMsg))faild {
     
-    NSString * url = [NSString stringWithFormat:@"%@?pageNo=%d&pageSize=%d&JSESSIONID=%@", [KGHttpUrl getClassNewsMyByClassIdUrl], pageObj.pageNo, pageObj.pageSize, _loginRespDomain.JSESSIONID];
-    
-    url = [KGHttpUrl getClassNewsMyByClassIdUrl];
-    [[AFAppDotNetAPIClient sharedClient] GET:url
+    [[AFAppDotNetAPIClient sharedClient] GET:[KGHttpUrl getClassNewsMyByClassIdUrl]
                                    parameters:pageObj.keyValues
                                       success:^(NSURLSessionDataTask* task, id responseObject) {
                                           

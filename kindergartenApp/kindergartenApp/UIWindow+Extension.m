@@ -13,6 +13,7 @@
 #import "KGTabBarViewController.h"
 #import "LoginViewController.h"
 #import "KGNavigationController.h"
+#import "KGHttpService.h"
 
 @implementation UIWindow (Extension)
 
@@ -32,6 +33,7 @@
         if (!account) {//没有登陆
             self.rootViewController  = [[KGNavigationController alloc] initWithRootViewController:[[LoginViewController alloc] init]];
         }else{//直接跳转到首页
+            [self autoLogin:account];
             self.rootViewController = [[KGTabBarViewController alloc] init];
         }
         [self makeKeyAndVisible];
@@ -46,6 +48,14 @@
     //        [[NSUserDefaults standardUserDefaults] setObject:currentVersion forKey:key];
     //        [[NSUserDefaults standardUserDefaults] synchronize];
     //    }
+}
+
+
+- (void)autoLogin:(KGUser *)user {
+    [[KGHttpService sharedService] login:user success:^(NSString *msgStr) {
+        
+    } faild:^(NSString *errorMsg) {
+    }];
 }
 
 @end

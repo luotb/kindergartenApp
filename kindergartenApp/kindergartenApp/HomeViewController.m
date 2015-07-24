@@ -12,13 +12,17 @@
 #import "KGIntroductionViewController.h"
 #import "UIView+Extension.h"
 #import "RegViewController.h"
+#import "SphereMenu.h"
 
-@interface HomeViewController () <ImageCollectionViewDelegate> {
+@interface HomeViewController () <ImageCollectionViewDelegate, SphereMenuDelegate> {
     
     IBOutlet UIScrollView * scrollView;
     IBOutlet UIView * photosView;
     IBOutlet UIView * funiView;
     
+    IBOutlet UIView * moreView;
+    IBOutlet UIImageView * moreImageView;
+    SphereMenu * sphereMenu;
 }
 
 @end
@@ -29,6 +33,7 @@
     [super viewDidLoad];
     scrollView.contentSize = CGSizeMake(self.view.width, funiView.y + funiView.height + Number_Ten);
     [self loadPhotoView];
+    [self initMoreMenu];
 }
 
 
@@ -59,6 +64,27 @@
 }
 
 
+- (void)initMoreMenu {
+    UIImage *startImage = [UIImage imageNamed:@"yuan"];
+    UIImage *image1 = [UIImage imageNamed:@"yuan"];
+    UIImage *image2 = [UIImage imageNamed:@"yuan"];
+    UIImage *image3 = [UIImage imageNamed:@"yuan"];
+    NSArray *images = @[image1, image2, image3];
+    
+    sphereMenu = [[SphereMenu alloc] initWithStartPoint:moreImageView.center
+                                                         startImage:startImage
+                                                      submenuImages:images];
+    sphereMenu.sphereDamping = 0.8;
+    sphereMenu.sphereLength = 55;
+    sphereMenu.angle = M_PI_2 / 2;
+    sphereMenu.transform = CGAffineTransformMakeRotation(-M_PI / Number_Two);
+    sphereMenu.delegate = self;
+    [moreView addSubview:sphereMenu];
+    
+    
+}
+
+
 
 #pragma ImageCollectionViewDelegate
 
@@ -75,8 +101,8 @@
         case 10:
             baseVC = [[KGIntroductionViewController alloc] init];
             break;
-        case 19:
-            baseVC = [[RegViewController alloc] init];
+        case 18:
+            [self loadMoreFunMenu:sender];
             break;
         default:
             break;
@@ -85,6 +111,16 @@
     if(baseVC) {
         [self.navigationController pushViewController:baseVC animated:YES];
     }
+}
+
+
+- (void)loadMoreFunMenu:(UIButton *)sender {
+    [sphereMenu showMenu];
+}
+
+
+- (void)sphereDidSelected:(int)index {
+    NSLog(@"sphere %d selected", index);
 }
 
 

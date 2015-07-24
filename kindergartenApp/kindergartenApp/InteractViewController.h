@@ -6,8 +6,8 @@
 //  Copyright (c) 2015年 funi. All rights reserved.
 //
 
-#import "BaseViewController.h"
+#import "BaseKeyboardViewController.h"
 
-@interface InteractViewController : BaseViewController
+@interface InteractViewController : BaseKeyboardViewController
 
 @end

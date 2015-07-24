@@ -47,7 +47,7 @@
     //title
     if (self.topic.title && ![self.topic.title isEqualToString:@""]) {
         CGFloat titleX = nameX;
-        CGFloat titleY = CGRectGetMaxY(self.nameLabF) + MYTopicCellBorderW;
+        CGFloat titleY = CGRectGetMaxY(self.nameLabF) + 8;
         CGSize titleSize =[topic.title sizeWithAttributes:[NSDictionary dictionaryWithObjectsAndKeys:MYTopicCellNameFont,NSFontAttributeName, nil]];
         self.titleLabF = (CGRect){{titleX, titleY}, titleSize};
         
@@ -65,7 +65,7 @@
     self.cellHeight = CGRectGetMaxY(self.contentWebViewF);
     
     //功能视图
-    CGFloat funViewY = CGRectGetMaxY(self.contentWebViewF);
+    CGFloat funViewY = CGRectGetMaxY(self.contentWebViewF) + MYTopicCellBorderW;
     CGFloat funViewH = CELLPADDING;
     self.funViewF = CGRectMake(CELLPADDING, funViewY, CELLCONTENTWIDTH, funViewH);
     
@@ -74,13 +74,13 @@
     
     //时间
     CGSize dateSize =CGSizeMake(100, 10);
-    CGFloat dateX = CELLPADDING;
+    CGFloat dateX = 0;
     CGFloat dateY = 3;
     self.dateLabelF = (CGRect){{dateX, dateY}, dateSize};
    
     //回复按钮
     CGSize funBtnSize = CGSizeMake(31, 16);
-    CGFloat replyBtnX = cellW - funBtnSize.width - CELLPADDING;
+    CGFloat replyBtnX = cellW - funBtnSize.width - CELLPADDING - CELLPADDING;
     CGFloat replyBtnY = 0;
     self.replyBtnF = (CGRect){{replyBtnX, replyBtnY}, funBtnSize};
     
@@ -92,7 +92,7 @@
        //是否有点赞列表
 //    }
     //点赞列表
-    self.dianzanViewF = CGRectMake(CELLPADDING, self.cellHeight, CELLCONTENTWIDTH, MYTopicCellBorderW);
+    self.dianzanViewF = CGRectMake(0, self.cellHeight + MYTopicCellBorderW, CELLCONTENTWIDTH, MYTopicCellBorderW);
     
     /* cell的高度 */
     self.cellHeight = CGRectGetMaxY(self.dianzanViewF);
@@ -111,13 +111,13 @@
 //    CGFloat replyW =
     
     //回复输入框
-    self.replyTextFieldF = CGRectMake(CELLPADDING, self.cellHeight, CELLCONTENTWIDTH, 30);
+    self.replyTextFieldF = CGRectMake(CELLPADDING, self.cellHeight + MYTopicCellBorderW, CELLCONTENTWIDTH, 30);
     
     self.cellHeight = CGRectGetMaxY(self.replyTextFieldF);
     
-    self.levelabF = CGRectMake(CELLPADDING, self.cellHeight, CELLCONTENTWIDTH, 0.1);
+    self.levelabF = CGRectMake(0, self.cellHeight + MYTopicCellBorderW, cellW, 0.5);
     
-    self.cellHeight = CGRectGetMaxY(self.levelabF);
+    self.cellHeight = CGRectGetMaxY(self.levelabF) + MYTopicCellBorderW;
 }
 
 

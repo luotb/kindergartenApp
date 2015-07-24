@@ -14,6 +14,8 @@
 #import "ClassNewsDomain.h"
 #import "TopicFrame.h"
 #import "TopicTableViewCell.h"
+#import "UIColor+Extension.h"
+#import "PostTopicViewController.h"
 
 @interface InteractViewController () <KGReFreshViewDelegate> {
     ReFreshTableViewController * reFreshView;
@@ -26,11 +28,23 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
+    UIBarButtonItem * rightBarItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"xiangji"] style:UIBarButtonItemStyleDone target:self action:@selector(postTopic)];
+    [rightBarItem setTintColor:[UIColor whiteColor]];
+    self.navigationItem.rightBarButtonItem = rightBarItem;
+    
     [self initReFreshView];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+
+
+- (void)postTopic {
+    PostTopicViewController * ptVC = [[PostTopicViewController alloc] init];
+    [self.navigationController pushViewController:ptVC animated:YES];
 }
 
 
@@ -56,6 +70,7 @@
     reFreshView._delegate = self;
     reFreshView.tableParam.cellHeight       = Number_Fifty;
     reFreshView.tableParam.cellClassNameStr = @"TestTableViewCell";
+    reFreshView.tableView.backgroundColor = KGColorFrom16(0xEBEBF2);
     [reFreshView appendToView:self.contentView];
     [reFreshView beginRefreshing];
 }

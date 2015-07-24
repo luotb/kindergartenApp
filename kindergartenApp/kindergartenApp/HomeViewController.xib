@@ -10,6 +10,8 @@
             <connections>
                 <outlet property="contentView" destination="JYa-pA-oZ8" id="248-fI-UJp"/>
                 <outlet property="funiView" destination="baO-Ka-cog" id="ga9-X9-Dbd"/>
+                <outlet property="moreImageView" destination="dEE-hJ-EFQ" id="eDg-Vb-KYf"/>
+                <outlet property="moreView" destination="DOc-Bc-Ye5" id="8MP-6q-Uhn"/>
                 <outlet property="photosView" destination="lJO-6i-bop" id="80l-fa-bpH"/>
                 <outlet property="scrollView" destination="79x-wh-ogx" id="qsa-ad-EMl"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>

@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		243918E41B5D1E5800F3727E /* KGNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 243918E31B5D1E5800F3727E /* KGNavigationController.m */; };
+		244F74921B62A4630078D30D /* PostTopicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 244F74901B62A4630078D30D /* PostTopicViewController.m */; };
+		244F74931B62A4630078D30D /* PostTopicViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 244F74911B62A4630078D30D /* PostTopicViewController.xib */; };
+		244F74971B62AE5A0078D30D /* SphereMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 244F74961B62AE5A0078D30D /* SphereMenu.m */; };
 		245474D91B5FDD6C00D49D40 /* StudentInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 245474D71B5FDD6C00D49D40 /* StudentInfoViewController.m */; };
 		245474DA1B5FDD6C00D49D40 /* StudentInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 245474D81B5FDD6C00D49D40 /* StudentInfoViewController.xib */; };
 		2469E2131B5B5E45004888A4 /* LoginRespDomain.m in Sources */ = {isa = PBXBuildFile; fileRef = 2469E2121B5B5E45004888A4 /* LoginRespDomain.m */; };
@@ -187,6 +190,11 @@
 /* Begin PBXFileReference section */
 		243918E21B5D1E5800F3727E /* KGNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KGNavigationController.h; sourceTree = "<group>"; };
 		243918E31B5D1E5800F3727E /* KGNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KGNavigationController.m; sourceTree = "<group>"; };
+		244F748F1B62A4630078D30D /* PostTopicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostTopicViewController.h; sourceTree = "<group>"; };
+		244F74901B62A4630078D30D /* PostTopicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostTopicViewController.m; sourceTree = "<group>"; };
+		244F74911B62A4630078D30D /* PostTopicViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostTopicViewController.xib; sourceTree = "<group>"; };
+		244F74951B62AE5A0078D30D /* SphereMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SphereMenu.h; sourceTree = "<group>"; };
+		244F74961B62AE5A0078D30D /* SphereMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SphereMenu.m; sourceTree = "<group>"; };
 		245474D61B5FDD6C00D49D40 /* StudentInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StudentInfoViewController.h; sourceTree = "<group>"; };
 		245474D71B5FDD6C00D49D40 /* StudentInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StudentInfoViewController.m; sourceTree = "<group>"; };
 		245474D81B5FDD6C00D49D40 /* StudentInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StudentInfoViewController.xib; sourceTree = "<group>"; };
@@ -542,6 +550,15 @@
 			name = Controller;
 			sourceTree = "<group>";
 		};
+		244F74941B62AE3B0078D30D /* SphereMenu */ = {
+			isa = PBXGroup;
+			children = (
+				244F74951B62AE5A0078D30D /* SphereMenu.h */,
+				244F74961B62AE5A0078D30D /* SphereMenu.m */,
+			);
+			name = SphereMenu;
+			sourceTree = "<group>";
+		};
 		2489B61B1B5A397900039E70 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -861,6 +878,7 @@
 		248B6A881B19A95000FCB98F /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				244F74941B62AE3B0078D30D /* SphereMenu */,
 				F487830C1B58DA1700CDC1A8 /* Frameworks */,
 				F4C0AB981B1C5A75007B0E35 /* KGFramework */,
 				F4C0AB8D1B1C3B1C007B0E35 /* Sandbox */,
@@ -1183,6 +1201,9 @@
 				24C46B461B5A2B7A00A58F92 /* InteractViewController.h */,
 				24C46B471B5A2B7A00A58F92 /* InteractViewController.m */,
 				24C46B481B5A2B7A00A58F92 /* InteractViewController.xib */,
+				244F748F1B62A4630078D30D /* PostTopicViewController.h */,
+				244F74901B62A4630078D30D /* PostTopicViewController.m */,
+				244F74911B62A4630078D30D /* PostTopicViewController.xib */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -1577,6 +1598,7 @@
 				2489B67D1B5ABAAB00039E70 /* AddressBooksViewController.xib in Resources */,
 				24C46B411B5A2B1100A58F92 /* MeViewController.xib in Resources */,
 				F47AFEAF1B5E22EA00D43F38 /* AnnouncementListViewController.xib in Resources */,
+				244F74931B62A4630078D30D /* PostTopicViewController.xib in Resources */,
 				F4EA538C1B60C6DF0044BE7A /* MeFunTableViewCell.xib in Resources */,
 				24A175FF1B5550B000295997 /* LoginViewController.xib in Resources */,
 				F4EC98891B61F64400F5721F /* StudentOtherInfoViewController.xib in Resources */,
@@ -1636,6 +1658,7 @@
 				24C46B281B5A28CF00A58F92 /* BaseKeyboardViewController.m in Sources */,
 				2469E2131B5B5E45004888A4 /* LoginRespDomain.m in Sources */,
 				F48783951B58DA1700CDC1A8 /* README.md in Sources */,
+				244F74971B62AE5A0078D30D /* SphereMenu.m in Sources */,
 				248B6A951B19A9D900FCB98F /* UIWindow+Extension.m in Sources */,
 				F47AFEB51B5E2BF800D43F38 /* PageInfoDomain.m in Sources */,
 				F48783AA1B58DA1700CDC1A8 /* MBProgressHUD.m in Sources */,
@@ -1693,6 +1716,7 @@
 				F48783971B58DA1700CDC1A8 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				F4C0AB8C1B1C39D4007B0E35 /* KGNSStringUtil.m in Sources */,
 				2489B6661B5AB49E00039E70 /* UIImageView+HighlightedWebCache.m in Sources */,
+				244F74921B62A4630078D30D /* PostTopicViewController.m in Sources */,
 				248B6A621B19A39200FCB98F /* AppDelegate.m in Sources */,
 				F487838C1B58DA1700CDC1A8 /* AFHTTPRequestOperationManager.m in Sources */,
 				2489B6691B5AB49E00039E70 /* SDWebImageDownloader.m in Sources */,
