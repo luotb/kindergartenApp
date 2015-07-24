@@ -13,6 +13,8 @@
 #import "StudentInfoHeaderView.h"
 #import "UIColor+Extension.h"
 #import "StudentBaseInfoViewController.h"
+#import "StudentOtherInfoViewController.h"
+#import "StudentNoteInfoViewController.h"
 
 #define StudentInfoCellIdentifier @"StudentInfoCellIdentifier"
 #define StudentOtherInfoCellIdentifier @"StudentOtherInfoCellIdentifier"
@@ -108,7 +110,7 @@
     
     StudentInfoItemVO * item9 = [[StudentInfoItemVO alloc] init];
     item9.head = @"备注";
-    item9.contentMArray = [[NSMutableArray alloc] initWithObjects:_studentInfo.note ,nil];
+    item9.contentMArray = [[NSMutableArray alloc] initWithObjects:_studentInfo.note ? _studentInfo.note : @"暂无" ,nil];
     [tableDataSource addObject:item9];
 }
 
@@ -139,7 +141,7 @@
 
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    if(section!=Number_Zero || section!=Number_Seven) {
+    if(section!=Number_Zero && section!=Number_Seven) {
         StudentInfoItemVO * itemVO = [tableDataSource objectAtIndex:section];
         
         NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"StudentInfoHeaderView" owner:nil options:nil];
@@ -217,7 +219,18 @@
 
 //section点击
 - (void)sectionBtnClicked:(UIButton *)sender {
+    if(sender.tag < Number_Seven) {
+        StudentOtherInfoViewController * otherInfoVC = [[StudentOtherInfoViewController alloc] init];
+        otherInfoVC.index = sender.tag;
+        otherInfoVC.dataSource = tableDataSource;
+        [self.navigationController pushViewController:otherInfoVC animated:YES];
+    }
     
+    if(sender.tag == Number_Eight) {
+        StudentNoteInfoViewController * noteInfoVC = [[StudentNoteInfoViewController alloc] init];
+        noteInfoVC.studentInfo = _studentInfo;
+        [self.navigationController pushViewController:noteInfoVC animated:YES];
+    }
 }
 
 

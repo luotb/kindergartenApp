@@ -8,7 +8,6 @@
 
 #import "KGAccountTool.h"
 
-
 @implementation KGAccountTool
 
 /**
@@ -19,7 +18,7 @@
 + (void)saveAccount:(KGUser *)account
 {
     // 自定义对象的存储必须用NSKeyedArchiver，不再有什么writeToFile方法
-    [NSKeyedArchiver archiveRootObject:account toFile:MFAccountPath];
+    [NSKeyedArchiver archiveRootObject:account toFile:KGAccountPath];
 }
 
 
@@ -28,7 +27,7 @@
     //清空沙箱中账号信息
 //    NSFileManager *mgr = [NSFileManager defaultManager];
     //    [mgr removeItemAtPath:MFAccountPath error:nil];
-    [NSKeyedArchiver archiveRootObject:nil toFile:MFAccountPath];
+    [NSKeyedArchiver archiveRootObject:nil toFile:KGAccountPath];
 }
 
 
@@ -40,7 +39,7 @@
 + (KGUser *)account
 {
     // 加载模型
-    KGUser *account = [NSKeyedUnarchiver unarchiveObjectWithFile:MFAccountPath];
+    KGUser *account = [NSKeyedUnarchiver unarchiveObjectWithFile:KGAccountPath];
     return account;
 }
 

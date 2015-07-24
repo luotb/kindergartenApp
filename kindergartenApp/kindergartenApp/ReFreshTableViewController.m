@@ -78,7 +78,7 @@
     
     if(_page == Number_One){
         [_dataSource removeAllObjects];
-        _dataSource = _tableParam.dataSourceMArray;
+        _dataSource = (NSMutableArray *)_tableParam.dataSourceMArray;
     }else{
         [_dataSource addObjectsFromArray:_tableParam.dataSourceMArray];
     }
@@ -127,7 +127,7 @@
 {
     [super viewDidLoad];
     
-    _dataSource = _tableParam.dataSourceMArray;
+    _dataSource = (NSMutableArray *)_tableParam.dataSourceMArray;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.separatorColor = [UIColor clearColor];
     if ([self.tableView respondsToSelector:@selector(setSeparatorInset:)]) {
@@ -211,27 +211,31 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    ReFreshBaseCell * cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:_tableParam.cellClassNameStr owner:nil options:nil];
-        cell = [nib objectAtIndex:Number_Zero];
-    }
-    
-    if(_tableParam.isSelectedStatus) {
-        cell.selectionStyle = UITableViewCellSelectionStyleDefault;
-    }
-    
-    cell.tag = indexPath.row;
-    
-    [self dynamicCellHeight:cell indexPath:indexPath];
-    
-    if(indexPath.row < [_dataSource count]) {
-        if(![_dataSource isEqual:[NSNull null]] && [_dataSource count]>0){
-            [cell resetValue:[_dataSource objectAtIndex:indexPath.row] parame:_tableParam.paramMDict ? _tableParam.paramMDict : nil];
+    if(__delegate && [__delegate respondsToSelector:@selector(createTableViewCell:indexPath:)]) {
+        return [__delegate createTableViewCell:tableView indexPath:indexPath];
+    } else {
+        ReFreshBaseCell * cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        if (cell == nil) {
+            NSArray *nib = [[NSBundle mainBundle] loadNibNamed:_tableParam.cellClassNameStr owner:nil options:nil];
+            cell = [nib objectAtIndex:Number_Zero];
         }
+        
+        if(_tableParam.isSelectedStatus) {
+            cell.selectionStyle = UITableViewCellSelectionStyleDefault;
+        }
+        
+        cell.tag = indexPath.row;
+        
+        [self dynamicCellHeight:cell indexPath:indexPath];
+        
+        if(indexPath.row < [_dataSource count]) {
+            if(![_dataSource isEqual:[NSNull null]] && [_dataSource count]>0){
+                [cell resetValue:[_dataSource objectAtIndex:indexPath.row] parame:_tableParam.paramMDict ? _tableParam.paramMDict : nil];
+            }
+        }
+        
+        return cell;
     }
-    
-    return cell;
 }
 
 

@@ -30,7 +30,7 @@
 @property (strong, nonatomic) NSString            * cellClassNameStr;
 
 //表格数据源
-@property (strong, nonatomic) NSMutableArray      * dataSourceMArray;
+@property (strong, nonatomic) NSArray      * dataSourceMArray;
 
 //cell扩展字典
 @property (strong, nonatomic) NSMutableDictionary * paramMDict;

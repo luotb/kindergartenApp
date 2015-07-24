@@ -35,6 +35,11 @@
 
 
 @optional
+///
+- (UITableViewCell *)createTableViewCell:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath;
+
+
+@optional
 /**
  *  选中cell
  *

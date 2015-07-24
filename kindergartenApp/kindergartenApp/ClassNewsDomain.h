@@ -16,7 +16,7 @@
 
 @property (strong, nonatomic) NSString * title;      //标题
 
-@property (strong, nonatomic) NSString * content;    //内容
+@property (strong, nonatomic) NSString * content;    //内容HTML
 
 @property (strong, nonatomic) NSString * create_user;      //创建人名
 
@@ -27,6 +27,12 @@
 @property (strong, nonatomic) NSString * reply_time;   //最新回复时间
 
 @property (strong, nonatomic) NSString * update_time;  //最新更新时间
+
+
+
+/** rongyugaodu */
+@property (nonatomic,assign)CGFloat cellH;
+@property (nonatomic,assign)CGFloat contentLabH;
 
 
 @end

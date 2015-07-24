@@ -17,5 +17,6 @@
 - (IBAction)changeHeadImgBtnClicked:(UIButton *)sender;
 
 - (IBAction)sexBtnClicked:(UIButton *)sender;
+- (IBAction)birthdayBtnClicked:(UIButton *)sender;
 
 @end

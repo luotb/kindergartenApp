@@ -14,11 +14,6 @@
 		2469E2161B5B6039004888A4 /* ResMsgDomain.m in Sources */ = {isa = PBXBuildFile; fileRef = 2469E2151B5B6039004888A4 /* ResMsgDomain.m */; };
 		24759EAD1B5FC48500A3087D /* ClassNewsDomain.m in Sources */ = {isa = PBXBuildFile; fileRef = 24759EAC1B5FC48500A3087D /* ClassNewsDomain.m */; };
 		24759EB01B5FC89900A3087D /* KGListBaseDomain.m in Sources */ = {isa = PBXBuildFile; fileRef = 24759EAF1B5FC89900A3087D /* KGListBaseDomain.m */; };
-		2487E6321B6163280030320A /* THDateDay.m in Sources */ = {isa = PBXBuildFile; fileRef = 2487E62D1B6163280030320A /* THDateDay.m */; };
-		2487E6331B6163280030320A /* THDateDay.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2487E62E1B6163280030320A /* THDateDay.xib */; };
-		2487E6341B6163280030320A /* THDatePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2487E6301B6163280030320A /* THDatePickerViewController.m */; };
-		2487E6351B6163280030320A /* THDatePickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2487E6311B6163280030320A /* THDatePickerViewController.xib */; };
-		2487E6391B6165D30030320A /* UIViewController+KNSemiModal.m in Sources */ = {isa = PBXBuildFile; fileRef = 2487E6381B6165D30030320A /* UIViewController+KNSemiModal.m */; };
 		2487E63B1B61663E0030320A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2487E63A1B61663E0030320A /* QuartzCore.framework */; };
 		2487E63D1B6166660030320A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2487E63C1B6166660030320A /* UIKit.framework */; };
 		2487E63F1B6166700030320A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2487E63E1B6166700030320A /* Foundation.framework */; };
@@ -170,6 +165,13 @@
 		F4EA53941B60EAE30044BE7A /* StudentInfoHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4EA53931B60EAE30044BE7A /* StudentInfoHeaderView.xib */; };
 		F4EA53981B60EF800044BE7A /* StudentBaseInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4EA53961B60EF800044BE7A /* StudentBaseInfoViewController.m */; };
 		F4EA53991B60EF800044BE7A /* StudentBaseInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4EA53971B60EF800044BE7A /* StudentBaseInfoViewController.xib */; };
+		F4EC98841B61E22B00F5721F /* KGPopupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4EC98831B61E22B00F5721F /* KGPopupViewController.m */; };
+		F4EC98881B61F64400F5721F /* StudentOtherInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4EC98861B61F64400F5721F /* StudentOtherInfoViewController.m */; };
+		F4EC98891B61F64400F5721F /* StudentOtherInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4EC98871B61F64400F5721F /* StudentOtherInfoViewController.xib */; };
+		F4EC988D1B6211AC00F5721F /* StudentNoteInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4EC988B1B6211AC00F5721F /* StudentNoteInfoViewController.m */; };
+		F4EC988E1B6211AC00F5721F /* StudentNoteInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4EC988C1B6211AC00F5721F /* StudentNoteInfoViewController.xib */; };
+		F4EC98911B62305700F5721F /* TopicTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F4EC98901B62305700F5721F /* TopicTableViewCell.m */; };
+		F4EC989A1B62306800F5721F /* TopicFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = F4EC98971B62306800F5721F /* TopicFrame.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -196,14 +198,6 @@
 		24759EAC1B5FC48500A3087D /* ClassNewsDomain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassNewsDomain.m; sourceTree = "<group>"; };
 		24759EAE1B5FC89900A3087D /* KGListBaseDomain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KGListBaseDomain.h; sourceTree = "<group>"; };
 		24759EAF1B5FC89900A3087D /* KGListBaseDomain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KGListBaseDomain.m; sourceTree = "<group>"; };
-		2487E62C1B6163280030320A /* THDateDay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THDateDay.h; sourceTree = "<group>"; };
-		2487E62D1B6163280030320A /* THDateDay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THDateDay.m; sourceTree = "<group>"; };
-		2487E62E1B6163280030320A /* THDateDay.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = THDateDay.xib; sourceTree = "<group>"; };
-		2487E62F1B6163280030320A /* THDatePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THDatePickerViewController.h; sourceTree = "<group>"; };
-		2487E6301B6163280030320A /* THDatePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THDatePickerViewController.m; sourceTree = "<group>"; };
-		2487E6311B6163280030320A /* THDatePickerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = THDatePickerViewController.xib; sourceTree = "<group>"; };
-		2487E6371B6165D30030320A /* UIViewController+KNSemiModal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+KNSemiModal.h"; sourceTree = "<group>"; };
-		2487E6381B6165D30030320A /* UIViewController+KNSemiModal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+KNSemiModal.m"; sourceTree = "<group>"; };
 		2487E63A1B61663E0030320A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		2487E63C1B6166660030320A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		2487E63E1B6166700030320A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -498,6 +492,18 @@
 		F4EA53951B60EF800044BE7A /* StudentBaseInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StudentBaseInfoViewController.h; sourceTree = "<group>"; };
 		F4EA53961B60EF800044BE7A /* StudentBaseInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StudentBaseInfoViewController.m; sourceTree = "<group>"; };
 		F4EA53971B60EF800044BE7A /* StudentBaseInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StudentBaseInfoViewController.xib; sourceTree = "<group>"; };
+		F4EC98821B61E22B00F5721F /* KGPopupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KGPopupViewController.h; sourceTree = "<group>"; };
+		F4EC98831B61E22B00F5721F /* KGPopupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KGPopupViewController.m; sourceTree = "<group>"; };
+		F4EC98851B61F64400F5721F /* StudentOtherInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StudentOtherInfoViewController.h; sourceTree = "<group>"; };
+		F4EC98861B61F64400F5721F /* StudentOtherInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StudentOtherInfoViewController.m; sourceTree = "<group>"; };
+		F4EC98871B61F64400F5721F /* StudentOtherInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StudentOtherInfoViewController.xib; sourceTree = "<group>"; };
+		F4EC988A1B6211AC00F5721F /* StudentNoteInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StudentNoteInfoViewController.h; sourceTree = "<group>"; };
+		F4EC988B1B6211AC00F5721F /* StudentNoteInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StudentNoteInfoViewController.m; sourceTree = "<group>"; };
+		F4EC988C1B6211AC00F5721F /* StudentNoteInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StudentNoteInfoViewController.xib; sourceTree = "<group>"; };
+		F4EC988F1B62305700F5721F /* TopicTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopicTableViewCell.h; sourceTree = "<group>"; };
+		F4EC98901B62305700F5721F /* TopicTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopicTableViewCell.m; sourceTree = "<group>"; };
+		F4EC98961B62306800F5721F /* TopicFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopicFrame.h; sourceTree = "<group>"; };
+		F4EC98971B62306800F5721F /* TopicFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopicFrame.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -530,30 +536,10 @@
 				2489B62D1B5A62A900039E70 /* KGTabBarViewController.m */,
 				243918E21B5D1E5800F3727E /* KGNavigationController.h */,
 				243918E31B5D1E5800F3727E /* KGNavigationController.m */,
+				F4EC98821B61E22B00F5721F /* KGPopupViewController.h */,
+				F4EC98831B61E22B00F5721F /* KGPopupViewController.m */,
 			);
 			name = Controller;
-			sourceTree = "<group>";
-		};
-		2487E62B1B6163150030320A /* THCalendarDatePicker */ = {
-			isa = PBXGroup;
-			children = (
-				2487E62C1B6163280030320A /* THDateDay.h */,
-				2487E62D1B6163280030320A /* THDateDay.m */,
-				2487E62E1B6163280030320A /* THDateDay.xib */,
-				2487E62F1B6163280030320A /* THDatePickerViewController.h */,
-				2487E6301B6163280030320A /* THDatePickerViewController.m */,
-				2487E6311B6163280030320A /* THDatePickerViewController.xib */,
-			);
-			name = THCalendarDatePicker;
-			sourceTree = "<group>";
-		};
-		2487E6361B6165810030320A /* KNSemiModalViewController */ = {
-			isa = PBXGroup;
-			children = (
-				2487E6371B6165D30030320A /* UIViewController+KNSemiModal.h */,
-				2487E6381B6165D30030320A /* UIViewController+KNSemiModal.m */,
-			);
-			name = KNSemiModalViewController;
 			sourceTree = "<group>";
 		};
 		2489B61B1B5A397900039E70 /* View */ = {
@@ -875,8 +861,6 @@
 		248B6A881B19A95000FCB98F /* Libs */ = {
 			isa = PBXGroup;
 			children = (
-				2487E6361B6165810030320A /* KNSemiModalViewController */,
-				2487E62B1B6163150030320A /* THCalendarDatePicker */,
 				F487830C1B58DA1700CDC1A8 /* Frameworks */,
 				F4C0AB981B1C5A75007B0E35 /* KGFramework */,
 				F4C0AB8D1B1C3B1C007B0E35 /* Sandbox */,
@@ -989,8 +973,6 @@
 			children = (
 				F47AFEB01B5E24BD00D43F38 /* AnnouncementDomain.h */,
 				F47AFEB11B5E24BD00D43F38 /* AnnouncementDomain.m */,
-				24759EAB1B5FC48500A3087D /* ClassNewsDomain.h */,
-				24759EAC1B5FC48500A3087D /* ClassNewsDomain.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -1130,6 +1112,12 @@
 				F4EA53951B60EF800044BE7A /* StudentBaseInfoViewController.h */,
 				F4EA53961B60EF800044BE7A /* StudentBaseInfoViewController.m */,
 				F4EA53971B60EF800044BE7A /* StudentBaseInfoViewController.xib */,
+				F4EC98851B61F64400F5721F /* StudentOtherInfoViewController.h */,
+				F4EC98861B61F64400F5721F /* StudentOtherInfoViewController.m */,
+				F4EC98871B61F64400F5721F /* StudentOtherInfoViewController.xib */,
+				F4EC988A1B6211AC00F5721F /* StudentNoteInfoViewController.h */,
+				F4EC988B1B6211AC00F5721F /* StudentNoteInfoViewController.m */,
+				F4EC988C1B6211AC00F5721F /* StudentNoteInfoViewController.xib */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -1172,6 +1160,8 @@
 		24C46B431B5A2B5700A58F92 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F4EC988F1B62305700F5721F /* TopicTableViewCell.h */,
+				F4EC98901B62305700F5721F /* TopicTableViewCell.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -1179,6 +1169,10 @@
 		24C46B441B5A2B5D00A58F92 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				24759EAB1B5FC48500A3087D /* ClassNewsDomain.h */,
+				24759EAC1B5FC48500A3087D /* ClassNewsDomain.m */,
+				F4EC98961B62306800F5721F /* TopicFrame.h */,
+				F4EC98971B62306800F5721F /* TopicFrame.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -1582,10 +1576,10 @@
 			files = (
 				2489B67D1B5ABAAB00039E70 /* AddressBooksViewController.xib in Resources */,
 				24C46B411B5A2B1100A58F92 /* MeViewController.xib in Resources */,
-				2487E6351B6163280030320A /* THDatePickerViewController.xib in Resources */,
 				F47AFEAF1B5E22EA00D43F38 /* AnnouncementListViewController.xib in Resources */,
 				F4EA538C1B60C6DF0044BE7A /* MeFunTableViewCell.xib in Resources */,
 				24A175FF1B5550B000295997 /* LoginViewController.xib in Resources */,
+				F4EC98891B61F64400F5721F /* StudentOtherInfoViewController.xib in Resources */,
 				F48783D41B58E46000CDC1A8 /* MJRefresh.bundle in Resources */,
 				2489B6241B5A40E200039E70 /* RegViewController.xib in Resources */,
 				F48783941B58DA1700CDC1A8 /* LICENSE in Resources */,
@@ -1593,7 +1587,6 @@
 				F4EA53941B60EAE30044BE7A /* StudentInfoHeaderView.xib in Resources */,
 				245474DA1B5FDD6C00D49D40 /* StudentInfoViewController.xib in Resources */,
 				F48783A91B58DA1700CDC1A8 /* LICENSE in Resources */,
-				2487E6331B6163280030320A /* THDateDay.xib in Resources */,
 				24C46B4A1B5A2B7A00A58F92 /* InteractViewController.xib in Resources */,
 				F4EA53991B60EF800044BE7A /* StudentBaseInfoViewController.xib in Resources */,
 				F48783AC1B58DA1700CDC1A8 /* LICENSE in Resources */,
@@ -1605,6 +1598,7 @@
 				248B6A6A1B19A39200FCB98F /* Images.xcassets in Resources */,
 				248B6A9D1B19AAEA00FCB98F /* KGMessageView.xib in Resources */,
 				24C46B381B5A2A9900A58F92 /* HomeViewController.xib in Resources */,
+				F4EC988E1B6211AC00F5721F /* StudentNoteInfoViewController.xib in Resources */,
 				F4EA53871B60BD390044BE7A /* MeTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1626,7 +1620,6 @@
 				2489B6641B5AB49E00039E70 /* UIImage+MultiFormat.m in Sources */,
 				F48783901B58DA1700CDC1A8 /* AFURLConnectionOperation.m in Sources */,
 				24759EB01B5FC89900A3087D /* KGListBaseDomain.m in Sources */,
-				2487E6321B6163280030320A /* THDateDay.m in Sources */,
 				2489B6621B5AB49E00039E70 /* UIButton+WebCache.m in Sources */,
 				2489B66E1B5AB49E00039E70 /* SDWebImagePrefetcher.m in Sources */,
 				2489B6731B5AB77600039E70 /* KGIntroductionViewController.m in Sources */,
@@ -1661,7 +1654,6 @@
 				2489B66C1B5AB49E00039E70 /* SDWebImageDecoder.m in Sources */,
 				F4EA538F1B60D8390044BE7A /* StudentInfoItemVO.m in Sources */,
 				24A176031B5550EB00295997 /* TestViewController.m in Sources */,
-				2487E6391B6165D30030320A /* UIViewController+KNSemiModal.m in Sources */,
 				248B6AB91B19B51A00FCB98F /* PagedFlowView.m in Sources */,
 				F48783B41B58DA1700CDC1A8 /* NSString+MJExtension.m in Sources */,
 				248B6ABF1B19B53000FCB98F /* QCSlideSwitchView.m in Sources */,
@@ -1673,10 +1665,12 @@
 				2489B6631B5AB49E00039E70 /* UIImage+GIF.m in Sources */,
 				245474D91B5FDD6C00D49D40 /* StudentInfoViewController.m in Sources */,
 				F48783D71B58E46000CDC1A8 /* MJRefreshFooterView.m in Sources */,
+				F4EC98841B61E22B00F5721F /* KGPopupViewController.m in Sources */,
 				F48783B51B58DA1700CDC1A8 /* README.md in Sources */,
 				2469E2161B5B6039004888A4 /* ResMsgDomain.m in Sources */,
 				2489B6381B5AB32F00039E70 /* ImageCollectionViewCell.m in Sources */,
 				F48783D61B58E46000CDC1A8 /* MJRefreshConst.m in Sources */,
+				F4EC98911B62305700F5721F /* TopicTableViewCell.m in Sources */,
 				F48783A01B58DA1700CDC1A8 /* MASConstraint.m in Sources */,
 				F48783961B58DA1700CDC1A8 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				2489B62E1B5A62A900039E70 /* KGTabBarViewController.m in Sources */,
@@ -1684,7 +1678,6 @@
 				F487839B1B58DA1700CDC1A8 /* UIProgressView+AFNetworking.m in Sources */,
 				24C46B371B5A2A9900A58F92 /* HomeViewController.m in Sources */,
 				24C46B521B5A2BC800A58F92 /* MessageViewController.m in Sources */,
-				2487E6341B6163280030320A /* THDatePickerViewController.m in Sources */,
 				248B6ACE1B19B57400FCB98F /* FuniKeyChain.m in Sources */,
 				248B6A921B19A9D900FCB98F /* UIBarButtonItem+Extension.m in Sources */,
 				2489B66D1B5AB49E00039E70 /* SDWebImageManager.m in Sources */,
@@ -1704,6 +1697,7 @@
 				F487838C1B58DA1700CDC1A8 /* AFHTTPRequestOperationManager.m in Sources */,
 				2489B6691B5AB49E00039E70 /* SDWebImageDownloader.m in Sources */,
 				F48783AE1B58DA1700CDC1A8 /* MJFoundation.m in Sources */,
+				F4EC988D1B6211AC00F5721F /* StudentNoteInfoViewController.m in Sources */,
 				F48783911B58DA1700CDC1A8 /* AFURLRequestSerialization.m in Sources */,
 				F48783A81B58DA1700CDC1A8 /* README.md in Sources */,
 				2489B66A1B5AB49E00039E70 /* SDWebImageDownloaderOperation.m in Sources */,
@@ -1714,9 +1708,11 @@
 				24A175F31B55430600295997 /* KGTableParam.m in Sources */,
 				2489B6651B5AB49E00039E70 /* UIImage+WebP.m in Sources */,
 				2489B6371B5AB32F00039E70 /* ImageCollectionView.m in Sources */,
+				F4EC989A1B62306800F5721F /* TopicFrame.m in Sources */,
 				24A176081B55563E00295997 /* TestTableViewCell.m in Sources */,
 				2489B6311B5A683E00039E70 /* AFAppDotNetAPIClient.m in Sources */,
 				24A175FE1B5550B000295997 /* LoginViewController.m in Sources */,
+				F4EC98881B61F64400F5721F /* StudentOtherInfoViewController.m in Sources */,
 				F4EA53861B60BD390044BE7A /* MeTableViewCell.m in Sources */,
 				2489B6611B5AB49E00039E70 /* NSData+ImageContentType.m in Sources */,
 				2489B62B1B5A607A00039E70 /* KGAccountTool.m in Sources */,
@@ -1804,7 +1800,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: funi cloudcode (7TCF9SE4F9)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: funi cloudcode (7TCF9SE4F9)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1847,7 +1844,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: funi cloudcode (7TCF9SE4F9)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: funi cloudcode (7TCF9SE4F9)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;

@@ -8,9 +8,11 @@
 
 #import "StudentBaseInfoViewController.h"
 #import "KGTextField.h"
-#import "THDatePickerViewController.h"
+#import "Masonry.h"
+#import "KGPopupViewController.h"
+#import "KGNSStringUtil.h"
 
-@interface StudentBaseInfoViewController () <UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, THDatePickerDelegate> {
+@interface StudentBaseInfoViewController () <UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, KGPopupVCDelegate> {
     
     IBOutlet UIImageView * headImageView;
     IBOutlet KGTextField * nameTextField;
@@ -19,9 +21,9 @@
     IBOutlet UIImageView * boyImageView;
     IBOutlet UIImageView * girlImageView;
     NSString * filePath;
-    THDatePickerViewController * datePicker;
-    NSDate * curDate;
-    NSDateFormatter * formatter;
+    
+    KGPopupViewController * popupVC;
+    UIDatePicker * datePicker;
 }
 
 @end
@@ -36,9 +38,9 @@
     [rightBarItem setTintColor:[UIColor whiteColor]];
     self.navigationItem.rightBarButtonItem = rightBarItem;
     
-    curDate = [NSDate date];
-    formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"dd/MM/yyyy --- HH:mm"];
+    [headImageView.layer setCornerRadius:headImageView.width / Number_Two];
+    [headImageView.layer setMasksToBounds:YES];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -57,8 +59,22 @@
 }
 
 
+//初始化页面值
+- (void)initViewData {
+    nameTextField.text = _studentInfo.name;
+    birthdayTextField.text = _studentInfo.birthday;
+}
+
+
+//保存按钮点击
 - (void)saveStudentBaseInfo {
-    
+    if([self validateInputInView]) {
+        _studentInfo.name = [KGNSStringUtil trimString:nameTextField.text];
+        _studentInfo.nickname = [KGNSStringUtil trimString:nickTextField.text];
+        _studentInfo.birthday = [KGNSStringUtil trimString:birthdayTextField.text];
+        
+        //提交数据
+    }
 }
 
 
@@ -153,13 +169,13 @@
         
         //创建一个选择后图片的小图标放在下方
         //类似微薄选择图后的效果
-        UIImageView *smallimage = [[UIImageView alloc] initWithFrame:
-                                    CGRectMake(50, 120, 40, 40)];
-        
-        smallimage.image = image;
-        //加在视图中
-        [self.view addSubview:smallimage];
-        
+//        UIImageView *smallimage = [[UIImageView alloc] initWithFrame:
+//                                    CGRectMake(50, 120, 40, 40)];
+//        
+//        smallimage.image = image;
+//        //加在视图中
+//        [self.view addSubview:smallimage];
+        headImageView.image = image;
     } 
     
 }
@@ -176,52 +192,41 @@
 }
 
 
+- (IBAction)birthdayBtnClicked:(UIButton *)sender {
+    sender.selected = !sender.selected;
+    if(!popupVC) {
+        popupVC = [[KGPopupViewController alloc] init];
+        popupVC.delegate = self;
+        datePicker = [[UIDatePicker alloc] init];
+        datePicker.datePickerMode = UIDatePickerModeDate;
+        [datePicker addTarget:self action:@selector(dateChanged:) forControlEvents:UIControlEventValueChanged ];
+        [popupVC setContentView:datePicker];
+    }
+    [self.navigationController presentViewController:popupVC animated:YES completion:nil];
+}
 
-- (IBAction)touchedButton:(id)sender {
-    if(!datePicker)
-        datePicker = [THDatePickerViewController datePicker];
-    datePicker.date = curDate;
-    datePicker.delegate = self;
-    [datePicker setAllowClearDate:NO];
-    [datePicker setClearAsToday:YES];
-    [datePicker setAutoCloseOnSelectDate:NO];
-    [datePicker setAllowSelectionOfSelectedDate:YES];
-    [datePicker setDisableHistorySelection:YES];
-    [datePicker setDisableFutureSelection:NO];
-    [datePicker setDateTimeZoneWithName:@"UTC"];
-    //[datePicker setAutoCloseCancelDelay:5.0];
-    [datePicker setSelectedBackgroundColor:[UIColor colorWithRed:125/255.0 green:208/255.0 blue:0/255.0 alpha:1.0]];
-    [datePicker setCurrentDateColor:[UIColor colorWithRed:242/255.0 green:121/255.0 blue:53/255.0 alpha:1.0]];
-    [datePicker setCurrentDateColorSelected:[UIColor yellowColor]];
-    
-    [datePicker setDateHasItemsCallback:^BOOL(NSDate *date) {
-        int tmp = (arc4random() % 30)+1;
-        return (tmp % 5 == 0);
+
+- (void)popupCallback {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+
+-(void)dateChanged:(id)sender{
+    UIDatePicker * control = (UIDatePicker*)sender;
+    NSString * timeStr = [NSString stringWithFormat:@"%@", control.date];
+    NSArray * timeArray = [timeStr componentsSeparatedByString:@" "];
+    if([timeArray count] > Number_Zero) {
+        birthdayTextField.text = [timeArray objectAtIndex:Number_Zero];
+    }
+}
+
+
+- (void)showDatePicker:(BOOL)isShow {
+    [UIView animateWithDuration:Number_AnimationTime_Five animations:^{
+        datePicker.alpha = isShow ? Number_One : Number_Zero;
+    } completion:^(BOOL finished) {
+        
     }];
-    //[datePicker slideUpInView:self.view withModalColor:[UIColor lightGrayColor]];
-    [self presentSemiViewController:datePicker withOptions:@{
-                                                                  KNSemiModalOptionKeys.pushParentBack    : @(NO),
-                                                                  KNSemiModalOptionKeys.animationDuration : @(1.0),
-                                                                  KNSemiModalOptionKeys.shadowOpacity     : @(0.3),
-                                                                  }];
-//    [self.navigationController presentViewController:datePicker animated:YES completion:nil];
-}
-
-- (void)datePickerDonePressed:(THDatePickerViewController *)tdatePicker {
-    curDate = tdatePicker.date;
-    //[datePicker slideDownAndOut];
-    [self dismissSemiModalView];
-//    [self dismissViewControllerAnimated:YES completion:nil];
-}
-
-- (void)datePickerCancelPressed:(THDatePickerViewController *)tdatePicker {
-    //[datePicker slideDownAndOut];
-    [self dismissSemiModalView];
-//    [self dismissViewControllerAnimated:YES completion:nil];
-}
-
-- (void)datePicker:(THDatePickerViewController *)tdatePicker selectedDate:(NSDate *)selectedDate {
-    NSLog(@"Date selected: %@",[formatter stringFromDate:selectedDate]);
 }
 
 

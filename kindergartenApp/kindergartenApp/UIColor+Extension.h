@@ -17,6 +17,9 @@
 // 随机色
 #define KGRandomColor KGColor(arc4random_uniform(256), arc4random_uniform(256), arc4random_uniform(256))
 
+//清除背景色
+#define CLEARCOLOR [UIColor clearColor]
+
 @interface UIColor (Extension)
 
 + (UIColor *)themeNavBackColor;

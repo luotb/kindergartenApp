@@ -12,6 +12,7 @@
 #define bIsIos7 [[[UIDevice currentDevice]systemVersion]floatValue]>=7.0
 #define bIsIos8 [[[UIDevice currentDevice]systemVersion]floatValue]>=8.0
 #define _IPHONE80_ 80000
+#define KGSCREEN [UIScreen mainScreen].bounds
 
 //定义数据库文件路径
 #define  CACHE_DIRECTORY	[NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) objectAtIndex:0]
@@ -20,7 +21,7 @@
 #define vObjectSavePath      [NSString stringWithFormat:@"%@/ClassesObject.plist", CACHE_DIRECTORY]
 
 //登录账号归档路径
-#define MFAccountPath [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"account.archive"]
+#define KGAccountPath [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"account.archive"]
 
 
 #define SYSTEM_VERSION_EQUAL_TO(v)                  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedSame)

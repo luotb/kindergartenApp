@@ -159,8 +159,10 @@
 // 分页获取班级互动列表
 - (void)getClassNews:(PageInfoDomain *)pageObj success:(void (^)(PageInfoDomain * pageInfo))success faild:(void (^)(NSString * errorMsg))faild {
     
-    NSString * url = [NSString stringWithFormat:@"%@?pageNo=%d&pageSize=%d&JSESSIONID=%@", [KGHttpUrl getClassNewsByClassIdUrl], pageObj.pageNo, pageObj.pageSize, _loginRespDomain.JSESSIONID];
-    [[AFAppDotNetAPIClient sharedClient] POST:url
+    NSString * url = [NSString stringWithFormat:@"%@?pageNo=%d&pageSize=%d&JSESSIONID=%@", [KGHttpUrl getClassNewsMyByClassIdUrl], pageObj.pageNo, pageObj.pageSize, _loginRespDomain.JSESSIONID];
+    
+    url = [KGHttpUrl getClassNewsMyByClassIdUrl];
+    [[AFAppDotNetAPIClient sharedClient] GET:url
                                    parameters:pageObj.keyValues
                                       success:^(NSURLSessionDataTask* task, id responseObject) {
                                           
@@ -171,6 +173,9 @@
                                           KGListBaseDomain * baseDomain = [KGListBaseDomain objectWithKeyValues:responseObject];
                                           
                                           if([baseDomain.ResMsg.status isEqualToString:String_Success]) {
+                                              
+                                              baseDomain.list.data = [ClassNewsDomain objectArrayWithKeyValuesArray:baseDomain.list.data];
+                                              
                                               success(baseDomain.list);
                                           } else {
                                               faild(baseDomain.ResMsg.message);

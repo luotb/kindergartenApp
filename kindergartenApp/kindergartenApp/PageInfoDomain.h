@@ -13,7 +13,7 @@
 @property (assign, nonatomic) NSInteger pageNo;
 @property (assign, nonatomic) NSInteger pageSize;
 @property (assign, nonatomic) NSInteger totalNo;
-@property (strong, nonatomic) NSMutableArray * data;
+@property (strong, nonatomic) NSArray * data;
 
 
 - (instancetype)initPageInfo:(NSInteger)page size:(NSInteger)size;

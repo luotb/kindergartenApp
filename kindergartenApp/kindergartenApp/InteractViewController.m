@@ -11,9 +11,13 @@
 #import "KGHttpService.h"
 #import "PageInfoDomain.h"
 #import "KGHUD.h"
+#import "ClassNewsDomain.h"
+#import "TopicFrame.h"
+#import "TopicTableViewCell.h"
 
 @interface InteractViewController () <KGReFreshViewDelegate> {
     ReFreshTableViewController * reFreshView;
+    NSArray * topicFrames;
 }
 
 @end
@@ -32,14 +36,11 @@
 
 //获取数据加载表格
 - (void)getTableData{
-//    NSMutableArray * dataMArray = [[NSMutableArray alloc] initWithObjects:@"111", @"222", @"333", nil];
-//    reFreshView.tableParam.dataSourceMArray   = dataMArray;
-//    [reFreshView reloadRefreshTable];
-    //    [reFreshView initReFreshTable];
     
     [[KGHttpService sharedService] getClassNews:[[PageInfoDomain alloc] initPageInfo:reFreshView.page size:reFreshView.pageSize] success:^(PageInfoDomain *pageInfo) {
         
-        reFreshView.tableParam.dataSourceMArray   = pageInfo.data;
+        topicFrames = [self topicFramesWithtopics:pageInfo.data];
+        reFreshView.tableParam.dataSourceMArray   = topicFrames;
         [reFreshView reloadRefreshTable];
         
     } faild:^(NSString *errorMsg) {
@@ -57,12 +58,46 @@
     reFreshView.tableParam.cellClassNameStr = @"TestTableViewCell";
     [reFreshView appendToView:self.contentView];
     [reFreshView beginRefreshing];
-    //    [self getTableData];
+}
+
+#pragma reFreshView Delegate 
+
+- (UITableViewCell *)createTableViewCell:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath {
+    // 获得cell
+    TopicTableViewCell * cell = [TopicTableViewCell cellWithTableView:tableView];
+    cell.topicFrame = topicFrames[indexPath.row];
+    return cell;
 }
 
 //选中cell
 - (void)didSelectRowCallBack:(id)baseDomain to:(NSString *)toClassName{
     
+}
+
+
+/**
+ *  动态设置table cell的高
+ *
+ *  @param indexPath indexPath
+ *
+ *  @return 返回cell的高
+ */
+- (CGFloat)tableViewCellHeight:(NSIndexPath *)indexPath {
+    TopicFrame *frame = topicFrames[indexPath.row];
+    return frame.cellHeight;
+}
+
+
+//转换对象
+- (NSArray *)topicFramesWithtopics:(NSArray *)topics
+{
+    NSMutableArray *frames = [NSMutableArray array];
+    for (ClassNewsDomain * topic in topics) {
+        TopicFrame * f = [[TopicFrame alloc] init];
+        f.topic = topic;
+        [frames addObject:f];
+    }
+    return frames;
 }
 
 
