@@ -14,6 +14,7 @@
 #import "LoginViewController.h"
 #import "KGNavigationController.h"
 #import "KGHttpService.h"
+#import "KGHUD.h"
 
 @implementation UIWindow (Extension)
 
@@ -55,6 +56,9 @@
     [[KGHttpService sharedService] login:user success:^(NSString *msgStr) {
         
     } faild:^(NSString *errorMsg) {
+//         [UIApplication sharedApplication].keyWindow;
+        [[KGHUD sharedHud] show:self onlyMsg:errorMsg];
+        self.rootViewController  = [[KGNavigationController alloc] initWithRootViewController:[[LoginViewController alloc] init]];
     }];
 }
 

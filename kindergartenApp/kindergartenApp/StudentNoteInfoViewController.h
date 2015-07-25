@@ -12,5 +12,6 @@
 @interface StudentNoteInfoViewController : BaseKeyboardViewController
 
 @property (strong, nonatomic) KGUser * studentInfo;
+@property (nonatomic, copy) void (^StudentUpdateBlock)(KGUser * stidentObj);
 
 @end

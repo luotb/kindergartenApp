@@ -7,12 +7,12 @@
 //
 
 #import "TopicFrame.h"
-#import "ClassNewsDomain.h"
+#import "TopicDomain.h"
 
 @implementation TopicFrame
 
 
--(void)setTopic:(ClassNewsDomain *)topic{
+-(void)setTopic:(TopicDomain *)topic{
     
     _topic = topic;
     

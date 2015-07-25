@@ -10,6 +10,8 @@
 
 @interface PostTopicViewController : BaseKeyboardViewController
 
+@property (strong, nonatomic) NSString * topicUUID;
+@property (assign, nonatomic) KGTopicType topicType;
 
 - (IBAction)addImgBtnClicked:(UIButton *)sender;
 

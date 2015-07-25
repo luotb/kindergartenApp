@@ -48,7 +48,7 @@
 
 
 
-- (IBAction)logoutBtnClicked:(UIButton *)sender {
+- (void)logoutBtnClicked {
     UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"确认退出" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
     [alert show];
 }
@@ -154,9 +154,26 @@
         //学生信息详情
         StudentInfoViewController * studentInfoVC = [[StudentInfoViewController alloc] init];
         studentInfoVC.studentInfo = [studentMArray objectAtIndex:indexPath.row];
+        
         [self.navigationController pushViewController:studentInfoVC animated:YES];
     } else {
-        
+        [self funCellSelected:indexPath];
+    }
+}
+
+
+- (void)funCellSelected:(NSIndexPath *)indexPath {
+    NSInteger index = indexPath.section - [studentMArray count];
+    
+//    BaseViewController * vc = nil;
+    switch (index) {
+        case Number_Zero:
+            break;
+        case Number_One:
+            break;
+        case Number_Two:
+            [self logoutBtnClicked];
+            break;
     }
 }
 

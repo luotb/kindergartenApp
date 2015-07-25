@@ -212,6 +212,12 @@
         //编辑学生基本资料
         StudentBaseInfoViewController * baseInfoVC = [[StudentBaseInfoViewController alloc] init];
         baseInfoVC.studentInfo = _studentInfo;
+        
+        baseInfoVC.StudentUpdateBlock = ^(KGUser * studentObj){
+            _studentInfo = studentObj;
+            [studentInfoTableView reloadData];
+        };
+        
         [self.navigationController pushViewController:baseInfoVC animated:YES];
     }
 }
@@ -223,12 +229,24 @@
         StudentOtherInfoViewController * otherInfoVC = [[StudentOtherInfoViewController alloc] init];
         otherInfoVC.index = sender.tag;
         otherInfoVC.dataSource = tableDataSource;
+        otherInfoVC.studentInfo = _studentInfo;
+        otherInfoVC.StudentUpdateBlock = ^(KGUser * studentObj){
+            _studentInfo = studentObj;
+            [studentInfoTableView reloadData];
+        };
+        
         [self.navigationController pushViewController:otherInfoVC animated:YES];
     }
     
     if(sender.tag == Number_Eight) {
         StudentNoteInfoViewController * noteInfoVC = [[StudentNoteInfoViewController alloc] init];
         noteInfoVC.studentInfo = _studentInfo;
+        
+        noteInfoVC.StudentUpdateBlock = ^(KGUser * studentObj){
+            _studentInfo = studentObj;
+            [studentInfoTableView reloadData];
+        };
+        
         [self.navigationController pushViewController:noteInfoVC animated:YES];
     }
 }

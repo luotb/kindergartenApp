@@ -13,6 +13,8 @@
 #import "UIView+Extension.h"
 #import "RegViewController.h"
 #import "SphereMenu.h"
+#import "KGHttpService.h"
+#import "KGHUD.h"
 
 @interface HomeViewController () <ImageCollectionViewDelegate, SphereMenuDelegate> {
     
@@ -29,11 +31,21 @@
 
 @implementation HomeViewController
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        
+        [self loadMoreMenu:[KGHttpService sharedService].dynamicMenuArray];
+        
+    });
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     scrollView.contentSize = CGSizeMake(self.view.width, funiView.y + funiView.height + Number_Ten);
     [self loadPhotoView];
-    [self initMoreMenu];
+    [self loadDynamicMenu];
 }
 
 
@@ -43,11 +55,40 @@
 }
 
 
+///加载动态菜单
+- (void)loadDynamicMenu {
+//    [[KGHttpService sharedService] getDynamicMenu:^(NSArray *menuArray) {
+//        [self loadMoreMenu:menuArray];
+//    } faild:^(NSString *errorMsg) {
+//        
+//    }];
+}
+
+- (void)loadMoreMenu:(NSArray *)menuArray {
+    
+    [sphereMenu removeFromSuperview];
+    
+    UIImage *startImage = [UIImage imageNamed:@"yuan"];
+//    UIImage *image1 = [UIImage imageNamed:@"yuan"];
+//    UIImage *image2 = [UIImage imageNamed:@"yuan"];
+//    UIImage *image3 = [UIImage imageNamed:@"yuan"];
+//    NSArray *images = @[image1, image2, image3];
+    
+    sphereMenu = [[SphereMenu alloc] initWithStartPoint:moreImageView.center
+                                             startImage:startImage
+                                          submenu:menuArray];
+    sphereMenu.sphereDamping = 0.8;
+    sphereMenu.sphereLength = 65;
+    sphereMenu.angle = M_PI_2 / 2;
+    sphereMenu.delegate = self;
+    [moreView addSubview:sphereMenu];
+}
+
+
 - (void)loadPhotoView {
     NSMutableArray * list = [[NSMutableArray alloc] initWithObjects:@"http://f.hiphotos.baidu.com/image/pic/item/a08b87d6277f9e2fa2e847f21c30e924b999f36f.jpg", @"http://a.hiphotos.baidu.com/image/pic/item/342ac65c10385343eb8dfdb69013b07ecb8088e2.jpg", @"http://h.hiphotos.baidu.com/image/pic/item/cefc1e178a82b901e592a725708da9773912efed.jpg", @"http://g.hiphotos.baidu.com/image/pic/item/dbb44aed2e738bd40df8d727a28b87d6267ff9cf.jpg", @"http://f.hiphotos.baidu.com/image/pic/item/3801213fb80e7beca940b6b12d2eb9389a506bcc.jpg", nil];
     
     ImageCollectionView * imgcollview = [[ImageCollectionView alloc] initWithFrame:CGRectMake(Number_Zero, Number_Zero, CGRectGetWidth(self.view.frame), CGRectGetHeight(photosView.frame))];
-//    ImageCollectionView * imgcollview = [[ImageCollectionView alloc] init];
     imgcollview.dataSource = list;
     imgcollview._delegate = self;
     
@@ -61,27 +102,6 @@
     }];
     
     [imgcollview showImageCollectionView];
-}
-
-
-- (void)initMoreMenu {
-    UIImage *startImage = [UIImage imageNamed:@"yuan"];
-    UIImage *image1 = [UIImage imageNamed:@"yuan"];
-    UIImage *image2 = [UIImage imageNamed:@"yuan"];
-    UIImage *image3 = [UIImage imageNamed:@"yuan"];
-    NSArray *images = @[image1, image2, image3];
-    
-    sphereMenu = [[SphereMenu alloc] initWithStartPoint:moreImageView.center
-                                                         startImage:startImage
-                                                      submenuImages:images];
-    sphereMenu.sphereDamping = 0.8;
-    sphereMenu.sphereLength = 55;
-    sphereMenu.angle = M_PI_2 / 2;
-    sphereMenu.transform = CGAffineTransformMakeRotation(-M_PI / Number_Two);
-    sphereMenu.delegate = self;
-    [moreView addSubview:sphereMenu];
-    
-    
 }
 
 

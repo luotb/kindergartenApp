@@ -14,7 +14,7 @@
 
 MJCodingImplementation
 
-- (void)setPassword:(NSString *)password {
+- (void)setUserPassword:(NSString *)password {
     _password = [KGNSStringUtil md5:password];
 }
 

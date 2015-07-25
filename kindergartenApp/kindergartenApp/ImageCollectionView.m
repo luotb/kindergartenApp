@@ -30,21 +30,22 @@
 -(void)showImageCollectionView
 {
     
-    [self initCollectionView:self.frame];
+    [self initCollectionView];
     [self initPageControl];
 }
 
 
 //初始化整个collectionview
--(void)initCollectionView:(CGRect)frame
+-(void)initCollectionView
 {
-    CGSize itemSize = CGSizeMake(CGRectGetWidth(frame), CGRectGetHeight(frame));
+    CGRect frame = {{0,0}, {CGRectGetWidth(KGSCREEN), CGRectGetHeight(self.frame)}};
+    CGSize itemSize = frame.size;
     UICollectionViewFlowLayout *layout = [UICollectionViewFlowLayout new];
     layout.minimumLineSpacing = Number_Zero;
     layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;  //横向滚动
     layout.itemSize = itemSize;
     myCollectionView = [[UICollectionView alloc] initWithFrame:frame collectionViewLayout:layout];
-    myCollectionView.backgroundColor = [UIColor blackColor];
+    myCollectionView.backgroundColor = [UIColor clearColor];
     myCollectionView.dataSource = self;
     myCollectionView.delegate = self;
     myCollectionView.pagingEnabled = YES;
@@ -57,7 +58,7 @@
 //初始化翻页控件
 - (void)initPageControl{
     CGFloat width = self.dataSource.count*20;
-    CGFloat x     = (self.width - width)/2;
+    CGFloat x     = (CGRectGetWidth(KGSCREEN) - width)/2;
     pageControl = [[UIPageControl alloc] init];
     pageControl.frame = CGRectMake(x, self.height-30, width, 30);
     pageControl.numberOfPages = self.dataSource.count;  //指定页面个数
@@ -79,8 +80,6 @@
     [myCollectionView setContentOffset:CGPointMake(self.frame.size.width * page, 0)];//根据pagecontroll的值来改变scrollview的滚动位置，以此切换到指定的页面
     
 }
-
-
 
 
 #pragma mark - UICollectionViewDelegate methods

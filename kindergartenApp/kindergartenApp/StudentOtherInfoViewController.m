@@ -10,6 +10,8 @@
 #import "KGTextField.h"
 #import "StudentInfoItemVO.h"
 #import "KGNSStringUtil.h"
+#import "KGHttpService.h"
+#import "KGHUD.h"
 
 @interface StudentOtherInfoViewController () {
     
@@ -78,6 +80,18 @@
         [self packageData];
         
         //提交数据
+        [[KGHttpService sharedService] saveStudentInfo:_studentInfo success:^(NSString *msgStr) {
+            
+            [[KGHUD sharedHud] show:self.contentView onlyMsg:msgStr];
+            
+            if(_StudentUpdateBlock) {
+                _StudentUpdateBlock(_studentInfo);
+            }
+            [self.navigationController popViewControllerAnimated:YES];
+            
+        } faild:^(NSString *errorMsg) {
+            [[KGHUD sharedHud] show:self.contentView onlyMsg:errorMsg];
+        }];
     }
 }
 

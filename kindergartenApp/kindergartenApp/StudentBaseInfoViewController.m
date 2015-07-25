@@ -11,6 +11,9 @@
 #import "Masonry.h"
 #import "KGPopupViewController.h"
 #import "KGNSStringUtil.h"
+#import "UIImageView+WebCache.h"
+#import "KGHttpService.h"
+#import "KGHUD.h"
 
 @interface StudentBaseInfoViewController () <UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, KGPopupVCDelegate> {
     
@@ -41,6 +44,7 @@
     [headImageView.layer setCornerRadius:headImageView.width / Number_Two];
     [headImageView.layer setMasksToBounds:YES];
     
+    [self initViewData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -63,6 +67,8 @@
 - (void)initViewData {
     nameTextField.text = _studentInfo.name;
     birthdayTextField.text = _studentInfo.birthday;
+    headImageView.image = [UIImage imageNamed:@"wodetoux"];
+//    [headImageView sd_setImageWithURL:[NSURL URLWithString:_studentInfo.headimg]];
 }
 
 
@@ -74,7 +80,49 @@
         _studentInfo.birthday = [KGNSStringUtil trimString:birthdayTextField.text];
         
         //提交数据
+        [[KGHUD sharedHud] show:self.contentView msg:@"上传头像中..."];
+//        [self saveStudentInfo];
+        [self uploadImg:^(BOOL isSuccess, NSString *msgStr) {
+            
+            [[KGHUD sharedHud] changeText:self.contentView text:msgStr];
+            
+//            if(isSuccess) {
+//                [[KGHUD sharedHud] changeText:self.contentView text:@"提交信息中..."];
+//                [self saveStudentInfo];
+//
+//            } else {
+//                [[KGHUD sharedHud] hide:self.contentView];
+//            }
+        }];
     }
+}
+
+
+//上传头像
+- (void)uploadImg:(void(^)(BOOL isSuccess, NSString * msgStr))block {
+    
+    [[KGHttpService sharedService] uploadImg:headImageView.image withName:@"file" success:^(NSString *msgStr) {
+        block(YES, msgStr);
+    } faild:^(NSString *errorMsg) {
+        block(NO, errorMsg);
+    }];
+}
+
+//提交基本信息
+- (void)saveStudentInfo {
+    
+    [[KGHttpService sharedService] saveStudentInfo:_studentInfo success:^(NSString *msgStr) {
+        
+        [[KGHUD sharedHud] show:self.contentView onlyMsg:msgStr];
+        
+        if(_StudentUpdateBlock) {
+            _StudentUpdateBlock(_studentInfo);
+        }
+        [self.navigationController popViewControllerAnimated:YES];
+        
+    } faild:^(NSString *errorMsg) {
+         [[KGHUD sharedHud] show:self.contentView onlyMsg:errorMsg];
+    }];
 }
 
 
@@ -167,14 +215,6 @@
         //关闭相册界面
         [picker dismissViewControllerAnimated:YES completion:nil];
         
-        //创建一个选择后图片的小图标放在下方
-        //类似微薄选择图后的效果
-//        UIImageView *smallimage = [[UIImageView alloc] initWithFrame:
-//                                    CGRectMake(50, 120, 40, 40)];
-//        
-//        smallimage.image = image;
-//        //加在视图中
-//        [self.view addSubview:smallimage];
         headImageView.image = image;
     } 
     

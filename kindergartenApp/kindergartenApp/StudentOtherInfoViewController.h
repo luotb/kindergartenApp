@@ -15,5 +15,6 @@
 @property (strong, nonatomic) KGUser * studentInfo;
 @property (strong, nonatomic) NSMutableArray * dataSource;
 @property (assign, nonatomic) NSInteger  index;
+@property (nonatomic, copy) void (^StudentUpdateBlock)(KGUser * stidentObj);
 
 @end

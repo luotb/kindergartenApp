@@ -18,7 +18,7 @@
 
 - (instancetype)initWithStartPoint:(CGPoint)startPoint
                         startImage:(UIImage *)startImage
-                     submenuImages:(NSArray *)images;
+                     submenu:(NSArray *)images;
 
 @property (nonatomic, weak) id<SphereMenuDelegate> delegate;
 

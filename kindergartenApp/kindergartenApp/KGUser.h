@@ -47,5 +47,6 @@
 @property (strong, nonatomic) NSString * ma_work;
 @property (strong, nonatomic) NSString * ba_work;
 
+- (void)setUserPassword:(NSString *)password;
 
 @end

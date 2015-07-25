@@ -10,6 +10,9 @@
 
 @interface KGHttpUrl : NSObject
 
+//首页动态菜单
++ (NSString *)getDynamicMenuUrl;
+
 //login
 + (NSString *)getLoginUrl;
 
@@ -60,5 +63,24 @@
 
 //更新学生资料
 + (NSString *)getSaveStudentInfoUrl;
+
+//点赞
++ (NSString *)getSaveDZUrl;
+
+//取消点赞
++ (NSString *)getDelDZUrl;
+
+
+//回复
++ (NSString *)getSaveReplyUrl;
+
+//取消回复
++ (NSString *)getDelReplyUrl;
+
+//回复列表
++ (NSString *)getReplyListUrl;
+
+//上传图片
++ (NSString *)getUploadImgUrl;
 
 @end

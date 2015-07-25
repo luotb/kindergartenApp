@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "ClassNewsDomain.h"
+#import "TopicDomain.h"
 // 昵称字体
 
 #define MYTopicCellTitleFont [UIFont boldSystemFontOfSize:16]
@@ -23,7 +23,7 @@
 
 @interface TopicFrame : NSObject
 
-@property (nonatomic,strong) ClassNewsDomain * topic;
+@property (nonatomic,strong) TopicDomain * topic;
 
 /** 用户信息 */
 @property (nonatomic,assign) CGRect userViewF;

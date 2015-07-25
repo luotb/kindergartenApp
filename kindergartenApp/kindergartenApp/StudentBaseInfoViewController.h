@@ -12,7 +12,7 @@
 @interface StudentBaseInfoViewController : BaseKeyboardViewController
 
 @property (strong, nonatomic) KGUser * studentInfo;
-
+@property (nonatomic, copy) void (^StudentUpdateBlock)(KGUser * stidentObj);
 
 - (IBAction)changeHeadImgBtnClicked:(UIButton *)sender;
 

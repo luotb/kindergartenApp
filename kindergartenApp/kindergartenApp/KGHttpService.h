@@ -11,16 +11,25 @@
 #import "KGUser.h"
 #import "LoginRespDomain.h"
 #import "PageInfoDomain.h"
-#import "ClassNewsDomain.h"
+#import "TopicDomain.h"
+#import "ReplyDomain.h"
 
 @interface KGHttpService : NSObject
 
 
 @property (strong, nonatomic) KGTabBarViewController * tabBarViewController;//首页控制器
 @property (strong, nonatomic) LoginRespDomain * loginRespDomain;
+@property (strong, nonatomic) NSArray         * dynamicMenuArray; //首页动态菜单数据
 
 
 + (KGHttpService *)sharedService;
+
+
+//图片上传
+- (void)uploadImg:(UIImage *)img withName:(NSString *)imgName success:(void (^)(NSString * msgStr))success faild:(void (^)(NSString * errorMsg))faild;
+
+//获取首页动态菜单
+- (void)getDynamicMenu:(void (^)(NSArray * menuArray))success faild:(void (^)(NSString * errorMsg))faild;
 
 
 // 账号相关 begin
@@ -45,7 +54,7 @@
 //班级互动 begin
 
 // 根据互动id获取互动详情
-- (void)getClassNewsByUUID:(NSString *)uuid success:(void (^)(ClassNewsDomain * classNewInfo))success faild:(void (^)(NSString * errorMsg))faild;
+- (void)getClassNewsByUUID:(NSString *)uuid success:(void (^)(TopicDomain * classNewInfo))success faild:(void (^)(NSString * errorMsg))faild;
 
 
 // 分页获取班级互动列表
@@ -62,6 +71,29 @@
 //学生相关 end
 
 
+//点赞相关 begin
+
+//保存点赞
+- (void)saveDZ:(NSString *)newsuid type:(KGTopicType)dzype success:(void (^)(NSString * msgStr))success faild:(void (^)(NSString * errorMsg))faild;
+
+//取消点赞
+- (void)delDZ:(NSString *)newsuid success:(void (^)(NSString * msgStr))success faild:(void (^)(NSString * errorMsg))faild;
+
+//点赞相关 end
+
+
+//回复相关 begin
+
+//保存回复
+- (void)saveReply:(ReplyDomain *)reply success:(void (^)(NSString * msgStr))success faild:(void (^)(NSString * errorMsg))faild;
+
+//取消回复
+- (void)delReply:(NSString *)uuid success:(void (^)(NSString * msgStr))success faild:(void (^)(NSString * errorMsg))faild;
+
+//分页获取回复列表
+- (void)getReplyList:(PageInfoDomain *)pageInfo topicUUID:(NSString *)topicUUID success:(void (^)(PageInfoDomain * pageInfo))success faild:(void (^)(NSString * errorMsg))faild;
+
+//回复相关 end
 
 
 

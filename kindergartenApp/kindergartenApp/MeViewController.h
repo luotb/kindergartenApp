@@ -11,6 +11,5 @@
 @interface MeViewController : BaseViewController
 
 
-- (IBAction)logoutBtnClicked:(UIButton *)sender;
 
 @end

@@ -15,7 +15,11 @@
 // Key begin
 #define Key_Notification_Message           @"message"
 #define Key_Notification_MessageText       @"messageText"
+#define Key_Notification_TopicFunClicked   @"topicCellFunClicked"
 
+#define Key_TopicCellFunType               @"topicCellFunType"
+#define Key_TopicUUID                      @"topicUUID"
+#define Key_TopicFunRequestType            @"topicFunRequestType"
 // Key end
 
 // class Name begin

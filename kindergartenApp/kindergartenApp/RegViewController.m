@@ -129,7 +129,7 @@
         
         user.loginname   = phone;
         user.oldpassowrd = pwd;
-        user.password    = valPwd;
+        [user setUserPassword:[KGNSStringUtil trimString:valPwd]];
         user.type        = 2;
         
         if(self.type == Number_One) {

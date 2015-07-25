@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface ClassNewsDomain : NSObject
+@interface TopicDomain : NSObject
 
 @property (strong, nonatomic) NSString * cuuid;      //Id
 

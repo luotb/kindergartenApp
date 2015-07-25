@@ -16,7 +16,7 @@
         UIImageView * imgView = [[UIImageView alloc]init];
         self.imgView = imgView;
         [self.contentView addSubview:self.imgView];
-        self.backgroundColor = [UIColor blackColor];
+        self.backgroundColor = [UIColor clearColor];
     }
     return self;
 }

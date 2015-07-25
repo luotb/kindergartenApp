@@ -94,7 +94,7 @@
             user = [[KGUser alloc] init];
         }
         user.loginname = [KGNSStringUtil trimString:_userNameTextField.text];
-        user.password  = [KGNSStringUtil trimString:_userPwdTextField.text];
+        [user setUserPassword:[KGNSStringUtil trimString:_userPwdTextField.text]];
         
         [[KGHttpService sharedService] login:user success:^(NSString *msgStr) {
             

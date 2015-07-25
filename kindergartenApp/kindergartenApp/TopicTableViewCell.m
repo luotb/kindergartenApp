@@ -11,7 +11,7 @@
 #import "TopicFrame.h"
 #import "UIButton+Extension.h"
 #import "UIView+Extension.h"
-#import "ClassNewsDomain.h"
+#import "TopicDomain.h"
 
 #define TOPICTABLECELL @"topicTableCell"
 
@@ -122,11 +122,15 @@
     
     UIButton * dzBtn = [[UIButton alloc] init];
     [dzBtn setBackgroundImage:@"anzan" selImg:@"hongzan"];
+    dzBtn.tag = Number_Ten;
+    [dzBtn addTarget:self action:@selector(funBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
     [funView addSubview:dzBtn];
     _dianzanBtn = dzBtn;
     
     UIButton * replyBtn = [[UIButton alloc] init];
     [replyBtn setBackgroundImage:@"pinglun" selImg:@"pinglun"];
+    replyBtn.tag = Number_Eleven;
+    [replyBtn addTarget:self action:@selector(funBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
     [funView addSubview:replyBtn];
     _replyBtn = replyBtn;
 }
@@ -189,7 +193,7 @@
 
 -(void)setTopicFrame:(TopicFrame *)topicFrame{
     _topicFrame = topicFrame;
-    ClassNewsDomain * topic = self.topicFrame.topic;
+    TopicDomain * topic = self.topicFrame.topic;
     
     /** 用户信息 */
     self.userView.frame =self.topicFrame.userViewF;
@@ -241,5 +245,17 @@
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 }
+
+
+- (void)funBtnClicked:(UIButton *)sender {
+    sender.selected = !sender.selected;
+    
+    NSDictionary *dic = @{Key_TopicCellFunType : [NSNumber numberWithInteger:sender.tag],
+                          Key_TopicUUID : _topicFrame.topic.cuuid,
+                          Key_TopicFunRequestType : [NSNumber numberWithBool:sender.selected]};
+    [[NSNotificationCenter defaultCenter] postNotificationName:Key_Notification_TopicFunClicked object:self userInfo:dic];
+}
+
+
 
 @end

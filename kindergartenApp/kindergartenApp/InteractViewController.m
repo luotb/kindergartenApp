@@ -11,7 +11,7 @@
 #import "KGHttpService.h"
 #import "PageInfoDomain.h"
 #import "KGHUD.h"
-#import "ClassNewsDomain.h"
+#import "TopicDomain.h"
 #import "TopicFrame.h"
 #import "TopicTableViewCell.h"
 #import "UIColor+Extension.h"
@@ -19,7 +19,6 @@
 
 @interface InteractViewController () <KGReFreshViewDelegate> {
     ReFreshTableViewController * reFreshView;
-    NSArray * topicFrames;
 }
 
 @end
@@ -29,21 +28,62 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    
     UIBarButtonItem * rightBarItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"xiangji"] style:UIBarButtonItemStyleDone target:self action:@selector(postTopic)];
     [rightBarItem setTintColor:[UIColor whiteColor]];
     self.navigationItem.rightBarButtonItem = rightBarItem;
     
     [self initReFreshView];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cellFunClickedNotification:) name:Key_Notification_TopicFunClicked object:nil];
 }
+
+//房间点击监听通知
+- (void)cellFunClickedNotification:(NSNotification *)notification {
+    NSDictionary * dic = [notification userInfo];
+    NSInteger type = [[dic objectForKey:Key_TopicCellFunType] integerValue];
+    NSString * uuid = [dic objectForKey:Key_TopicUUID];
+    BOOL isSelected = [[dic objectForKey:Key_TopicFunRequestType] boolValue];
+    
+    if(type == Number_Ten) {
+        //点赞
+        [self dzOperationHandler:isSelected uuid:uuid];
+    } else {
+        //回复
+        [self postTopic:uuid];
+    }
+}
+
+
+- (void)dzOperationHandler:(BOOL)isSelected uuid:(NSString *)uuid {
+    
+    if(isSelected) {
+        //点赞
+        [[KGHttpService sharedService] saveDZ:uuid type:Topic_Interact success:^(NSString *msgStr) {
+            [[KGHUD sharedHud] show:self.contentView onlyMsg:msgStr];
+        } faild:^(NSString *errorMsg) {
+            [[KGHUD sharedHud] show:self.contentView onlyMsg:errorMsg];
+        }];
+    } else {
+        //取消点赞
+        [[KGHttpService sharedService] delDZ:uuid success:^(NSString *msgStr) {
+            [[KGHUD sharedHud] show:self.contentView onlyMsg:msgStr];
+        } faild:^(NSString *errorMsg) {
+            [[KGHUD sharedHud] show:self.contentView onlyMsg:errorMsg];
+        }];
+    }
+}
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
 
 
-- (void)postTopic {
+- (void)postTopic:(NSString *)topicUUID {
     PostTopicViewController * ptVC = [[PostTopicViewController alloc] init];
+    ptVC.topicType = Topic_Interact;
+    ptVC.topicUUID = topicUUID;
     [self.navigationController pushViewController:ptVC animated:YES];
 }
 
@@ -53,8 +93,7 @@
     
     [[KGHttpService sharedService] getClassNews:[[PageInfoDomain alloc] initPageInfo:reFreshView.page size:reFreshView.pageSize] success:^(PageInfoDomain *pageInfo) {
         
-        topicFrames = [self topicFramesWithtopics:pageInfo.data];
-        reFreshView.tableParam.dataSourceMArray   = topicFrames;
+        reFreshView.tableParam.dataSourceMArray = [self topicFramesWithtopics:pageInfo.data];;
         [reFreshView reloadRefreshTable];
         
     } faild:^(NSString *errorMsg) {
@@ -80,7 +119,7 @@
 - (UITableViewCell *)createTableViewCell:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath {
     // 获得cell
     TopicTableViewCell * cell = [TopicTableViewCell cellWithTableView:tableView];
-    cell.topicFrame = topicFrames[indexPath.row];
+    cell.topicFrame = reFreshView.dataSource[indexPath.row];
     return cell;
 }
 
@@ -98,7 +137,7 @@
  *  @return 返回cell的高
  */
 - (CGFloat)tableViewCellHeight:(NSIndexPath *)indexPath {
-    TopicFrame *frame = topicFrames[indexPath.row];
+    TopicFrame *frame = reFreshView.dataSource[indexPath.row];
     return frame.cellHeight;
 }
 
@@ -107,7 +146,7 @@
 - (NSArray *)topicFramesWithtopics:(NSArray *)topics
 {
     NSMutableArray *frames = [NSMutableArray array];
-    for (ClassNewsDomain * topic in topics) {
+    for (TopicDomain * topic in topics) {
         TopicFrame * f = [[TopicFrame alloc] init];
         f.topic = topic;
         [frames addObject:f];

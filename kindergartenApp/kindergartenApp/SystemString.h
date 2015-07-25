@@ -79,6 +79,7 @@
 #define String_DefValue_CellIdentifier   @"CellIdentifier"
 #define String_DefValue_Empty            @""
 #define String_DefValue_EmptyStr         @" "
+#define String_DefValue_SpliteStr        @","
 #define String_DefValue_Arrows           @"<>"
 #define String_DefValue_UpdateInfoSplite @"$$"
 #define String_DefValue_ConditionSplite  @"&"

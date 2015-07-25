@@ -15,7 +15,7 @@
 		245474DA1B5FDD6C00D49D40 /* StudentInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 245474D81B5FDD6C00D49D40 /* StudentInfoViewController.xib */; };
 		2469E2131B5B5E45004888A4 /* LoginRespDomain.m in Sources */ = {isa = PBXBuildFile; fileRef = 2469E2121B5B5E45004888A4 /* LoginRespDomain.m */; };
 		2469E2161B5B6039004888A4 /* ResMsgDomain.m in Sources */ = {isa = PBXBuildFile; fileRef = 2469E2151B5B6039004888A4 /* ResMsgDomain.m */; };
-		24759EAD1B5FC48500A3087D /* ClassNewsDomain.m in Sources */ = {isa = PBXBuildFile; fileRef = 24759EAC1B5FC48500A3087D /* ClassNewsDomain.m */; };
+		24759EAD1B5FC48500A3087D /* TopicDomain.m in Sources */ = {isa = PBXBuildFile; fileRef = 24759EAC1B5FC48500A3087D /* TopicDomain.m */; };
 		24759EB01B5FC89900A3087D /* KGListBaseDomain.m in Sources */ = {isa = PBXBuildFile; fileRef = 24759EAF1B5FC89900A3087D /* KGListBaseDomain.m */; };
 		2487E63B1B61663E0030320A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2487E63A1B61663E0030320A /* QuartzCore.framework */; };
 		2487E63D1B6166660030320A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2487E63C1B6166660030320A /* UIKit.framework */; };
@@ -93,6 +93,8 @@
 		24C46B4A1B5A2B7A00A58F92 /* InteractViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24C46B481B5A2B7A00A58F92 /* InteractViewController.xib */; };
 		24C46B521B5A2BC800A58F92 /* MessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24C46B501B5A2BC800A58F92 /* MessageViewController.m */; };
 		24C46B531B5A2BC800A58F92 /* MessageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24C46B511B5A2BC800A58F92 /* MessageViewController.xib */; };
+		24DEC81F1B633AEF00C55828 /* ReplyDomain.m in Sources */ = {isa = PBXBuildFile; fileRef = 24DEC81E1B633AEF00C55828 /* ReplyDomain.m */; };
+		24DEC8221B633F2B00C55828 /* DynamicMenuDomain.m in Sources */ = {isa = PBXBuildFile; fileRef = 24DEC8211B633F2B00C55828 /* DynamicMenuDomain.m */; };
 		F45EABD11B563F9F003C367C /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F45EABD01B563F9F003C367C /* BaseViewController.m */; };
 		F47AFEAE1B5E22EA00D43F38 /* AnnouncementListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F47AFEAC1B5E22EA00D43F38 /* AnnouncementListViewController.m */; };
 		F47AFEAF1B5E22EA00D43F38 /* AnnouncementListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F47AFEAD1B5E22EA00D43F38 /* AnnouncementListViewController.xib */; };
@@ -202,8 +204,8 @@
 		2469E2121B5B5E45004888A4 /* LoginRespDomain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginRespDomain.m; sourceTree = "<group>"; };
 		2469E2141B5B6039004888A4 /* ResMsgDomain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResMsgDomain.h; sourceTree = "<group>"; };
 		2469E2151B5B6039004888A4 /* ResMsgDomain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResMsgDomain.m; sourceTree = "<group>"; };
-		24759EAB1B5FC48500A3087D /* ClassNewsDomain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassNewsDomain.h; sourceTree = "<group>"; };
-		24759EAC1B5FC48500A3087D /* ClassNewsDomain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassNewsDomain.m; sourceTree = "<group>"; };
+		24759EAB1B5FC48500A3087D /* TopicDomain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopicDomain.h; sourceTree = "<group>"; };
+		24759EAC1B5FC48500A3087D /* TopicDomain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopicDomain.m; sourceTree = "<group>"; };
 		24759EAE1B5FC89900A3087D /* KGListBaseDomain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KGListBaseDomain.h; sourceTree = "<group>"; };
 		24759EAF1B5FC89900A3087D /* KGListBaseDomain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KGListBaseDomain.m; sourceTree = "<group>"; };
 		2487E63A1B61663E0030320A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -355,6 +357,10 @@
 		24C46B4F1B5A2BC800A58F92 /* MessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageViewController.h; sourceTree = "<group>"; };
 		24C46B501B5A2BC800A58F92 /* MessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageViewController.m; sourceTree = "<group>"; };
 		24C46B511B5A2BC800A58F92 /* MessageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageViewController.xib; sourceTree = "<group>"; };
+		24DEC81D1B633AEF00C55828 /* ReplyDomain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReplyDomain.h; sourceTree = "<group>"; };
+		24DEC81E1B633AEF00C55828 /* ReplyDomain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReplyDomain.m; sourceTree = "<group>"; };
+		24DEC8201B633F2B00C55828 /* DynamicMenuDomain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DynamicMenuDomain.h; sourceTree = "<group>"; };
+		24DEC8211B633F2B00C55828 /* DynamicMenuDomain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DynamicMenuDomain.m; sourceTree = "<group>"; };
 		F45EABCF1B563F9F003C367C /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		F45EABD01B563F9F003C367C /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		F47AFEAB1B5E22EA00D43F38 /* AnnouncementListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnnouncementListViewController.h; sourceTree = "<group>"; };
@@ -991,6 +997,8 @@
 			children = (
 				F47AFEB01B5E24BD00D43F38 /* AnnouncementDomain.h */,
 				F47AFEB11B5E24BD00D43F38 /* AnnouncementDomain.m */,
+				24DEC8201B633F2B00C55828 /* DynamicMenuDomain.h */,
+				24DEC8211B633F2B00C55828 /* DynamicMenuDomain.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -1187,10 +1195,12 @@
 		24C46B441B5A2B5D00A58F92 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				24759EAB1B5FC48500A3087D /* ClassNewsDomain.h */,
-				24759EAC1B5FC48500A3087D /* ClassNewsDomain.m */,
+				24759EAB1B5FC48500A3087D /* TopicDomain.h */,
+				24759EAC1B5FC48500A3087D /* TopicDomain.m */,
 				F4EC98961B62306800F5721F /* TopicFrame.h */,
 				F4EC98971B62306800F5721F /* TopicFrame.m */,
+				24DEC81D1B633AEF00C55828 /* ReplyDomain.h */,
+				24DEC81E1B633AEF00C55828 /* ReplyDomain.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -1651,6 +1661,7 @@
 				F487839A1B58DA1700CDC1A8 /* UIImageView+AFNetworking.m in Sources */,
 				F48783D51B58E46000CDC1A8 /* MJRefreshBaseView.m in Sources */,
 				F48783A31B58DA1700CDC1A8 /* MASViewAttribute.m in Sources */,
+				24DEC81F1B633AEF00C55828 /* ReplyDomain.m in Sources */,
 				F4C0AB901B1C3B29007B0E35 /* SandboxFile.m in Sources */,
 				F47AFEB21B5E24BD00D43F38 /* AnnouncementDomain.m in Sources */,
 				F48783A71B58DA1700CDC1A8 /* View+MASAdditions.m in Sources */,
@@ -1703,6 +1714,7 @@
 				24C46B521B5A2BC800A58F92 /* MessageViewController.m in Sources */,
 				248B6ACE1B19B57400FCB98F /* FuniKeyChain.m in Sources */,
 				248B6A921B19A9D900FCB98F /* UIBarButtonItem+Extension.m in Sources */,
+				24DEC8221B633F2B00C55828 /* DynamicMenuDomain.m in Sources */,
 				2489B66D1B5AB49E00039E70 /* SDWebImageManager.m in Sources */,
 				24A3D3761B5E874600D4C212 /* KGHomeItemButton.m in Sources */,
 				2489B67C1B5ABAAB00039E70 /* AddressBooksViewController.m in Sources */,
@@ -1743,7 +1755,7 @@
 				248B6AAA1B19AD7A00FCB98F /* KGBaseDomain.m in Sources */,
 				F487839F1B58DA1700CDC1A8 /* MASCompositeConstraint.m in Sources */,
 				2489B6271B5A5FEB00039E70 /* KGUser.m in Sources */,
-				24759EAD1B5FC48500A3087D /* ClassNewsDomain.m in Sources */,
+				24759EAD1B5FC48500A3087D /* TopicDomain.m in Sources */,
 				2489B6601B5AB49E00039E70 /* MKAnnotationView+WebCache.m in Sources */,
 				2489B65F1B5AB49E00039E70 /* SDImageCache.m in Sources */,
 				24A175E71B5541BF00295997 /* KGDBHelper.m in Sources */,
@@ -1896,7 +1908,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PREFIX_HEADER = kindergartenApp/pchFile.pch;
 				INFOPLIST_FILE = kindergartenApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = kindergartenApp;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1910,7 +1922,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PREFIX_HEADER = kindergartenApp/pchFile.pch;
 				INFOPLIST_FILE = kindergartenApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = kindergartenApp;
 				TARGETED_DEVICE_FAMILY = 1;

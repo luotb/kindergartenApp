@@ -8,12 +8,21 @@
 
 #import "PostTopicViewController.h"
 #import "UIButton+Extension.h"
+#import "KGNSStringUtil.h"
+#import "KGHttpService.h"
+#import "KGHUD.h"
+#import "ReplyDomain.h"
 
-@interface PostTopicViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIActionSheetDelegate> {
+#define contentTextViewDefText   @"说点什么吧..."
+
+@interface PostTopicViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIActionSheetDelegate, UITextViewDelegate> {
     
     IBOutlet UITextView *contentTextView;
     UIButton * selAddImgBtn;
     NSMutableArray * filePathMArray;
+    NSMutableArray * imagesMArray;
+    NSInteger  count;
+    NSMutableString * uploadedImageUUID;
 }
 
 @end
@@ -31,6 +40,9 @@
     
     
     filePathMArray = [[NSMutableArray alloc] init];
+    imagesMArray   = [[NSMutableArray alloc] init];
+    uploadedImageUUID = [[NSMutableString alloc] init];
+    contentTextView.text = contentTextViewDefText;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -40,7 +52,49 @@
 
 //发表动态
 - (void)pustTopicBtnClicked {
+    [[KGHUD sharedHud] show:self.contentView msg:@"上传图片中..."];
+    [self loadImg];
+}
+
+
+//上传图片
+- (void)loadImg {
     
+    [[KGHttpService sharedService] uploadImg:[imagesMArray objectAtIndex:count] withName:@"file" success:^(NSString *msgStr) {
+        if(![uploadedImageUUID isEqualToString:String_DefValue_Empty]) {
+            [uploadedImageUUID appendString:String_DefValue_SpliteStr];
+        }
+        [uploadedImageUUID appendString:msgStr];
+        
+        [self uploadImgSuccessHandler];
+    } faild:^(NSString *errorMsg) {
+        [self uploadImgSuccessHandler];
+    }];
+}
+
+- (void)uploadImgSuccessHandler {
+    count++;
+    
+    if(count < [imagesMArray count]) {
+        [self loadImg];
+    } else {
+        [self sendReplyInfo];
+    }
+}
+
+- (void)sendReplyInfo {
+    [[KGHUD sharedHud] changeText:self.contentView text:@"发表中..."];
+    
+    ReplyDomain * replyObj = [[ReplyDomain alloc] init];
+    replyObj.content = [KGNSStringUtil trimString:contentTextView.text];
+    replyObj.newsuuid = _topicUUID;
+    replyObj.topicType = _topicType;
+    
+    [[KGHttpService sharedService] saveReply:replyObj success:^(NSString *msgStr) {
+        [[KGHUD sharedHud] show:self.contentView onlyMsg:msgStr];
+    } faild:^(NSString *errorMsg) {
+        [[KGHUD sharedHud] show:self.contentView onlyMsg:errorMsg];
+    }];
 }
 
 
@@ -57,6 +111,23 @@
     actionSheet.actionSheetStyle = UIActionSheetStyleBlackOpaque;
     [actionSheet showInView:self.contentView];
 }
+
+#pragma TextViewDelegate
+
+- (void)textViewDidBeginEditing:(UITextView *)textView {
+    contentTextView.text = @"";
+}
+
+- (void)textViewDidEndEditing:(UITextView *)textView {
+    if([[KGNSStringUtil trimString:textView.text] isEqualToString:@""]) {
+        contentTextView.text = contentTextViewDefText;
+    }
+}
+
+//- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+//    
+//}
+
 
 #pragma actionSheetDelegate
 
@@ -149,6 +220,7 @@
         [selAddImgBtn setBackgroundImage:image forState:UIControlStateHighlighted];
         [selAddImgBtn setBackgroundImage:image forState:UIControlStateSelected];
         
+        [imagesMArray addObject:image];
         [self selImgAfterHandler];
     }
     

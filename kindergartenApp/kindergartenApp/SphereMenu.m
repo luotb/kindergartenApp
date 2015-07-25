@@ -7,6 +7,8 @@
 //
 
 #import "SphereMenu.h"
+#import "DynamicMenuDomain.h"
+#import "UIImageView+WebCache.h"
 
 static const int kItemInitTag = 1001;
 static const CGFloat kAngleOffset = M_PI_2 / 2;
@@ -17,7 +19,7 @@ static const float kSphereDamping = 0.3;
 
 @property (nonatomic, assign) NSUInteger count ;
 @property (nonatomic, strong) UIImageView *start;
-@property (nonatomic, strong) NSArray *images;
+@property (nonatomic, strong) NSArray * menuArray;
 @property (nonatomic, strong) NSMutableArray *items;
 @property (nonatomic, strong) NSMutableArray *positions;
 
@@ -37,7 +39,7 @@ static const float kSphereDamping = 0.3;
 
 @implementation SphereMenu
 
-- (instancetype)initWithStartPoint:(CGPoint)startPoint startImage:(UIImage *)startImage submenuImages:(NSArray *)images
+- (instancetype)initWithStartPoint:(CGPoint)startPoint startImage:(UIImage *)startImage submenu:(NSArray *)images
 {
     if (self = [super init]) {
         
@@ -48,8 +50,8 @@ static const float kSphereDamping = 0.3;
         _sphereLength = kSphereLength;
         _sphereDamping = kSphereDamping;
         
-        _images = images;
-        _count = self.images.count;
+        _menuArray = images;
+        _count = self.menuArray.count;
         _start = [[UIImageView alloc] initWithImage:startImage];
         _start.userInteractionEnabled = YES;
         _tapOnStart = [[UITapGestureRecognizer alloc] initWithTarget:self
@@ -68,22 +70,48 @@ static const float kSphereDamping = 0.3;
 
     // setup the items
     for (int i = 0; i < self.count; i++) {
-        UIImageView *item = [[UIImageView alloc] initWithImage:self.images[i]];
+        UIView * view = [[UIView alloc] init];
+        view.size = CGSizeMake(45, 45);
+        [self.superview addSubview:view];
+        
+        DynamicMenuDomain * menuItem = (DynamicMenuDomain *)self.menuArray[i];
+        
+        UIImageView *item = [[UIImageView alloc] init];
         item.tag = kItemInitTag + i;
         item.userInteractionEnabled = YES;
-        [self.superview addSubview:item];
+//        [self.superview addSubview:item];
+        [view addSubview:item];
+        
+        [item sd_setImageWithURL:[NSURL URLWithString:menuItem.url]];
+        
+        UILabel * label = [[UILabel alloc] init];
+        label.size = CGSizeMake(45, 10);
+        label.tag = 10;
+        label.hidden = YES;
+        label.font = [UIFont systemFontOfSize:10.0];
+        label.textAlignment = NSTextAlignmentCenter;
+//        label.backgroundColor = [UIColor grayColor];
+        label.text = menuItem.name;
+//        [self.superview addSubview:label];
+        [view addSubview:label];
+        
         
         CGPoint position = [self centerForSphereAtIndex:i];
-        item.center = self.center;
+//        item.center = self.center;
+        view.center = self.center;
+        label.center = CGPointMake(item.centerX, item.centerY + 30);
         [self.positions addObject:[NSValue valueWithCGPoint:position]];
         
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapped:)];
-        [item addGestureRecognizer:tap];
+//        [item addGestureRecognizer:tap];
+        [view addGestureRecognizer:tap];
         
         UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panned:)];
-        [item addGestureRecognizer:pan];
+//        [item addGestureRecognizer:pan];
+        [view addGestureRecognizer:pan];
         
-        [self.items addObject:item];
+//        [self.items addObject:item];
+        [self.items addObject:view];
     }
     
     [self.superview bringSubviewToFront:self];
@@ -238,12 +266,17 @@ static const float kSphereDamping = 0.3;
     self.snaps[index] = snap;
     [self.animator removeBehavior:snapToRemove];
     [self.animator addBehavior:snap];
+    
+    UIView * view = self.items[index];
+    [view viewWithTag:10].hidden = NO;
 }
 
 - (void)removeSnapBehaviors
 {
     [self.snaps enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         [self.animator removeBehavior:obj];
+        UIView * view = self.items[idx];
+        [view viewWithTag:10].hidden = YES;
     }];
 }
 
