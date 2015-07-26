@@ -14,6 +14,8 @@
 #define _IPHONE80_ 80000
 #define KGSCREEN [UIScreen mainScreen].bounds
 
+#define IosAppVersion [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]
+
 //定义数据库文件路径
 #define  CACHE_DIRECTORY	[NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) objectAtIndex:0]
 #define BASE_PATHES			[NSString stringWithFormat:@"%@/funiiphone.sqlite", CACHE_DIRECTORY]

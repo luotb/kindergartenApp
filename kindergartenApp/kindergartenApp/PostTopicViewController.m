@@ -22,7 +22,7 @@
     NSMutableArray * filePathMArray;
     NSMutableArray * imagesMArray;
     NSInteger  count;
-    NSMutableString * uploadedImageUUID;
+    NSMutableString * replyContent;
 }
 
 @end
@@ -41,7 +41,7 @@
     
     filePathMArray = [[NSMutableArray alloc] init];
     imagesMArray   = [[NSMutableArray alloc] init];
-    uploadedImageUUID = [[NSMutableString alloc] init];
+    replyContent   = [[NSMutableString alloc] init];
     contentTextView.text = contentTextViewDefText;
 }
 
@@ -60,11 +60,9 @@
 //上传图片
 - (void)loadImg {
     
-    [[KGHttpService sharedService] uploadImg:[imagesMArray objectAtIndex:count] withName:@"file" success:^(NSString *msgStr) {
-        if(![uploadedImageUUID isEqualToString:String_DefValue_Empty]) {
-            [uploadedImageUUID appendString:String_DefValue_SpliteStr];
-        }
-        [uploadedImageUUID appendString:msgStr];
+    [[KGHttpService sharedService] uploadImg:[imagesMArray objectAtIndex:count] withName:@"file" type:1 success:^(NSString *msgStr) {
+        
+        [replyContent appendFormat:@"<img src='%@' />", msgStr];
         
         [self uploadImgSuccessHandler];
     } faild:^(NSString *errorMsg) {
@@ -86,7 +84,10 @@
     [[KGHUD sharedHud] changeText:self.contentView text:@"发表中..."];
     
     ReplyDomain * replyObj = [[ReplyDomain alloc] init];
-    replyObj.content = [KGNSStringUtil trimString:contentTextView.text];
+    
+    [replyContent appendString:[KGNSStringUtil trimString:contentTextView.text]];
+    
+    replyObj.content = replyContent;
     replyObj.newsuuid = _topicUUID;
     replyObj.topicType = _topicType;
     

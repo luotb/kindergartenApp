@@ -237,6 +237,9 @@ static CGFloat viewFrameY = 10;
         allInputFields =[[NSMutableArray alloc] init];
     }
     for (id aview in [self allSubviews:objectView]) {
+        
+        NSLog(@"class:%@", [aview class]);
+        
 		if (([aview isKindOfClass:[UITextField class]] && ((UITextField*)aview).userInteractionEnabled && ((UITextField*)aview).enabled) ||
             [aview isKindOfClass:[KGTextField class]]) {
 			((UITextField *)aview).delegate = self;

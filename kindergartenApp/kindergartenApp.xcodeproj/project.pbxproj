@@ -95,6 +95,13 @@
 		24C46B531B5A2BC800A58F92 /* MessageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24C46B511B5A2BC800A58F92 /* MessageViewController.xib */; };
 		24DEC81F1B633AEF00C55828 /* ReplyDomain.m in Sources */ = {isa = PBXBuildFile; fileRef = 24DEC81E1B633AEF00C55828 /* ReplyDomain.m */; };
 		24DEC8221B633F2B00C55828 /* DynamicMenuDomain.m in Sources */ = {isa = PBXBuildFile; fileRef = 24DEC8211B633F2B00C55828 /* DynamicMenuDomain.m */; };
+		24E4D9471B64E9810088745A /* libBaiduMobStat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 24E4D9461B64E9810088745A /* libBaiduMobStat.a */; };
+		24E4D9491B64EE690088745A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24E4D9481B64EE690088745A /* SystemConfiguration.framework */; };
+		24E4D94B1B64EE710088745A /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24E4D94A1B64EE710088745A /* MessageUI.framework */; };
+		24E4D94D1B64EE8A0088745A /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24E4D94C1B64EE8A0088745A /* CoreTelephony.framework */; };
+		24E4D94F1B64EE970088745A /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24E4D94E1B64EE970088745A /* CoreLocation.framework */; };
+		24E4D9511B64EEA90088745A /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 24E4D9501B64EEA90088745A /* libstdc++.dylib */; };
+		24E4D9531B64EEB10088745A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 24E4D9521B64EEB10088745A /* libz.dylib */; };
 		F45EABD11B563F9F003C367C /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F45EABD01B563F9F003C367C /* BaseViewController.m */; };
 		F47AFEAE1B5E22EA00D43F38 /* AnnouncementListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F47AFEAC1B5E22EA00D43F38 /* AnnouncementListViewController.m */; };
 		F47AFEAF1B5E22EA00D43F38 /* AnnouncementListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F47AFEAD1B5E22EA00D43F38 /* AnnouncementListViewController.xib */; };
@@ -361,6 +368,14 @@
 		24DEC81E1B633AEF00C55828 /* ReplyDomain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReplyDomain.m; sourceTree = "<group>"; };
 		24DEC8201B633F2B00C55828 /* DynamicMenuDomain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DynamicMenuDomain.h; sourceTree = "<group>"; };
 		24DEC8211B633F2B00C55828 /* DynamicMenuDomain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DynamicMenuDomain.m; sourceTree = "<group>"; };
+		24E4D9451B64E9760088745A /* BaiduMobStat.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaiduMobStat.h; sourceTree = "<group>"; };
+		24E4D9461B64E9810088745A /* libBaiduMobStat.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libBaiduMobStat.a; sourceTree = "<group>"; };
+		24E4D9481B64EE690088745A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		24E4D94A1B64EE710088745A /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		24E4D94C1B64EE8A0088745A /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		24E4D94E1B64EE970088745A /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		24E4D9501B64EEA90088745A /* libstdc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "usr/lib/libstdc++.dylib"; sourceTree = SDKROOT; };
+		24E4D9521B64EEB10088745A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		F45EABCF1B563F9F003C367C /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		F45EABD01B563F9F003C367C /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		F47AFEAB1B5E22EA00D43F38 /* AnnouncementListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnnouncementListViewController.h; sourceTree = "<group>"; };
@@ -525,10 +540,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24E4D9531B64EEB10088745A /* libz.dylib in Frameworks */,
+				24E4D9511B64EEA90088745A /* libstdc++.dylib in Frameworks */,
+				24E4D94F1B64EE970088745A /* CoreLocation.framework in Frameworks */,
+				24E4D94D1B64EE8A0088745A /* CoreTelephony.framework in Frameworks */,
+				24E4D94B1B64EE710088745A /* MessageUI.framework in Frameworks */,
+				24E4D9491B64EE690088745A /* SystemConfiguration.framework in Frameworks */,
 				2487E6411B6166790030320A /* CoreGraphics.framework in Frameworks */,
 				2487E63F1B6166700030320A /* Foundation.framework in Frameworks */,
 				2487E63D1B6166660030320A /* UIKit.framework in Frameworks */,
 				2487E63B1B61663E0030320A /* QuartzCore.framework in Frameworks */,
+				24E4D9471B64E9810088745A /* libBaiduMobStat.a in Frameworks */,
 				24A175F91B5543E600295997 /* libsqlite3.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -884,6 +906,7 @@
 		248B6A881B19A95000FCB98F /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				24E4D9431B64E95B0088745A /* Baidu */,
 				244F74941B62AE3B0078D30D /* SphereMenu */,
 				F487830C1B58DA1700CDC1A8 /* Frameworks */,
 				F4C0AB981B1C5A75007B0E35 /* KGFramework */,
@@ -1252,9 +1275,32 @@
 			name = Controller;
 			sourceTree = "<group>";
 		};
+		24E4D9431B64E95B0088745A /* Baidu */ = {
+			isa = PBXGroup;
+			children = (
+				24E4D9441B64E9680088745A /* BaiduMobStat */,
+			);
+			name = Baidu;
+			sourceTree = "<group>";
+		};
+		24E4D9441B64E9680088745A /* BaiduMobStat */ = {
+			isa = PBXGroup;
+			children = (
+				24E4D9461B64E9810088745A /* libBaiduMobStat.a */,
+				24E4D9451B64E9760088745A /* BaiduMobStat.h */,
+			);
+			name = BaiduMobStat;
+			sourceTree = "<group>";
+		};
 		C925B64CB131B415E0126F11 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				24E4D9521B64EEB10088745A /* libz.dylib */,
+				24E4D9501B64EEA90088745A /* libstdc++.dylib */,
+				24E4D94E1B64EE970088745A /* CoreLocation.framework */,
+				24E4D94C1B64EE8A0088745A /* CoreTelephony.framework */,
+				24E4D94A1B64EE710088745A /* MessageUI.framework */,
+				24E4D9481B64EE690088745A /* SystemConfiguration.framework */,
 				2487E6401B6166790030320A /* CoreGraphics.framework */,
 				2487E63E1B6166700030320A /* Foundation.framework */,
 				2487E63C1B6166660030320A /* UIKit.framework */,
@@ -1910,6 +1956,10 @@
 				INFOPLIST_FILE = kindergartenApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/kindergartenApp",
+				);
 				PRODUCT_NAME = kindergartenApp;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1924,6 +1974,10 @@
 				INFOPLIST_FILE = kindergartenApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/kindergartenApp",
+				);
 				PRODUCT_NAME = kindergartenApp;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

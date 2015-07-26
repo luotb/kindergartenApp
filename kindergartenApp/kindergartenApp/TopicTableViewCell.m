@@ -249,9 +249,9 @@
 
 - (void)funBtnClicked:(UIButton *)sender {
     sender.selected = !sender.selected;
-    
+                     
     NSDictionary *dic = @{Key_TopicCellFunType : [NSNumber numberWithInteger:sender.tag],
-                          Key_TopicUUID : _topicFrame.topic.cuuid,
+                          Key_TopicUUID : _topicFrame.topic.uuid,
                           Key_TopicFunRequestType : [NSNumber numberWithBool:sender.selected]};
     [[NSNotificationCenter defaultCenter] postNotificationName:Key_Notification_TopicFunClicked object:self userInfo:dic];
 }

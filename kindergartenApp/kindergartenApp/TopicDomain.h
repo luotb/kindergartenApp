@@ -10,7 +10,7 @@
 
 @interface TopicDomain : NSObject
 
-@property (strong, nonatomic) NSString * cuuid;      //Id
+@property (strong, nonatomic) NSString * uuid;      //Id
 
 @property (strong, nonatomic) NSString * classuuid;  //关联班级id.需要转换成班级名
 
@@ -28,7 +28,9 @@
 
 @property (strong, nonatomic) NSString * update_time;  //最新更新时间
 
+@property (strong, nonatomic) NSString * share_url; //用于分享的全路径
 
+@property (assign, nonatomic) NSInteger count; //流量次数
 
 /** rongyugaodu */
 @property (nonatomic,assign)CGFloat cellH;

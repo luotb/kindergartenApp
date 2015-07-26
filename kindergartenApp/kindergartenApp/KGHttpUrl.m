@@ -33,7 +33,7 @@
 #define delReplyURL              @"rest/dianzan/delete.json"  //取消回复
 #define replyListURL              @"rest/dianzan/delete.json" //回复列表
 
-#define uploadImgURL         @"runman-rest/rest/uploadFile/upload.json"  //上传图片
+#define uploadImgURL         @"rest/uploadFile/upload.json"  //上传图片
 
 @implementation KGHttpUrl
 
@@ -149,8 +149,8 @@
 
 ///上传图片
 + (NSString *)getUploadImgUrl {
-//    return URL(baseServiceURL, uploadImgURL);
-    return @"http://120.25.127.141/runman-rest/rest/uploadFile/upload.json";
+    return URL(baseServiceURL, uploadImgURL);
+//    return @"http://120.25.127.141/runman-rest/rest/uploadFile/upload.json";
 }
 
 @end

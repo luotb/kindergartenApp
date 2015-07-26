@@ -127,7 +127,7 @@
             user = [[KGUser alloc] init];
         }
         
-        user.loginname   = phone;
+        user.tel         = phone;
         user.oldpassowrd = pwd;
         [user setUserPassword:[KGNSStringUtil trimString:valPwd]];
         user.type        = 2;

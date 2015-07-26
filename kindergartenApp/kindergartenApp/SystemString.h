@@ -29,6 +29,7 @@
 //request code end
 
 //response code begin
+#define String_Status                           @"status"
 #define String_Success                          @"success"
 #define String_LoginFail                        @"登录失败"
 //response code end

@@ -82,17 +82,20 @@
         //提交数据
         [[KGHUD sharedHud] show:self.contentView msg:@"上传头像中..."];
 //        [self saveStudentInfo];
+
+//        [self saveStudentInfo];
         [self uploadImg:^(BOOL isSuccess, NSString *msgStr) {
             
-            [[KGHUD sharedHud] changeText:self.contentView text:msgStr];
+            _studentInfo.headimg = msgStr;
+            [[KGHUD sharedHud] changeText:self.contentView text:@"上传成功"];
             
-//            if(isSuccess) {
-//                [[KGHUD sharedHud] changeText:self.contentView text:@"提交信息中..."];
-//                [self saveStudentInfo];
-//
-//            } else {
-//                [[KGHUD sharedHud] hide:self.contentView];
-//            }
+            if(isSuccess) {
+                [[KGHUD sharedHud] changeText:self.contentView text:@"提交信息中..."];
+                [self saveStudentInfo];
+
+            } else {
+                [[KGHUD sharedHud] hide:self.contentView];
+            }
         }];
     }
 }
@@ -101,7 +104,7 @@
 //上传头像
 - (void)uploadImg:(void(^)(BOOL isSuccess, NSString * msgStr))block {
     
-    [[KGHttpService sharedService] uploadImg:headImageView.image withName:@"file" success:^(NSString *msgStr) {
+    [[KGHttpService sharedService] uploadImg:headImageView.image withName:@"file" type:1 success:^(NSString *msgStr) {
         block(YES, msgStr);
     } faild:^(NSString *errorMsg) {
         block(NO, errorMsg);

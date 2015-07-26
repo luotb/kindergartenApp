@@ -26,7 +26,7 @@
 
 
 //图片上传
-- (void)uploadImg:(UIImage *)img withName:(NSString *)imgName success:(void (^)(NSString * msgStr))success faild:(void (^)(NSString * errorMsg))faild;
+- (void)uploadImg:(UIImage *)img withName:(NSString *)imgName type:(NSInteger)imgType success:(void (^)(NSString * msgStr))success faild:(void (^)(NSString * errorMsg))faild;
 
 //获取首页动态菜单
 - (void)getDynamicMenu:(void (^)(NSArray * menuArray))success faild:(void (^)(NSString * errorMsg))faild;

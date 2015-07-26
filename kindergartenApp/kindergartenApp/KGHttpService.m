@@ -44,35 +44,86 @@
     }
 }
 
+/**
+ *  获取服务器数据
+ *
+ *  @param jsonDictionary 参数
+ *  @param success
+ *  @param faild
+ */
+-(void)getServerJson:(NSString *)path params:(NSDictionary *)jsonDictionary success:(void (^)(KGBaseDomain * baseDomain))success faild:(void (^)(NSString * errorMessage))faild
+{
+    NSData   * jsonData       = nil;
+    
+    if([NSJSONSerialization isValidJSONObject:jsonDictionary])
+    {
+        jsonData = [NSJSONSerialization dataWithJSONObject:jsonDictionary options:0 error:nil];
+    }
+    
+    NSURL * url = [NSURL URLWithString:path];
+    NSMutableURLRequest * request = [NSMutableURLRequest requestWithURL:url];
+    [request setHTTPMethod:@"POST"];
+    [request setHTTPBody: jsonData];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [request setValue:[NSString stringWithFormat:@"%ld", (unsigned long)[jsonData length]] forHTTPHeaderField:@"Content-Length"];
+    
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_async(queue, ^{
+        NSError * errorReturned = nil;
+        NSString * responseString = nil;
+        NSURLResponse * theResponse =[[NSURLResponse alloc]init];
+        NSData * data = [NSURLConnection sendSynchronousRequest:request returningResponse:&theResponse error:&errorReturned];
+        dispatch_queue_t mainQueue = dispatch_get_main_queue();
+        
+        if (errorReturned) {
+            dispatch_async(mainQueue, ^{
+                faild(String_Message_RequestError);
+            });
+        } else {
+            responseString = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers|NSJSONReadingAllowFragments error:nil];
+            
+            dispatch_async(mainQueue, ^{
+                KGBaseDomain * baseDomainResp = [KGBaseDomain objectWithKeyValues:responseString];
+                if([baseDomainResp.ResMsg.status isEqualToString:String_Success]) {
+                    success(baseDomainResp);
+                } else {
+                    faild(baseDomainResp.ResMsg.message);
+                }
+            });
+        }
+    });
+}
+
+
 
 - (void)POST:(NSString *)url param:(NSDictionary *)param success:(void (^)(NSString * msgStr))success faild:(void (^)(NSString * errorMsg))faild {
     
-    [[AFAppDotNetAPIClient sharedClient] POST:url
-                                   parameters:param
-                                      success:^(NSURLSessionDataTask* task, id responseObject) {
-                                          
-                                          _loginRespDomain = [LoginRespDomain objectWithKeyValues:responseObject];
-                                          if([_loginRespDomain.ResMsg.status isEqualToString:String_Success]) {
-                                              success(_loginRespDomain.ResMsg.message);
-                                          } else {
-                                              faild(_loginRespDomain.ResMsg.message);
-                                          }
-                                          
-                                      }
-                                      failure:^(NSURLSessionDataTask* task, NSError* error) {
-                                          [self requestErrorCode:error faild:faild];
-                                      }];
+    AFAppDotNetAPIClient * client = [AFAppDotNetAPIClient sharedClient];
+    
+    
+    [client POST:url parameters:param success:^(NSURLSessionDataTask* task, id responseObject) {
+    
+        _loginRespDomain = [LoginRespDomain objectWithKeyValues:responseObject];
+        if([_loginRespDomain.ResMsg.status isEqualToString:String_Success]) {
+            success(_loginRespDomain.ResMsg.message);
+        } else {
+            faild(_loginRespDomain.ResMsg.message);
+        }
+        
+    } failure:^(NSURLSessionDataTask* task, NSError* error) {
+         [self requestErrorCode:error faild:faild];
+    }];
 }
 
 
 //图片上传
-- (void)uploadImg:(UIImage *)img withName:(NSString *)imgName success:(void (^)(NSString * msgStr))success faild:(void (^)(NSString * errorMsg))faild {
+- (void)uploadImg:(UIImage *)img withName:(NSString *)imgName type:(NSInteger)imgType success:(void (^)(NSString * msgStr))success faild:(void (^)(NSString * errorMsg))faild {
     
     NSData * imageData = UIImageJPEGRepresentation(img, 1.0);
     
     NSMutableDictionary * parameters = [[NSMutableDictionary alloc] init];
     [parameters setObject:imgName forKey:@"file"];
-    [parameters setObject:@"image/jpeg" forKey:@"type"];
+    [parameters setObject:[NSNumber numberWithInteger:imgType] forKey:@"type"];
     [parameters setObject:_loginRespDomain.JSESSIONID forKey:@"JSESSIONID"];
     
     [[AFAppDotNetAPIClient sharedClient] POST:[KGHttpUrl getUploadImgUrl] parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
@@ -86,7 +137,7 @@
         NSLog(@"respon:%@", responseObject);
         if([baseDomain.ResMsg.status isEqualToString:String_Success]) {
             
-            success(baseDomain.ResMsg.message);
+            success([responseObject objectForKey:@"imgUrl"]);
         } else {
             faild(baseDomain.ResMsg.message);
         }
@@ -171,22 +222,21 @@
 
 - (void)reg:(KGUser *)user success:(void (^)(NSString * msgStr))success faild:(void (^)(NSString * errorMsg))faild {
     
-//    AFHTTPRequestSerializer* requestSerializer = [AFAppDotNetAPIClient sharedClient].requestSerializer;
-//    [requestSerializer setValue:[NSString stringWithFormat:@"%@", user.keyValues] forHTTPHeaderField:@"body"];
-    
-//    NSString * url = [NSString stringWithFormat:@"%@?%@", [KGHttpUrl getRegUrl], user.keyValues];
-    [self POST:[KGHttpUrl getRegUrl] param:user.keyValues success:^(NSString *msgStr) {
-        success(msgStr);
-    } faild:^(NSString *errorMsg) {
-        faild(errorMsg);
+    [self getServerJson:[KGHttpUrl getRegUrl] params:user.keyValues success:^(KGBaseDomain * baseDomain) {
+       
+        success(baseDomain.ResMsg.message);
+        NSLog(@"message:%@", baseDomain.ResMsg.message);
+    } faild:^(NSString *errorMessage) {
+        faild(errorMessage);
     }];
 }
 
 
+
 - (void)updatePwd:(KGUser *)user success:(void (^)(NSString * msgStr))success faild:(void (^)(NSString * errorMsg))faild {
     
-    [self POST:[KGHttpUrl getUpdatepasswordUrl] param:user.keyValues success:^(NSString *msgStr) {
-        success(msgStr);
+    [self getServerJson:[KGHttpUrl getUpdatepasswordUrl] params:user.keyValues success:^(KGBaseDomain * baseDomain) {
+        success(baseDomain.ResMsg.message);
     } faild:^(NSString *errorMsg) {
         faild(errorMsg);
     }];
@@ -194,15 +244,13 @@
 
 
 - (void)getPhoneVlCode:(NSString *)phone success:(void (^)(NSString * msgStr))success faild:(void (^)(NSString * errorMsg))faild {
-    [[AFAppDotNetAPIClient sharedClient] POST:[KGHttpUrl getPhoneCodeUrl]
-                                   parameters:@""
-                                      success:^(NSURLSessionDataTask* task, id responseObject) {
-                                          
-                                          success(@"成功");
-                                      }
-                                      failure:^(NSURLSessionDataTask* task, NSError* error) {
-                                          [self requestErrorCode:error faild:faild];
-                                      }];
+    
+    NSDictionary * dic = @{@"tel" : phone};
+    [self getServerJson:[KGHttpUrl getPhoneCodeUrl] params:dic success:^(KGBaseDomain *baseDomain) {
+        success(baseDomain.ResMsg.message);
+    } faild:^(NSString *errorMessage) {
+        faild(errorMessage);
+    }];
 
 }
 
@@ -252,10 +300,10 @@
 
 - (void)saveStudentInfo:(KGUser *)user success:(void (^)(NSString * msgStr))success faild:(void (^)(NSString * errorMsg))faild {
     
-    [self POST:[KGHttpUrl getSaveStudentInfoUrl] param:user.keyValues success:^(NSString *msgStr) {
-        success(msgStr);
-    } faild:^(NSString *errorMsg) {
-        faild(errorMsg);
+    [self getServerJson:[KGHttpUrl getSaveChildrenUrl] params:user.keyValues success:^(KGBaseDomain *baseDomain) {
+        success(baseDomain.ResMsg.message);
+    } faild:^(NSString *errorMessage) {
+        faild(errorMessage);
     }];
 }
 
@@ -270,10 +318,10 @@
     
     NSDictionary * dic = @{@"type":[NSNumber numberWithInteger:dzype], @"newsuuid":newsuid};
     
-    [self POST:[KGHttpUrl getSaveDZUrl] param:dic success:^(NSString *msgStr) {
-        success(msgStr);
-    } faild:^(NSString *errorMsg) {
-        faild(errorMsg);
+    [self getServerJson:[KGHttpUrl getSaveDZUrl] params:dic success:^(KGBaseDomain *baseDomain) {
+        success(baseDomain.ResMsg.message);
+    } faild:^(NSString *errorMessage) {
+        faild(errorMessage);
     }];
 }
 
@@ -282,10 +330,10 @@
     
     NSDictionary * dic = @{@"newsuuid":newsuid};
     
-    [self POST:[KGHttpUrl getDelDZUrl] param:dic success:^(NSString *msgStr) {
-        success(msgStr);
-    } faild:^(NSString *errorMsg) {
-        faild(errorMsg);
+    [self getServerJson:[KGHttpUrl getDelDZUrl] params:dic success:^(KGBaseDomain *baseDomain) {
+        success(baseDomain.ResMsg.message);
+    } faild:^(NSString *errorMessage) {
+        faild(errorMessage);
     }];
 }
 
@@ -297,10 +345,10 @@
 //保存回复
 - (void)saveReply:(ReplyDomain *)reply success:(void (^)(NSString * msgStr))success faild:(void (^)(NSString * errorMsg))faild {
     
-    [self POST:[KGHttpUrl getSaveReplyUrl] param:reply.keyValues success:^(NSString *msgStr) {
-        success(msgStr);
-    } faild:^(NSString *errorMsg) {
-        faild(errorMsg);
+    [self getServerJson:[KGHttpUrl getSaveReplyUrl] params:reply.keyValues success:^(KGBaseDomain *baseDomain) {
+        success(baseDomain.ResMsg.message);
+    } faild:^(NSString *errorMessage) {
+        faild(errorMessage);
     }];
 }
 
@@ -309,10 +357,10 @@
     
     NSDictionary * dic = @{@"uuid":uuid};
     
-    [self POST:[KGHttpUrl getDelReplyUrl] param:dic success:^(NSString *msgStr) {
-        success(msgStr);
-    } faild:^(NSString *errorMsg) {
-        faild(errorMsg);
+    [self getServerJson:[KGHttpUrl getDelReplyUrl] params:dic success:^(KGBaseDomain *baseDomain) {
+        success(baseDomain.ResMsg.message);
+    } faild:^(NSString *errorMessage) {
+        faild(errorMessage);
     }];
 }
 
