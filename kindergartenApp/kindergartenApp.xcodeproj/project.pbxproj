@@ -103,6 +103,9 @@
 		24E4D9511B64EEA90088745A /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 24E4D9501B64EEA90088745A /* libstdc++.dylib */; };
 		24E4D9531B64EEB10088745A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 24E4D9521B64EEB10088745A /* libz.dylib */; };
 		F45EABD11B563F9F003C367C /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F45EABD01B563F9F003C367C /* BaseViewController.m */; };
+		F463E6451B66106D00AB92B9 /* DianZanDomain.m in Sources */ = {isa = PBXBuildFile; fileRef = F463E6441B66106D00AB92B9 /* DianZanDomain.m */; };
+		F463E6481B6613D500AB92B9 /* GroupDomain.m in Sources */ = {isa = PBXBuildFile; fileRef = F463E6471B6613D500AB92B9 /* GroupDomain.m */; };
+		F463E64C1B6639B800AB92B9 /* HBVLinkedTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = F463E64B1B6639B800AB92B9 /* HBVLinkedTextView.m */; };
 		F47AFEAE1B5E22EA00D43F38 /* AnnouncementListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F47AFEAC1B5E22EA00D43F38 /* AnnouncementListViewController.m */; };
 		F47AFEAF1B5E22EA00D43F38 /* AnnouncementListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F47AFEAD1B5E22EA00D43F38 /* AnnouncementListViewController.xib */; };
 		F47AFEB21B5E24BD00D43F38 /* AnnouncementDomain.m in Sources */ = {isa = PBXBuildFile; fileRef = F47AFEB11B5E24BD00D43F38 /* AnnouncementDomain.m */; };
@@ -378,6 +381,12 @@
 		24E4D9521B64EEB10088745A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		F45EABCF1B563F9F003C367C /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		F45EABD01B563F9F003C367C /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
+		F463E6431B66106D00AB92B9 /* DianZanDomain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DianZanDomain.h; sourceTree = "<group>"; };
+		F463E6441B66106D00AB92B9 /* DianZanDomain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DianZanDomain.m; sourceTree = "<group>"; };
+		F463E6461B6613D500AB92B9 /* GroupDomain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GroupDomain.h; sourceTree = "<group>"; };
+		F463E6471B6613D500AB92B9 /* GroupDomain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupDomain.m; sourceTree = "<group>"; };
+		F463E64A1B6639B800AB92B9 /* HBVLinkedTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HBVLinkedTextView.h; sourceTree = "<group>"; };
+		F463E64B1B6639B800AB92B9 /* HBVLinkedTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HBVLinkedTextView.m; sourceTree = "<group>"; };
 		F47AFEAB1B5E22EA00D43F38 /* AnnouncementListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnnouncementListViewController.h; sourceTree = "<group>"; };
 		F47AFEAC1B5E22EA00D43F38 /* AnnouncementListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnnouncementListViewController.m; sourceTree = "<group>"; };
 		F47AFEAD1B5E22EA00D43F38 /* AnnouncementListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AnnouncementListViewController.xib; sourceTree = "<group>"; };
@@ -906,6 +915,7 @@
 		248B6A881B19A95000FCB98F /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				F463E6491B6639A700AB92B9 /* HBVLinkedTextView */,
 				24E4D9431B64E95B0088745A /* Baidu */,
 				244F74941B62AE3B0078D30D /* SphereMenu */,
 				F487830C1B58DA1700CDC1A8 /* Frameworks */,
@@ -1022,6 +1032,8 @@
 				F47AFEB11B5E24BD00D43F38 /* AnnouncementDomain.m */,
 				24DEC8201B633F2B00C55828 /* DynamicMenuDomain.h */,
 				24DEC8211B633F2B00C55828 /* DynamicMenuDomain.m */,
+				F463E6461B6613D500AB92B9 /* GroupDomain.h */,
+				F463E6471B6613D500AB92B9 /* GroupDomain.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -1224,6 +1236,8 @@
 				F4EC98971B62306800F5721F /* TopicFrame.m */,
 				24DEC81D1B633AEF00C55828 /* ReplyDomain.h */,
 				24DEC81E1B633AEF00C55828 /* ReplyDomain.m */,
+				F463E6431B66106D00AB92B9 /* DianZanDomain.h */,
+				F463E6441B66106D00AB92B9 /* DianZanDomain.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -1329,6 +1343,15 @@
 				24C46B271B5A28CF00A58F92 /* BaseKeyboardViewController.m */,
 			);
 			name = Controller;
+			sourceTree = "<group>";
+		};
+		F463E6491B6639A700AB92B9 /* HBVLinkedTextView */ = {
+			isa = PBXGroup;
+			children = (
+				F463E64A1B6639B800AB92B9 /* HBVLinkedTextView.h */,
+				F463E64B1B6639B800AB92B9 /* HBVLinkedTextView.m */,
+			);
+			name = HBVLinkedTextView;
 			sourceTree = "<group>";
 		};
 		F47AFEAA1B5E22C100D43F38 /* Announcement */ = {
@@ -1704,6 +1727,7 @@
 				F487838B1B58DA1700CDC1A8 /* AFHTTPRequestOperation.m in Sources */,
 				248B6A941B19A9D900FCB98F /* UIView+Extension.m in Sources */,
 				248B6AC81B19B54500FCB98F /* UIKeyboardViewController.m in Sources */,
+				F463E6481B6613D500AB92B9 /* GroupDomain.m in Sources */,
 				F487839A1B58DA1700CDC1A8 /* UIImageView+AFNetworking.m in Sources */,
 				F48783D51B58E46000CDC1A8 /* MJRefreshBaseView.m in Sources */,
 				F48783A31B58DA1700CDC1A8 /* MASViewAttribute.m in Sources */,
@@ -1716,6 +1740,7 @@
 				2469E2131B5B5E45004888A4 /* LoginRespDomain.m in Sources */,
 				F48783951B58DA1700CDC1A8 /* README.md in Sources */,
 				244F74971B62AE5A0078D30D /* SphereMenu.m in Sources */,
+				F463E6451B66106D00AB92B9 /* DianZanDomain.m in Sources */,
 				248B6A951B19A9D900FCB98F /* UIWindow+Extension.m in Sources */,
 				F47AFEB51B5E2BF800D43F38 /* PageInfoDomain.m in Sources */,
 				F48783AA1B58DA1700CDC1A8 /* MBProgressHUD.m in Sources */,
@@ -1822,6 +1847,7 @@
 				24A175E81B5541BF00295997 /* KGDBHelperHandle.m in Sources */,
 				248B6A5F1B19A39200FCB98F /* main.m in Sources */,
 				F48783B11B58DA1700CDC1A8 /* NSObject+MJCoding.m in Sources */,
+				F463E64C1B6639B800AB92B9 /* HBVLinkedTextView.m in Sources */,
 				2489B66B1B5AB49E00039E70 /* SDWebImageCompat.m in Sources */,
 				F48783A41B58DA1700CDC1A8 /* MASViewConstraint.m in Sources */,
 				F487839D1B58DA1700CDC1A8 /* UIWebView+AFNetworking.m in Sources */,
@@ -1954,7 +1980,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PREFIX_HEADER = kindergartenApp/pchFile.pch;
 				INFOPLIST_FILE = kindergartenApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1972,7 +1998,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PREFIX_HEADER = kindergartenApp/pchFile.pch;
 				INFOPLIST_FILE = kindergartenApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",

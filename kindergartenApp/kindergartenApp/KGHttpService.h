@@ -13,6 +13,7 @@
 #import "PageInfoDomain.h"
 #import "TopicDomain.h"
 #import "ReplyDomain.h"
+#import "DianZanDomain.h"
 
 @interface KGHttpService : NSObject
 
@@ -31,6 +32,8 @@
 //获取首页动态菜单
 - (void)getDynamicMenu:(void (^)(NSArray * menuArray))success faild:(void (^)(NSString * errorMsg))faild;
 
+//获取机构列表
+- (void)getGroupList:(void (^)(NSArray * groupArray))success faild:(void (^)(NSString * errorMsg))faild;
 
 // 账号相关 begin
 
@@ -78,6 +81,9 @@
 
 //取消点赞
 - (void)delDZ:(NSString *)newsuid success:(void (^)(NSString * msgStr))success faild:(void (^)(NSString * errorMsg))faild;
+
+//点赞列表
+- (void)getDZList:(NSString *)newsuid success:(void (^)(DianZanDomain * dzDomain))success faild:(void (^)(NSString * errorMsg))faild;
 
 //点赞相关 end
 

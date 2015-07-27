@@ -12,6 +12,7 @@
 #import "MJExtension.h"
 #import "KGListBaseDomain.h"
 #import "DynamicMenuDomain.h"
+#import "GroupDomain.h"
 
 @implementation KGHttpService
 
@@ -159,9 +160,33 @@
                                          
                                          if([baseDomain.ResMsg.status isEqualToString:String_Success]) {
                                              
-                                             _dynamicMenuArray = [DynamicMenuDomain objectArrayWithKeyValuesArray:responseObject[@"list"]];
+                                             _dynamicMenuArray = [DynamicMenuDomain objectArrayWithKeyValuesArray:((NSDictionary *)responseObject)[@"list"]];
                                              
                                              success(_dynamicMenuArray);
+                                         } else {
+                                             faild(baseDomain.ResMsg.message);
+                                         }
+                                     }
+                                     failure:^(NSURLSessionDataTask* task, NSError* error) {
+                                         [self requestErrorCode:error faild:faild];
+                                     }];
+}
+
+
+//获取机构列表
+- (void)getGroupList:(void (^)(NSArray * groupArray))success faild:(void (^)(NSString * errorMsg))faild {
+    
+    [[AFAppDotNetAPIClient sharedClient] GET:[KGHttpUrl getGroupUrl]
+                                  parameters:nil
+                                     success:^(NSURLSessionDataTask* task, id responseObject) {
+                                         
+                                         KGBaseDomain * baseDomain = [KGBaseDomain objectWithKeyValues:responseObject];
+                                         
+                                         if([baseDomain.ResMsg.status isEqualToString:String_Success]) {
+                                             
+                                             NSArray * groupArrayResp = [GroupDomain objectArrayWithKeyValuesArray:(NSDictionary *)baseDomain.data];
+                                             
+                                             success(groupArrayResp);
                                          } else {
                                              faild(baseDomain.ResMsg.message);
                                          }
@@ -193,6 +218,12 @@
                                               
                                               //获取首页动态菜单
                                               [self getDynamicMenu:^(NSArray *menuArray) {
+                                                  
+                                              } faild:^(NSString *errorMsg) {
+                                                  
+                                              }];
+                                              
+                                              [self getGroupList:^(NSArray *groupArray) {
                                                   
                                               } faild:^(NSString *errorMsg) {
                                                   
@@ -335,6 +366,30 @@
     } faild:^(NSString *errorMessage) {
         faild(errorMessage);
     }];
+}
+
+
+//点赞列表
+- (void)getDZList:(NSString *)newsuid success:(void (^)(DianZanDomain * dzDomain))success faild:(void (^)(NSString * errorMsg))faild {
+    
+    NSDictionary * dic = @{@"newsuuid":newsuid};
+    
+    [[AFAppDotNetAPIClient sharedClient] GET:[KGHttpUrl getDZListUrl]
+                                  parameters:dic
+                                     success:^(NSURLSessionDataTask* task, id responseObject) {
+                                         
+                                         DianZanDomain * baseDomain = [DianZanDomain objectWithKeyValues:responseObject];
+                                         
+                                         if([baseDomain.ResMsg.status isEqualToString:String_Success]) {
+                                             
+                                             success(baseDomain);
+                                         } else {
+                                             faild(baseDomain.ResMsg.message);
+                                         }
+                                     }
+                                     failure:^(NSURLSessionDataTask* task, NSError* error) {
+                                         [self requestErrorCode:error faild:faild];
+                                     }];
 }
 
 //点赞相关 end

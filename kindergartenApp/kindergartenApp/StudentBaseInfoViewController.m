@@ -66,6 +66,7 @@
 //初始化页面值
 - (void)initViewData {
     nameTextField.text = _studentInfo.name;
+    nickTextField.text = _studentInfo.nickname;
     birthdayTextField.text = _studentInfo.birthday;
     headImageView.image = [UIImage imageNamed:@"wodetoux"];
 //    [headImageView sd_setImageWithURL:[NSURL URLWithString:_studentInfo.headimg]];
@@ -242,10 +243,22 @@
         popupVC.delegate = self;
         datePicker = [[UIDatePicker alloc] init];
         datePicker.datePickerMode = UIDatePickerModeDate;
+        
+        if(_studentInfo.birthday) {
+            [datePicker setDate:[self getDateByDateStr:_studentInfo.birthday] animated:YES];
+        }
+        
         [datePicker addTarget:self action:@selector(dateChanged:) forControlEvents:UIControlEventValueChanged ];
         [popupVC setContentView:datePicker];
     }
     [self.navigationController presentViewController:popupVC animated:YES completion:nil];
+}
+
+
+- (NSDate *)getDateByDateStr:(NSString *)str {
+    NSDateFormatter * dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+    return [dateFormatter dateFromString:str];
 }
 
 

@@ -88,14 +88,11 @@
     CGFloat dzBtnX = replyBtnX - 15 - funBtnSize.width;
     self.dianzanBtnF = (CGRect){{dzBtnX, replyBtnY}, funBtnSize};
 
-//    if() {
-       //是否有点赞列表
-//    }
     //点赞列表
     self.dianzanViewF = CGRectMake(0, self.cellHeight + MYTopicCellBorderW, CELLCONTENTWIDTH, MYTopicCellBorderW);
     
     /* cell的高度 */
-    self.cellHeight = CGRectGetMaxY(self.dianzanViewF);
+//    self.cellHeight = CGRectGetMaxY(self.dianzanViewF);
     
     //点赞ICON
     self.dianzanIconImgF = CGRectMake(CELLPADDING, Number_Zero, Number_Ten, Number_Ten);
@@ -108,7 +105,6 @@
     
     
     //回复视图
-//    CGFloat replyW =
     
     //回复输入框
     self.replyTextFieldF = CGRectMake(CELLPADDING, self.cellHeight + MYTopicCellBorderW, CELLCONTENTWIDTH, 30);

@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HBVLinkedTextView.h"
 @class TopicFrame;
 
 @interface TopicTableViewCell : UITableViewCell
@@ -46,7 +47,8 @@
 @property (nonatomic, weak) UILabel * dianzanLabel;
 
 /** 回复列表视图 */
-@property (nonatomic, weak) UITextView  * replyView;
+@property (nonatomic, weak) HBVLinkedTextView  * replyView;
+
 /** 回复输入框 */
 @property (nonatomic, weak) UITextField  * replyTextField;
 /** 分割线 */

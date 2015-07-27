@@ -43,6 +43,8 @@
     imagesMArray   = [[NSMutableArray alloc] init];
     replyContent   = [[NSMutableString alloc] init];
     contentTextView.text = contentTextViewDefText;
+    [contentTextView setBorderWithWidth:Number_One color:[UIColor grayColor] radian:5.0];
+    [contentTextView setContentOffset:CGPointZero];
 }
 
 - (void)didReceiveMemoryWarning {

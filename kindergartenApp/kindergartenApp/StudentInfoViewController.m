@@ -214,7 +214,7 @@
         baseInfoVC.studentInfo = _studentInfo;
         
         baseInfoVC.StudentUpdateBlock = ^(KGUser * studentObj){
-            _studentInfo = studentObj;
+            self.studentInfo = studentObj;
             [studentInfoTableView reloadData];
         };
         
@@ -231,7 +231,7 @@
         otherInfoVC.dataSource = tableDataSource;
         otherInfoVC.studentInfo = _studentInfo;
         otherInfoVC.StudentUpdateBlock = ^(KGUser * studentObj){
-            _studentInfo = studentObj;
+            self.studentInfo = studentObj;
             [studentInfoTableView reloadData];
         };
         
@@ -243,7 +243,7 @@
         noteInfoVC.studentInfo = _studentInfo;
         
         noteInfoVC.StudentUpdateBlock = ^(KGUser * studentObj){
-            _studentInfo = studentObj;
+            self.studentInfo = studentObj;
             [studentInfoTableView reloadData];
         };
         

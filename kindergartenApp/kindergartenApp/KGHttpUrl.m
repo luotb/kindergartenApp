@@ -21,25 +21,32 @@
 #define classNewsMyURL           @"rest/classnews/getClassNewsByMy.json"   //我的孩子班级互动列表
 #define classNewsByClassIdURL  @"rest/classnews/getClassNewsByClassuuid.json"   //班级互动列表
 
+#define groupListURL          @"rest/group/list.json" //获取机构列表
 
 
-
-#define announcementListURL      @"rest/announcements/queryMyAnnouncements.json"               //公告列表
+#define announcementListURL   @"rest/announcements/queryMyAnnouncements.json"               //公告列表
 #define myChildrenURL         @"rest/student/listByMyChildren.json"               //我的孩子列表
 #define saveChildrenURL       @"rest/student/save.json"                           //保存孩子信息
-#define saveDZURL             @"rest/dianzan/save.json"  //点赞
-#define delDZURL              @"rest/dianzan/delete.json"  //取消点赞
-#define saveReplyURL             @"rest/dianzan/save.json"    //回复
-#define delReplyURL              @"rest/dianzan/delete.json"  //取消回复
-#define replyListURL              @"rest/dianzan/delete.json" //回复列表
+#define saveDZURL             @"rest/dianzan/save.json"             //点赞
+#define delDZURL              @"rest/dianzan/delete.json"           //取消点赞
+#define dzListURL             @"rest/dianzan/getByNewsuuid.json"    //点赞列表
+#define saveReplyURL          @"rest/reply/save.json"               //回复
+#define delReplyURL           @"rest/classnewsreply/delete.json"    //取消回复
+#define replyListURL          @"rest/reply/getReplyByNewsuuid.json" //回复列表
 
-#define uploadImgURL         @"rest/uploadFile/upload.json"  //上传图片
+#define uploadImgURL          @"rest/uploadFile/upload.json"  //上传图片
 
 @implementation KGHttpUrl
 
 //首页动态菜单
 + (NSString *)getDynamicMenuUrl {
     return URL(baseServiceURL, dynamicMenuURL);
+}
+
+
+//获取机构列表
++ (NSString *)getGroupUrl {
+    return URL(baseServiceURL, groupListURL);
 }
 
 //login
@@ -130,6 +137,12 @@
 //取消点赞
 + (NSString *)getDelDZUrl {
     return URL(baseServiceURL, delDZURL);
+}
+
+
+//点赞列表
++ (NSString *)getDZListUrl {
+    return URL(baseServiceURL, dzListURL);
 }
 
 //回复

@@ -13,6 +13,9 @@
 //首页动态菜单
 + (NSString *)getDynamicMenuUrl;
 
+//获取机构列表
++ (NSString *)getGroupUrl;
+
 //login
 + (NSString *)getLoginUrl;
 
@@ -70,6 +73,8 @@
 //取消点赞
 + (NSString *)getDelDZUrl;
 
+//点赞列表
++ (NSString *)getDZListUrl;
 
 //回复
 + (NSString *)getSaveReplyUrl;
