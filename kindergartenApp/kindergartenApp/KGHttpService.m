@@ -13,6 +13,7 @@
 #import "KGListBaseDomain.h"
 #import "DynamicMenuDomain.h"
 #import "GroupDomain.h"
+#import "MessageDomain.h"
 
 @implementation KGHttpService
 
@@ -44,6 +45,21 @@
             break;
     }
 }
+
+
+//根据组织id得到名称
+- (NSString *)getGroupNameByUUID:(NSString *)groupUUID {
+    NSString * str = nil;
+    for(GroupDomain * domain in self.groupArray) {
+        if([domain.uuid isEqualToString:groupUUID]) {
+            str = domain.brand_name;
+            break;
+        }
+    }
+    
+    return str;
+}
+
 
 /**
  *  获取服务器数据
@@ -184,8 +200,9 @@
                                          
                                          if([baseDomain.ResMsg.status isEqualToString:String_Success]) {
                                              
-                                             NSArray * groupArrayResp = [GroupDomain objectArrayWithKeyValuesArray:(NSDictionary *)baseDomain.data];
+                                             NSArray * groupArrayResp = [GroupDomain objectArrayWithKeyValuesArray:(NSDictionary *)responseObject[@"list"]];
                                              
+                                             _groupArray = groupArrayResp;
                                              success(groupArrayResp);
                                          } else {
                                              faild(baseDomain.ResMsg.message);
@@ -453,6 +470,80 @@
 
 
 
+#pragma 公告相关 begin
+
+//获取单个公告详情
+- (void)getAnnouncementInfo:(NSString *)uuid success:(void (^)(AnnouncementDomain * announcementObj))success faild:(void (^)(NSString * errorMsg))faild {
+    
+    [[AFAppDotNetAPIClient sharedClient] GET:[KGHttpUrl getAnnouncementInfoUrl:uuid]
+                                  parameters:nil
+                                     success:^(NSURLSessionDataTask* task, id responseObject) {
+                                         
+                                         KGBaseDomain * baseDomain = [KGBaseDomain objectWithKeyValues:responseObject];
+                                         
+                                         if([baseDomain.ResMsg.status isEqualToString:String_Success]) {
+                                             
+                                             AnnouncementDomain * announcement = [AnnouncementDomain objectWithKeyValues:baseDomain.data];
+                                             
+                                             success(announcement);
+                                         } else {
+                                             faild(baseDomain.ResMsg.message);
+                                         }
+                                     }
+                                     failure:^(NSURLSessionDataTask* task, NSError* error) {
+                                         [self requestErrorCode:error faild:faild];
+                                     }];
+}
+
+//分页获取公告列表
+- (void)getAnnouncementList:(PageInfoDomain *)pageInfo success:(void (^)(NSArray * announcementArray))success faild:(void (^)(NSString * errorMsg))faild {
+    
+    [[AFAppDotNetAPIClient sharedClient] GET:[KGHttpUrl getAnnouncementListUrl]
+                                  parameters:pageInfo.keyValues
+                                     success:^(NSURLSessionDataTask* task, id responseObject) {
+                                         
+                                         KGListBaseDomain * baseDomain = [KGListBaseDomain objectWithKeyValues:responseObject];
+                                         
+                                         if([baseDomain.ResMsg.status isEqualToString:String_Success]) {
+                                             
+                                             baseDomain.list.data = [AnnouncementDomain objectArrayWithKeyValuesArray:baseDomain.list.data];
+                                             
+                                             success(baseDomain.list.data);
+                                         } else {
+                                             faild(baseDomain.ResMsg.message);
+                                         }
+                                     }
+                                     failure:^(NSURLSessionDataTask* task, NSError* error) {
+                                         [self requestErrorCode:error faild:faild];
+                                     }];
+}
+
+//公告相关 end
+
+
+
+//分页获取消息列表
+- (void)getMessageList:(PageInfoDomain *)pageInfo success:(void (^)(NSArray * messageArray))success faild:(void (^)(NSString * errorMsg))faild {
+    
+    [[AFAppDotNetAPIClient sharedClient] GET:[KGHttpUrl getMessageListUrl]
+                                  parameters:pageInfo.keyValues
+                                     success:^(NSURLSessionDataTask* task, id responseObject) {
+                                         
+                                         KGListBaseDomain * baseDomain = [KGListBaseDomain objectWithKeyValues:responseObject];
+                                         
+                                         if([baseDomain.ResMsg.status isEqualToString:String_Success]) {
+                                             
+                                             baseDomain.list.data = [MessageDomain objectArrayWithKeyValuesArray:baseDomain.list.data];
+                                             
+                                             success(baseDomain.list.data);
+                                         } else {
+                                             faild(baseDomain.ResMsg.message);
+                                         }
+                                     }
+                                     failure:^(NSURLSessionDataTask* task, NSError* error) {
+                                         [self requestErrorCode:error faild:faild];
+                                     }];
+}
 
 
 @end

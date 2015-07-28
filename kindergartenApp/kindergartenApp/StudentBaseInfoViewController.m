@@ -14,6 +14,7 @@
 #import "UIImageView+WebCache.h"
 #import "KGHttpService.h"
 #import "KGHUD.h"
+#import "KGDateUtil.h"
 
 @interface StudentBaseInfoViewController () <UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, KGPopupVCDelegate> {
     
@@ -245,20 +246,13 @@
         datePicker.datePickerMode = UIDatePickerModeDate;
         
         if(_studentInfo.birthday) {
-            [datePicker setDate:[self getDateByDateStr:_studentInfo.birthday] animated:YES];
+            [datePicker setDate:[KGDateUtil getDateByDateStr:_studentInfo.birthday format:dateFormatStr1] animated:YES];
         }
         
         [datePicker addTarget:self action:@selector(dateChanged:) forControlEvents:UIControlEventValueChanged ];
         [popupVC setContentView:datePicker];
     }
     [self.navigationController presentViewController:popupVC animated:YES completion:nil];
-}
-
-
-- (NSDate *)getDateByDateStr:(NSString *)str {
-    NSDateFormatter * dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
-    return [dateFormatter dateFromString:str];
 }
 
 

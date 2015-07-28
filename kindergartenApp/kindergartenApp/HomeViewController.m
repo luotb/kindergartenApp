@@ -15,6 +15,7 @@
 #import "SphereMenu.h"
 #import "KGHttpService.h"
 #import "KGHUD.h"
+#import "AnnouncementListViewController.h"
 
 @interface HomeViewController () <ImageCollectionViewDelegate, SphereMenuDelegate> {
     
@@ -120,6 +121,9 @@
     switch (sender.tag) {
         case 10:
             baseVC = [[KGIntroductionViewController alloc] init];
+            break;
+        case 11:
+            baseVC = [[AnnouncementListViewController alloc] init];
             break;
         case 18:
             [self loadMoreFunMenu:sender];

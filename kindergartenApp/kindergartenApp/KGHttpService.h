@@ -14,6 +14,7 @@
 #import "TopicDomain.h"
 #import "ReplyDomain.h"
 #import "DianZanDomain.h"
+#import "AnnouncementDomain.h"
 
 @interface KGHttpService : NSObject
 
@@ -21,10 +22,14 @@
 @property (strong, nonatomic) KGTabBarViewController * tabBarViewController;//首页控制器
 @property (strong, nonatomic) LoginRespDomain * loginRespDomain;
 @property (strong, nonatomic) NSArray         * dynamicMenuArray; //首页动态菜单数据
+@property (strong, nonatomic) NSArray         * groupArray; //机构列表数据
 
 
 + (KGHttpService *)sharedService;
 
+
+//根据组织id得到名称
+- (NSString *)getGroupNameByUUID:(NSString *)groupUUID;
 
 //图片上传
 - (void)uploadImg:(UIImage *)img withName:(NSString *)imgName type:(NSInteger)imgType success:(void (^)(NSString * msgStr))success faild:(void (^)(NSString * errorMsg))faild;
@@ -103,10 +108,19 @@
 
 
 
+//公告相关 begin
+
+//获取单个公告详情
+- (void)getAnnouncementInfo:(NSString *)uuid success:(void (^)(AnnouncementDomain * announcementObj))success faild:(void (^)(NSString * errorMsg))faild;
+
+//分页获取公告列表
+- (void)getAnnouncementList:(PageInfoDomain *)pageInfo success:(void (^)(NSArray * announcementArray))success faild:(void (^)(NSString * errorMsg))faild;
+
+//公告相关 end
 
 
-
-
+//分页获取消息列表
+- (void)getMessageList:(PageInfoDomain *)pageInfo success:(void (^)(NSArray * messageArray))success faild:(void (^)(NSString * errorMsg))faild;
 
 
 

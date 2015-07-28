@@ -24,7 +24,7 @@
 #define groupListURL          @"rest/group/list.json" //获取机构列表
 
 
-#define announcementListURL   @"rest/announcements/queryMyAnnouncements.json"               //公告列表
+#define announcementListURL   @"rest/announcements/queryMy.json"               //公告列表
 #define myChildrenURL         @"rest/student/listByMyChildren.json"               //我的孩子列表
 #define saveChildrenURL       @"rest/student/save.json"                           //保存孩子信息
 #define saveDZURL             @"rest/dianzan/save.json"             //点赞
@@ -35,6 +35,9 @@
 #define replyListURL          @"rest/reply/getReplyByNewsuuid.json" //回复列表
 
 #define uploadImgURL          @"rest/uploadFile/upload.json"  //上传图片
+
+#define messageListURL        @"rest/message/queryMyTimely.json" //消息列表
+
 
 @implementation KGHttpUrl
 
@@ -165,5 +168,12 @@
     return URL(baseServiceURL, uploadImgURL);
 //    return @"http://120.25.127.141/runman-rest/rest/uploadFile/upload.json";
 }
+
+//消息列表
++ (NSString *)getMessageListUrl {
+    return URL(baseServiceURL, messageListURL);
+}
+
+
 
 @end

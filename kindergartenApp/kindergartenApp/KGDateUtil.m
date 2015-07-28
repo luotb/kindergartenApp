@@ -8,6 +8,7 @@
 
 #import "KGDateUtil.h"
 
+
 @implementation KGDateUtil
 
 + (NSString *)getTime{
@@ -54,6 +55,13 @@
         result = YES;
     }
     return  result;
+}
+
+//时间格式的字符串转日期对象
++ (NSDate *)getDateByDateStr:(NSString *)str format:(NSString *)formatStr {
+    NSDateFormatter * dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:formatStr];
+    return [dateFormatter dateFromString:str];
 }
 
 

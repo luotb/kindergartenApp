@@ -14,10 +14,12 @@
 #import "TopicDomain.h"
 #import "KGHttpService.h"
 #import "PageInfoDomain.h"
+#import "KGDateUtil.h"
+#import "KGNSStringUtil.h"
 
 #define TOPICTABLECELL @"topicTableCell"
 
-@interface TopicTableViewCell()
+@interface TopicTableViewCell() <UIWebViewDelegate>
 
 @end
 @implementation TopicTableViewCell
@@ -98,6 +100,7 @@
     UIWebView * contentWebView = [[UIWebView alloc] init];
 //    contentWebView.backgroundColor = KGColorFrom16(0xEBEBF2);
     [contentWebView stringByEvaluatingJavaScriptFromString:@"document.getElementsByTagName('body')[0].style.background='#EBEBF2'"];
+    contentWebView.delegate = self;
     [self addSubview:contentWebView];
     
     [contentWebView.layer setCornerRadius:10.0];
@@ -224,7 +227,10 @@
     self.replyBtn.frame   = self.topicFrame.replyBtnF;
     
     //时间
-    self.dateLabel.text = topic.create_time;
+    if(topic.create_time) {
+        NSDate * date = [KGDateUtil getDateByDateStr:topic.create_time format:dateFormatStr2];
+        self.dateLabel.text = [KGNSStringUtil compareCurrentTime:date];
+    }
     
     //点赞
     [self getDZInfo];
@@ -275,9 +281,9 @@
                 NSArray * nameArray = [dzDomain.names componentsSeparatedByString:@","];
                 
                 if([nameArray count] >= Number_Five) {
-                    self.dianzanLabel.text = [NSString stringWithFormat:@"%@等%ld人觉得很赞", dzDomain.names, dzDomain.count];
+                    self.dianzanLabel.text = [NSString stringWithFormat:@"%@等%ld人觉得很赞", dzDomain.names, (long)dzDomain.count];
                 } else {
-                    self.dianzanLabel.text = [NSString stringWithFormat:@"%@ %ld人觉得很赞", dzDomain.names, dzDomain.count];
+                    self.dianzanLabel.text = [NSString stringWithFormat:@"%@ %ld人觉得很赞", dzDomain.names, (long)dzDomain.count];
                 }
                 
                 self.dianzanBtn.selected = dzDomain.canDianzan;
@@ -322,7 +328,7 @@
                 NSMutableString * replyStr = [[NSMutableString alloc] init];
                 
                 for(ReplyDomain * reply in pageInfo.data) {
-                    [replyStr appendFormat:@"%@:%@", reply.create_user, reply.title ? reply.title : @""];
+                    [replyStr appendFormat:@"%@:%@ \n", reply.create_user, reply.title ? reply.title : @""];
                     [arrayOfStrings addObject:[NSString stringWithFormat:@"%@:", reply.create_user]];
                 }
                 
@@ -330,10 +336,11 @@
                                    constrainedToSize:CGSizeMake(CELLCONTENTWIDTH, 2000)
                                        lineBreakMode:NSLineBreakByWordWrapping];
                 
-                tempY += Number_Ten;
+                tempY += Number_Five;
                 _topicFrame.replyViewF = CGRectMake(CELLPADDING, tempY, CELLCONTENTWIDTH, size.height);
                 _replyView.frame = _topicFrame.replyViewF;
                 
+                self.replyView.text = replyStr;
                 [self.replyView linkStrings:arrayOfStrings
                           defaultAttributes:[self exampleAttributes]
                       highlightedAttributes:[self exampleAttributes]
@@ -369,6 +376,24 @@
 {
     return [@{NSFontAttributeName:[UIFont boldSystemFontOfSize:[UIFont systemFontSize]],
               NSForegroundColorAttributeName:[UIColor redColor]}mutableCopy];
+}
+
+
+#pragma UIWebView delegate
+
+- (void)webViewDidFinishLoad:(UIWebView *)webView {
+    float height = [[webView stringByEvaluatingJavaScriptFromString:@"document.body.offsetHeight;"] floatValue];
+    NSLog(@"size:%.f", height);
+//    CGFloat tempH = self.contentWebView.height;
+//    
+//    if(tempH != height) {
+//        CGFloat h = tempH - height;
+//        if(h < 0) {
+//            h = height - tempH;
+//        }
+//        self.contentWebView.height = height;
+//        
+//    }
 }
 
 

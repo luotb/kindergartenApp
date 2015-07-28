@@ -88,4 +88,8 @@
 //上传图片
 + (NSString *)getUploadImgUrl;
 
+
+//消息列表
++ (NSString *)getMessageListUrl;
+
 @end

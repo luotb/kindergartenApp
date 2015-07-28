@@ -37,7 +37,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cellFunClickedNotification:) name:Key_Notification_TopicFunClicked object:nil];
 }
 
-//房间点击监听通知
+//cell点击监听通知
 - (void)cellFunClickedNotification:(NSNotification *)notification {
     NSDictionary * dic = [notification userInfo];
     NSInteger type = [[dic objectForKey:Key_TopicCellFunType] integerValue];

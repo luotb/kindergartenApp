@@ -54,22 +54,25 @@
 
 //发表动态
 - (void)pustTopicBtnClicked {
-    [[KGHUD sharedHud] show:self.contentView msg:@"上传图片中..."];
     [self loadImg];
 }
 
 
 //上传图片
 - (void)loadImg {
-    
-    [[KGHttpService sharedService] uploadImg:[imagesMArray objectAtIndex:count] withName:@"file" type:1 success:^(NSString *msgStr) {
-        
-        [replyContent appendFormat:@"<img src='%@' />", msgStr];
-        
-        [self uploadImgSuccessHandler];
-    } faild:^(NSString *errorMsg) {
-        [self uploadImgSuccessHandler];
-    }];
+    if([imagesMArray count] > Number_Zero) {
+        [[KGHUD sharedHud] show:self.contentView msg:@"上传图片中..."];
+        [[KGHttpService sharedService] uploadImg:[imagesMArray objectAtIndex:count] withName:@"file" type:1 success:^(NSString *msgStr) {
+            
+            [replyContent appendFormat:@"<img src='%@' />", msgStr];
+            
+            [self uploadImgSuccessHandler];
+        } faild:^(NSString *errorMsg) {
+            [self uploadImgSuccessHandler];
+        }];
+    } else {
+        [[KGHUD sharedHud] show:self.contentView onlyMsg:@"请添加图片"];
+    }
 }
 
 - (void)uploadImgSuccessHandler {
