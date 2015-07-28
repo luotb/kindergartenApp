@@ -238,7 +238,7 @@ static CGFloat viewFrameY = 10;
     }
     for (id aview in [self allSubviews:objectView]) {
         
-        NSLog(@"class:%@", [aview class]);
+//        NSLog(@"class:%@", [aview class]);
         
 		if (([aview isKindOfClass:[UITextField class]] && ((UITextField*)aview).userInteractionEnabled && ((UITextField*)aview).enabled) ||
             [aview isKindOfClass:[KGTextField class]]) {
