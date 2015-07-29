@@ -38,6 +38,9 @@
 
 #define messageListURL        @"rest/message/queryMyTimely.json" //消息列表
 
+#define teacherAndJudgesURL   @"rest/userinfo/getTeachersAndJudges.json" //评价老师列表
+#define saveTeacherJudgesURL  @"rest/teachingjudge/save.json" //评价老师
+
 
 @implementation KGHttpUrl
 
@@ -172,6 +175,17 @@
 //消息列表
 + (NSString *)getMessageListUrl {
     return URL(baseServiceURL, messageListURL);
+}
+
+
+//评价老师列表
++ (NSString *)getTeacherListUrl {
+    return URL(baseServiceURL, teacherAndJudgesURL);
+}
+
+//评价老师
++ (NSString *)getSaveTeacherJudgeUrl {
+    return URL(baseServiceURL, saveTeacherJudgesURL);
 }
 
 

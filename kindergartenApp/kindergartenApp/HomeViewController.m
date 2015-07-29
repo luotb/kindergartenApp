@@ -16,6 +16,8 @@
 #import "KGHttpService.h"
 #import "KGHUD.h"
 #import "AnnouncementListViewController.h"
+#import "InteractViewController.h"
+#import "TeacherJudgeViewController.h"
 
 @interface HomeViewController () <ImageCollectionViewDelegate, SphereMenuDelegate> {
     
@@ -120,12 +122,33 @@
     BaseViewController * baseVC = nil;
     switch (sender.tag) {
         case 10:
-            baseVC = [[KGIntroductionViewController alloc] init];
+            baseVC = [[InteractViewController alloc] init];
             break;
         case 11:
+            baseVC = [[KGIntroductionViewController alloc] init];
+            break;
+        case 12:
+            baseVC = [[AnnouncementListViewController alloc] init];
+            break;
+        case 13:
+            baseVC = [[AnnouncementListViewController alloc] init];
+            break;
+        case 14:
+            baseVC = [[AnnouncementListViewController alloc] init];
+            break;
+        case 15:
+            baseVC = [[AnnouncementListViewController alloc] init];
+            break;
+        case 16:
+            baseVC = [[AnnouncementListViewController alloc] init];
+            break;
+        case 17:
             baseVC = [[AnnouncementListViewController alloc] init];
             break;
         case 18:
+            baseVC = [[TeacherJudgeViewController alloc] init];
+            break;
+        case 19:
             [self loadMoreFunMenu:sender];
             break;
         default:

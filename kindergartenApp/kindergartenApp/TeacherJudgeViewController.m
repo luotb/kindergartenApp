@@ -1,32 +1,32 @@
 //
-//  MessageViewController.m
+//  TeacherJudgeViewController.m
 //  kindergartenApp
 //
-//  Created by yangyangxun on 15/7/18.
+//  Created by yangyangxun on 15/7/28.
 //  Copyright (c) 2015年 funi. All rights reserved.
 //
 
-#import "MessageViewController.h"
+#import "TeacherJudgeViewController.h"
 #import "ReFreshTableViewController.h"
 #import "KGHttpService.h"
-#import "MessageDomain.h"
+#import "TeacherVO.h"
 #import "KGHUD.h"
 #import "PageInfoDomain.h"
 #import "UIColor+Extension.h"
 
-@interface MessageViewController () <KGReFreshViewDelegate> {
+@interface TeacherJudgeViewController () <KGReFreshViewDelegate> {
     ReFreshTableViewController * reFreshView;
     PageInfoDomain * pageInfo;
 }
 
 @end
 
-@implementation MessageViewController
+@implementation TeacherJudgeViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = @"消息";
+    self.title = @"评价老师";
     
     [self initPageInfo];
     [self initReFreshView];
@@ -48,8 +48,9 @@
     pageInfo.pageNo = reFreshView.page;
     pageInfo.pageSize = reFreshView.pageSize;
     
-    [[KGHttpService sharedService] getMessageList:pageInfo success:^(NSArray *messageArray) {
-        reFreshView.tableParam.dataSourceMArray = messageArray;
+    [[KGHttpService sharedService] getTeacherList:^(NSArray *teacherArray) {
+        
+        reFreshView.tableParam.dataSourceMArray = teacherArray;
         [reFreshView reloadRefreshTable];
     } faild:^(NSString *errorMsg) {
         [[KGHUD sharedHud] show:self.contentView onlyMsg:errorMsg];
@@ -62,14 +63,15 @@
 - (void)initReFreshView{
     reFreshView = [[ReFreshTableViewController alloc] initRefreshView];
     reFreshView._delegate = self;
-    reFreshView.tableParam.cellHeight       = 78;
-    reFreshView.tableParam.cellClassNameStr = @"MessageTableViewCell";
+    reFreshView.tableParam.cellHeight       = 232;
+    reFreshView.tableParam.cellClassNameStr = @"TeacherJudgeTableViewCell";
     reFreshView.tableView.backgroundColor = KGColorFrom16(0xEBEBF2);
     [reFreshView appendToView:self.contentView];
     [reFreshView beginRefreshing];
 }
 
 #pragma reFreshView Delegate
+
 
 //选中cell
 - (void)didSelectRowCallBack:(id)baseDomain to:(NSString *)toClassName{

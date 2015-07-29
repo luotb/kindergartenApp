@@ -92,4 +92,13 @@
 //消息列表
 + (NSString *)getMessageListUrl;
 
+//评价老师列表
++ (NSString *)getTeacherListUrl;
+
+//评价老师
++ (NSString *)getSaveTeacherJudgeUrl;
+
+
+
+
 @end

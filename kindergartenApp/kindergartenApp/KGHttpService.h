@@ -15,6 +15,7 @@
 #import "ReplyDomain.h"
 #import "DianZanDomain.h"
 #import "AnnouncementDomain.h"
+#import "TeacherVO.h"
 
 @interface KGHttpService : NSObject
 
@@ -123,5 +124,17 @@
 - (void)getMessageList:(PageInfoDomain *)pageInfo success:(void (^)(NSArray * messageArray))success faild:(void (^)(NSString * errorMsg))faild;
 
 
+
+// 评价老师 begin
+
+//获取评价老师列表
+- (void)getTeacherList:(void (^)(NSArray * teacherArray))success faild:(void (^)(NSString * errorMsg))faild;
+
+
+//评价老师
+- (void)saveTeacherJudge:(TeacherVO *)teacherVO success:(void (^)(NSString * msgStr))success faild:(void (^)(NSString * errorMsg))faild;
+
+
+// 评价老师 end
 
 @end

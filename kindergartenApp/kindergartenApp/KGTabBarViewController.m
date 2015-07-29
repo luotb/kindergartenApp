@@ -11,7 +11,6 @@
 #import "LoginViewController.h"
 #import "HomeViewController.h"
 #import "AddressBooksViewController.h"
-#import "InteractViewController.h"
 #import "MessageViewController.h"
 #import "MeViewController.h"
 #import "KGNavigationController.h"
@@ -33,9 +32,6 @@
     
     AddressBooksViewController * addressBooksVC = [[AddressBooksViewController alloc] init];
     [self addChildVc:addressBooksVC title:@"通讯录" image:@"home-1-icon" selectedImage:@"home-2icon"];
-    
-    InteractViewController * interactController = [[InteractViewController alloc] init];
-    [self addChildVc:interactController title:@"互动" image:@"客户1icon" selectedImage:@"客户2icon"];
 
     MessageViewController * messageController = [[MessageViewController alloc] init];
     [self addChildVc:messageController title:@"消息" image:@"我的-1icon" selectedImage:@"我的-2icon"];

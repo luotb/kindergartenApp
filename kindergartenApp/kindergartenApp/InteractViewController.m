@@ -28,6 +28,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.title = @"互动";
+    
     UIBarButtonItem * rightBarItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"xiangji"] style:UIBarButtonItemStyleDone target:self action:@selector(postTopic:)];
     [rightBarItem setTintColor:[UIColor whiteColor]];
     self.navigationItem.rightBarButtonItem = rightBarItem;

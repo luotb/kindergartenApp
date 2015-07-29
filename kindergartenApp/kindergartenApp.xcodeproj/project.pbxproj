@@ -93,6 +93,13 @@
 		24C46B4A1B5A2B7A00A58F92 /* InteractViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24C46B481B5A2B7A00A58F92 /* InteractViewController.xib */; };
 		24C46B521B5A2BC800A58F92 /* MessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24C46B501B5A2BC800A58F92 /* MessageViewController.m */; };
 		24C46B531B5A2BC800A58F92 /* MessageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24C46B511B5A2BC800A58F92 /* MessageViewController.xib */; };
+		24DE91A81B67B94500D3FFCE /* MessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24DE91A61B67B94500D3FFCE /* MessageTableViewCell.m */; };
+		24DE91A91B67B94500D3FFCE /* MessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24DE91A71B67B94500D3FFCE /* MessageTableViewCell.xib */; };
+		24DE91B01B67C24D00D3FFCE /* TeacherVO.m in Sources */ = {isa = PBXBuildFile; fileRef = 24DE91AF1B67C24D00D3FFCE /* TeacherVO.m */; };
+		24DE91B41B67C78700D3FFCE /* TeacherJudgeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24DE91B21B67C78700D3FFCE /* TeacherJudgeViewController.m */; };
+		24DE91B51B67C78700D3FFCE /* TeacherJudgeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24DE91B31B67C78700D3FFCE /* TeacherJudgeViewController.xib */; };
+		24DE91B91B67C9D400D3FFCE /* TeacherJudgeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24DE91B71B67C9D400D3FFCE /* TeacherJudgeTableViewCell.m */; };
+		24DE91BA1B67C9D400D3FFCE /* TeacherJudgeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24DE91B81B67C9D400D3FFCE /* TeacherJudgeTableViewCell.xib */; };
 		24DEC81F1B633AEF00C55828 /* ReplyDomain.m in Sources */ = {isa = PBXBuildFile; fileRef = 24DEC81E1B633AEF00C55828 /* ReplyDomain.m */; };
 		24DEC8221B633F2B00C55828 /* DynamicMenuDomain.m in Sources */ = {isa = PBXBuildFile; fileRef = 24DEC8211B633F2B00C55828 /* DynamicMenuDomain.m */; };
 		24E4D9471B64E9810088745A /* libBaiduMobStat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 24E4D9461B64E9810088745A /* libBaiduMobStat.a */; };
@@ -372,6 +379,17 @@
 		24C46B4F1B5A2BC800A58F92 /* MessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageViewController.h; sourceTree = "<group>"; };
 		24C46B501B5A2BC800A58F92 /* MessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageViewController.m; sourceTree = "<group>"; };
 		24C46B511B5A2BC800A58F92 /* MessageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageViewController.xib; sourceTree = "<group>"; };
+		24DE91A51B67B94500D3FFCE /* MessageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageTableViewCell.h; sourceTree = "<group>"; };
+		24DE91A61B67B94500D3FFCE /* MessageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageTableViewCell.m; sourceTree = "<group>"; };
+		24DE91A71B67B94500D3FFCE /* MessageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageTableViewCell.xib; sourceTree = "<group>"; };
+		24DE91AE1B67C24D00D3FFCE /* TeacherVO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeacherVO.h; sourceTree = "<group>"; };
+		24DE91AF1B67C24D00D3FFCE /* TeacherVO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeacherVO.m; sourceTree = "<group>"; };
+		24DE91B11B67C78700D3FFCE /* TeacherJudgeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeacherJudgeViewController.h; sourceTree = "<group>"; };
+		24DE91B21B67C78700D3FFCE /* TeacherJudgeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeacherJudgeViewController.m; sourceTree = "<group>"; };
+		24DE91B31B67C78700D3FFCE /* TeacherJudgeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TeacherJudgeViewController.xib; sourceTree = "<group>"; };
+		24DE91B61B67C9D400D3FFCE /* TeacherJudgeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeacherJudgeTableViewCell.h; sourceTree = "<group>"; };
+		24DE91B71B67C9D400D3FFCE /* TeacherJudgeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeacherJudgeTableViewCell.m; sourceTree = "<group>"; };
+		24DE91B81B67C9D400D3FFCE /* TeacherJudgeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TeacherJudgeTableViewCell.xib; sourceTree = "<group>"; };
 		24DEC81D1B633AEF00C55828 /* ReplyDomain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReplyDomain.h; sourceTree = "<group>"; };
 		24DEC81E1B633AEF00C55828 /* ReplyDomain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReplyDomain.m; sourceTree = "<group>"; };
 		24DEC8201B633F2B00C55828 /* DynamicMenuDomain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DynamicMenuDomain.h; sourceTree = "<group>"; };
@@ -1008,6 +1026,7 @@
 		248B6AA31B19ACEC00FCB98F /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				24DE91AA1B67C1FC00D3FFCE /* Teacher */,
 				F47AFEAA1B5E22C100D43F38 /* Announcement */,
 				2489B6751B5ABA6C00039E70 /* AddressBooks */,
 				F45EABCD1B563F75003C367C /* Base */,
@@ -1279,6 +1298,9 @@
 		24C46B4C1B5A2B9800A58F92 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				24DE91A51B67B94500D3FFCE /* MessageTableViewCell.h */,
+				24DE91A61B67B94500D3FFCE /* MessageTableViewCell.m */,
+				24DE91A71B67B94500D3FFCE /* MessageTableViewCell.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -1298,6 +1320,45 @@
 				24C46B4F1B5A2BC800A58F92 /* MessageViewController.h */,
 				24C46B501B5A2BC800A58F92 /* MessageViewController.m */,
 				24C46B511B5A2BC800A58F92 /* MessageViewController.xib */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		24DE91AA1B67C1FC00D3FFCE /* Teacher */ = {
+			isa = PBXGroup;
+			children = (
+				24DE91AD1B67C22200D3FFCE /* Controller */,
+				24DE91AC1B67C21800D3FFCE /* Model */,
+				24DE91AB1B67C21100D3FFCE /* View */,
+			);
+			name = Teacher;
+			sourceTree = "<group>";
+		};
+		24DE91AB1B67C21100D3FFCE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				24DE91B61B67C9D400D3FFCE /* TeacherJudgeTableViewCell.h */,
+				24DE91B71B67C9D400D3FFCE /* TeacherJudgeTableViewCell.m */,
+				24DE91B81B67C9D400D3FFCE /* TeacherJudgeTableViewCell.xib */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		24DE91AC1B67C21800D3FFCE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				24DE91AE1B67C24D00D3FFCE /* TeacherVO.h */,
+				24DE91AF1B67C24D00D3FFCE /* TeacherVO.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		24DE91AD1B67C22200D3FFCE /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				24DE91B11B67C78700D3FFCE /* TeacherJudgeViewController.h */,
+				24DE91B21B67C78700D3FFCE /* TeacherJudgeViewController.m */,
+				24DE91B31B67C78700D3FFCE /* TeacherJudgeViewController.xib */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -1726,6 +1787,7 @@
 				F4EA538C1B60C6DF0044BE7A /* MeFunTableViewCell.xib in Resources */,
 				24A175FF1B5550B000295997 /* LoginViewController.xib in Resources */,
 				F4EC98891B61F64400F5721F /* StudentOtherInfoViewController.xib in Resources */,
+				24DE91A91B67B94500D3FFCE /* MessageTableViewCell.xib in Resources */,
 				F48783D41B58E46000CDC1A8 /* MJRefresh.bundle in Resources */,
 				2489B6241B5A40E200039E70 /* RegViewController.xib in Resources */,
 				F4E636041B676AD400800924 /* AnnouncementInfoViewController.xib in Resources */,
@@ -1740,11 +1802,13 @@
 				2489B6741B5AB77600039E70 /* KGIntroductionViewController.xib in Resources */,
 				248B6A6D1B19A39200FCB98F /* LaunchScreen.xib in Resources */,
 				24A176091B55563E00295997 /* TestTableViewCell.xib in Resources */,
+				24DE91B51B67C78700D3FFCE /* TeacherJudgeViewController.xib in Resources */,
 				F487839E1B58DA1700CDC1A8 /* LICENSE in Resources */,
 				24C46B531B5A2BC800A58F92 /* MessageViewController.xib in Resources */,
 				248B6A6A1B19A39200FCB98F /* Images.xcassets in Resources */,
 				248B6A9D1B19AAEA00FCB98F /* KGMessageView.xib in Resources */,
 				F4E635FF1B675EB700800924 /* AnnouncementTableViewCell.xib in Resources */,
+				24DE91BA1B67C9D400D3FFCE /* TeacherJudgeTableViewCell.xib in Resources */,
 				24C46B381B5A2A9900A58F92 /* HomeViewController.xib in Resources */,
 				F4EC988E1B6211AC00F5721F /* StudentNoteInfoViewController.xib in Resources */,
 				F4EA53871B60BD390044BE7A /* MeTableViewCell.xib in Resources */,
@@ -1818,6 +1882,7 @@
 				245474D91B5FDD6C00D49D40 /* StudentInfoViewController.m in Sources */,
 				F48783D71B58E46000CDC1A8 /* MJRefreshFooterView.m in Sources */,
 				F4EC98841B61E22B00F5721F /* KGPopupViewController.m in Sources */,
+				24DE91B41B67C78700D3FFCE /* TeacherJudgeViewController.m in Sources */,
 				F48783B51B58DA1700CDC1A8 /* README.md in Sources */,
 				2469E2161B5B6039004888A4 /* ResMsgDomain.m in Sources */,
 				2489B6381B5AB32F00039E70 /* ImageCollectionViewCell.m in Sources */,
@@ -1832,6 +1897,7 @@
 				24C46B521B5A2BC800A58F92 /* MessageViewController.m in Sources */,
 				248B6ACE1B19B57400FCB98F /* FuniKeyChain.m in Sources */,
 				248B6A921B19A9D900FCB98F /* UIBarButtonItem+Extension.m in Sources */,
+				24DE91B91B67C9D400D3FFCE /* TeacherJudgeTableViewCell.m in Sources */,
 				24DEC8221B633F2B00C55828 /* DynamicMenuDomain.m in Sources */,
 				2489B66D1B5AB49E00039E70 /* SDWebImageManager.m in Sources */,
 				24A3D3761B5E874600D4C212 /* KGHomeItemButton.m in Sources */,
@@ -1870,6 +1936,7 @@
 				F4EC98881B61F64400F5721F /* StudentOtherInfoViewController.m in Sources */,
 				F4EA53861B60BD390044BE7A /* MeTableViewCell.m in Sources */,
 				2489B6611B5AB49E00039E70 /* NSData+ImageContentType.m in Sources */,
+				24DE91B01B67C24D00D3FFCE /* TeacherVO.m in Sources */,
 				2489B62B1B5A607A00039E70 /* KGAccountTool.m in Sources */,
 				248B6AAA1B19AD7A00FCB98F /* KGBaseDomain.m in Sources */,
 				F487839F1B58DA1700CDC1A8 /* MASCompositeConstraint.m in Sources */,
@@ -1902,6 +1969,7 @@
 				F48783A41B58DA1700CDC1A8 /* MASViewConstraint.m in Sources */,
 				F487839D1B58DA1700CDC1A8 /* UIWebView+AFNetworking.m in Sources */,
 				2489B6671B5AB49E00039E70 /* UIImageView+WebCache.m in Sources */,
+				24DE91A81B67B94500D3FFCE /* MessageTableViewCell.m in Sources */,
 				248B6AD21B19B58D00FCB98F /* MLNavigationController.m in Sources */,
 				F48783DE1B58EB1900CDC1A8 /* ReFreshTableViewController.m in Sources */,
 				F48783991B58DA1700CDC1A8 /* UIButton+AFNetworking.m in Sources */,

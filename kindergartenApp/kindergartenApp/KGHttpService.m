@@ -546,4 +546,66 @@
 }
 
 
+#pragma 评价老师 begin
+
+//获取评价老师列表
+- (void)getTeacherList:(void (^)(NSArray * teacherArray))success faild:(void (^)(NSString * errorMsg))faild {
+    
+    [[AFAppDotNetAPIClient sharedClient] GET:[KGHttpUrl getTeacherListUrl]
+                                  parameters:nil
+                                     success:^(NSURLSessionDataTask* task, id responseObject) {
+                                         
+                                         KGBaseDomain * baseDomain = [KGBaseDomain objectWithKeyValues:responseObject];
+                                         
+                                         if([baseDomain.ResMsg.status isEqualToString:String_Success]) {
+                                             
+                                             success([self packageTeacherVO:responseObject]);
+                                         } else {
+                                             faild(baseDomain.ResMsg.message);
+                                         }
+                                     }
+                                     failure:^(NSURLSessionDataTask* task, NSError* error) {
+                                         [self requestErrorCode:error faild:faild];
+                                     }];
+
+}
+
+- (NSArray *)packageTeacherVO:(id)responseObject {
+    NSArray * teacherArray1 = [TeacherVO objectArrayWithKeyValuesArray:responseObject[@"list"]];
+    NSArray * teacherArray2 = [TeacherVO objectArrayWithKeyValuesArray:responseObject[@"list_judge"]];
+    
+    for(TeacherVO * teacherVO in teacherArray1) {
+        for(TeacherVO * teacherVO2 in teacherArray2) {
+            if([teacherVO.teacher_uuid isEqualToString:teacherVO2.teacheruuid]) {
+                teacherVO.content = teacherVO2.content;
+                teacherVO.type = teacherVO2.type;
+                teacherVO.teacheruuid = teacherVO2.teacheruuid;
+                break;
+            }
+        }
+    }
+    return teacherArray1;
+}
+
+
+//评价老师
+- (void)saveTeacherJudge:(TeacherVO *)teacherVO success:(void (^)(NSString * msgStr))success faild:(void (^)(NSString * errorMsg))faild {
+    
+    [self getServerJson:[KGHttpUrl getSaveTeacherJudgeUrl] params:teacherVO.keyValues success:^(KGBaseDomain *baseDomain) {
+        
+        if([baseDomain.ResMsg.status isEqualToString:String_Success]) {
+            success(baseDomain.ResMsg.message);
+        } else {
+            faild(baseDomain.ResMsg.message);
+        }
+        
+    } faild:^(NSString *errorMessage) {
+        faild(errorMessage);
+    }];
+}
+
+
+// 评价老师 end
+
+
 @end
