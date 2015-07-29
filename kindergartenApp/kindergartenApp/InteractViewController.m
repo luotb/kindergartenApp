@@ -16,9 +16,13 @@
 #import "TopicTableViewCell.h"
 #import "UIColor+Extension.h"
 #import "PostTopicViewController.h"
+#import "KGHttpUrl.h"
 
-@interface InteractViewController () <KGReFreshViewDelegate> {
+@interface InteractViewController () <KGReFreshViewDelegate, UIWebViewDelegate> {
     ReFreshTableViewController * reFreshView;
+    IBOutlet UIWebView * myWebView;
+    
+    
 }
 
 @end
@@ -34,9 +38,13 @@
     [rightBarItem setTintColor:[UIColor whiteColor]];
     self.navigationItem.rightBarButtonItem = rightBarItem;
     
-    [self initReFreshView];
+    myWebView.delegate = self;
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cellFunClickedNotification:) name:Key_Notification_TopicFunClicked object:nil];
+    NSString * url = [NSString stringWithFormat:@"%@&JSESSIONID=%@", [KGHttpUrl getClassNewsHTMLURL], [KGHttpService sharedService].loginRespDomain.JSESSIONID];
+    [myWebView loadRequest:[[NSURLRequest alloc] initWithURL:[NSURL URLWithString:url]]];
+    
+//    [self initReFreshView];
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cellFunClickedNotification:) name:Key_Notification_TopicFunClicked object:nil];
 }
 
 //cell点击监听通知

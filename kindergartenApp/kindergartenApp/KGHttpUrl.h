@@ -59,6 +59,9 @@
 //分页获取班级互动列表
 + (NSString *)getClassNewsByClassIdUrl;
 
+//班级互动HTML 地址
++ (NSString *)getClassNewsHTMLURL;
+
 
 //分页获取我的孩子相关班级互动列表
 + (NSString *)getClassNewsMyByClassIdUrl;

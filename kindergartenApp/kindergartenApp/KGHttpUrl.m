@@ -20,6 +20,8 @@
 #define phoneCodeURL         @"rest/sms/sendCode.json"               //短信验证码
 #define classNewsMyURL           @"rest/classnews/getClassNewsByMy.json"   //我的孩子班级互动列表
 #define classNewsByClassIdURL  @"rest/classnews/getClassNewsByClassuuid.json"   //班级互动列表
+#define classNewsHTMLURL  @"kd/index.html?fn=phone_myclassNews"   //班级互动列表HTML
+
 
 #define groupListURL          @"rest/group/list.json" //获取机构列表
 
@@ -36,11 +38,12 @@
 
 #define uploadImgURL          @"rest/uploadFile/upload.json"  //上传图片
 
-#define messageListURL        @"rest/message/queryMyTimely.json" //消息列表
+#define messageListURL        @"rest/pushMessage/queryMy.json" //消息列表
 
 #define teacherAndJudgesURL   @"rest/userinfo/getTeachersAndJudges.json" //评价老师列表
 #define saveTeacherJudgesURL  @"rest/teachingjudge/save.json" //评价老师
 
+#define saveTeacherJudgesURL  @"rest/teachingjudge/save.json" //通讯录
 
 @implementation KGHttpUrl
 
@@ -118,6 +121,11 @@
 //分页获取班级互动列表
 + (NSString *)getClassNewsByClassIdUrl {
     return URL(baseServiceURL, classNewsByClassIdURL);
+}
+
+//班级互动HTML 地址
++ (NSString *)getClassNewsHTMLURL {
+    return URL(baseServiceURL, classNewsHTMLURL);
 }
 
 

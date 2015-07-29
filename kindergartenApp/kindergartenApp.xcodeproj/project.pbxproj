@@ -84,6 +84,21 @@
 		24A176081B55563E00295997 /* TestTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A176061B55563E00295997 /* TestTableViewCell.m */; };
 		24A176091B55563E00295997 /* TestTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24A176071B55563E00295997 /* TestTableViewCell.xib */; };
 		24A3D3761B5E874600D4C212 /* KGHomeItemButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A3D3751B5E874600D4C212 /* KGHomeItemButton.m */; };
+		24AA0B411B690F4300DAC03B /* UUAVAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 24AA0B321B690F4300DAC03B /* UUAVAudioPlayer.m */; };
+		24AA0B421B690F4300DAC03B /* UUImageAvatarBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 24AA0B341B690F4300DAC03B /* UUImageAvatarBrowser.m */; };
+		24AA0B431B690F4300DAC03B /* UUInputFunctionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 24AA0B361B690F4300DAC03B /* UUInputFunctionView.m */; };
+		24AA0B441B690F4300DAC03B /* UUMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 24AA0B381B690F4300DAC03B /* UUMessage.m */; };
+		24AA0B451B690F4300DAC03B /* UUMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24AA0B3A1B690F4300DAC03B /* UUMessageCell.m */; };
+		24AA0B461B690F4300DAC03B /* UUMessageContentButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 24AA0B3C1B690F4300DAC03B /* UUMessageContentButton.m */; };
+		24AA0B471B690F4300DAC03B /* UUMessageFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 24AA0B3E1B690F4300DAC03B /* UUMessageFrame.m */; };
+		24AA0B481B690F4300DAC03B /* UUProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 24AA0B401B690F4300DAC03B /* UUProgressHUD.m */; };
+		24AA0B4C1B690FA800DAC03B /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24AA0B4A1B690FA800DAC03B /* ChatViewController.m */; };
+		24AA0B4D1B690FA800DAC03B /* ChatViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24AA0B4B1B690FA800DAC03B /* ChatViewController.xib */; };
+		24AA0B501B69112C00DAC03B /* ChatModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 24AA0B4F1B69112C00DAC03B /* ChatModel.m */; };
+		24AA0B531B69134400DAC03B /* NSDate+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 24AA0B521B69134400DAC03B /* NSDate+Utils.m */; };
+		24AA0B7F1B6926D700DAC03B /* libBPush.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 24AA0B7E1B6926D700DAC03B /* libBPush.a */; };
+		24AA0B881B692FFD00DAC03B /* CourseListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24AA0B861B692FFD00DAC03B /* CourseListViewController.m */; };
+		24AA0B891B692FFD00DAC03B /* CourseListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24AA0B871B692FFD00DAC03B /* CourseListViewController.xib */; };
 		24C46B281B5A28CF00A58F92 /* BaseKeyboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24C46B271B5A28CF00A58F92 /* BaseKeyboardViewController.m */; };
 		24C46B371B5A2A9900A58F92 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24C46B351B5A2A9900A58F92 /* HomeViewController.m */; };
 		24C46B381B5A2A9900A58F92 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24C46B361B5A2A9900A58F92 /* HomeViewController.xib */; };
@@ -365,6 +380,35 @@
 		24A176071B55563E00295997 /* TestTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestTableViewCell.xib; sourceTree = "<group>"; };
 		24A3D3741B5E874600D4C212 /* KGHomeItemButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KGHomeItemButton.h; sourceTree = "<group>"; };
 		24A3D3751B5E874600D4C212 /* KGHomeItemButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KGHomeItemButton.m; sourceTree = "<group>"; };
+		24AA0B311B690F4300DAC03B /* UUAVAudioPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UUAVAudioPlayer.h; sourceTree = "<group>"; };
+		24AA0B321B690F4300DAC03B /* UUAVAudioPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UUAVAudioPlayer.m; sourceTree = "<group>"; };
+		24AA0B331B690F4300DAC03B /* UUImageAvatarBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UUImageAvatarBrowser.h; sourceTree = "<group>"; };
+		24AA0B341B690F4300DAC03B /* UUImageAvatarBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UUImageAvatarBrowser.m; sourceTree = "<group>"; };
+		24AA0B351B690F4300DAC03B /* UUInputFunctionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UUInputFunctionView.h; sourceTree = "<group>"; };
+		24AA0B361B690F4300DAC03B /* UUInputFunctionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UUInputFunctionView.m; sourceTree = "<group>"; };
+		24AA0B371B690F4300DAC03B /* UUMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UUMessage.h; sourceTree = "<group>"; };
+		24AA0B381B690F4300DAC03B /* UUMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UUMessage.m; sourceTree = "<group>"; };
+		24AA0B391B690F4300DAC03B /* UUMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UUMessageCell.h; sourceTree = "<group>"; };
+		24AA0B3A1B690F4300DAC03B /* UUMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UUMessageCell.m; sourceTree = "<group>"; };
+		24AA0B3B1B690F4300DAC03B /* UUMessageContentButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UUMessageContentButton.h; sourceTree = "<group>"; };
+		24AA0B3C1B690F4300DAC03B /* UUMessageContentButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UUMessageContentButton.m; sourceTree = "<group>"; };
+		24AA0B3D1B690F4300DAC03B /* UUMessageFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UUMessageFrame.h; sourceTree = "<group>"; };
+		24AA0B3E1B690F4300DAC03B /* UUMessageFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UUMessageFrame.m; sourceTree = "<group>"; };
+		24AA0B3F1B690F4300DAC03B /* UUProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UUProgressHUD.h; sourceTree = "<group>"; };
+		24AA0B401B690F4300DAC03B /* UUProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UUProgressHUD.m; sourceTree = "<group>"; };
+		24AA0B491B690FA800DAC03B /* ChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatViewController.h; sourceTree = "<group>"; };
+		24AA0B4A1B690FA800DAC03B /* ChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
+		24AA0B4B1B690FA800DAC03B /* ChatViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatViewController.xib; sourceTree = "<group>"; };
+		24AA0B4E1B69112C00DAC03B /* ChatModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatModel.h; sourceTree = "<group>"; };
+		24AA0B4F1B69112C00DAC03B /* ChatModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatModel.m; sourceTree = "<group>"; };
+		24AA0B511B69134400DAC03B /* NSDate+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Utils.h"; sourceTree = "<group>"; };
+		24AA0B521B69134400DAC03B /* NSDate+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Utils.m"; sourceTree = "<group>"; };
+		24AA0B541B69138F00DAC03B /* ACMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ACMacros.h; sourceTree = "<group>"; };
+		24AA0B7D1B6926D700DAC03B /* BPush.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPush.h; sourceTree = "<group>"; };
+		24AA0B7E1B6926D700DAC03B /* libBPush.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libBPush.a; sourceTree = "<group>"; };
+		24AA0B851B692FFD00DAC03B /* CourseListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CourseListViewController.h; sourceTree = "<group>"; };
+		24AA0B861B692FFD00DAC03B /* CourseListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CourseListViewController.m; sourceTree = "<group>"; };
+		24AA0B871B692FFD00DAC03B /* CourseListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CourseListViewController.xib; sourceTree = "<group>"; };
 		24C46B261B5A28CF00A58F92 /* BaseKeyboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseKeyboardViewController.h; sourceTree = "<group>"; };
 		24C46B271B5A28CF00A58F92 /* BaseKeyboardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseKeyboardViewController.m; sourceTree = "<group>"; };
 		24C46B341B5A2A9900A58F92 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
@@ -591,6 +635,7 @@
 				2487E63D1B6166660030320A /* UIKit.framework in Frameworks */,
 				2487E63B1B61663E0030320A /* QuartzCore.framework in Frameworks */,
 				24E4D9471B64E9810088745A /* libBaiduMobStat.a in Frameworks */,
+				24AA0B7F1B6926D700DAC03B /* libBPush.a in Frameworks */,
 				24A175F91B5543E600295997 /* libsqlite3.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -810,6 +855,8 @@
 		2489B6771B5ABA8E00039E70 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				24AA0B4E1B69112C00DAC03B /* ChatModel.h */,
+				24AA0B4F1B69112C00DAC03B /* ChatModel.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -820,6 +867,9 @@
 				2489B6791B5ABAAB00039E70 /* AddressBooksViewController.h */,
 				2489B67A1B5ABAAB00039E70 /* AddressBooksViewController.m */,
 				2489B67B1B5ABAAB00039E70 /* AddressBooksViewController.xib */,
+				24AA0B491B690FA800DAC03B /* ChatViewController.h */,
+				24AA0B4A1B690FA800DAC03B /* ChatViewController.m */,
+				24AA0B4B1B690FA800DAC03B /* ChatViewController.xib */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -915,6 +965,8 @@
 		248B6A851B19A92C00FCB98F /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				24AA0B511B69134400DAC03B /* NSDate+Utils.h */,
+				24AA0B521B69134400DAC03B /* NSDate+Utils.m */,
 				F4C0AB871B1C39D4007B0E35 /* KGDateUtil.h */,
 				F4C0AB881B1C39D4007B0E35 /* KGDateUtil.m */,
 				F4C0AB891B1C39D4007B0E35 /* KGNSStringUtil.h */,
@@ -946,6 +998,7 @@
 		248B6A881B19A95000FCB98F /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				24AA0B301B690F2300DAC03B /* UUChat */,
 				F463E6491B6639A700AB92B9 /* HBVLinkedTextView */,
 				24E4D9431B64E95B0088745A /* Baidu */,
 				244F74941B62AE3B0078D30D /* SphereMenu */,
@@ -1026,6 +1079,7 @@
 		248B6AA31B19ACEC00FCB98F /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				24AA0B801B692FBD00DAC03B /* CourseList */,
 				24DE91AA1B67C1FC00D3FFCE /* Teacher */,
 				F47AFEAA1B5E22C100D43F38 /* Announcement */,
 				2489B6751B5ABA6C00039E70 /* AddressBooks */,
@@ -1083,6 +1137,7 @@
 		248B6AB51B19B07900FCB98F /* Config */ = {
 			isa = PBXGroup;
 			children = (
+				24AA0B541B69138F00DAC03B /* ACMacros.h */,
 				248B6AAB1B19B07500FCB98F /* SystemClass.h */,
 				248B6AAC1B19B07500FCB98F /* SystemConfig.h */,
 				248B6AAD1B19B07500FCB98F /* SystemCoordinates.h */,
@@ -1169,6 +1224,72 @@
 				24A3D3751B5E874600D4C212 /* KGHomeItemButton.m */,
 			);
 			name = ItemBtn;
+			sourceTree = "<group>";
+		};
+		24AA0B301B690F2300DAC03B /* UUChat */ = {
+			isa = PBXGroup;
+			children = (
+				24AA0B311B690F4300DAC03B /* UUAVAudioPlayer.h */,
+				24AA0B321B690F4300DAC03B /* UUAVAudioPlayer.m */,
+				24AA0B331B690F4300DAC03B /* UUImageAvatarBrowser.h */,
+				24AA0B341B690F4300DAC03B /* UUImageAvatarBrowser.m */,
+				24AA0B351B690F4300DAC03B /* UUInputFunctionView.h */,
+				24AA0B361B690F4300DAC03B /* UUInputFunctionView.m */,
+				24AA0B371B690F4300DAC03B /* UUMessage.h */,
+				24AA0B381B690F4300DAC03B /* UUMessage.m */,
+				24AA0B391B690F4300DAC03B /* UUMessageCell.h */,
+				24AA0B3A1B690F4300DAC03B /* UUMessageCell.m */,
+				24AA0B3B1B690F4300DAC03B /* UUMessageContentButton.h */,
+				24AA0B3C1B690F4300DAC03B /* UUMessageContentButton.m */,
+				24AA0B3D1B690F4300DAC03B /* UUMessageFrame.h */,
+				24AA0B3E1B690F4300DAC03B /* UUMessageFrame.m */,
+				24AA0B3F1B690F4300DAC03B /* UUProgressHUD.h */,
+				24AA0B401B690F4300DAC03B /* UUProgressHUD.m */,
+			);
+			name = UUChat;
+			sourceTree = "<group>";
+		};
+		24AA0B7C1B6926C400DAC03B /* LibBPush */ = {
+			isa = PBXGroup;
+			children = (
+				24AA0B7D1B6926D700DAC03B /* BPush.h */,
+				24AA0B7E1B6926D700DAC03B /* libBPush.a */,
+			);
+			name = LibBPush;
+			sourceTree = "<group>";
+		};
+		24AA0B801B692FBD00DAC03B /* CourseList */ = {
+			isa = PBXGroup;
+			children = (
+				24AA0B831B692FDA00DAC03B /* Controller */,
+				24AA0B821B692FD100DAC03B /* Model */,
+				24AA0B811B692FC900DAC03B /* View */,
+			);
+			name = CourseList;
+			sourceTree = "<group>";
+		};
+		24AA0B811B692FC900DAC03B /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		24AA0B821B692FD100DAC03B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		24AA0B831B692FDA00DAC03B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				24AA0B851B692FFD00DAC03B /* CourseListViewController.h */,
+				24AA0B861B692FFD00DAC03B /* CourseListViewController.m */,
+				24AA0B871B692FFD00DAC03B /* CourseListViewController.xib */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 		24C46B2A1B5A29F700A58F92 /* MessageView */ = {
@@ -1366,6 +1487,7 @@
 		24E4D9431B64E95B0088745A /* Baidu */ = {
 			isa = PBXGroup;
 			children = (
+				24AA0B7C1B6926C400DAC03B /* LibBPush */,
 				24E4D9441B64E9680088745A /* BaiduMobStat */,
 			);
 			name = Baidu;
@@ -1785,6 +1907,7 @@
 				F47AFEAF1B5E22EA00D43F38 /* AnnouncementListViewController.xib in Resources */,
 				244F74931B62A4630078D30D /* PostTopicViewController.xib in Resources */,
 				F4EA538C1B60C6DF0044BE7A /* MeFunTableViewCell.xib in Resources */,
+				24AA0B4D1B690FA800DAC03B /* ChatViewController.xib in Resources */,
 				24A175FF1B5550B000295997 /* LoginViewController.xib in Resources */,
 				F4EC98891B61F64400F5721F /* StudentOtherInfoViewController.xib in Resources */,
 				24DE91A91B67B94500D3FFCE /* MessageTableViewCell.xib in Resources */,
@@ -1812,6 +1935,7 @@
 				24C46B381B5A2A9900A58F92 /* HomeViewController.xib in Resources */,
 				F4EC988E1B6211AC00F5721F /* StudentNoteInfoViewController.xib in Resources */,
 				F4EA53871B60BD390044BE7A /* MeTableViewCell.xib in Resources */,
+				24AA0B891B692FFD00DAC03B /* CourseListViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1833,15 +1957,18 @@
 				F48783901B58DA1700CDC1A8 /* AFURLConnectionOperation.m in Sources */,
 				24759EB01B5FC89900A3087D /* KGListBaseDomain.m in Sources */,
 				2489B6621B5AB49E00039E70 /* UIButton+WebCache.m in Sources */,
+				24AA0B461B690F4300DAC03B /* UUMessageContentButton.m in Sources */,
 				2489B66E1B5AB49E00039E70 /* SDWebImagePrefetcher.m in Sources */,
 				2489B6731B5AB77600039E70 /* KGIntroductionViewController.m in Sources */,
 				F487838B1B58DA1700CDC1A8 /* AFHTTPRequestOperation.m in Sources */,
 				248B6A941B19A9D900FCB98F /* UIView+Extension.m in Sources */,
 				248B6AC81B19B54500FCB98F /* UIKeyboardViewController.m in Sources */,
+				24AA0B451B690F4300DAC03B /* UUMessageCell.m in Sources */,
 				F463E6481B6613D500AB92B9 /* GroupDomain.m in Sources */,
 				F487839A1B58DA1700CDC1A8 /* UIImageView+AFNetworking.m in Sources */,
 				F48783D51B58E46000CDC1A8 /* MJRefreshBaseView.m in Sources */,
 				F48783A31B58DA1700CDC1A8 /* MASViewAttribute.m in Sources */,
+				24AA0B881B692FFD00DAC03B /* CourseListViewController.m in Sources */,
 				24DEC81F1B633AEF00C55828 /* ReplyDomain.m in Sources */,
 				F4C0AB901B1C3B29007B0E35 /* SandboxFile.m in Sources */,
 				F47AFEB21B5E24BD00D43F38 /* AnnouncementDomain.m in Sources */,
@@ -1853,7 +1980,9 @@
 				244F74971B62AE5A0078D30D /* SphereMenu.m in Sources */,
 				F463E6451B66106D00AB92B9 /* DianZanDomain.m in Sources */,
 				248B6A951B19A9D900FCB98F /* UIWindow+Extension.m in Sources */,
+				24AA0B4C1B690FA800DAC03B /* ChatViewController.m in Sources */,
 				F47AFEB51B5E2BF800D43F38 /* PageInfoDomain.m in Sources */,
+				24AA0B421B690F4300DAC03B /* UUImageAvatarBrowser.m in Sources */,
 				F48783AA1B58DA1700CDC1A8 /* MBProgressHUD.m in Sources */,
 				2489B6681B5AB49E00039E70 /* UIView+WebCacheOperation.m in Sources */,
 				248B6ABE1B19B53000FCB98F /* QCSlideSwitchDto.m in Sources */,
@@ -1880,6 +2009,7 @@
 				F4DCD0F21B1C2E87007D61CA /* UIButton+Extension.m in Sources */,
 				2489B6631B5AB49E00039E70 /* UIImage+GIF.m in Sources */,
 				245474D91B5FDD6C00D49D40 /* StudentInfoViewController.m in Sources */,
+				24AA0B481B690F4300DAC03B /* UUProgressHUD.m in Sources */,
 				F48783D71B58E46000CDC1A8 /* MJRefreshFooterView.m in Sources */,
 				F4EC98841B61E22B00F5721F /* KGPopupViewController.m in Sources */,
 				24DE91B41B67C78700D3FFCE /* TeacherJudgeViewController.m in Sources */,
@@ -1941,7 +2071,9 @@
 				248B6AAA1B19AD7A00FCB98F /* KGBaseDomain.m in Sources */,
 				F487839F1B58DA1700CDC1A8 /* MASCompositeConstraint.m in Sources */,
 				2489B6271B5A5FEB00039E70 /* KGUser.m in Sources */,
+				24AA0B411B690F4300DAC03B /* UUAVAudioPlayer.m in Sources */,
 				24759EAD1B5FC48500A3087D /* TopicDomain.m in Sources */,
+				24AA0B501B69112C00DAC03B /* ChatModel.m in Sources */,
 				2489B6601B5AB49E00039E70 /* MKAnnotationView+WebCache.m in Sources */,
 				2489B65F1B5AB49E00039E70 /* SDImageCache.m in Sources */,
 				F4E636071B67939D00800924 /* MessageDomain.m in Sources */,
@@ -1962,8 +2094,10 @@
 				243918E41B5D1E5800F3727E /* KGNavigationController.m in Sources */,
 				24A175E81B5541BF00295997 /* KGDBHelperHandle.m in Sources */,
 				248B6A5F1B19A39200FCB98F /* main.m in Sources */,
+				24AA0B531B69134400DAC03B /* NSDate+Utils.m in Sources */,
 				F48783B11B58DA1700CDC1A8 /* NSObject+MJCoding.m in Sources */,
 				F4E636031B676AD400800924 /* AnnouncementInfoViewController.m in Sources */,
+				24AA0B441B690F4300DAC03B /* UUMessage.m in Sources */,
 				F463E64C1B6639B800AB92B9 /* HBVLinkedTextView.m in Sources */,
 				2489B66B1B5AB49E00039E70 /* SDWebImageCompat.m in Sources */,
 				F48783A41B58DA1700CDC1A8 /* MASViewConstraint.m in Sources */,
@@ -1971,11 +2105,13 @@
 				2489B6671B5AB49E00039E70 /* UIImageView+WebCache.m in Sources */,
 				24DE91A81B67B94500D3FFCE /* MessageTableViewCell.m in Sources */,
 				248B6AD21B19B58D00FCB98F /* MLNavigationController.m in Sources */,
+				24AA0B471B690F4300DAC03B /* UUMessageFrame.m in Sources */,
 				F48783DE1B58EB1900CDC1A8 /* ReFreshTableViewController.m in Sources */,
 				F48783991B58DA1700CDC1A8 /* UIButton+AFNetworking.m in Sources */,
 				F48783E11B58EC8C00CDC1A8 /* ReFreshBaseCell.m in Sources */,
 				24C46B401B5A2B1100A58F92 /* MeViewController.m in Sources */,
 				248B6AC71B19B54500FCB98F /* KGTextField.m in Sources */,
+				24AA0B431B690F4300DAC03B /* UUInputFunctionView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

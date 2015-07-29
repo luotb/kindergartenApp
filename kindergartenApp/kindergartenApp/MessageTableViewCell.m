@@ -8,6 +8,7 @@
 
 #import "MessageTableViewCell.h"
 #import "MessageDomain.h"
+#import "KGHttpService.h"
 
 @implementation MessageTableViewCell
 
@@ -27,9 +28,9 @@
  */
 - (void)resetValue:(id)baseDomain parame:(NSMutableDictionary *)parameterDic {
     MessageDomain * domain = (MessageDomain *)baseDomain;
-    
+    _titleLabel.text = domain.title;
     _subTitleLabel.text = domain.message;
-    _groupLabel.text = domain.revice_user;
+    _groupLabel.text = [[KGHttpService sharedService] getGroupNameByUUID:domain.group_uuid];
     _timeLabel.text = domain.create_time;
 }
 
