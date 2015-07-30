@@ -8,18 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import "TopicDomain.h"
-// 昵称字体
-
-#define MYTopicCellTitleFont [UIFont boldSystemFontOfSize:16]
-#define MYTopicCellNameFont [UIFont systemFontOfSize:14]
-#define MYTopicCellContentFont [UIFont systemFontOfSize:15]
-#define MYTopicCellDateFont [UIFont systemFontOfSize:10]
-// cell的边框宽度
-#define MYTopicCellBorderW 10
-// cell内编剧
-#define CELLPADDING  16
-//cell内容宽度
-#define CELLCONTENTWIDTH  [UIScreen mainScreen].bounds.size.width - 32
 
 @interface TopicFrame : NSObject
 

@@ -79,7 +79,7 @@
     
     UILabel * namelab = [[UILabel alloc] init];
     namelab.backgroundColor = CLEARCOLOR;
-    namelab.font = MYTopicCellNameFont;
+    namelab.font = TopicCellNameFont;
     namelab.textColor = [UIColor blackColor];
     [userview addSubview:namelab];
     
@@ -87,7 +87,7 @@
     
     UILabel  * titlelab = [[UILabel alloc] init];
     titlelab.backgroundColor = CLEARCOLOR;
-    titlelab.font = MYTopicCellNameFont;
+    titlelab.font = TopicCellNameFont;
 //    titlelab.numberOfLines = 0;
     [userview addSubview:titlelab];
     _titleLab = titlelab;
@@ -121,7 +121,7 @@
     
     UILabel * datelab = [[UILabel alloc] init];
     datelab.backgroundColor = CLEARCOLOR;
-    datelab.font = MYTopicCellDateFont;
+    datelab.font = TopicCellDateFont;
     datelab.textColor = KGColorFrom16(0x666666);
     [funView addSubview:datelab];
     _dateLabel = datelab;
@@ -160,7 +160,7 @@
     
     UILabel * dzlabel = [[UILabel alloc] init];
     dzlabel.backgroundColor = CLEARCOLOR;
-    dzlabel.font = MYTopicCellDateFont;
+    dzlabel.font = TopicCellDateFont;
     [dzView addSubview:dzlabel];
     _dianzanLabel = dzlabel;
 }
@@ -170,7 +170,7 @@
     HBVLinkedTextView * replyLabel = [[HBVLinkedTextView alloc] init];
     replyLabel.backgroundColor = CLEARCOLOR;
 //    replyLabel.backgroundColor = [UIColor greenColor];
-    replyLabel.font = MYTopicCellDateFont;
+    replyLabel.font = TopicCellDateFont;
     [self addSubview:replyLabel];
     
     _replyView = replyLabel;

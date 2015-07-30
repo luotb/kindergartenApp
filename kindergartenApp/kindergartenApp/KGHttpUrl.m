@@ -27,6 +27,7 @@
 
 
 #define announcementListURL   @"rest/announcements/queryMy.json"               //公告列表
+
 #define myChildrenURL         @"rest/student/listByMyChildren.json"               //我的孩子列表
 #define saveChildrenURL       @"rest/student/save.json"                           //保存孩子信息
 #define saveDZURL             @"rest/dianzan/save.json"             //点赞

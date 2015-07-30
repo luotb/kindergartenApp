@@ -13,6 +13,7 @@
 #import "KGHUD.h"
 #import "PageInfoDomain.h"
 #import "UIColor+Extension.h"
+#import "AnnouncementInfoViewController.h"
 
 @interface AnnouncementListViewController () <KGReFreshViewDelegate> {
     ReFreshTableViewController * reFreshView;
@@ -72,16 +73,17 @@
 
 #pragma reFreshView Delegate
 
-//- (UITableViewCell *)createTableViewCell:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath {
-//    // 获得cell
-//    TopicTableViewCell * cell = [TopicTableViewCell cellWithTableView:tableView];
-//    cell.topicFrame = reFreshView.dataSource[indexPath.row];
-//    return cell;
-//}
-
-//选中cell
-- (void)didSelectRowCallBack:(id)baseDomain to:(NSString *)toClassName{
-    
+/**
+ *  选中cell
+ *
+ *  @param baseDomain  选中cell绑定的数据对象
+ *  @param tableView   tableView
+ *  @param indexPath   indexPath
+ */
+- (void)didSelectRowCallBack:(id)baseDomain tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath {
+    AnnouncementInfoViewController * infoVC = [[AnnouncementInfoViewController alloc] init];
+    infoVC.announcementDomain = baseDomain;
+    [self.navigationController pushViewController:infoVC animated:YES];
 }
 
 

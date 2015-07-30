@@ -19,7 +19,7 @@
     // cell的宽度
     CGFloat cellW = KGSCREEN.size.width;
     //内容 x Y 提前定义，坐标变化
-    CGFloat contentX = 27;
+//    CGFloat contentX = 27;
     CGFloat contentY = 0;
     
     //用户信息整体
@@ -29,7 +29,7 @@
     CGFloat uy = 0;
     self.userViewF = CGRectMake(ux, uy, uviewW, uviewH);
     //第一次设置contentY
-    contentY = CGRectGetMaxY(self.userViewF) + MYTopicCellBorderW;
+    contentY = CGRectGetMaxY(self.userViewF) + TopicCellBorderW;
     
     //头像
     CGFloat headWH = 45;
@@ -38,9 +38,9 @@
     self.headImageViewF = CGRectMake(headX, headY, headWH, headWH);
     
     //名称
-    CGFloat nameX = CGRectGetMaxX(self.headImageViewF) + MYTopicCellBorderW;
+    CGFloat nameX = CGRectGetMaxX(self.headImageViewF) + TopicCellBorderW;
     CGFloat nameY = 20;
-    CGSize nameSize =[topic.create_user sizeWithAttributes:[NSDictionary dictionaryWithObjectsAndKeys:MYTopicCellNameFont,NSFontAttributeName, nil]];
+    CGSize nameSize =[topic.create_user sizeWithAttributes:[NSDictionary dictionaryWithObjectsAndKeys:TopicCellNameFont,NSFontAttributeName, nil]];
     self.nameLabF = (CGRect){{nameX, nameY}, nameSize};
     
     
@@ -48,7 +48,7 @@
     if (self.topic.title && ![self.topic.title isEqualToString:@""]) {
         CGFloat titleX = nameX;
         CGFloat titleY = CGRectGetMaxY(self.nameLabF) + 8;
-        CGSize titleSize =[topic.title sizeWithAttributes:[NSDictionary dictionaryWithObjectsAndKeys:MYTopicCellNameFont,NSFontAttributeName, nil]];
+        CGSize titleSize =[topic.title sizeWithAttributes:[NSDictionary dictionaryWithObjectsAndKeys:TopicCellNameFont,NSFontAttributeName, nil]];
         self.titleLabF = (CGRect){{titleX, titleY}, titleSize};
         
         /* cell的高度 */
@@ -65,7 +65,7 @@
     self.cellHeight = CGRectGetMaxY(self.contentWebViewF);
     
     //功能视图
-    CGFloat funViewY = CGRectGetMaxY(self.contentWebViewF) + MYTopicCellBorderW;
+    CGFloat funViewY = CGRectGetMaxY(self.contentWebViewF) + TopicCellBorderW;
     CGFloat funViewH = CELLPADDING;
     self.funViewF = CGRectMake(CELLPADDING, funViewY, CELLCONTENTWIDTH, funViewH);
     
@@ -89,7 +89,7 @@
     self.dianzanBtnF = (CGRect){{dzBtnX, replyBtnY}, funBtnSize};
 
     //点赞列表
-    self.dianzanViewF = CGRectMake(0, self.cellHeight + MYTopicCellBorderW, CELLCONTENTWIDTH, MYTopicCellBorderW);
+    self.dianzanViewF = CGRectMake(0, self.cellHeight + TopicCellBorderW, CELLCONTENTWIDTH, TopicCellBorderW);
     
     /* cell的高度 */
 //    self.cellHeight = CGRectGetMaxY(self.dianzanViewF);
@@ -107,13 +107,13 @@
     //回复视图
     
     //回复输入框
-    self.replyTextFieldF = CGRectMake(CELLPADDING, self.cellHeight + MYTopicCellBorderW, CELLCONTENTWIDTH, 30);
+    self.replyTextFieldF = CGRectMake(CELLPADDING, self.cellHeight + TopicCellBorderW, CELLCONTENTWIDTH, 30);
     
     self.cellHeight = CGRectGetMaxY(self.replyTextFieldF);
     
-    self.levelabF = CGRectMake(0, self.cellHeight + MYTopicCellBorderW, cellW, 0.5);
+    self.levelabF = CGRectMake(0, self.cellHeight + TopicCellBorderW, cellW, 0.5);
     
-    self.cellHeight = CGRectGetMaxY(self.levelabF) + MYTopicCellBorderW;
+    self.cellHeight = CGRectGetMaxY(self.levelabF) + TopicCellBorderW;
 }
 
 

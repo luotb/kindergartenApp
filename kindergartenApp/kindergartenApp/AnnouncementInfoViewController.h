@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseKeyboardViewController.h"
+#import "AnnouncementDomain.h"
 
-@interface AnnouncementInfoViewController : UIViewController
+@interface AnnouncementInfoViewController : BaseKeyboardViewController
+
+
+@property (strong, nonatomic) AnnouncementDomain * announcementDomain;
 
 @end

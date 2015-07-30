@@ -80,7 +80,8 @@ static int dateNum = 10;
     NSMutableDictionary *dictionary = [[NSMutableDictionary alloc] init];
     int randomNum = arc4random()%5;
     if (randomNum == UUMessageTypePicture) {
-        [dictionary setObject:[UIImage imageNamed:[NSString stringWithFormat:@"%zd.jpeg",arc4random()%2]] forKey:@"picture"];
+        NSString * imgName = [NSString stringWithFormat:@"chat_cell_%zd.jpeg",arc4random()%2];
+        [dictionary setObject:[UIImage imageNamed:imgName] forKey:@"picture"];
     }else{
         // 文字出现概率4倍于图片（暂不出现Voice类型）
         randomNum = UUMessageTypeText;

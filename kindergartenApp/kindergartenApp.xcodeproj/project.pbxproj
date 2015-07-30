@@ -190,6 +190,11 @@
 		F4C0AB901B1C3B29007B0E35 /* SandboxFile.m in Sources */ = {isa = PBXBuildFile; fileRef = F4C0AB8F1B1C3B29007B0E35 /* SandboxFile.m */; };
 		F4C0AB941B1C3BB6007B0E35 /* KGHttpUrl.m in Sources */ = {isa = PBXBuildFile; fileRef = F4C0AB931B1C3BB6007B0E35 /* KGHttpUrl.m */; };
 		F4C0AB971B1C3C54007B0E35 /* KGHttpService.m in Sources */ = {isa = PBXBuildFile; fileRef = F4C0AB961B1C3C54007B0E35 /* KGHttpService.m */; };
+		F4C4D1C21B69CDDF00335443 /* chat_cell_0.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = F4C4D1C11B69CDDF00335443 /* chat_cell_0.jpeg */; };
+		F4C4D1C41B69CDE600335443 /* chat_cell_1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = F4C4D1C31B69CDE600335443 /* chat_cell_1.jpeg */; };
+		F4C4D1C81B69F05C00335443 /* TopicInteractionView.m in Sources */ = {isa = PBXBuildFile; fileRef = F4C4D1C71B69F05C00335443 /* TopicInteractionView.m */; };
+		F4C4D1CB1B69F34E00335443 /* TopicInteractionFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = F4C4D1CA1B69F34E00335443 /* TopicInteractionFrame.m */; };
+		F4C4D1CE1B69F44700335443 /* TopicInteractionDomain.m in Sources */ = {isa = PBXBuildFile; fileRef = F4C4D1CD1B69F44700335443 /* TopicInteractionDomain.m */; };
 		F4DCD0EC1B1C2932007D61CA /* UIView+Shadow.m in Sources */ = {isa = PBXBuildFile; fileRef = F4DCD0EB1B1C2932007D61CA /* UIView+Shadow.m */; };
 		F4DCD0EF1B1C2C50007D61CA /* KGDeviceUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = F4DCD0EE1B1C2C50007D61CA /* KGDeviceUtil.m */; };
 		F4DCD0F21B1C2E87007D61CA /* UIButton+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = F4DCD0F11B1C2E87007D61CA /* UIButton+Extension.m */; };
@@ -577,6 +582,14 @@
 		F4C0AB931B1C3BB6007B0E35 /* KGHttpUrl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KGHttpUrl.m; sourceTree = "<group>"; };
 		F4C0AB951B1C3C54007B0E35 /* KGHttpService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KGHttpService.h; sourceTree = "<group>"; };
 		F4C0AB961B1C3C54007B0E35 /* KGHttpService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KGHttpService.m; sourceTree = "<group>"; };
+		F4C4D1C11B69CDDF00335443 /* chat_cell_0.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = chat_cell_0.jpeg; path = Images.xcassets/Chat/chat_cell_0.imageset/chat_cell_0.jpeg; sourceTree = "<group>"; };
+		F4C4D1C31B69CDE600335443 /* chat_cell_1.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = chat_cell_1.jpeg; path = Images.xcassets/Chat/chat_cell_1.imageset/chat_cell_1.jpeg; sourceTree = "<group>"; };
+		F4C4D1C61B69F05C00335443 /* TopicInteractionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopicInteractionView.h; sourceTree = "<group>"; };
+		F4C4D1C71B69F05C00335443 /* TopicInteractionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopicInteractionView.m; sourceTree = "<group>"; };
+		F4C4D1C91B69F34E00335443 /* TopicInteractionFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopicInteractionFrame.h; sourceTree = "<group>"; };
+		F4C4D1CA1B69F34E00335443 /* TopicInteractionFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopicInteractionFrame.m; sourceTree = "<group>"; };
+		F4C4D1CC1B69F44700335443 /* TopicInteractionDomain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopicInteractionDomain.h; sourceTree = "<group>"; };
+		F4C4D1CD1B69F44700335443 /* TopicInteractionDomain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopicInteractionDomain.m; sourceTree = "<group>"; };
 		F4DCD0EA1B1C2932007D61CA /* UIView+Shadow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Shadow.h"; sourceTree = "<group>"; };
 		F4DCD0EB1B1C2932007D61CA /* UIView+Shadow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Shadow.m"; sourceTree = "<group>"; };
 		F4DCD0ED1B1C2C50007D61CA /* KGDeviceUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KGDeviceUtil.h; sourceTree = "<group>"; };
@@ -864,6 +877,8 @@
 		2489B6781B5ABA9900039E70 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				F4C4D1C31B69CDE600335443 /* chat_cell_1.jpeg */,
+				F4C4D1C11B69CDDF00335443 /* chat_cell_0.jpeg */,
 				2489B6791B5ABAAB00039E70 /* AddressBooksViewController.h */,
 				2489B67A1B5ABAAB00039E70 /* AddressBooksViewController.m */,
 				2489B67B1B5ABAAB00039E70 /* AddressBooksViewController.xib */,
@@ -957,6 +972,7 @@
 		248B6A841B19A92300FCB98F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F4C4D1C51B69F03100335443 /* TopicInteraction */,
 				24C46B2A1B5A29F700A58F92 /* MessageView */,
 			);
 			name = View;
@@ -1790,6 +1806,19 @@
 			name = KGFramework;
 			sourceTree = "<group>";
 		};
+		F4C4D1C51B69F03100335443 /* TopicInteraction */ = {
+			isa = PBXGroup;
+			children = (
+				F4C4D1C61B69F05C00335443 /* TopicInteractionView.h */,
+				F4C4D1C71B69F05C00335443 /* TopicInteractionView.m */,
+				F4C4D1C91B69F34E00335443 /* TopicInteractionFrame.h */,
+				F4C4D1CA1B69F34E00335443 /* TopicInteractionFrame.m */,
+				F4C4D1CC1B69F44700335443 /* TopicInteractionDomain.h */,
+				F4C4D1CD1B69F44700335443 /* TopicInteractionDomain.m */,
+			);
+			name = TopicInteraction;
+			sourceTree = "<group>";
+		};
 		F4E635F81B675E0D00800924 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -1925,6 +1954,8 @@
 				2489B6741B5AB77600039E70 /* KGIntroductionViewController.xib in Resources */,
 				248B6A6D1B19A39200FCB98F /* LaunchScreen.xib in Resources */,
 				24A176091B55563E00295997 /* TestTableViewCell.xib in Resources */,
+				F4C4D1C41B69CDE600335443 /* chat_cell_1.jpeg in Resources */,
+				F4C4D1C21B69CDDF00335443 /* chat_cell_0.jpeg in Resources */,
 				24DE91B51B67C78700D3FFCE /* TeacherJudgeViewController.xib in Resources */,
 				F487839E1B58DA1700CDC1A8 /* LICENSE in Resources */,
 				24C46B531B5A2BC800A58F92 /* MessageViewController.xib in Resources */,
@@ -2049,6 +2080,7 @@
 				2489B6691B5AB49E00039E70 /* SDWebImageDownloader.m in Sources */,
 				F48783AE1B58DA1700CDC1A8 /* MJFoundation.m in Sources */,
 				F4EC988D1B6211AC00F5721F /* StudentNoteInfoViewController.m in Sources */,
+				F4C4D1CE1B69F44700335443 /* TopicInteractionDomain.m in Sources */,
 				F48783911B58DA1700CDC1A8 /* AFURLRequestSerialization.m in Sources */,
 				F48783A81B58DA1700CDC1A8 /* README.md in Sources */,
 				2489B66A1B5AB49E00039E70 /* SDWebImageDownloaderOperation.m in Sources */,
@@ -2060,6 +2092,8 @@
 				2489B6651B5AB49E00039E70 /* UIImage+WebP.m in Sources */,
 				2489B6371B5AB32F00039E70 /* ImageCollectionView.m in Sources */,
 				F4EC989A1B62306800F5721F /* TopicFrame.m in Sources */,
+				F4C4D1C81B69F05C00335443 /* TopicInteractionView.m in Sources */,
+				F4C4D1CB1B69F34E00335443 /* TopicInteractionFrame.m in Sources */,
 				24A176081B55563E00295997 /* TestTableViewCell.m in Sources */,
 				2489B6311B5A683E00039E70 /* AFAppDotNetAPIClient.m in Sources */,
 				24A175FE1B5550B000295997 /* LoginViewController.m in Sources */,
@@ -2162,8 +2196,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: funi cloudcode (7TCF9SE4F9)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: funi cloudcode (7TCF9SE4F9)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: luo qian (3K95Y73CQX)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: luo qian (3K95Y73CQX)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -2206,8 +2240,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: funi cloudcode (7TCF9SE4F9)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: funi cloudcode (7TCF9SE4F9)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: luo qian (3K95Y73CQX)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: luo qian (3K95Y73CQX)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
