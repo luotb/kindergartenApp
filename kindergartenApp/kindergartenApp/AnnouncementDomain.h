@@ -17,5 +17,6 @@
 @property (strong, nonatomic) NSString * create_useruuid;//创建人uuid
 @property (strong, nonatomic) NSString * create_time;	 //创建时间
 @property (assign, nonatomic) NSInteger  count;	         //浏览总数
+@property (strong, nonatomic) NSString * share_url;      //用于分享的地址.全路径.
 
 @end

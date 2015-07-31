@@ -137,4 +137,16 @@
 
 // 评价老师 end
 
+
+
+//精品文章 begin
+
+//获取单个文章详情
+- (void)getArticlesInfo:(NSString *)uuid success:(void (^)(AnnouncementDomain * announcementObj))success faild:(void (^)(NSString * errorMsg))faild;
+
+//分页获取文章列表
+- (void)getArticlesList:(PageInfoDomain *)pageInfo success:(void (^)(NSArray * articlesArray))success faild:(void (^)(NSString * errorMsg))faild;
+
+//精品文章 end
+
 @end

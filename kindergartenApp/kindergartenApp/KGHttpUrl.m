@@ -41,10 +41,12 @@
 
 #define messageListURL        @"rest/pushMessage/queryMy.json" //消息列表
 
-#define teacherAndJudgesURL   @"rest/userinfo/getTeachersAndJudges.json" //评价老师列表
+#define teacherAndJudgesURL   @"rest/teachingjudge/getTeachersAndJudges.json" //评价老师列表
 #define saveTeacherJudgesURL  @"rest/teachingjudge/save.json" //评价老师
 
 #define saveTeacherJudgesURL  @"rest/teachingjudge/save.json" //通讯录
+#define specialtyCoursesURL   @"px/index.html"  //特长课程
+#define articleListURL        @"rest/share/articleList.json"  //精品文章
 
 @implementation KGHttpUrl
 
@@ -195,6 +197,23 @@
 //评价老师
 + (NSString *)getSaveTeacherJudgeUrl {
     return URL(baseServiceURL, saveTeacherJudgesURL);
+}
+
+
+//特长课程
++ (NSString *)getSpecialtyCoursesUrl {
+    return URL(baseServiceURL, specialtyCoursesURL);
+}
+
+//精品文章
++ (NSString *)getArticleListUrl {
+    return URL(baseServiceURL, articleListURL);
+}
+
+
+//精品文章详情
++ (NSString *)getArticleInfoListUrl:(NSString *)uuid {
+    return [NSString stringWithFormat:@"%@rest/share/getArticleJSON.json?uuid=%@", baseServiceURL, uuid];
 }
 
 

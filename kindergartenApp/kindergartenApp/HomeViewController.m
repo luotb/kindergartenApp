@@ -18,6 +18,7 @@
 #import "AnnouncementListViewController.h"
 #import "InteractViewController.h"
 #import "TeacherJudgeViewController.h"
+#import "SpecialtyCoursesViewController.h"
 
 @interface HomeViewController () <ImageCollectionViewDelegate, SphereMenuDelegate> {
     
@@ -143,7 +144,7 @@
             baseVC = [[AnnouncementListViewController alloc] init];
             break;
         case 17:
-            baseVC = [[AnnouncementListViewController alloc] init];
+            baseVC = [[SpecialtyCoursesViewController alloc] init];
             break;
         case 18:
             baseVC = [[TeacherJudgeViewController alloc] init];

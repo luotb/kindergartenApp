@@ -2,12 +2,12 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddressBooksViewController">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GiftwareArticlesViewController">
             <connections>
-                <outlet property="contentView" destination="Gfa-Wp-77B" id="zRs-V6-a6W"/>
+                <outlet property="contentView" destination="OlV-J0-ZAl" id="0dm-Sv-Nu4"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -16,18 +16,12 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gfa-Wp-77B">
-                    <rect key="frame" x="0.0" y="64" width="320" height="460"/>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OlV-J0-ZAl">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-            <constraints>
-                <constraint firstItem="Gfa-Wp-77B" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="dD2-er-vZb"/>
-                <constraint firstItem="Gfa-Wp-77B" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="hwt-Yq-aZS"/>
-                <constraint firstAttribute="bottom" secondItem="Gfa-Wp-77B" secondAttribute="bottom" constant="44" id="j65-ny-qzX"/>
-                <constraint firstAttribute="trailing" secondItem="Gfa-Wp-77B" secondAttribute="trailing" id="vzY-Nt-b0O"/>
-            </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
     </objects>

@@ -101,7 +101,14 @@
 //评价老师
 + (NSString *)getSaveTeacherJudgeUrl;
 
+//特长课程
++ (NSString *)getSpecialtyCoursesUrl;
 
+//精品文章
++ (NSString *)getArticleListUrl;
+
+//精品文章详情
++ (NSString *)getArticleInfoListUrl:(NSString *)uuid;
 
 
 @end

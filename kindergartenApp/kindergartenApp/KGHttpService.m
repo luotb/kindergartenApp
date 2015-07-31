@@ -608,4 +608,57 @@
 // 评价老师 end
 
 
+
+#pragma 精品文章 begin
+
+//获取单个文章详情
+- (void)getArticlesInfo:(NSString *)uuid success:(void (^)(AnnouncementDomain * announcementObj))success faild:(void (^)(NSString * errorMsg))faild {
+    
+    
+    [[AFAppDotNetAPIClient sharedClient] GET:[KGHttpUrl getArticleInfoListUrl:uuid]
+                                  parameters:nil
+                                     success:^(NSURLSessionDataTask* task, id responseObject) {
+                                         
+                                         KGBaseDomain * baseDomain = [KGBaseDomain objectWithKeyValues:responseObject];
+                                         
+                                         if([baseDomain.ResMsg.status isEqualToString:String_Success]) {
+                                             
+                                             AnnouncementDomain * announcement = [AnnouncementDomain objectWithKeyValues:baseDomain.data];
+                                             
+                                             success(announcement);
+                                         } else {
+                                             faild(baseDomain.ResMsg.message);
+                                         }
+                                     }
+                                     failure:^(NSURLSessionDataTask* task, NSError* error) {
+                                         [self requestErrorCode:error faild:faild];
+                                     }];
+}
+
+//分页获取文章列表
+- (void)getArticlesList:(PageInfoDomain *)pageInfo success:(void (^)(NSArray * articlesArray))success faild:(void (^)(NSString * errorMsg))faild {
+    
+    [[AFAppDotNetAPIClient sharedClient] GET:[KGHttpUrl getArticleListUrl]
+                                  parameters:pageInfo.keyValues
+                                     success:^(NSURLSessionDataTask* task, id responseObject) {
+                                         
+                                         KGListBaseDomain * baseDomain = [KGListBaseDomain objectWithKeyValues:responseObject];
+                                         
+                                         if([baseDomain.ResMsg.status isEqualToString:String_Success]) {
+                                             
+                                             baseDomain.list.data = [AnnouncementDomain objectArrayWithKeyValuesArray:baseDomain.list.data];
+                                             
+                                             success(baseDomain.list.data);
+                                         } else {
+                                             faild(baseDomain.ResMsg.message);
+                                         }
+                                     }
+                                     failure:^(NSURLSessionDataTask* task, NSError* error) {
+                                         [self requestErrorCode:error faild:faild];
+                                     }];
+}
+
+//精品文章 end
+
+
 @end
