@@ -9,8 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "TopicInteractionFrame.h"
 #import "HBVLinkedTextView.h"
+#import "KGTextField.h"
 
-@interface TopicInteractionView : UIView
+@interface TopicInteractionView : UIView <UITextFieldDelegate>
+
 
 @property (strong, nonatomic) TopicInteractionFrame * topicFrame;
 
@@ -35,7 +37,7 @@
 @property (nonatomic, weak) HBVLinkedTextView  * replyView;
 
 /** 回复输入框 */
-@property (nonatomic, weak) UITextField * replyTextField;
+@property (nonatomic, weak) KGTextField * replyTextField;
 
 @property (assign, nonatomic) BOOL isDZList;
 

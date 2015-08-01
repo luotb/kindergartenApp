@@ -129,14 +129,14 @@
     UIButton * dzBtn = [[UIButton alloc] init];
     [dzBtn setBackgroundImage:@"anzan" selImg:@"hongzan"];
     dzBtn.tag = Number_Ten;
-    [dzBtn addTarget:self action:@selector(funBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [dzBtn addTarget:self action:@selector(topicFunBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
     [funView addSubview:dzBtn];
     _dianzanBtn = dzBtn;
     
     UIButton * replyBtn = [[UIButton alloc] init];
     [replyBtn setBackgroundImage:@"pinglun" selImg:@"pinglun"];
     replyBtn.tag = Number_Eleven;
-    [replyBtn addTarget:self action:@selector(funBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [replyBtn addTarget:self action:@selector(topicFunBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
     [funView addSubview:replyBtn];
     _replyBtn = replyBtn;
 }
@@ -179,7 +179,7 @@
 
 //加载回复输入框
 - (void)initReplyTextField {
-    UITextField * replyTextField = [[UITextField alloc] init];
+    KGTextField * replyTextField = [[KGTextField alloc] init];
     replyTextField.placeholder = @"我来说一句...";
     [self addSubview:replyTextField];
     
@@ -254,7 +254,7 @@
 }
 
 
-- (void)funBtnClicked:(UIButton *)sender {
+- (void)topicFunBtnClicked:(UIButton *)sender {
     sender.selected = !sender.selected;
                      
     NSDictionary *dic = @{Key_TopicCellFunType : [NSNumber numberWithInteger:sender.tag],

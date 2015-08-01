@@ -14,6 +14,8 @@
 #import "DynamicMenuDomain.h"
 #import "GroupDomain.h"
 #import "MessageDomain.h"
+#import "StudentSignRecordDomain.h"
+#import "RecipesDomain.h"
 
 @implementation KGHttpService
 
@@ -203,6 +205,11 @@
                                              NSArray * groupArrayResp = [GroupDomain objectArrayWithKeyValuesArray:(NSDictionary *)responseObject[@"list"]];
                                              
                                              _groupArray = groupArrayResp;
+                                             
+                                             if(groupArrayResp && [groupArrayResp count]>Number_Zero) {
+                                                 _groupDomain = [groupArrayResp objectAtIndex:Number_Zero];
+                                             }
+                                             
                                              success(groupArrayResp);
                                          } else {
                                              faild(baseDomain.ResMsg.message);
@@ -659,6 +666,76 @@
 }
 
 //精品文章 end
+
+
+#pragma 签到记录 begin
+
+//签到记录列表
+- (void)getStudentSignRecordList:(void (^)(NSArray * recordArray))success faild:(void (^)(NSString * errorMsg))faild {
+    
+    [[AFAppDotNetAPIClient sharedClient] GET:[KGHttpUrl getStudentSignRecordUrl]
+                                  parameters:nil
+                                     success:^(NSURLSessionDataTask* task, id responseObject) {
+                                         
+                                         KGBaseDomain * baseDomain = [KGBaseDomain objectWithKeyValues:responseObject];
+                                         
+                                         if([baseDomain.ResMsg.status isEqualToString:String_Success]) {
+                                             
+                                             NSArray * arrayResp = [responseObject objectForKey:@"list"];
+                                             
+                                             NSArray * tempRecordArray = [StudentSignRecordDomain objectArrayWithKeyValuesArray:arrayResp];
+                                             
+                                             success(tempRecordArray);
+                                         } else {
+                                             faild(baseDomain.ResMsg.message);
+                                         }
+                                     }
+                                     failure:^(NSURLSessionDataTask* task, NSError* error) {
+                                         [self requestErrorCode:error faild:faild];
+                                     }];
+    
+}
+
+//签到记录 end
+
+
+#pragma 食谱 begin
+
+//食谱列表
+- (void)getRecipesList:(NSString *)beginDate success:(void (^)(NSArray * recipesArray))success faild:(void (^)(NSString * errorMsg))faild {
+    
+    NSDictionary * dic = @{@"begDateStr" : beginDate,
+                           @"endDateStr" : beginDate,
+                           @"groupuuid"  : _groupDomain.uuid};
+    
+//    NSDictionary * dic = @{@"begDateStr" : @"2015-07-01",
+//                           @"endDateStr" : @"2015-08-01",
+//                           @"groupuuid"  : _groupDomain.uuid};
+    
+    [[AFAppDotNetAPIClient sharedClient] GET:[KGHttpUrl getRecipesListUrl]
+                                  parameters:dic
+                                     success:^(NSURLSessionDataTask* task, id responseObject) {
+                                         
+                                         KGBaseDomain * baseDomain = [KGBaseDomain objectWithKeyValues:responseObject];
+                                         
+                                         if([baseDomain.ResMsg.status isEqualToString:String_Success]) {
+                                             
+                                             NSArray * arrayResp = [responseObject objectForKey:@"list"];
+                                             
+                                             NSArray * tempRecipesArray = [RecipesDomain objectArrayWithKeyValuesArray:arrayResp];
+                                             
+                                             success(tempRecipesArray);
+                                         } else {
+                                             faild(baseDomain.ResMsg.message);
+                                         }
+                                     }
+                                     failure:^(NSURLSessionDataTask* task, NSError* error) {
+                                         [self requestErrorCode:error faild:faild];
+                                     }];
+}
+
+//食谱 end
+
 
 
 @end

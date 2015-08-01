@@ -10,6 +10,7 @@
 #import "SystemResource.h"
 #import "AppDelegate.h"
 #import "KGTextField.h"
+#import "KGTextView.h"
 
 //static CGFloat kboardHeight = 254.0f;
 //static CGFloat spacerY = 10.0f;
@@ -54,16 +55,19 @@ static CGFloat viewFrameY = 10;
     }
     for (id aview in [self allSubviews:objectView]) {
         
-        NSLog(@"class:%@", [aview class]);
-        
-        if (([aview isKindOfClass:[UITextField class]] && ((UITextField*)aview).userInteractionEnabled && ((UITextField*)aview).enabled) ||
-            [aview isKindOfClass:[KGTextField class]]) {
+        if ((([aview isKindOfClass:[UITextField class]] ||
+             [aview isKindOfClass:[KGTextField class]]) && ((UITextField*)aview).userInteractionEnabled && ((UITextField*)aview).enabled)) {
             ((UITextField *)aview).delegate = self;
             [allInputFields addObject:(UITextField *)aview];
         }
-        else if ([aview isKindOfClass:[UITextView class]] && ((UITextView*)aview).userInteractionEnabled && ((UITextView*)aview).editable) {
+        else if ((([aview isKindOfClass:[UITextView class]] ||
+                  [aview isKindOfClass:[KGTextField class]]) && ((UITextView*)aview).userInteractionEnabled && ((UITextView*)aview).editable)) {
             ((UITextView *)aview).delegate = self;
             [allInputFields addObject:(UITextView *)aview];
+            
+            if([aview isKindOfClass:[KGTextField class]]) {
+                [((KGTextView *)aview) addObserver];
+            }
         }
     }
 }
@@ -76,8 +80,9 @@ static CGFloat viewFrameY = 10;
 
 //注销监听事件
 - (void)removeKeyBoardNotification {
-	[[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
-	[[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
+//	[[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
+//	[[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 //计算当前键盘的高度

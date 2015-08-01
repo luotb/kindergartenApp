@@ -19,6 +19,9 @@
 #import "InteractViewController.h"
 #import "TeacherJudgeViewController.h"
 #import "SpecialtyCoursesViewController.h"
+#import "GiftwareArticlesViewController.h"
+#import "StudentSignRecordViewController.h"
+#import "RecipesViewController.h"
 
 @interface HomeViewController () <ImageCollectionViewDelegate, SphereMenuDelegate> {
     
@@ -132,16 +135,16 @@
             baseVC = [[AnnouncementListViewController alloc] init];
             break;
         case 13:
-            baseVC = [[AnnouncementListViewController alloc] init];
+            baseVC = [[StudentSignRecordViewController alloc] init];
             break;
         case 14:
             baseVC = [[AnnouncementListViewController alloc] init];
             break;
         case 15:
-            baseVC = [[AnnouncementListViewController alloc] init];
+            baseVC = [[RecipesViewController alloc] init];
             break;
         case 16:
-            baseVC = [[AnnouncementListViewController alloc] init];
+            baseVC = [[GiftwareArticlesViewController alloc] init];
             break;
         case 17:
             baseVC = [[SpecialtyCoursesViewController alloc] init];

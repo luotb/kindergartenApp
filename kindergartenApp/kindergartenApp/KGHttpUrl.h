@@ -110,5 +110,10 @@
 //精品文章详情
 + (NSString *)getArticleInfoListUrl:(NSString *)uuid;
 
+//签到记录
++ (NSString *)getStudentSignRecordUrl;
+
+//食谱列表
++ (NSString *)getRecipesListUrl;
 
 @end

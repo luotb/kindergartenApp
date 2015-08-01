@@ -1,13 +1,15 @@
 //
 //  TopicTableViewCell.h
 //  MYAPP
-//
+//  互动Cell
 //  Created by Moyun on 15/7/1.
 //  Copyright (c) 2015年 Moyun. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 #import "HBVLinkedTextView.h"
+#import "KGTextField.h"
+
 @class TopicFrame;
 
 @interface TopicTableViewCell : UITableViewCell
@@ -50,7 +52,7 @@
 @property (nonatomic, weak) HBVLinkedTextView  * replyView;
 
 /** 回复输入框 */
-@property (nonatomic, weak) UITextField  * replyTextField;
+@property (nonatomic, weak) KGTextField  * replyTextField;
 /** 分割线 */
 @property (nonatomic,weak) UILabel * levelab;
 

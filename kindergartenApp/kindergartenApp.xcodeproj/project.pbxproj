@@ -15,6 +15,20 @@
 		245474DA1B5FDD6C00D49D40 /* StudentInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 245474D81B5FDD6C00D49D40 /* StudentInfoViewController.xib */; };
 		2469E2131B5B5E45004888A4 /* LoginRespDomain.m in Sources */ = {isa = PBXBuildFile; fileRef = 2469E2121B5B5E45004888A4 /* LoginRespDomain.m */; };
 		2469E2161B5B6039004888A4 /* ResMsgDomain.m in Sources */ = {isa = PBXBuildFile; fileRef = 2469E2151B5B6039004888A4 /* ResMsgDomain.m */; };
+		2474DFA41B6CA4840021506F /* BaseTopicInteractViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2474DFA31B6CA4840021506F /* BaseTopicInteractViewController.m */; };
+		2474DFA71B6CA7E50021506F /* KGTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2474DFA61B6CA7E50021506F /* KGTextView.m */; };
+		2474DFAF1B6CB7D90021506F /* StudentSignRecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2474DFAD1B6CB7D90021506F /* StudentSignRecordViewController.m */; };
+		2474DFB01B6CB7D90021506F /* StudentSignRecordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2474DFAE1B6CB7D90021506F /* StudentSignRecordViewController.xib */; };
+		2474DFB41B6CBB1C0021506F /* StudentSignRecordTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2474DFB21B6CBB1C0021506F /* StudentSignRecordTableViewCell.m */; };
+		2474DFB51B6CBB1C0021506F /* StudentSignRecordTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2474DFB31B6CBB1C0021506F /* StudentSignRecordTableViewCell.xib */; };
+		2474DFB81B6CBB8D0021506F /* StudentSignRecordDomain.m in Sources */ = {isa = PBXBuildFile; fileRef = 2474DFB71B6CBB8D0021506F /* StudentSignRecordDomain.m */; };
+		2474DFC01B6CCE460021506F /* RecipesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2474DFBE1B6CCE460021506F /* RecipesViewController.m */; };
+		2474DFC11B6CCE460021506F /* RecipesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2474DFBF1B6CCE460021506F /* RecipesViewController.xib */; };
+		2474DFC51B6CCF0D0021506F /* RecipesCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2474DFC31B6CCF0D0021506F /* RecipesCollectionViewCell.m */; };
+		2474DFC61B6CCF0D0021506F /* RecipesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2474DFC41B6CCF0D0021506F /* RecipesCollectionViewCell.xib */; };
+		2474DFC91B6CD2070021506F /* RecipesItemVO.m in Sources */ = {isa = PBXBuildFile; fileRef = 2474DFC81B6CD2070021506F /* RecipesItemVO.m */; };
+		2474DFCC1B6CD4240021506F /* RecipesDomain.m in Sources */ = {isa = PBXBuildFile; fileRef = 2474DFCB1B6CD4240021506F /* RecipesDomain.m */; };
+		2474DFCF1B6CD43C0021506F /* CookbookDomain.m in Sources */ = {isa = PBXBuildFile; fileRef = 2474DFCE1B6CD43C0021506F /* CookbookDomain.m */; };
 		24759EAD1B5FC48500A3087D /* TopicDomain.m in Sources */ = {isa = PBXBuildFile; fileRef = 24759EAC1B5FC48500A3087D /* TopicDomain.m */; };
 		24759EB01B5FC89900A3087D /* KGListBaseDomain.m in Sources */ = {isa = PBXBuildFile; fileRef = 24759EAF1B5FC89900A3087D /* KGListBaseDomain.m */; };
 		2487E63B1B61663E0030320A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2487E63A1B61663E0030320A /* QuartzCore.framework */; };
@@ -117,6 +131,8 @@
 		24DE91BA1B67C9D400D3FFCE /* TeacherJudgeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24DE91B81B67C9D400D3FFCE /* TeacherJudgeTableViewCell.xib */; };
 		24DEC81F1B633AEF00C55828 /* ReplyDomain.m in Sources */ = {isa = PBXBuildFile; fileRef = 24DEC81E1B633AEF00C55828 /* ReplyDomain.m */; };
 		24DEC8221B633F2B00C55828 /* DynamicMenuDomain.m in Sources */ = {isa = PBXBuildFile; fileRef = 24DEC8211B633F2B00C55828 /* DynamicMenuDomain.m */; };
+		24E0636F1B6D4502001F3283 /* TestCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24E0636D1B6D4502001F3283 /* TestCollectionViewCell.m */; };
+		24E063701B6D4502001F3283 /* TestCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24E0636E1B6D4502001F3283 /* TestCollectionViewCell.xib */; };
 		24E4D9471B64E9810088745A /* libBaiduMobStat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 24E4D9461B64E9810088745A /* libBaiduMobStat.a */; };
 		24E4D9491B64EE690088745A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24E4D9481B64EE690088745A /* SystemConfiguration.framework */; };
 		24E4D94B1B64EE710088745A /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24E4D94A1B64EE710088745A /* MessageUI.framework */; };
@@ -254,6 +270,30 @@
 		2469E2121B5B5E45004888A4 /* LoginRespDomain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginRespDomain.m; sourceTree = "<group>"; };
 		2469E2141B5B6039004888A4 /* ResMsgDomain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResMsgDomain.h; sourceTree = "<group>"; };
 		2469E2151B5B6039004888A4 /* ResMsgDomain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResMsgDomain.m; sourceTree = "<group>"; };
+		2474DFA21B6CA4840021506F /* BaseTopicInteractViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseTopicInteractViewController.h; sourceTree = "<group>"; };
+		2474DFA31B6CA4840021506F /* BaseTopicInteractViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseTopicInteractViewController.m; sourceTree = "<group>"; };
+		2474DFA51B6CA7E50021506F /* KGTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KGTextView.h; sourceTree = "<group>"; };
+		2474DFA61B6CA7E50021506F /* KGTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KGTextView.m; sourceTree = "<group>"; };
+		2474DFAC1B6CB7D90021506F /* StudentSignRecordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StudentSignRecordViewController.h; sourceTree = "<group>"; };
+		2474DFAD1B6CB7D90021506F /* StudentSignRecordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StudentSignRecordViewController.m; sourceTree = "<group>"; };
+		2474DFAE1B6CB7D90021506F /* StudentSignRecordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StudentSignRecordViewController.xib; sourceTree = "<group>"; };
+		2474DFB11B6CBB1C0021506F /* StudentSignRecordTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StudentSignRecordTableViewCell.h; sourceTree = "<group>"; };
+		2474DFB21B6CBB1C0021506F /* StudentSignRecordTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StudentSignRecordTableViewCell.m; sourceTree = "<group>"; };
+		2474DFB31B6CBB1C0021506F /* StudentSignRecordTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StudentSignRecordTableViewCell.xib; sourceTree = "<group>"; };
+		2474DFB61B6CBB8D0021506F /* StudentSignRecordDomain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StudentSignRecordDomain.h; sourceTree = "<group>"; };
+		2474DFB71B6CBB8D0021506F /* StudentSignRecordDomain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StudentSignRecordDomain.m; sourceTree = "<group>"; };
+		2474DFBD1B6CCE460021506F /* RecipesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipesViewController.h; sourceTree = "<group>"; };
+		2474DFBE1B6CCE460021506F /* RecipesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipesViewController.m; sourceTree = "<group>"; };
+		2474DFBF1B6CCE460021506F /* RecipesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecipesViewController.xib; sourceTree = "<group>"; };
+		2474DFC21B6CCF0D0021506F /* RecipesCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipesCollectionViewCell.h; sourceTree = "<group>"; };
+		2474DFC31B6CCF0D0021506F /* RecipesCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipesCollectionViewCell.m; sourceTree = "<group>"; };
+		2474DFC41B6CCF0D0021506F /* RecipesCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecipesCollectionViewCell.xib; sourceTree = "<group>"; };
+		2474DFC71B6CD2070021506F /* RecipesItemVO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipesItemVO.h; sourceTree = "<group>"; };
+		2474DFC81B6CD2070021506F /* RecipesItemVO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipesItemVO.m; sourceTree = "<group>"; };
+		2474DFCA1B6CD4240021506F /* RecipesDomain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipesDomain.h; sourceTree = "<group>"; };
+		2474DFCB1B6CD4240021506F /* RecipesDomain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipesDomain.m; sourceTree = "<group>"; };
+		2474DFCD1B6CD43C0021506F /* CookbookDomain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CookbookDomain.h; sourceTree = "<group>"; };
+		2474DFCE1B6CD43C0021506F /* CookbookDomain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CookbookDomain.m; sourceTree = "<group>"; };
 		24759EAB1B5FC48500A3087D /* TopicDomain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopicDomain.h; sourceTree = "<group>"; };
 		24759EAC1B5FC48500A3087D /* TopicDomain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopicDomain.m; sourceTree = "<group>"; };
 		24759EAE1B5FC89900A3087D /* KGListBaseDomain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KGListBaseDomain.h; sourceTree = "<group>"; };
@@ -451,6 +491,9 @@
 		24DEC81E1B633AEF00C55828 /* ReplyDomain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReplyDomain.m; sourceTree = "<group>"; };
 		24DEC8201B633F2B00C55828 /* DynamicMenuDomain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DynamicMenuDomain.h; sourceTree = "<group>"; };
 		24DEC8211B633F2B00C55828 /* DynamicMenuDomain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DynamicMenuDomain.m; sourceTree = "<group>"; };
+		24E0636C1B6D4502001F3283 /* TestCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestCollectionViewCell.h; sourceTree = "<group>"; };
+		24E0636D1B6D4502001F3283 /* TestCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestCollectionViewCell.m; sourceTree = "<group>"; };
+		24E0636E1B6D4502001F3283 /* TestCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestCollectionViewCell.xib; sourceTree = "<group>"; };
 		24E4D9451B64E9760088745A /* BaiduMobStat.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaiduMobStat.h; sourceTree = "<group>"; };
 		24E4D9461B64E9810088745A /* libBaiduMobStat.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libBaiduMobStat.a; sourceTree = "<group>"; };
 		24E4D9481B64EE690088745A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -703,6 +746,91 @@
 				244F74961B62AE5A0078D30D /* SphereMenu.m */,
 			);
 			name = SphereMenu;
+			sourceTree = "<group>";
+		};
+		2474DFA81B6CB7AA0021506F /* SignRecord */ = {
+			isa = PBXGroup;
+			children = (
+				2474DFAB1B6CB7BE0021506F /* Controller */,
+				2474DFAA1B6CB7B80021506F /* Model */,
+				2474DFA91B6CB7B00021506F /* View */,
+			);
+			name = SignRecord;
+			sourceTree = "<group>";
+		};
+		2474DFA91B6CB7B00021506F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2474DFB11B6CBB1C0021506F /* StudentSignRecordTableViewCell.h */,
+				2474DFB21B6CBB1C0021506F /* StudentSignRecordTableViewCell.m */,
+				2474DFB31B6CBB1C0021506F /* StudentSignRecordTableViewCell.xib */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		2474DFAA1B6CB7B80021506F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2474DFB61B6CBB8D0021506F /* StudentSignRecordDomain.h */,
+				2474DFB71B6CBB8D0021506F /* StudentSignRecordDomain.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		2474DFAB1B6CB7BE0021506F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2474DFAC1B6CB7D90021506F /* StudentSignRecordViewController.h */,
+				2474DFAD1B6CB7D90021506F /* StudentSignRecordViewController.m */,
+				2474DFAE1B6CB7D90021506F /* StudentSignRecordViewController.xib */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		2474DFB91B6CCDD80021506F /* Recipes */ = {
+			isa = PBXGroup;
+			children = (
+				2474DFBC1B6CCE240021506F /* Controller */,
+				2474DFBB1B6CCE1D0021506F /* Model */,
+				2474DFBA1B6CCE150021506F /* View */,
+			);
+			name = Recipes;
+			sourceTree = "<group>";
+		};
+		2474DFBA1B6CCE150021506F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2474DFC21B6CCF0D0021506F /* RecipesCollectionViewCell.h */,
+				2474DFC31B6CCF0D0021506F /* RecipesCollectionViewCell.m */,
+				2474DFC41B6CCF0D0021506F /* RecipesCollectionViewCell.xib */,
+				24E0636C1B6D4502001F3283 /* TestCollectionViewCell.h */,
+				24E0636D1B6D4502001F3283 /* TestCollectionViewCell.m */,
+				24E0636E1B6D4502001F3283 /* TestCollectionViewCell.xib */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		2474DFBB1B6CCE1D0021506F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2474DFC71B6CD2070021506F /* RecipesItemVO.h */,
+				2474DFC81B6CD2070021506F /* RecipesItemVO.m */,
+				2474DFCA1B6CD4240021506F /* RecipesDomain.h */,
+				2474DFCB1B6CD4240021506F /* RecipesDomain.m */,
+				2474DFCD1B6CD43C0021506F /* CookbookDomain.h */,
+				2474DFCE1B6CD43C0021506F /* CookbookDomain.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		2474DFBC1B6CCE240021506F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2474DFBD1B6CCE460021506F /* RecipesViewController.h */,
+				2474DFBE1B6CCE460021506F /* RecipesViewController.m */,
+				2474DFBF1B6CCE460021506F /* RecipesViewController.xib */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 		2489B61B1B5A397900039E70 /* View */ = {
@@ -1077,6 +1205,8 @@
 				248B6AC11B19B54500FCB98F /* KGFormVerify.m */,
 				248B6AC21B19B54500FCB98F /* KGTextField.h */,
 				248B6AC31B19B54500FCB98F /* KGTextField.m */,
+				2474DFA51B6CA7E50021506F /* KGTextView.h */,
+				2474DFA61B6CA7E50021506F /* KGTextView.m */,
 				248B6AC41B19B54500FCB98F /* UIKeyboardViewController.h */,
 				248B6AC51B19B54500FCB98F /* UIKeyboardViewController.m */,
 			);
@@ -1115,6 +1245,8 @@
 		248B6AA31B19ACEC00FCB98F /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				2474DFB91B6CCDD80021506F /* Recipes */,
+				2474DFA81B6CB7AA0021506F /* SignRecord */,
 				F4E6B23E1B6B59100087EAEB /* GiftwareArticles */,
 				24AA0B801B692FBD00DAC03B /* CourseList */,
 				24DE91AA1B67C1FC00D3FFCE /* Teacher */,
@@ -1575,6 +1707,8 @@
 				F45EABD01B563F9F003C367C /* BaseViewController.m */,
 				24C46B261B5A28CF00A58F92 /* BaseKeyboardViewController.h */,
 				24C46B271B5A28CF00A58F92 /* BaseKeyboardViewController.m */,
+				2474DFA21B6CA4840021506F /* BaseTopicInteractViewController.h */,
+				2474DFA31B6CA4840021506F /* BaseTopicInteractViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -2015,9 +2149,11 @@
 				24DE91A91B67B94500D3FFCE /* MessageTableViewCell.xib in Resources */,
 				F4E2D4821B6B6334001472EC /* GiftwareArticlesInfoViewController.xib in Resources */,
 				F48783D41B58E46000CDC1A8 /* MJRefresh.bundle in Resources */,
+				2474DFC61B6CCF0D0021506F /* RecipesCollectionViewCell.xib in Resources */,
 				2489B6241B5A40E200039E70 /* RegViewController.xib in Resources */,
 				F4E636041B676AD400800924 /* AnnouncementInfoViewController.xib in Resources */,
 				F48783941B58DA1700CDC1A8 /* LICENSE in Resources */,
+				2474DFB51B6CBB1C0021506F /* StudentSignRecordTableViewCell.xib in Resources */,
 				24A176041B5550EB00295997 /* TestViewController.xib in Resources */,
 				F4EA53941B60EAE30044BE7A /* StudentInfoHeaderView.xib in Resources */,
 				245474DA1B5FDD6C00D49D40 /* StudentInfoViewController.xib in Resources */,
@@ -2025,6 +2161,7 @@
 				24C46B4A1B5A2B7A00A58F92 /* InteractViewController.xib in Resources */,
 				F4E6B24B1B6B5D440087EAEB /* GiftwareArticlesTableViewCell.xib in Resources */,
 				F4EA53991B60EF800044BE7A /* StudentBaseInfoViewController.xib in Resources */,
+				2474DFB01B6CB7D90021506F /* StudentSignRecordViewController.xib in Resources */,
 				F48783AC1B58DA1700CDC1A8 /* LICENSE in Resources */,
 				2489B6741B5AB77600039E70 /* KGIntroductionViewController.xib in Resources */,
 				248B6A6D1B19A39200FCB98F /* LaunchScreen.xib in Resources */,
@@ -2038,10 +2175,12 @@
 				248B6A6A1B19A39200FCB98F /* Images.xcassets in Resources */,
 				248B6A9D1B19AAEA00FCB98F /* KGMessageView.xib in Resources */,
 				F4E635FF1B675EB700800924 /* AnnouncementTableViewCell.xib in Resources */,
+				24E063701B6D4502001F3283 /* TestCollectionViewCell.xib in Resources */,
 				24DE91BA1B67C9D400D3FFCE /* TeacherJudgeTableViewCell.xib in Resources */,
 				24C46B381B5A2A9900A58F92 /* HomeViewController.xib in Resources */,
 				F4EC988E1B6211AC00F5721F /* StudentNoteInfoViewController.xib in Resources */,
 				F4EA53871B60BD390044BE7A /* MeTableViewCell.xib in Resources */,
+				2474DFC11B6CCE460021506F /* RecipesViewController.xib in Resources */,
 				24AA0B891B692FFD00DAC03B /* CourseListViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2084,6 +2223,7 @@
 				F48783A71B58DA1700CDC1A8 /* View+MASAdditions.m in Sources */,
 				F487839C1B58DA1700CDC1A8 /* UIRefreshControl+AFNetworking.m in Sources */,
 				24C46B281B5A28CF00A58F92 /* BaseKeyboardViewController.m in Sources */,
+				2474DFC51B6CCF0D0021506F /* RecipesCollectionViewCell.m in Sources */,
 				2469E2131B5B5E45004888A4 /* LoginRespDomain.m in Sources */,
 				F48783951B58DA1700CDC1A8 /* README.md in Sources */,
 				244F74971B62AE5A0078D30D /* SphereMenu.m in Sources */,
@@ -2106,6 +2246,7 @@
 				F487838E1B58DA1700CDC1A8 /* AFNetworkReachabilityManager.m in Sources */,
 				F487838F1B58DA1700CDC1A8 /* AFSecurityPolicy.m in Sources */,
 				2489B66C1B5AB49E00039E70 /* SDWebImageDecoder.m in Sources */,
+				2474DFC91B6CD2070021506F /* RecipesItemVO.m in Sources */,
 				F4EA538F1B60D8390044BE7A /* StudentInfoItemVO.m in Sources */,
 				24A176031B5550EB00295997 /* TestViewController.m in Sources */,
 				248B6AB91B19B51A00FCB98F /* PagedFlowView.m in Sources */,
@@ -2124,6 +2265,7 @@
 				24DE91B41B67C78700D3FFCE /* TeacherJudgeViewController.m in Sources */,
 				F48783B51B58DA1700CDC1A8 /* README.md in Sources */,
 				2469E2161B5B6039004888A4 /* ResMsgDomain.m in Sources */,
+				2474DFC01B6CCE460021506F /* RecipesViewController.m in Sources */,
 				2489B6381B5AB32F00039E70 /* ImageCollectionViewCell.m in Sources */,
 				F48783D61B58E46000CDC1A8 /* MJRefreshConst.m in Sources */,
 				F4EC98911B62305700F5721F /* TopicTableViewCell.m in Sources */,
@@ -2136,6 +2278,7 @@
 				24C46B521B5A2BC800A58F92 /* MessageViewController.m in Sources */,
 				248B6ACE1B19B57400FCB98F /* FuniKeyChain.m in Sources */,
 				248B6A921B19A9D900FCB98F /* UIBarButtonItem+Extension.m in Sources */,
+				2474DFA41B6CA4840021506F /* BaseTopicInteractViewController.m in Sources */,
 				24DE91B91B67C9D400D3FFCE /* TeacherJudgeTableViewCell.m in Sources */,
 				24DEC8221B633F2B00C55828 /* DynamicMenuDomain.m in Sources */,
 				2489B66D1B5AB49E00039E70 /* SDWebImageManager.m in Sources */,
@@ -2147,6 +2290,7 @@
 				F4E635FE1B675EB700800924 /* AnnouncementTableViewCell.m in Sources */,
 				2489B6231B5A40E200039E70 /* RegViewController.m in Sources */,
 				F48783921B58DA1700CDC1A8 /* AFURLResponseSerialization.m in Sources */,
+				24E0636F1B6D4502001F3283 /* TestCollectionViewCell.m in Sources */,
 				F48783AD1B58DA1700CDC1A8 /* MJConst.m in Sources */,
 				248B6AD61B19B5CF00FCB98F /* Reachability.m in Sources */,
 				F48783971B58DA1700CDC1A8 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
@@ -2156,14 +2300,18 @@
 				248B6A621B19A39200FCB98F /* AppDelegate.m in Sources */,
 				F487838C1B58DA1700CDC1A8 /* AFHTTPRequestOperationManager.m in Sources */,
 				2489B6691B5AB49E00039E70 /* SDWebImageDownloader.m in Sources */,
+				2474DFA71B6CA7E50021506F /* KGTextView.m in Sources */,
 				F48783AE1B58DA1700CDC1A8 /* MJFoundation.m in Sources */,
 				F4EC988D1B6211AC00F5721F /* StudentNoteInfoViewController.m in Sources */,
 				F4C4D1CE1B69F44700335443 /* TopicInteractionDomain.m in Sources */,
 				F48783911B58DA1700CDC1A8 /* AFURLRequestSerialization.m in Sources */,
 				F48783A81B58DA1700CDC1A8 /* README.md in Sources */,
+				2474DFCF1B6CD43C0021506F /* CookbookDomain.m in Sources */,
 				2489B66A1B5AB49E00039E70 /* SDWebImageDownloaderOperation.m in Sources */,
+				2474DFB41B6CBB1C0021506F /* StudentSignRecordTableViewCell.m in Sources */,
 				F4EA53921B60EAD20044BE7A /* StudentInfoHeaderView.m in Sources */,
 				F4DCD0EC1B1C2932007D61CA /* UIView+Shadow.m in Sources */,
+				2474DFAF1B6CB7D90021506F /* StudentSignRecordViewController.m in Sources */,
 				F48783D91B58E46000CDC1A8 /* UIScrollView+Extension.m in Sources */,
 				248B6A931B19A9D900FCB98F /* UIColor+Extension.m in Sources */,
 				24A175F31B55430600295997 /* KGTableParam.m in Sources */,
@@ -2198,6 +2346,7 @@
 				F48783B21B58DA1700CDC1A8 /* NSObject+MJKeyValue.m in Sources */,
 				F487838D1B58DA1700CDC1A8 /* AFHTTPSessionManager.m in Sources */,
 				248B6ACF1B19B57400FCB98F /* KeychainItemWrapper.m in Sources */,
+				2474DFB81B6CBB8D0021506F /* StudentSignRecordDomain.m in Sources */,
 				F48783D81B58E46000CDC1A8 /* MJRefreshHeaderView.m in Sources */,
 				F48783A21B58DA1700CDC1A8 /* MASLayoutConstraint.m in Sources */,
 				F48783AF1B58DA1700CDC1A8 /* MJProperty.m in Sources */,
@@ -2209,6 +2358,7 @@
 				248B6A5F1B19A39200FCB98F /* main.m in Sources */,
 				24AA0B531B69134400DAC03B /* NSDate+Utils.m in Sources */,
 				F48783B11B58DA1700CDC1A8 /* NSObject+MJCoding.m in Sources */,
+				2474DFCC1B6CD4240021506F /* RecipesDomain.m in Sources */,
 				F4E636031B676AD400800924 /* AnnouncementInfoViewController.m in Sources */,
 				24AA0B441B690F4300DAC03B /* UUMessage.m in Sources */,
 				F463E64C1B6639B800AB92B9 /* HBVLinkedTextView.m in Sources */,

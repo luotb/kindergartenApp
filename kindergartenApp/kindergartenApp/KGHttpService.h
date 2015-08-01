@@ -16,6 +16,7 @@
 #import "DianZanDomain.h"
 #import "AnnouncementDomain.h"
 #import "TeacherVO.h"
+#import "GroupDomain.h"
 
 @interface KGHttpService : NSObject
 
@@ -24,6 +25,7 @@
 @property (strong, nonatomic) LoginRespDomain * loginRespDomain;
 @property (strong, nonatomic) NSArray         * dynamicMenuArray; //首页动态菜单数据
 @property (strong, nonatomic) NSArray         * groupArray; //机构列表数据
+@property (strong, nonatomic) GroupDomain     * groupDomain; //选择的机构 默认为机构列表第一条数据 首页切换机构后需要重置
 
 
 + (KGHttpService *)sharedService;
@@ -148,5 +150,22 @@
 - (void)getArticlesList:(PageInfoDomain *)pageInfo success:(void (^)(NSArray * articlesArray))success faild:(void (^)(NSString * errorMsg))faild;
 
 //精品文章 end
+
+
+//签到记录 begin
+
+//签到记录列表
+- (void)getStudentSignRecordList:(void (^)(NSArray * recordArray))success faild:(void (^)(NSString * errorMsg))faild;
+
+//签到记录 end
+
+
+
+//食谱 begin
+
+//食谱列表
+- (void)getRecipesList:(NSString *)beginDate success:(void (^)(NSArray * recipesArray))success faild:(void (^)(NSString * errorMsg))faild;
+
+//食谱 end
 
 @end

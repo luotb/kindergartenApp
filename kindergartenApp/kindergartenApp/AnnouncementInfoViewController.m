@@ -48,11 +48,8 @@
     topicFrame.topicInteractionDomain = domain;
     
     CGFloat y = CGRectGetMaxY(createTimeLabel.frame) + Number_Ten;
-//    CGRect frame = CGRectMake(CELLPADDING, y, CELLCONTENTWIDTH, topicFrame.cellHeight);
-//    TopicInteractionView * topicView = [[TopicInteractionView alloc] initWithFrame:frame];
     TopicInteractionView * topicView = [[TopicInteractionView alloc] init];
     topicView.topicFrame = topicFrame;
-//    topicView.backgroundColor = [UIColor grayColor];
     [contentScrollView addSubview:topicView];
     
     [topicView mas_makeConstraints:^(MASConstraintMaker *make) {

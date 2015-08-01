@@ -47,6 +47,12 @@
 #define saveTeacherJudgesURL  @"rest/teachingjudge/save.json" //通讯录
 #define specialtyCoursesURL   @"px/index.html"  //特长课程
 #define articleListURL        @"rest/share/articleList.json"  //精品文章
+#define studentSignRecordURL  @"rest/studentSignRecord/queryMy.json"  //签到记录
+
+
+#define recipesListURL        @"rest/cookbookplan/list.json"  //食谱列表
+
+
 
 @implementation KGHttpUrl
 
@@ -214,6 +220,16 @@
 //精品文章详情
 + (NSString *)getArticleInfoListUrl:(NSString *)uuid {
     return [NSString stringWithFormat:@"%@rest/share/getArticleJSON.json?uuid=%@", baseServiceURL, uuid];
+}
+
+//签到记录
++ (NSString *)getStudentSignRecordUrl {
+    return URL(baseServiceURL, studentSignRecordURL);
+}
+
+//食谱列表
++ (NSString *)getRecipesListUrl {
+    return URL(baseServiceURL, recipesListURL);
 }
 
 

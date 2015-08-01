@@ -44,7 +44,7 @@
     [myWebView loadRequest:[[NSURLRequest alloc] initWithURL:[NSURL URLWithString:url]]];
     
 //    [self initReFreshView];
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cellFunClickedNotification:) name:Key_Notification_TopicFunClicked object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cellFunClickedNotification:) name:Key_Notification_TopicFunClicked object:nil];
 }
 
 //cell点击监听通知

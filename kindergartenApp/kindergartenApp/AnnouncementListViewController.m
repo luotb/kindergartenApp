@@ -66,7 +66,7 @@
     reFreshView._delegate = self;
     reFreshView.tableParam.cellHeight       = 78;
     reFreshView.tableParam.cellClassNameStr = @"AnnouncementTableViewCell";
-    reFreshView.tableView.backgroundColor = KGColorFrom16(0xEBEBF2);
+    reFreshView.tableView.backgroundColor = KGColorFrom16(0xE7E7EE);
     [reFreshView appendToView:self.contentView];
     [reFreshView beginRefreshing];
 }
