@@ -20,6 +20,10 @@
 
 @property (strong, nonatomic) NSString * content;    //内容HTML
 
+@property (strong, nonatomic) NSString * imgs;       //帖子图片id 逗号分隔
+
+@property (strong, nonatomic) NSString * imgsList;   //帖子图片列表 逗号分隔
+
 @property (strong, nonatomic) NSString * create_user;      //创建人名
 
 @property (strong, nonatomic) NSString * create_useruuid;  //创建人uuid
@@ -33,6 +37,8 @@
 @property (strong, nonatomic) NSString * share_url; //用于分享的全路径
 
 @property (assign, nonatomic) NSInteger count; //流量次数
+
+@property (assign, nonatomic) NSInteger usertype; //
 
 @property (strong, nonatomic) DianZanDomain * dianZanDomain;//点赞数据
 

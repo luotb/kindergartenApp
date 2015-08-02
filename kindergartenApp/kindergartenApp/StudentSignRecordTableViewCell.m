@@ -8,6 +8,10 @@
 
 #import "StudentSignRecordTableViewCell.h"
 #import "StudentSignRecordDomain.h"
+#import "UIImageView+WebCache.h"
+#import "KGHttpService.h"
+#import "KGUser.h"
+#import "UIColor+Extension.h"
 
 @implementation StudentSignRecordTableViewCell
 
@@ -28,8 +32,14 @@
  */
 - (void)resetValue:(id)baseDomain parame:(NSMutableDictionary *)parameterDic {
     StudentSignRecordDomain * domain = (StudentSignRecordDomain *)baseDomain;
+    KGUser * user = [[KGHttpService sharedService] getUserByUUID:domain.studentuuid];
+    nameLabel.text = user.name;
     
-//    nameLabel.text = domain.
+    [headImageView sd_setImageWithURL:[NSURL URLWithString:user.headimg] placeholderImage:[UIImage imageNamed:@"head_def"] options:SDWebImageLowPriority completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        
+        [headImageView setBorderWithWidth:Number_One color:KGColorFrom16(0xE7E7EE) radian:headImageView.width/Number_Two];
+    }];
+    
     timeLabel.text = domain.sign_time;
     addressLabel.text = domain.groupname;
     signNameLabel.text = domain.sign_name;

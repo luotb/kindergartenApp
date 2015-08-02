@@ -38,12 +38,12 @@
     [rightBarItem setTintColor:[UIColor whiteColor]];
     self.navigationItem.rightBarButtonItem = rightBarItem;
     
-    myWebView.delegate = self;
+//    myWebView.delegate = self;
     
-    NSString * url = [NSString stringWithFormat:@"%@&JSESSIONID=%@", [KGHttpUrl getClassNewsHTMLURL], [KGHttpService sharedService].loginRespDomain.JSESSIONID];
-    [myWebView loadRequest:[[NSURLRequest alloc] initWithURL:[NSURL URLWithString:url]]];
+//    NSString * url = [NSString stringWithFormat:@"%@&JSESSIONID=%@", [KGHttpUrl getClassNewsHTMLURL], [KGHttpService sharedService].loginRespDomain.JSESSIONID];
+//    [myWebView loadRequest:[[NSURLRequest alloc] initWithURL:[NSURL URLWithString:url]]];
     
-//    [self initReFreshView];
+    [self initReFreshView];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cellFunClickedNotification:) name:Key_Notification_TopicFunClicked object:nil];
 }
 

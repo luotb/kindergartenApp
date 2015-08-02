@@ -11,5 +11,9 @@
 @interface RecipesItemVO : NSObject
 
 
+@property (strong, nonatomic) NSString * headStr;
+@property (strong, nonatomic) NSArray  * cookbookArray;
+
+- (instancetype)initItemVO:(NSString *)head cbArray:(NSArray *)cbArray;
 
 @end

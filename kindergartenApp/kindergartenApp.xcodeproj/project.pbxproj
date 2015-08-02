@@ -86,6 +86,8 @@
 		248B6ACF1B19B57400FCB98F /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 248B6ACD1B19B57400FCB98F /* KeychainItemWrapper.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		248B6AD21B19B58D00FCB98F /* MLNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 248B6AD11B19B58D00FCB98F /* MLNavigationController.m */; };
 		248B6AD61B19B5CF00FCB98F /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 248B6AD51B19B5CF00FCB98F /* Reachability.m */; };
+		2491BB521B6E27F00052532B /* RecipesStudentInfoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2491BB501B6E27F00052532B /* RecipesStudentInfoTableViewCell.m */; };
+		2491BB531B6E27F00052532B /* RecipesStudentInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2491BB511B6E27F00052532B /* RecipesStudentInfoTableViewCell.xib */; };
 		24A175E71B5541BF00295997 /* KGDBHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A175E41B5541BF00295997 /* KGDBHelper.m */; };
 		24A175E81B5541BF00295997 /* KGDBHelperHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A175E61B5541BF00295997 /* KGDBHelperHandle.m */; };
 		24A175F31B55430600295997 /* KGTableParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A175F11B55430600295997 /* KGTableParam.m */; };
@@ -412,6 +414,9 @@
 		248B6AD11B19B58D00FCB98F /* MLNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLNavigationController.m; sourceTree = "<group>"; };
 		248B6AD41B19B5CF00FCB98F /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		248B6AD51B19B5CF00FCB98F /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		2491BB4F1B6E27F00052532B /* RecipesStudentInfoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipesStudentInfoTableViewCell.h; sourceTree = "<group>"; };
+		2491BB501B6E27F00052532B /* RecipesStudentInfoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipesStudentInfoTableViewCell.m; sourceTree = "<group>"; };
+		2491BB511B6E27F00052532B /* RecipesStudentInfoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecipesStudentInfoTableViewCell.xib; sourceTree = "<group>"; };
 		24A175E31B5541BF00295997 /* KGDBHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KGDBHelper.h; sourceTree = "<group>"; };
 		24A175E41B5541BF00295997 /* KGDBHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KGDBHelper.m; sourceTree = "<group>"; };
 		24A175E51B5541BF00295997 /* KGDBHelperHandle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KGDBHelperHandle.h; sourceTree = "<group>"; };
@@ -806,6 +811,9 @@
 				24E0636C1B6D4502001F3283 /* TestCollectionViewCell.h */,
 				24E0636D1B6D4502001F3283 /* TestCollectionViewCell.m */,
 				24E0636E1B6D4502001F3283 /* TestCollectionViewCell.xib */,
+				2491BB4F1B6E27F00052532B /* RecipesStudentInfoTableViewCell.h */,
+				2491BB501B6E27F00052532B /* RecipesStudentInfoTableViewCell.m */,
+				2491BB511B6E27F00052532B /* RecipesStudentInfoTableViewCell.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -2106,6 +2114,7 @@
 				TargetAttributes = {
 					248B6A581B19A39200FCB98F = {
 						CreatedOnToolsVersion = 6.3;
+						DevelopmentTeam = M5PP646L93;
 					};
 					248B6A711B19A39200FCB98F = {
 						CreatedOnToolsVersion = 6.3;
@@ -2168,6 +2177,7 @@
 				24A176091B55563E00295997 /* TestTableViewCell.xib in Resources */,
 				F4C4D1C41B69CDE600335443 /* chat_cell_1.jpeg in Resources */,
 				F4C4D1C21B69CDDF00335443 /* chat_cell_0.jpeg in Resources */,
+				2491BB531B6E27F00052532B /* RecipesStudentInfoTableViewCell.xib in Resources */,
 				24DE91B51B67C78700D3FFCE /* TeacherJudgeViewController.xib in Resources */,
 				F4E6B23D1B6B53DD0087EAEB /* SpecialtyCoursesViewController.xib in Resources */,
 				F487839E1B58DA1700CDC1A8 /* LICENSE in Resources */,
@@ -2356,6 +2366,7 @@
 				243918E41B5D1E5800F3727E /* KGNavigationController.m in Sources */,
 				24A175E81B5541BF00295997 /* KGDBHelperHandle.m in Sources */,
 				248B6A5F1B19A39200FCB98F /* main.m in Sources */,
+				2491BB521B6E27F00052532B /* RecipesStudentInfoTableViewCell.m in Sources */,
 				24AA0B531B69134400DAC03B /* NSDate+Utils.m in Sources */,
 				F48783B11B58DA1700CDC1A8 /* NSObject+MJCoding.m in Sources */,
 				2474DFCC1B6CD4240021506F /* RecipesDomain.m in Sources */,
@@ -2496,6 +2507,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PREFIX_HEADER = kindergartenApp/pchFile.pch;
 				INFOPLIST_FILE = kindergartenApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
@@ -2505,6 +2518,7 @@
 					"$(PROJECT_DIR)/kindergartenApp",
 				);
 				PRODUCT_NAME = kindergartenApp;
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -2514,6 +2528,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PREFIX_HEADER = kindergartenApp/pchFile.pch;
 				INFOPLIST_FILE = kindergartenApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
@@ -2523,6 +2539,7 @@
 					"$(PROJECT_DIR)/kindergartenApp",
 				);
 				PRODUCT_NAME = kindergartenApp;
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

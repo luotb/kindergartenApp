@@ -56,7 +56,9 @@
     
     [self getQueryDate:index];
     
-    [[KGHttpService sharedService] getRecipesList:lastDateStr success:^(NSArray *recipesArray) {
+    NSString * endDate = isNoFirstReq ? nil : [KGDateUtil getDate:Number_One];
+    
+    [[KGHttpService sharedService] getRecipesList:lastDateStr endDate:endDate success:^(NSArray *recipesArray) {
         
         if(recipesArray && [recipesArray count]>Number_Zero) {
             success([recipesArray objectAtIndex:Number_Zero]);
@@ -70,25 +72,19 @@
 //初始化collectionview
 - (void)initCollectionView
 {
-    CGRect frame = {{Number_Zero, Number_Zero}, {CGRectGetWidth(KGSCREEN), CGRectGetHeight(self.contentView.frame)}};
-    CGSize itemSize = frame.size;
-    itemSize = CGSizeMake(150, 150);
-    
-    UICollectionViewFlowLayout * layout = [UICollectionViewFlowLayout new];
+    CGSize itemSize = CGSizeMake(CGRectGetWidth(KGSCREEN), CGRectGetHeight(KGSCREEN));
+    UICollectionViewFlowLayout * layout = [[UICollectionViewFlowLayout alloc] init];
     layout.minimumLineSpacing = Number_Zero;
     layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;  //横向滚动
     layout.itemSize = itemSize;
     
-//    recipesCollectionView = [[UICollectionView alloc] initWithFrame:frame collectionViewLayout:layout];
+    [recipesCollectionView setCollectionViewLayout:layout];
     recipesCollectionView.backgroundColor = [UIColor clearColor];
     recipesCollectionView.dataSource = self;
     recipesCollectionView.delegate = self;
     recipesCollectionView.pagingEnabled = YES;
-    
     [recipesCollectionView setShowsHorizontalScrollIndicator:NO];
-    
-    [recipesCollectionView registerNib:[UINib nibWithNibName:@"TestCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:recipesCollectionCellIden];
-//    [recipesCollectionView registerNib:[UINib nibWithNibName:@"RecipesCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:recipesCollectionCellIden];
+    [recipesCollectionView registerNib:[UINib nibWithNibName:@"RecipesCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:recipesCollectionCellIden];
 }
 
 
@@ -102,8 +98,8 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     
     static NSString *identifierCell = recipesCollectionCellIden;
-//    RecipesCollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifierCell forIndexPath:indexPath];
-    TestCollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifierCell forIndexPath:indexPath];
+    RecipesCollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifierCell forIndexPath:indexPath];
+//    TestCollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifierCell forIndexPath:indexPath];
     
     [self getRecipesList:indexPath.row success:^(RecipesDomain *domain) {
         [cell loadRecipesData:domain];

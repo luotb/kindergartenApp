@@ -52,11 +52,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "kindergartenApp/StudentBaseInfoViewController.m"
-            timestampString = "459599550.574247"
+            timestampString = "460223876.131808"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "108"
-            endingLineNumber = "108"
+            startingLineNumber = "114"
+            endingLineNumber = "114"
             landmarkName = "-uploadImg:"
             landmarkType = "5">
             <Locations>
@@ -68,11 +68,11 @@
                   moduleName = "kindergartenApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Rock_Mac/Documents/workspace/KG/kindergartenApp/kindergartenApp/StudentBaseInfoViewController.m"
-                  timestampString = "460147349.733331"
+                  timestampString = "460223876.638512"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "109"
-                  endingLineNumber = "109"
+                  startingLineNumber = "115"
+                  endingLineNumber = "115"
                   offsetFromSymbolStart = "50">
                </Location>
                <Location
@@ -83,11 +83,11 @@
                   moduleName = "kindergartenApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Rock_Mac/Documents/workspace/KG/kindergartenApp/kindergartenApp/StudentBaseInfoViewController.m"
-                  timestampString = "460147349.733678"
+                  timestampString = "460223876.638854"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "109"
-                  endingLineNumber = "109"
+                  startingLineNumber = "115"
+                  endingLineNumber = "115"
                   offsetFromSymbolStart = "41">
                </Location>
             </Locations>
@@ -100,11 +100,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "kindergartenApp/StudentBaseInfoViewController.m"
-            timestampString = "459599550.574247"
+            timestampString = "460223876.131808"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "119"
-            endingLineNumber = "119"
+            startingLineNumber = "125"
+            endingLineNumber = "125"
             landmarkName = "-saveStudentInfo"
             landmarkType = "5">
             <Locations>
@@ -116,11 +116,11 @@
                   moduleName = "kindergartenApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Rock_Mac/Documents/workspace/KG/kindergartenApp/kindergartenApp/StudentBaseInfoViewController.m"
-                  timestampString = "460147349.735053"
+                  timestampString = "460223876.640822"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "119"
-                  endingLineNumber = "119"
+                  startingLineNumber = "125"
+                  endingLineNumber = "125"
                   offsetFromSymbolStart = "27">
                </Location>
                <Location
@@ -131,11 +131,11 @@
                   moduleName = "kindergartenApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Rock_Mac/Documents/workspace/KG/kindergartenApp/kindergartenApp/StudentBaseInfoViewController.m"
-                  timestampString = "460147349.735242"
+                  timestampString = "460223876.641036"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "119"
-                  endingLineNumber = "119"
+                  startingLineNumber = "125"
+                  endingLineNumber = "125"
                   offsetFromSymbolStart = "36">
                </Location>
             </Locations>
@@ -164,7 +164,7 @@
                   moduleName = "kindergartenApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Rock_Mac/Documents/workspace/KG/kindergartenApp/kindergartenApp/StudentOtherInfoViewController.m"
-                  timestampString = "460147349.736145"
+                  timestampString = "460223876.645102"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "83"
@@ -179,7 +179,7 @@
                   moduleName = "kindergartenApp"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Rock_Mac/Documents/workspace/KG/kindergartenApp/kindergartenApp/StudentOtherInfoViewController.m"
-                  timestampString = "460147349.736412"
+                  timestampString = "460223876.645399"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "83"
@@ -212,11 +212,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "kindergartenApp/StudentBaseInfoViewController.m"
-            timestampString = "459589398.767801"
+            timestampString = "460223876.131808"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "83"
-            endingLineNumber = "83"
+            startingLineNumber = "89"
+            endingLineNumber = "89"
             landmarkName = "-saveStudentBaseInfo"
             landmarkType = "5">
          </BreakpointContent>
@@ -291,22 +291,6 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "kindergartenApp/KGHttpService.m"
-            timestampString = "460126699.761737"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "565"
-            endingLineNumber = "565"
-            landmarkName = "-getTeacherList:faild:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "kindergartenApp/UIKeyboardViewController.m"
             timestampString = "460107630.664653"
             startingColumnNumber = "9223372036854775807"
@@ -324,11 +308,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "kindergartenApp/KGHttpService.m"
-            timestampString = "460126699.761737"
+            timestampString = "460222454.122671"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "664"
-            endingLineNumber = "664"
+            startingLineNumber = "675"
+            endingLineNumber = "675"
             landmarkName = "-getArticlesList:success:faild:"
             landmarkType = "5">
          </BreakpointContent>
@@ -340,11 +324,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "kindergartenApp/KGHttpService.m"
-            timestampString = "460126699.761737"
+            timestampString = "460222454.122671"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "694"
-            endingLineNumber = "694"
+            startingLineNumber = "703"
+            endingLineNumber = "703"
             landmarkName = "-getStudentSignRecordList:faild:"
             landmarkType = "5">
          </BreakpointContent>
@@ -356,12 +340,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "kindergartenApp/KGHttpService.m"
-            timestampString = "460129578.435662"
+            timestampString = "460222454.122671"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "733"
-            endingLineNumber = "733"
-            landmarkName = "-getRecipesList:success:faild:"
+            startingLineNumber = "742"
+            endingLineNumber = "742"
+            landmarkName = "-getRecipesList:endDate:success:faild:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

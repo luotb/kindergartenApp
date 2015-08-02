@@ -7,6 +7,13 @@
 //
 
 #import "RecipesCollectionViewCell.h"
+#import "RecipesItemVO.h"
+#import "StudentInfoHeaderView.h"
+#import "UIColor+Extension.h"
+#import "RecipesStudentInfoTableViewCell.h"
+#import "CookbookDomain.h"
+
+#define RecipesInfoCellIdentifier  @"RecipesInfoCellIdentifier"
 
 @implementation RecipesCollectionViewCell
 
@@ -21,103 +28,143 @@
     self.backgroundColor = [UIColor grayColor];
 }
 
-
-//加载食谱数据
-- (void)loadRecipesData:(RecipesDomain *)recipesDomain; {
-    testLabel.text = recipesDomain.analysis;
-    
+- (NSMutableArray *)tableDataSource {
+    if(!_tableDataSource) {
+        _tableDataSource = [[NSMutableArray alloc] init];
+    }
+    return _tableDataSource;
 }
 
 
+//加载食谱数据
+- (void)loadRecipesData:(RecipesDomain *)recipesDomain; {
+    recipes = recipesDomain;
+    
+    [self packageTableData];
+    [recipesTableView reloadData];
+}
 
+- (void)packageTableData {
+    RecipesItemVO * itemVO1 = [[RecipesItemVO alloc] initItemVO:recipes.plandate cbArray:nil];
+    [self.tableDataSource addObject:itemVO1];
+    
+    if(recipes.list_time_1 && [recipes.list_time_1 count]>Number_Zero) {
+        RecipesItemVO * itemVO2 = [[RecipesItemVO alloc] initItemVO:@"早餐" cbArray:recipes.list_time_1];
+        [self.tableDataSource addObject:itemVO2];
+    }
+    
+    if(recipes.list_time_2 && [recipes.list_time_2 count]>Number_Zero) {
+        RecipesItemVO * itemVO3 = [[RecipesItemVO alloc] initItemVO:@"早上加餐" cbArray:recipes.list_time_2];
+        [self.tableDataSource addObject:itemVO3];
+    }
+    
+    if(recipes.list_time_3 && [recipes.list_time_3 count]>Number_Zero) {
+        RecipesItemVO * itemVO4 = [[RecipesItemVO alloc] initItemVO:@"午餐" cbArray:recipes.list_time_3];
+        [self.tableDataSource addObject:itemVO4];
+    }
+    
+    if(recipes.list_time_4 && [recipes.list_time_4 count]>Number_Zero) {
+        RecipesItemVO * itemVO5 = [[RecipesItemVO alloc] initItemVO:@"下午加餐" cbArray:recipes.list_time_4];
+        [self.tableDataSource addObject:itemVO5];
+    }
+    
+    if(recipes.list_time_5 && [recipes.list_time_5 count]>Number_Zero) {
+        RecipesItemVO * itemVO6 = [[RecipesItemVO alloc] initItemVO:@"晚餐" cbArray:recipes.list_time_5];
+        [self.tableDataSource addObject:itemVO6];
+    }
+    
+    RecipesItemVO * itemVO7 = [[RecipesItemVO alloc] initItemVO:@"营养分析" cbArray:nil];
+    [self.tableDataSource addObject:itemVO7];
+}
 
 
 #pragma UITableView delegate
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return [recipesDataSourceMArray count];
+    return [self.tableDataSource count];
 }
 
 
-//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-//{
-//    
-//    StudentInfoItemVO * itemVO = [recipesDataSourceMArray objectAtIndex:section];
-//    return [itemVO.contentMArray count];
-//}
-//
-//
-//- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-//    if(section!=Number_Zero && section!=Number_Seven) {
-//        return Cell_Height2;
-//    }
-//    return Number_Zero;
-//}
-//
-//
-//- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-//    if(section!=Number_Zero && section!=Number_Seven) {
-//        StudentInfoItemVO * itemVO = [tableDataSource objectAtIndex:section];
-//        
-//        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"StudentInfoHeaderView" owner:nil options:nil];
-//        StudentInfoHeaderView * view = (StudentInfoHeaderView *)[nib objectAtIndex:Number_Zero];
-//        view.titleLabel.text = itemVO.head;
-//        view.backgroundColor = KGColorFrom16(0xE7E7EE);
-//        view.funBtn.tag = section;
-//        [view.funBtn addTarget:self action:@selector(sectionBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
-//        return view;
-//    }
-//    
-//    return nil;
-//}
-//
-//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    if(indexPath.section == Number_Zero) {
-//        //学生基本信息
-//        return [self loadStudentInfoCell:tableView cellForRowAtIndexPath:indexPath];
-//    } else {
-//        return [self loadFunCell:tableView cellForRowAtIndexPath:indexPath];
-//    }
-//}
-//
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    if(section==Number_Zero || section==[self.tableDataSource count]-Number_One) {
+        
+    }
+    return Number_One;
+}
 
-//- (UITableViewCell *)loadStudentInfoCell:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-//    MeTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:StudentInfoCellIdentifier];
-//    if (cell == nil) {
-//        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"MeTableViewCell" owner:nil options:nil];
-//        cell = [nib objectAtIndex:Number_Zero];
-//        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-//    }
-//    [cell resetCellParam:_studentInfo];
-//    return cell;
-//}
-//
-//
-//- (UITableViewCell *)loadFunCell:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-//    UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:StudentOtherInfoCellIdentifier];
-//    if (cell == nil) {
-//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:StudentOtherInfoCellIdentifier];
-//        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-//    }
-//    
-//    StudentInfoItemVO * itemVO = [tableDataSource objectAtIndex:indexPath.section];
-//    cell.textLabel.text = [itemVO.contentMArray objectAtIndex:indexPath.row];
-//    
-//    return cell;
-//}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    if(section == Number_Zero) {
+        return 0;
+    } else {
+        return 30;
+    }
+}
+
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    if(section!=Number_Zero) {
+        RecipesItemVO * itemVO = [self.tableDataSource objectAtIndex:section];
+        
+        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"StudentInfoHeaderView" owner:nil options:nil];
+        StudentInfoHeaderView * view = (StudentInfoHeaderView *)[nib objectAtIndex:Number_Zero];
+        view.titleLabel.text = itemVO.headStr;
+        view.backgroundColor = KGColorFrom16(0xE7E7EE);
+        return view;
+    }
+    
+    return nil;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(indexPath.section == Number_Zero) {
+        //学生基本信息
+        return [self loadStudentInfoCell:tableView cellForRowAtIndexPath:indexPath];
+    } else {
+        return [self loadRecipesCell:tableView cellForRowAtIndexPath:indexPath];
+    }
+}
+
+
+- (UITableViewCell *)loadStudentInfoCell:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    RecipesStudentInfoTableViewCell * cell = [RecipesStudentInfoTableViewCell cellWithTableView:tableView];
+    [cell resetCellParam:recipes];
+    return cell;
+}
+
+
+- (UITableViewCell *)loadRecipesCell:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:RecipesInfoCellIdentifier];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:RecipesInfoCellIdentifier];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    }
+    
+    RecipesItemVO * itemVO = [self.tableDataSource objectAtIndex:indexPath.section];
+    [self loadRecipes:itemVO frame:CGRectMake(Number_Zero, Number_Zero, cell.width, cell.height)];
+    
+    return cell;
+}
 
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if(indexPath.section == Number_Zero) {
-        return 60;
-    }else{
-        if(indexPath.section == Number_Eight) {
-            return 70;
-        } else {
-            return 35;
-        }
+        return 59;
+    } else if (indexPath.section == [self.tableDataSource count]-Number_One) {
+        return 150;
+    } else {
+        return 70;
+    }
+}
+
+- (void)loadRecipes:(RecipesItemVO *)recipesVO frame:(CGRect)frame {
+    UIScrollView * recipesScrollView = [[UIScrollView alloc] initWithFrame:frame];
+    
+    for(CookbookDomain * cookbook in recipesVO.cookbookArray) {
+        
     }
 }
 

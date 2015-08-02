@@ -15,6 +15,8 @@
 #import "KGHttpService.h"
 #import "KGHUD.h"
 #import "KGDateUtil.h"
+#import "UIView+Extension.h"
+#import "UIColor+Extension.h"
 
 @interface StudentBaseInfoViewController () <UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, KGPopupVCDelegate> {
     
@@ -66,6 +68,10 @@
 
 //初始化页面值
 - (void)initViewData {
+    [headImageView sd_setImageWithURL:[NSURL URLWithString:_studentInfo.headimg] placeholderImage:[UIImage imageNamed:@"head_def"] options:SDWebImageLowPriority completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        [headImageView setBorderWithWidth:Number_Zero color:KGColorFrom16(0xE7E7EE) radian:headImageView.width / Number_Two];
+    }];
+
     nameTextField.text = _studentInfo.name;
     nickTextField.text = _studentInfo.nickname;
     birthdayTextField.text = _studentInfo.birthday;

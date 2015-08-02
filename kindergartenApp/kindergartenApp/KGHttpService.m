@@ -63,6 +63,17 @@
 }
 
 
+//获取学生信息
+- (KGUser *)getUserByUUID:(NSString *)uuid {
+    for(KGUser * user in _loginRespDomain.list) {
+        if([uuid isEqualToString:user.uuid]) {
+            return user;
+        }
+    }
+    return nil;
+}
+
+
 /**
  *  获取服务器数据
  *
@@ -677,13 +688,11 @@
                                   parameters:nil
                                      success:^(NSURLSessionDataTask* task, id responseObject) {
                                          
-                                         KGBaseDomain * baseDomain = [KGBaseDomain objectWithKeyValues:responseObject];
+                                         KGListBaseDomain * baseDomain = [KGListBaseDomain objectWithKeyValues:responseObject];
                                          
                                          if([baseDomain.ResMsg.status isEqualToString:String_Success]) {
                                              
-                                             NSArray * arrayResp = [responseObject objectForKey:@"list"];
-                                             
-                                             NSArray * tempRecordArray = [StudentSignRecordDomain objectArrayWithKeyValuesArray:arrayResp];
+                                             NSArray * tempRecordArray = [StudentSignRecordDomain objectArrayWithKeyValuesArray:baseDomain.list.data];
                                              
                                              success(tempRecordArray);
                                          } else {
@@ -702,10 +711,10 @@
 #pragma 食谱 begin
 
 //食谱列表
-- (void)getRecipesList:(NSString *)beginDate success:(void (^)(NSArray * recipesArray))success faild:(void (^)(NSString * errorMsg))faild {
+- (void)getRecipesList:(NSString *)beginDate endDate:(NSString *)endDate success:(void (^)(NSArray * recipesArray))success faild:(void (^)(NSString * errorMsg))faild {
     
     NSDictionary * dic = @{@"begDateStr" : beginDate,
-                           @"endDateStr" : beginDate,
+                           @"endDateStr" : endDate ? endDate : beginDate,
                            @"groupuuid"  : _groupDomain.uuid};
     
 //    NSDictionary * dic = @{@"begDateStr" : @"2015-07-01",

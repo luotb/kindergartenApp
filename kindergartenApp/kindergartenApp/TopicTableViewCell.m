@@ -16,6 +16,7 @@
 #import "PageInfoDomain.h"
 #import "KGDateUtil.h"
 #import "KGNSStringUtil.h"
+#import "UIImageView+WebCache.h"
 
 #define TOPICTABLECELL @"topicTableCell"
 
@@ -206,7 +207,11 @@
     self.userView.frame =self.topicFrame.userViewF;
     //头部图片
     self.headImageView.frame = self.topicFrame.headImageViewF;
-    self.headImageView.image = [UIImage imageNamed:@"youxiang1"];
+    self.headImageView.image = [UIImage imageNamed:@"head_def"];
+    
+//    [self.headImageView sd_setImageWithURL:[NSURL URLWithString:self.topicFrame.topic.imgs] placeholderImage:[UIImage imageNamed:@"head_def"] options:SDWebImageLowPriority completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+//        [self.headImageView setBorderWithWidth:Number_Zero color:KGColorFrom16(0xE7E7EE) radian:self.headImageView.width / Number_Two];
+//    }];
     
     //名称
     self.nameLab.frame = self.topicFrame.nameLabF;

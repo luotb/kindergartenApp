@@ -40,6 +40,7 @@
     signRecordTableView.delegate   = self;
     signRecordTableView.dataSource = self;
     
+    studentSignRecordMDic = [[NSMutableDictionary alloc] init];
     [self getSsignRecordData];
 }
 

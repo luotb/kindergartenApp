@@ -34,6 +34,9 @@
 //根据组织id得到名称
 - (NSString *)getGroupNameByUUID:(NSString *)groupUUID;
 
+//获取学生信息
+- (KGUser *)getUserByUUID:(NSString *)uuid;
+
 //图片上传
 - (void)uploadImg:(UIImage *)img withName:(NSString *)imgName type:(NSInteger)imgType success:(void (^)(NSString * msgStr))success faild:(void (^)(NSString * errorMsg))faild;
 
@@ -164,7 +167,7 @@
 //食谱 begin
 
 //食谱列表
-- (void)getRecipesList:(NSString *)beginDate success:(void (^)(NSArray * recipesArray))success faild:(void (^)(NSString * errorMsg))faild;
+- (void)getRecipesList:(NSString *)beginDate endDate:(NSString *)endDate success:(void (^)(NSArray * recipesArray))success faild:(void (^)(NSString * errorMsg))faild;
 
 //食谱 end
 

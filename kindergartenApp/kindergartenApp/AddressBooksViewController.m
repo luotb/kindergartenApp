@@ -71,13 +71,6 @@
 
 #pragma reFreshView Delegate
 
-//- (UITableViewCell *)createTableViewCell:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath {
-//    // 获得cell
-//    TopicTableViewCell * cell = [TopicTableViewCell cellWithTableView:tableView];
-//    cell.topicFrame = reFreshView.dataSource[indexPath.row];
-//    return cell;
-//}
-
 /**
  *  选中cell
  *

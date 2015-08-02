@@ -10,4 +10,15 @@
 
 @implementation RecipesItemVO
 
+
+- (instancetype)initItemVO:(NSString *)head cbArray:(NSArray *)cbArray {
+    self = [self init];
+    if(self) {
+        _headStr = head;
+        _cookbookArray = cbArray;
+    }
+    
+    return self;
+}
+
 @end

@@ -142,6 +142,8 @@
                 <outlet property="addressLabel" destination="4QH-RZ-QNH" id="Ly1-1s-amw"/>
                 <outlet property="headImageView" destination="yXJ-ej-Vre" id="XoW-iw-Rnm"/>
                 <outlet property="nameLabel" destination="nTK-T9-X6v" id="QNR-Ah-bHz"/>
+                <outlet property="signNameLabel" destination="M9b-Xp-Ys1" id="6Yz-eR-SJd"/>
+                <outlet property="timeLabel" destination="uQ9-Vg-jz9" id="02b-39-1ZC"/>
                 <outlet property="typeLabel" destination="tQS-GF-s8d" id="FQx-5t-ida"/>
             </connections>
         </tableViewCell>

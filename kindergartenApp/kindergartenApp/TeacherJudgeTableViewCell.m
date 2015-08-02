@@ -7,6 +7,9 @@
 //
 
 #import "TeacherJudgeTableViewCell.h"
+#import "UIImageView+WebCache.h"
+#import "UIView+Extension.h"
+#import "UIColor+Extension.h"
 
 #define judgeTeacherDefText  @"说点什么吧..."
 
@@ -32,6 +35,12 @@
 - (void)resetValue:(id)baseDomain parame:(NSMutableDictionary *)parameterDic {
     _teachVO = (TeacherVO *)baseDomain;
     _nameLabel.text = _teachVO.name;
+    
+//    [_headImageView sd_setImageWithURL:[NSURL URLWithString:@""] placeholderImage:[UIImage imageNamed:@"head_def"] options:SDWebImageLowPriority completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+//        [self.headImageView setBorderWithWidth:Number_Zero color:KGColorFrom16(0xE7E7EE) radian:self.headImageView.width / Number_Two];
+//    }];
+
+    
     if(_teachVO.teacheruuid) {
         //已经评价
         _judgeTextView.text = _teachVO.content;
