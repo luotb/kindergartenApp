@@ -18,21 +18,25 @@
     self = [super initWithFrame:frame];
     if(self) {
         
-        //加载功能按钮 (点赞、回复)
-        [self initFunView];
-        
-        //加载点赞列表
-        [self initDZLabel];
-        
-        //加载回复
-        [self initReplyView];
-        
-        //加载回复输入框
-        [self initReplyTextField];
-        
+        [self loadFunView];
     }
     
     return self;
+}
+
+
+- (void)loadFunView {
+    //加载功能按钮 (点赞、回复)
+    [self initFunView];
+    
+    //加载点赞列表
+    [self initDZLabel];
+    
+    //加载回复
+    [self initReplyView];
+    
+    //加载回复输入框
+    [self initReplyTextField];
 }
 
 

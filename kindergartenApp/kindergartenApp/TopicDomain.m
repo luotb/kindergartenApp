@@ -10,4 +10,9 @@
 
 @implementation TopicDomain
 
+- (NSDictionary *)objectClassInArray
+{
+    return @{@"imgsList" : [NSString class]};
+}
+
 @end

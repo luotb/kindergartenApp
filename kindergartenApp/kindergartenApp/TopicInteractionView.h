@@ -14,7 +14,7 @@
 @interface TopicInteractionView : UIView <UITextFieldDelegate>
 
 
-@property (strong, nonatomic) TopicInteractionFrame * topicFrame;
+@property (weak, nonatomic) TopicInteractionFrame * topicFrame;
 
 /** 功能按钮视图 */
 @property (nonatomic, weak) UIView   * funView;
@@ -40,5 +40,8 @@
 @property (nonatomic, weak) KGTextField * replyTextField;
 
 @property (assign, nonatomic) BOOL isDZList;
+
+
+- (void)loadFunView;
 
 @end

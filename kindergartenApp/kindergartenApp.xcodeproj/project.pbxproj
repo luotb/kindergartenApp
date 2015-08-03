@@ -216,6 +216,11 @@
 		F4DCD0EC1B1C2932007D61CA /* UIView+Shadow.m in Sources */ = {isa = PBXBuildFile; fileRef = F4DCD0EB1B1C2932007D61CA /* UIView+Shadow.m */; };
 		F4DCD0EF1B1C2C50007D61CA /* KGDeviceUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = F4DCD0EE1B1C2C50007D61CA /* KGDeviceUtil.m */; };
 		F4DCD0F21B1C2E87007D61CA /* UIButton+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = F4DCD0F11B1C2E87007D61CA /* UIButton+Extension.m */; };
+		F4DEA75B1B6F3E36000FE0FB /* TQRichTextRun.m in Sources */ = {isa = PBXBuildFile; fileRef = F4DEA7521B6F3E36000FE0FB /* TQRichTextRun.m */; };
+		F4DEA75C1B6F3E36000FE0FB /* TQRichTextRunDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F4DEA7541B6F3E36000FE0FB /* TQRichTextRunDelegate.m */; };
+		F4DEA75D1B6F3E36000FE0FB /* TQRichTextRunEmoji.m in Sources */ = {isa = PBXBuildFile; fileRef = F4DEA7561B6F3E36000FE0FB /* TQRichTextRunEmoji.m */; };
+		F4DEA75E1B6F3E36000FE0FB /* TQRichTextRunURL.m in Sources */ = {isa = PBXBuildFile; fileRef = F4DEA7581B6F3E36000FE0FB /* TQRichTextRunURL.m */; };
+		F4DEA75F1B6F3E36000FE0FB /* TQRichTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = F4DEA75A1B6F3E36000FE0FB /* TQRichTextView.m */; };
 		F4E2D4811B6B6334001472EC /* GiftwareArticlesInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4E2D47F1B6B6334001472EC /* GiftwareArticlesInfoViewController.m */; };
 		F4E2D4821B6B6334001472EC /* GiftwareArticlesInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4E2D4801B6B6334001472EC /* GiftwareArticlesInfoViewController.xib */; };
 		F4E635FE1B675EB700800924 /* AnnouncementTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F4E635FC1B675EB700800924 /* AnnouncementTableViewCell.m */; };
@@ -652,6 +657,16 @@
 		F4DCD0EE1B1C2C50007D61CA /* KGDeviceUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KGDeviceUtil.m; sourceTree = "<group>"; };
 		F4DCD0F01B1C2E87007D61CA /* UIButton+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Extension.h"; sourceTree = "<group>"; };
 		F4DCD0F11B1C2E87007D61CA /* UIButton+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Extension.m"; sourceTree = "<group>"; };
+		F4DEA7511B6F3E36000FE0FB /* TQRichTextRun.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TQRichTextRun.h; sourceTree = "<group>"; };
+		F4DEA7521B6F3E36000FE0FB /* TQRichTextRun.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TQRichTextRun.m; sourceTree = "<group>"; };
+		F4DEA7531B6F3E36000FE0FB /* TQRichTextRunDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TQRichTextRunDelegate.h; sourceTree = "<group>"; };
+		F4DEA7541B6F3E36000FE0FB /* TQRichTextRunDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TQRichTextRunDelegate.m; sourceTree = "<group>"; };
+		F4DEA7551B6F3E36000FE0FB /* TQRichTextRunEmoji.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TQRichTextRunEmoji.h; sourceTree = "<group>"; };
+		F4DEA7561B6F3E36000FE0FB /* TQRichTextRunEmoji.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TQRichTextRunEmoji.m; sourceTree = "<group>"; };
+		F4DEA7571B6F3E36000FE0FB /* TQRichTextRunURL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TQRichTextRunURL.h; sourceTree = "<group>"; };
+		F4DEA7581B6F3E36000FE0FB /* TQRichTextRunURL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TQRichTextRunURL.m; sourceTree = "<group>"; };
+		F4DEA7591B6F3E36000FE0FB /* TQRichTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TQRichTextView.h; sourceTree = "<group>"; };
+		F4DEA75A1B6F3E36000FE0FB /* TQRichTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TQRichTextView.m; sourceTree = "<group>"; };
 		F4E2D47E1B6B6334001472EC /* GiftwareArticlesInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GiftwareArticlesInfoViewController.h; sourceTree = "<group>"; };
 		F4E2D47F1B6B6334001472EC /* GiftwareArticlesInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GiftwareArticlesInfoViewController.m; sourceTree = "<group>"; };
 		F4E2D4801B6B6334001472EC /* GiftwareArticlesInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GiftwareArticlesInfoViewController.xib; sourceTree = "<group>"; };
@@ -1170,6 +1185,7 @@
 		248B6A881B19A95000FCB98F /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				F4DEA7501B6F3E15000FE0FB /* TQRichTextView */,
 				24AA0B301B690F2300DAC03B /* UUChat */,
 				F463E6491B6639A700AB92B9 /* HBVLinkedTextView */,
 				24E4D9431B64E95B0088745A /* Baidu */,
@@ -1983,6 +1999,23 @@
 			name = TopicInteraction;
 			sourceTree = "<group>";
 		};
+		F4DEA7501B6F3E15000FE0FB /* TQRichTextView */ = {
+			isa = PBXGroup;
+			children = (
+				F4DEA7511B6F3E36000FE0FB /* TQRichTextRun.h */,
+				F4DEA7521B6F3E36000FE0FB /* TQRichTextRun.m */,
+				F4DEA7531B6F3E36000FE0FB /* TQRichTextRunDelegate.h */,
+				F4DEA7541B6F3E36000FE0FB /* TQRichTextRunDelegate.m */,
+				F4DEA7551B6F3E36000FE0FB /* TQRichTextRunEmoji.h */,
+				F4DEA7561B6F3E36000FE0FB /* TQRichTextRunEmoji.m */,
+				F4DEA7571B6F3E36000FE0FB /* TQRichTextRunURL.h */,
+				F4DEA7581B6F3E36000FE0FB /* TQRichTextRunURL.m */,
+				F4DEA7591B6F3E36000FE0FB /* TQRichTextView.h */,
+				F4DEA75A1B6F3E36000FE0FB /* TQRichTextView.m */,
+			);
+			name = TQRichTextView;
+			sourceTree = "<group>";
+		};
 		F4E635F81B675E0D00800924 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -2114,7 +2147,7 @@
 				TargetAttributes = {
 					248B6A581B19A39200FCB98F = {
 						CreatedOnToolsVersion = 6.3;
-						DevelopmentTeam = M5PP646L93;
+						DevelopmentTeam = T9FW97NDZK;
 					};
 					248B6A711B19A39200FCB98F = {
 						CreatedOnToolsVersion = 6.3;
@@ -2237,11 +2270,13 @@
 				2469E2131B5B5E45004888A4 /* LoginRespDomain.m in Sources */,
 				F48783951B58DA1700CDC1A8 /* README.md in Sources */,
 				244F74971B62AE5A0078D30D /* SphereMenu.m in Sources */,
+				F4DEA75D1B6F3E36000FE0FB /* TQRichTextRunEmoji.m in Sources */,
 				F463E6451B66106D00AB92B9 /* DianZanDomain.m in Sources */,
 				248B6A951B19A9D900FCB98F /* UIWindow+Extension.m in Sources */,
 				24AA0B4C1B690FA800DAC03B /* ChatViewController.m in Sources */,
 				F47AFEB51B5E2BF800D43F38 /* PageInfoDomain.m in Sources */,
 				24AA0B421B690F4300DAC03B /* UUImageAvatarBrowser.m in Sources */,
+				F4DEA75B1B6F3E36000FE0FB /* TQRichTextRun.m in Sources */,
 				F48783AA1B58DA1700CDC1A8 /* MBProgressHUD.m in Sources */,
 				2489B6681B5AB49E00039E70 /* UIView+WebCacheOperation.m in Sources */,
 				248B6ABE1B19B53000FCB98F /* QCSlideSwitchDto.m in Sources */,
@@ -2290,6 +2325,7 @@
 				248B6A921B19A9D900FCB98F /* UIBarButtonItem+Extension.m in Sources */,
 				2474DFA41B6CA4840021506F /* BaseTopicInteractViewController.m in Sources */,
 				24DE91B91B67C9D400D3FFCE /* TeacherJudgeTableViewCell.m in Sources */,
+				F4DEA75C1B6F3E36000FE0FB /* TQRichTextRunDelegate.m in Sources */,
 				24DEC8221B633F2B00C55828 /* DynamicMenuDomain.m in Sources */,
 				2489B66D1B5AB49E00039E70 /* SDWebImageManager.m in Sources */,
 				24A3D3761B5E874600D4C212 /* KGHomeItemButton.m in Sources */,
@@ -2307,6 +2343,7 @@
 				F4C0AB8C1B1C39D4007B0E35 /* KGNSStringUtil.m in Sources */,
 				2489B6661B5AB49E00039E70 /* UIImageView+HighlightedWebCache.m in Sources */,
 				244F74921B62A4630078D30D /* PostTopicViewController.m in Sources */,
+				F4DEA75E1B6F3E36000FE0FB /* TQRichTextRunURL.m in Sources */,
 				248B6A621B19A39200FCB98F /* AppDelegate.m in Sources */,
 				F487838C1B58DA1700CDC1A8 /* AFHTTPRequestOperationManager.m in Sources */,
 				2489B6691B5AB49E00039E70 /* SDWebImageDownloader.m in Sources */,
@@ -2359,6 +2396,7 @@
 				2474DFB81B6CBB8D0021506F /* StudentSignRecordDomain.m in Sources */,
 				F48783D81B58E46000CDC1A8 /* MJRefreshHeaderView.m in Sources */,
 				F48783A21B58DA1700CDC1A8 /* MASLayoutConstraint.m in Sources */,
+				F4DEA75F1B6F3E36000FE0FB /* TQRichTextView.m in Sources */,
 				F48783AF1B58DA1700CDC1A8 /* MJProperty.m in Sources */,
 				F45EABD11B563F9F003C367C /* BaseViewController.m in Sources */,
 				F4E6B24A1B6B5D440087EAEB /* GiftwareArticlesTableViewCell.m in Sources */,

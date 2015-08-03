@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "HBVLinkedTextView.h"
 #import "KGTextField.h"
+#import "TQRichTextView.h"
+#import "TopicInteractionView.h"
 
 @class TopicFrame;
 
@@ -30,29 +32,17 @@
 @property (nonatomic,weak) UILabel * titleLab;
 
 /** 内容 */
-@property (nonatomic, weak) UIWebView  * contentWebView;
-/** 功能按钮视图 */
-@property (nonatomic, weak) UIView  * funView;
-/** 发帖时间 */
-@property (nonatomic,weak) UILabel * dateLabel;
-/** 点赞按钮 */
-@property (nonatomic,weak) UIButton * dianzanBtn;
-/** 回复按钮 */
-@property (nonatomic,weak) UIButton * replyBtn;
+@property (nonatomic, weak) UIView  * topicContentView;
 
-/** 点赞列表视图 */
-@property (nonatomic, weak) UIView  * dianzanView;
-/** 点赞列表ICON */
-@property (nonatomic, weak) UIImageView * dianzanIconImg;
+/** 内容 文本表情 */
+@property (nonatomic, weak) TQRichTextView  * topicTextView;
 
-/** 点赞列表文本 */
-@property (nonatomic, weak) UILabel * dianzanLabel;
+/** 内容 图片 */
+@property (nonatomic, weak) UIView  * topicImgsView;
 
-/** 回复列表视图 */
-@property (nonatomic, weak) HBVLinkedTextView  * replyView;
+/** 帖子互动视图 */
+@property (nonatomic, strong) TopicInteractionView  * topicInteractionView;
 
-/** 回复输入框 */
-@property (nonatomic, weak) KGTextField  * replyTextField;
 /** 分割线 */
 @property (nonatomic,weak) UILabel * levelab;
 

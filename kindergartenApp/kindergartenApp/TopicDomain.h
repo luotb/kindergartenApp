@@ -22,7 +22,7 @@
 
 @property (strong, nonatomic) NSString * imgs;       //帖子图片id 逗号分隔
 
-@property (strong, nonatomic) NSString * imgsList;   //帖子图片列表 逗号分隔
+@property (strong, nonatomic) NSArray  * imgsList;   //帖子图片列表
 
 @property (strong, nonatomic) NSString * create_user;      //创建人名
 
