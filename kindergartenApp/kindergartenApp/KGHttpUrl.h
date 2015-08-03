@@ -116,4 +116,7 @@
 //食谱列表
 + (NSString *)getRecipesListUrl;
 
+//推送token
++ (NSString *)getPushTokenUrl;
+
 @end

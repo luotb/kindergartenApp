@@ -16,7 +16,10 @@
 #define Key_Notification_Message           @"message"
 #define Key_Notification_MessageText       @"messageText"
 #define Key_Notification_TopicFunClicked   @"topicCellFunClicked"
+#define Key_Notification_TeacherJudge      @"teacherJudgeClicked"
 
+
+#define Key_KeyChain                       @"KeyChain"
 #define Key_TopicCellFunType               @"topicCellFunType"
 #define Key_TopicUUID                      @"topicUUID"
 #define Key_TopicFunRequestType            @"topicFunRequestType"

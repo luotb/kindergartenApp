@@ -10,6 +10,8 @@
 #import "UIWindow+Extension.h"
 #import "BaiduMobStat.h"
 #import "BPush.h"
+#import "KGHttpService.h"
+#import "KeychainItemWrapper.h"
 
 @interface AppDelegate ()
 
@@ -40,6 +42,8 @@
     [self buildBaiduMobStat];
     [self buildBaiduPush:application didFinishLaunchingWithOptions:launchOptions];
     
+    //消除icon badge
+    [self clearBadge];
     
     // 启动tag页面
     [self.window switchRootViewController];
@@ -47,6 +51,17 @@
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
 //    [self.window makeKeyAndVisible];
     return YES;
+}
+
+//清除Badge
+- (void)clearBadge{
+    if(bIsIos8){
+        UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeBadge categories:nil];
+        [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
+        [UIApplication sharedApplication].applicationIconBadgeNumber = Number_Zero;
+    }else{
+        [UIApplication sharedApplication].applicationIconBadgeNumber = Number_Zero;
+    }
 }
 
 - (void)testLocalNotifi
@@ -74,11 +89,38 @@
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
 {
     NSLog(@"test:%@",deviceToken);
+    
+    NSString * token = [[deviceToken description] stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:String_DefValue_Arrows]];
+    
+    NSArray * strAry = [token componentsSeparatedByString:String_DefValue_EmptyStr];
+    NSMutableString * key = [NSMutableString stringWithString:String_DefValue_Empty];
+    for(NSString * str in strAry){
+        [key appendString:str];
+    }
+    
+    if(![key isEqualToString:String_DefValue_Empty]){
+        [self savePushToken:key];
+    }
+    
     [BPush registerDeviceToken:deviceToken];
-    //    [BPush bindChannelWithCompleteHandler:^(id result, NSError *error) {
-    //        [self.viewController addLogString:[NSString stringWithFormat:@"Method: %@\n%@",BPushRequestMethodBind,result]];
-    //    }];
 }
+
+//save token
+- (void)savePushToken:(NSString *)key{
+    KeychainItemWrapper * wrapper = [[KeychainItemWrapper alloc] initWithIdentifier:Key_KeyChain accessGroup:nil];
+    NSString * wrapperToken = [wrapper objectForKey:(__bridge id)kSecAttrAccount];
+    
+    if(![key isEqualToString:wrapperToken] || [key isEqualToString:String_DefValue_Empty]){
+        
+        [KGHttpService sharedService].pushToken = wrapperToken;
+        
+        [[KGHttpService sharedService] submitPushToken:^(NSString *msgStr) {
+            [wrapper setObject:key forKey:(__bridge id)kSecAttrAccount];
+        } faild:^(NSString *errorMsg) {
+        }];
+    }
+}
+
 
 // 当 DeviceToken 获取失败时，系统会回调此方法
 - (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error

@@ -30,6 +30,9 @@
     
     [self initPageInfo];
     [self initReFreshView];
+    
+    //注册点赞回复通知
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(teacherJudgeClickedNotification:) name:Key_Notification_TeacherJudge object:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -40,6 +43,14 @@
     if(!pageInfo) {
         pageInfo = [[PageInfoDomain alloc] init];
     }
+}
+
+//cell点击监听通知
+- (void)teacherJudgeClickedNotification:(NSNotification *)notification {
+    NSDictionary * dic = [notification userInfo];
+    TeacherVO * teacherObj = [dic objectForKey:@"tearchVO"];
+    
+    [self saveTeacherJudge:teacherObj];
 }
 
 //获取数据加载表格
@@ -54,6 +65,17 @@
     } faild:^(NSString *errorMsg) {
         [[KGHUD sharedHud] show:self.contentView onlyMsg:errorMsg];
         [reFreshView endRefreshing];
+    }];
+}
+
+//保存老师评价
+- (void)saveTeacherJudge:(TeacherVO *)teacherVO {
+    
+    [[KGHUD sharedHud] show:self.contentView];
+    [[KGHttpService sharedService] saveTeacherJudge:teacherVO success:^(NSString *msgStr) {
+        [[KGHUD sharedHud] show:self.contentView onlyMsg:msgStr];
+    } faild:^(NSString *errorMsg) {
+        [[KGHUD sharedHud] show:self.contentView onlyMsg:errorMsg];
     }];
 }
 

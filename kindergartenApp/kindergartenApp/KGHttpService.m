@@ -177,6 +177,19 @@
     }];
 }
 
+//提交推送token
+- (void)submitPushToken:(void (^)(NSString * msgStr))success faild:(void (^)(NSString * errorMsg))faild {
+    
+    NSDictionary * dic = @{@"device_id" : _pushToken,
+                           @"device_type": @"ios"};
+    
+    [self getServerJson:[KGHttpUrl getPushTokenUrl] params:dic success:^(KGBaseDomain *baseDomain) {
+        
+    } faild:^(NSString *errorMessage) {
+        
+    }];
+}
+
 
 //获取首页动态菜单
 - (void)getDynamicMenu:(void (^)(NSArray * menuArray))success faild:(void (^)(NSString * errorMsg))faild {
@@ -593,6 +606,8 @@
     NSArray * teacherArray2 = [TeacherVO objectArrayWithKeyValuesArray:responseObject[@"list_judge"]];
     
     for(TeacherVO * teacherVO in teacherArray1) {
+        teacherVO.teacheruuid = teacherVO.uuid;
+        
         for(TeacherVO * teacherVO2 in teacherArray2) {
             if([teacherVO.teacher_uuid isEqualToString:teacherVO2.teacheruuid]) {
                 teacherVO.content = teacherVO2.content;

@@ -61,7 +61,7 @@
 -(void)initUserView{
     UIView * userview = [[UIView alloc] init];
     userview.backgroundColor = CLEARCOLOR;
-    userview.backgroundColor = [UIColor brownColor];
+//    userview.backgroundColor = [UIColor brownColor];
     [self addSubview:userview];
     _userView = userview;
     
@@ -98,13 +98,13 @@
     TQRichTextView  * topicTextView = [[TQRichTextView alloc] init];
     topicTextView.lineSpace = 1.0f;
     topicTextView.font = [UIFont systemFontOfSize:12.0f];
-    topicTextView.backgroundColor = [UIColor grayColor];
+    topicTextView.backgroundColor = [UIColor clearColor];
     [topicContentView addSubview:topicTextView];
     
     _topicTextView = topicTextView;
     
     UIView  * topicImgsView = [[UIView alloc] init];
-    topicImgsView.backgroundColor = [UIColor greenColor];
+//    topicImgsView.backgroundColor = [UIColor greenColor];
     [topicContentView addSubview:topicImgsView];
     
     _topicImgsView = topicImgsView;
@@ -115,7 +115,7 @@
 - (void)initTopicInteractionView {
     TopicInteractionView  * topicInteractionView = [[TopicInteractionView alloc] init];
     [self addSubview:topicInteractionView];
-    topicInteractionView.backgroundColor = [UIColor brownColor];
+//    topicInteractionView.backgroundColor = [UIColor brownColor];
     _topicInteractionView = topicInteractionView;
 }
 
@@ -171,12 +171,13 @@
     topicInteractionFrame.topicInteractionDomain = domain;
     self.topicInteractionView.topicFrame = topicInteractionFrame;
     
-//    CGRect frame = self.topicFrame.topicInteractionViewF;
-//    self.topicFrame.topicInteractionViewF = CGRectMake(frame.origin.x, frame.origin.y, frame.size
-//                                                       .width, topicInteractionFrame.cellHeight);
+    CGRect frame = self.topicFrame.topicInteractionViewF;
+    self.topicFrame.topicInteractionViewF = CGRectMake(frame.origin.x, frame.origin.y, frame.size.width, topicInteractionFrame.cellHeight);
     self.topicInteractionView.frame = self.topicFrame.topicInteractionViewF;
     
     //分割线
+    CGRect levelabFrame = self.topicFrame.levelabF;
+    self.topicFrame.levelabF = CGRectMake(levelabFrame.origin.x, CGRectGetMaxY(frame) + 15, levelabFrame.size.width, levelabFrame.size.height);
     self.levelab.frame = self.topicFrame.levelabF;
 }
 

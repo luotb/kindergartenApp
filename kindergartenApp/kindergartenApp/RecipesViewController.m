@@ -37,7 +37,7 @@
     self.title = @"每日食谱";
     
     lastRow = -1;
-    dataCount = 2;
+    dataCount = 3;
     [self initCollectionView];
     [self collectionViewScrollToRight];
 }
@@ -56,7 +56,7 @@
     
     [self getQueryDate:index];
     
-    NSString * endDate = isNoFirstReq ? nil : [KGDateUtil getDate:Number_One];
+    NSString * endDate = isNoFirstReq ? nil : [KGDateUtil getDate:Number_Three];
     
     [[KGHttpService sharedService] getRecipesList:lastDateStr endDate:endDate success:^(NSArray *recipesArray) {
         
@@ -99,7 +99,6 @@
     
     static NSString *identifierCell = recipesCollectionCellIden;
     RecipesCollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifierCell forIndexPath:indexPath];
-//    TestCollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifierCell forIndexPath:indexPath];
     
     [self getRecipesList:indexPath.row success:^(RecipesDomain *domain) {
         [cell loadRecipesData:domain];
@@ -129,7 +128,7 @@
             }
         }
     } else {
-        lastDateStr = [KGDateUtil getDate:Number_One];
+        lastDateStr = [KGDateUtil getDate:Number_Six];
     }
     
     isNoFirstReq = YES;

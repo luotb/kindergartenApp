@@ -40,7 +40,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eOn-11-Fyp">
                                 <rect key="frame" x="116" y="22" width="40" height="60"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" tag="100" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="judge_no_1" translatesAutoresizingMaskIntoConstraints="NO" id="4UQ-Mb-3Is">
+                                    <imageView userInteractionEnabled="NO" tag="100" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="judge_no_10" translatesAutoresizingMaskIntoConstraints="NO" id="4UQ-Mb-3Is">
                                         <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="满意" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="32U-Cq-01W">
@@ -68,7 +68,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mSl-K2-cBQ">
                                 <rect key="frame" x="190" y="22" width="40" height="60"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" tag="200" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="judge_no_2" translatesAutoresizingMaskIntoConstraints="NO" id="S0X-M4-eRQ">
+                                    <imageView userInteractionEnabled="NO" tag="200" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="judge_no_20" translatesAutoresizingMaskIntoConstraints="NO" id="S0X-M4-eRQ">
                                         <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="一般" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z6b-aY-Pg0">
@@ -96,7 +96,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nQa-5J-7tZ">
                                 <rect key="frame" x="264" y="22" width="40" height="60"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" tag="300" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="judge_no_3" translatesAutoresizingMaskIntoConstraints="NO" id="yCr-mL-p3k">
+                                    <imageView userInteractionEnabled="NO" tag="300" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="judge_no_30" translatesAutoresizingMaskIntoConstraints="NO" id="yCr-mL-p3k">
                                         <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="不满意" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pEM-5L-v1P">
@@ -141,7 +141,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g4I-Xy-xfM">
                         <rect key="frame" x="0.0" y="90" width="320" height="142"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ntx-8u-VIb">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ntx-8u-VIb" customClass="KGTextView">
                                 <rect key="frame" x="16" y="0.0" width="288" height="100"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -151,12 +151,12 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="77Q-FU-XHm">
-                                <rect key="frame" x="254" y="110" width="50" height="32"/>
+                                <rect key="frame" x="254" y="110" width="50" height="27"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="32" id="HTz-8a-iPf"/>
-                                    <constraint firstAttribute="width" constant="50" id="PrA-Vd-Be0"/>
+                                    <constraint firstAttribute="width" constant="50" id="ALu-1a-6O0"/>
+                                    <constraint firstAttribute="height" constant="27" id="zxm-iq-7yh"/>
                                 </constraints>
-                                <state key="normal" backgroundImage="tijao1">
+                                <state key="normal" backgroundImage="tijiao1">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="disabled" backgroundImage="tijao2"/>
@@ -171,12 +171,11 @@
                         <constraints>
                             <constraint firstAttribute="height" constant="142" id="307-Wu-ixh"/>
                             <constraint firstItem="Ntx-8u-VIb" firstAttribute="leading" secondItem="g4I-Xy-xfM" secondAttribute="leading" constant="16" id="4L4-tm-XkN"/>
-                            <constraint firstItem="77Q-FU-XHm" firstAttribute="top" secondItem="Ntx-8u-VIb" secondAttribute="bottom" constant="10" id="DcI-c2-W3R"/>
-                            <constraint firstAttribute="trailing" secondItem="77Q-FU-XHm" secondAttribute="trailing" constant="16" id="Iim-tb-jNx"/>
                             <constraint firstItem="Ntx-8u-VIb" firstAttribute="top" secondItem="g4I-Xy-xfM" secondAttribute="top" id="MYH-ub-ijl"/>
-                            <constraint firstAttribute="bottom" secondItem="77Q-FU-XHm" secondAttribute="bottom" id="Vug-YZ-Fjq"/>
-                            <constraint firstItem="77Q-FU-XHm" firstAttribute="top" secondItem="Ntx-8u-VIb" secondAttribute="bottom" constant="10" id="c9h-CE-Wda"/>
+                            <constraint firstAttribute="trailing" secondItem="77Q-FU-XHm" secondAttribute="trailing" constant="16" id="Ufb-aH-LGF"/>
                             <constraint firstAttribute="trailing" secondItem="Ntx-8u-VIb" secondAttribute="trailing" constant="16" id="pLW-gd-Y4Q"/>
+                            <constraint firstItem="77Q-FU-XHm" firstAttribute="top" secondItem="Ntx-8u-VIb" secondAttribute="bottom" constant="10" id="uJy-Xl-Awx"/>
+                            <constraint firstAttribute="bottom" secondItem="77Q-FU-XHm" secondAttribute="bottom" constant="5" id="vZc-kU-bJS"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -199,10 +198,11 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="judge_no_1" width="40" height="40"/>
-        <image name="judge_no_2" width="40" height="40"/>
-        <image name="judge_no_3" width="40" height="40"/>
+        <image name="judge_no_10" width="40" height="40"/>
+        <image name="judge_no_20" width="40" height="40"/>
+        <image name="judge_no_30" width="40" height="40"/>
         <image name="tijao1" width="45" height="45"/>
         <image name="tijao2" width="50" height="27"/>
+        <image name="tijiao1" width="288" height="35"/>
     </resources>
 </document>

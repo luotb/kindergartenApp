@@ -44,7 +44,7 @@
 - (void)initFunView {
     UIView * funView = [[UIView alloc] init];
     funView.backgroundColor = CLEARCOLOR;
-//    funView.backgroundColor = [UIColor grayColor];
+//    funView.backgroundColor = [UIColor redColor];
     [self addSubview:funView];
     
     _funView = funView;
@@ -156,8 +156,9 @@
     //回复输入框
     self.replyTextField.frame = self.topicFrame.replyTextFieldF;
     
-    [self getDZInfo];
+//    [self getDZInfo];
    
+    NSLog(@"fun:%@, reply:%@", NSStringFromCGRect(self.topicFrame.funViewF), NSStringFromCGRect(self.topicFrame.replyTextFieldF));
 }
 
 

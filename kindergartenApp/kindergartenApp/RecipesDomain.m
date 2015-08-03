@@ -8,16 +8,23 @@
 
 #import "RecipesDomain.h"
 #import "CookbookDomain.h"
+#import "MJExtension.h"
 
 @implementation RecipesDomain
 
-- (NSDictionary *)objectClassInArray
-{
-    return @{@"list_time_1" : [CookbookDomain class],
-             @"list_time_2" : [CookbookDomain class],
-             @"list_time_3" : [CookbookDomain class],
-             @"list_time_4" : [CookbookDomain class],
-             @"list_time_5" : [CookbookDomain class]};
+
+//属性名映射
++(void)initialize{
+    [super initialize];
+    [RecipesDomain setupObjectClassInArray:^NSDictionary *{
+        return @{
+                 @"list_time_1" : @"CookbookDomain",
+                 @"list_time_2" : @"CookbookDomain",
+                 @"list_time_3" : @"CookbookDomain",
+                 @"list_time_4" : @"CookbookDomain",
+                 @"list_time_5" : @"CookbookDomain"
+                 };
+    }];
 }
 
 @end

@@ -57,7 +57,7 @@
     self.replyViewF = CGRectMake(CELLPADDING, CGRectGetMaxY(self.dianzanViewF), CELLCONTENTWIDTH, TopicCellBorderW);
     
     //回复输入框
-    self.replyTextFieldF = CGRectMake(CELLPADDING, self.cellHeight + TopicCellBorderW, CELLCONTENTWIDTH, 30);
+    self.replyTextFieldF = CGRectMake(CELLPADDING, CGRectGetMaxY(self.funViewF) + TopicCellBorderW, CELLCONTENTWIDTH, 30);
     
     self.cellHeight = CGRectGetMaxY(self.replyTextFieldF) + TopicCellBorderW;
 }

@@ -8,12 +8,19 @@
 
 #import "RecipesCollectionViewCell.h"
 #import "RecipesItemVO.h"
-#import "StudentInfoHeaderView.h"
+#import "RecipesHeadTableViewCell.h"
 #import "UIColor+Extension.h"
 #import "RecipesStudentInfoTableViewCell.h"
 #import "CookbookDomain.h"
+#import "UIImageView+WebCache.h"
+#import "KGTextView.h"
+#import "TopicInteractionView.h"
+#import "TopicInteractionDomain.h"
+#import "TopicInteractionFrame.h"
+#import "UIView+Extension.h"
 
 #define RecipesInfoCellIdentifier  @"RecipesInfoCellIdentifier"
+#define RecipesNoteCellIdentifier  @"RecipesNoteCellIdentifier"
 
 @implementation RecipesCollectionViewCell
 
@@ -107,9 +114,9 @@
     if(section!=Number_Zero) {
         RecipesItemVO * itemVO = [self.tableDataSource objectAtIndex:section];
         
-        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"StudentInfoHeaderView" owner:nil options:nil];
-        StudentInfoHeaderView * view = (StudentInfoHeaderView *)[nib objectAtIndex:Number_Zero];
-        view.titleLabel.text = itemVO.headStr;
+        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"RecipesHeadTableViewCell" owner:nil options:nil];
+        RecipesHeadTableViewCell * view = (RecipesHeadTableViewCell *)[nib objectAtIndex:Number_Zero];
+        [view resetHead:itemVO.headStr];
         view.backgroundColor = KGColorFrom16(0xE7E7EE);
         return view;
     }
@@ -122,6 +129,8 @@
     if(indexPath.section == Number_Zero) {
         //学生基本信息
         return [self loadStudentInfoCell:tableView cellForRowAtIndexPath:indexPath];
+    } else if(indexPath.section == [self.tableDataSource count]-Number_One){
+        return [self loadRecipesNote:tableView];
     } else {
         return [self loadRecipesCell:tableView cellForRowAtIndexPath:indexPath];
     }
@@ -143,7 +152,7 @@
     }
     
     RecipesItemVO * itemVO = [self.tableDataSource objectAtIndex:indexPath.section];
-    [self loadRecipes:itemVO frame:CGRectMake(Number_Zero, Number_Zero, cell.width, cell.height)];
+    [self loadRecipes:itemVO cell:cell];
     
     return cell;
 }
@@ -154,18 +163,71 @@
     if(indexPath.section == Number_Zero) {
         return 59;
     } else if (indexPath.section == [self.tableDataSource count]-Number_One) {
-        return 150;
+        return 280;
     } else {
         return 70;
     }
 }
 
-- (void)loadRecipes:(RecipesItemVO *)recipesVO frame:(CGRect)frame {
-    UIScrollView * recipesScrollView = [[UIScrollView alloc] initWithFrame:frame];
+- (void)loadRecipes:(RecipesItemVO *)recipesVO cell:(UITableViewCell *)cell {
+    CGRect frame = CGRectMake(CELLPADDING, Number_Zero, CELLCONTENTWIDTH, cell.height);
+    UIView * recipesImgsView = [[UIView alloc] initWithFrame:frame];
     
+    CGFloat y = Number_Zero;
+    CGFloat w = (frame.size.width - CELLPADDING) / Number_Three;
+    CGFloat h = 70;
+    CGFloat index = Number_Zero;
+    
+    UIImageView * imageView = nil;
     for(CookbookDomain * cookbook in recipesVO.cookbookArray) {
         
+        imageView = [[UIImageView alloc] initWithFrame:CGRectMake(index * w, y, w, h)];
+        [recipesImgsView addSubview:imageView];
+        
+        [imageView sd_setImageWithURL:[NSURL URLWithString:cookbook.img] placeholderImage:nil options:SDWebImageLowPriority completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+            
+        }];
+        
+        if(index == Number_Two) {
+            index = Number_Zero;
+            y += h;
+        }
+        
+        index++;
     }
+    
+    frame.size.height = h + (y * h);
+    recipesImgsView.frame = frame;
+    
+    [cell addSubview:recipesImgsView];
+}
+
+- (UITableViewCell *)loadRecipesNote:(UITableView *)tableView {
+    UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:RecipesNoteCellIdentifier];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:RecipesNoteCellIdentifier];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    }
+    KGTextView * textView = [[KGTextView alloc] initWithFrame:CGRectMake(CELLPADDING, Number_Five, CELLCONTENTWIDTH, 150)];
+    [textView setBorderWithWidth:Number_One color:[UIColor blackColor] radian:Number_Five];
+    textView.text = recipes.analysis;
+    [cell addSubview:textView];
+    
+    TopicInteractionDomain * domain = [[TopicInteractionDomain alloc] init];
+    domain.uuid = recipes.uuid;
+    domain.topicType = Topic_Recipes;
+    
+    TopicInteractionFrame * topicFrame = [[TopicInteractionFrame alloc] init];
+    topicFrame.topicInteractionDomain = domain;
+    
+    CGFloat y = CGRectGetMaxY(textView.frame) + Number_Ten;
+    
+    CGRect frame = CGRectMake(Number_Zero, y, KGSCREEN.size.width, topicFrame.cellHeight);
+    TopicInteractionView * topicView = [[TopicInteractionView alloc] initWithFrame:frame];
+    topicView.topicFrame = topicFrame;
+    [cell addSubview:topicView];
+    
+    return cell;
 }
 
 @end

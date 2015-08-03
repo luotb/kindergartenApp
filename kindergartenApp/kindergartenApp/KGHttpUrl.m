@@ -44,13 +44,14 @@
 #define teacherAndJudgesURL   @"rest/teachingjudge/getTeachersAndJudges.json" //评价老师列表
 #define saveTeacherJudgesURL  @"rest/teachingjudge/save.json" //评价老师
 
-#define saveTeacherJudgesURL  @"rest/teachingjudge/save.json" //通讯录
+//#define saveTeacherJudgesURL  @"rest/teachingjudge/save.json" //通讯录
 #define specialtyCoursesURL   @"px/index.html"  //特长课程
 #define articleListURL        @"rest/share/articleList.json"  //精品文章
 #define studentSignRecordURL  @"rest/studentSignRecord/queryMy.json"  //签到记录
 
 
 #define recipesListURL        @"rest/cookbookplan/list.json"  //食谱列表
+#define pushDeviceURL         @"rest/pushMsgDevice/save.json"  //推送token提交
 
 
 
@@ -230,6 +231,11 @@
 //食谱列表
 + (NSString *)getRecipesListUrl {
     return URL(baseServiceURL, recipesListURL);
+}
+
+//推送token
++ (NSString *)getPushTokenUrl {
+    return URL(baseServiceURL, pushDeviceURL);
 }
 
 

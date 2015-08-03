@@ -15,7 +15,8 @@
     static NSString *ID = @"RecipesStudentInfoTableViewCell";
     RecipesStudentInfoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
     if (!cell) {
-        cell = [[RecipesStudentInfoTableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];
+        cell = [[[NSBundle mainBundle] loadNibNamed:@"RecipesStudentInfoTableViewCell"  owner:self options:nil] lastObject];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     return cell;
 }

@@ -21,7 +21,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <subviews>
                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="yrB-Vp-rEp">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                             <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="KTd-Ar-dfA">
                                 <size key="itemSize" width="0.0" height="0.0"/>
                                 <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -33,7 +33,7 @@
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="yrB-Vp-rEp" secondAttribute="trailing" id="5dF-s0-hAM"/>
-                        <constraint firstItem="yrB-Vp-rEp" firstAttribute="top" secondItem="Qbv-DM-Wng" secondAttribute="top" id="9dW-ZS-UQv"/>
+                        <constraint firstItem="yrB-Vp-rEp" firstAttribute="top" secondItem="Qbv-DM-Wng" secondAttribute="top" constant="64" id="9dW-ZS-UQv"/>
                         <constraint firstItem="yrB-Vp-rEp" firstAttribute="leading" secondItem="Qbv-DM-Wng" secondAttribute="leading" id="XPM-6b-NDH"/>
                         <constraint firstAttribute="bottom" secondItem="yrB-Vp-rEp" secondAttribute="bottom" id="hGw-hL-U2M"/>
                     </constraints>

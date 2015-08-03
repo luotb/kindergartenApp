@@ -67,7 +67,6 @@
 		248B6A621B19A39200FCB98F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 248B6A611B19A39200FCB98F /* AppDelegate.m */; };
 		248B6A6A1B19A39200FCB98F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 248B6A691B19A39200FCB98F /* Images.xcassets */; };
 		248B6A6D1B19A39200FCB98F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 248B6A6B1B19A39200FCB98F /* LaunchScreen.xib */; };
-		248B6A791B19A39200FCB98F /* kindergartenAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 248B6A781B19A39200FCB98F /* kindergartenAppTests.m */; };
 		248B6A921B19A9D900FCB98F /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 248B6A8B1B19A9D900FCB98F /* UIBarButtonItem+Extension.m */; };
 		248B6A931B19A9D900FCB98F /* UIColor+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 248B6A8D1B19A9D900FCB98F /* UIColor+Extension.m */; };
 		248B6A941B19A9D900FCB98F /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 248B6A8F1B19A9D900FCB98F /* UIView+Extension.m */; };
@@ -142,6 +141,8 @@
 		24E4D94F1B64EE970088745A /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24E4D94E1B64EE970088745A /* CoreLocation.framework */; };
 		24E4D9511B64EEA90088745A /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 24E4D9501B64EEA90088745A /* libstdc++.dylib */; };
 		24E4D9531B64EEB10088745A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 24E4D9521B64EEB10088745A /* libz.dylib */; };
+		24E634811B6FB9CC00A23A66 /* RecipesHeadTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24E6347F1B6FB9CC00A23A66 /* RecipesHeadTableViewCell.m */; };
+		24E634821B6FB9CC00A23A66 /* RecipesHeadTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24E634801B6FB9CC00A23A66 /* RecipesHeadTableViewCell.xib */; };
 		F45EABD11B563F9F003C367C /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F45EABD01B563F9F003C367C /* BaseViewController.m */; };
 		F463E6451B66106D00AB92B9 /* DianZanDomain.m in Sources */ = {isa = PBXBuildFile; fileRef = F463E6441B66106D00AB92B9 /* DianZanDomain.m */; };
 		F463E6481B6613D500AB92B9 /* GroupDomain.m in Sources */ = {isa = PBXBuildFile; fileRef = F463E6471B6613D500AB92B9 /* GroupDomain.m */; };
@@ -252,16 +253,6 @@
 		F4EC989A1B62306800F5721F /* TopicFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = F4EC98971B62306800F5721F /* TopicFrame.m */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		248B6A731B19A39200FCB98F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 248B6A511B19A39200FCB98F /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 248B6A581B19A39200FCB98F;
-			remoteInfo = FuniFrame;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		243918E21B5D1E5800F3727E /* KGNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KGNavigationController.h; sourceTree = "<group>"; };
 		243918E31B5D1E5800F3727E /* KGNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KGNavigationController.m; sourceTree = "<group>"; };
@@ -363,14 +354,13 @@
 		2489B6791B5ABAAB00039E70 /* AddressBooksViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressBooksViewController.h; sourceTree = "<group>"; };
 		2489B67A1B5ABAAB00039E70 /* AddressBooksViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressBooksViewController.m; sourceTree = "<group>"; };
 		2489B67B1B5ABAAB00039E70 /* AddressBooksViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddressBooksViewController.xib; sourceTree = "<group>"; };
-		248B6A591B19A39200FCB98F /* kindergartenApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kindergartenApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		248B6A591B19A39200FCB98F /* 问界互动家园.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "问界互动家园.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		248B6A5D1B19A39200FCB98F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		248B6A5E1B19A39200FCB98F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		248B6A601B19A39200FCB98F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		248B6A611B19A39200FCB98F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		248B6A691B19A39200FCB98F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		248B6A6C1B19A39200FCB98F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		248B6A721B19A39200FCB98F /* kindergartenAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = kindergartenAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		248B6A771B19A39200FCB98F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		248B6A781B19A39200FCB98F /* kindergartenAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = kindergartenAppTests.m; sourceTree = "<group>"; };
 		248B6A8A1B19A9D900FCB98F /* UIBarButtonItem+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Extension.h"; sourceTree = "<group>"; };
@@ -512,6 +502,9 @@
 		24E4D94E1B64EE970088745A /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		24E4D9501B64EEA90088745A /* libstdc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "usr/lib/libstdc++.dylib"; sourceTree = SDKROOT; };
 		24E4D9521B64EEB10088745A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		24E6347E1B6FB9CC00A23A66 /* RecipesHeadTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipesHeadTableViewCell.h; sourceTree = "<group>"; };
+		24E6347F1B6FB9CC00A23A66 /* RecipesHeadTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipesHeadTableViewCell.m; sourceTree = "<group>"; };
+		24E634801B6FB9CC00A23A66 /* RecipesHeadTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecipesHeadTableViewCell.xib; sourceTree = "<group>"; };
 		F45EABCF1B563F9F003C367C /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		F45EABD01B563F9F003C367C /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		F463E6431B66106D00AB92B9 /* DianZanDomain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DianZanDomain.h; sourceTree = "<group>"; };
@@ -736,13 +729,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		248B6A6F1B19A39200FCB98F /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -829,6 +815,9 @@
 				2491BB4F1B6E27F00052532B /* RecipesStudentInfoTableViewCell.h */,
 				2491BB501B6E27F00052532B /* RecipesStudentInfoTableViewCell.m */,
 				2491BB511B6E27F00052532B /* RecipesStudentInfoTableViewCell.xib */,
+				24E6347E1B6FB9CC00A23A66 /* RecipesHeadTableViewCell.h */,
+				24E6347F1B6FB9CC00A23A66 /* RecipesHeadTableViewCell.m */,
+				24E634801B6FB9CC00A23A66 /* RecipesHeadTableViewCell.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -1073,8 +1062,7 @@
 		248B6A5A1B19A39200FCB98F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				248B6A591B19A39200FCB98F /* kindergartenApp.app */,
-				248B6A721B19A39200FCB98F /* kindergartenAppTests.xctest */,
+				248B6A591B19A39200FCB98F /* 问界互动家园.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -2115,26 +2103,8 @@
 			);
 			name = kindergartenApp;
 			productName = FuniFrame;
-			productReference = 248B6A591B19A39200FCB98F /* kindergartenApp.app */;
+			productReference = 248B6A591B19A39200FCB98F /* 问界互动家园.app */;
 			productType = "com.apple.product-type.application";
-		};
-		248B6A711B19A39200FCB98F /* kindergartenAppTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 248B6A7F1B19A39200FCB98F /* Build configuration list for PBXNativeTarget "kindergartenAppTests" */;
-			buildPhases = (
-				248B6A6E1B19A39200FCB98F /* Sources */,
-				248B6A6F1B19A39200FCB98F /* Frameworks */,
-				248B6A701B19A39200FCB98F /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				248B6A741B19A39200FCB98F /* PBXTargetDependency */,
-			);
-			name = kindergartenAppTests;
-			productName = FuniFrameTests;
-			productReference = 248B6A721B19A39200FCB98F /* kindergartenAppTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -2147,11 +2117,7 @@
 				TargetAttributes = {
 					248B6A581B19A39200FCB98F = {
 						CreatedOnToolsVersion = 6.3;
-						DevelopmentTeam = T9FW97NDZK;
-					};
-					248B6A711B19A39200FCB98F = {
-						CreatedOnToolsVersion = 6.3;
-						TestTargetID = 248B6A581B19A39200FCB98F;
+						DevelopmentTeam = M5PP646L93;
 					};
 				};
 			};
@@ -2169,7 +2135,6 @@
 			projectRoot = "";
 			targets = (
 				248B6A581B19A39200FCB98F /* kindergartenApp */,
-				248B6A711B19A39200FCB98F /* kindergartenAppTests */,
 			);
 		};
 /* End PBXProject section */
@@ -2196,6 +2161,7 @@
 				F4E636041B676AD400800924 /* AnnouncementInfoViewController.xib in Resources */,
 				F48783941B58DA1700CDC1A8 /* LICENSE in Resources */,
 				2474DFB51B6CBB1C0021506F /* StudentSignRecordTableViewCell.xib in Resources */,
+				24E634821B6FB9CC00A23A66 /* RecipesHeadTableViewCell.xib in Resources */,
 				24A176041B5550EB00295997 /* TestViewController.xib in Resources */,
 				F4EA53941B60EAE30044BE7A /* StudentInfoHeaderView.xib in Resources */,
 				245474DA1B5FDD6C00D49D40 /* StudentInfoViewController.xib in Resources */,
@@ -2225,13 +2191,6 @@
 				F4EA53871B60BD390044BE7A /* MeTableViewCell.xib in Resources */,
 				2474DFC11B6CCE460021506F /* RecipesViewController.xib in Resources */,
 				24AA0B891B692FFD00DAC03B /* CourseListViewController.xib in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		248B6A701B19A39200FCB98F /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2407,6 +2366,7 @@
 				2491BB521B6E27F00052532B /* RecipesStudentInfoTableViewCell.m in Sources */,
 				24AA0B531B69134400DAC03B /* NSDate+Utils.m in Sources */,
 				F48783B11B58DA1700CDC1A8 /* NSObject+MJCoding.m in Sources */,
+				24E634811B6FB9CC00A23A66 /* RecipesHeadTableViewCell.m in Sources */,
 				2474DFCC1B6CD4240021506F /* RecipesDomain.m in Sources */,
 				F4E636031B676AD400800924 /* AnnouncementInfoViewController.m in Sources */,
 				24AA0B441B690F4300DAC03B /* UUMessage.m in Sources */,
@@ -2428,23 +2388,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		248B6A6E1B19A39200FCB98F /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				248B6A791B19A39200FCB98F /* kindergartenAppTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		248B6A741B19A39200FCB98F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 248B6A581B19A39200FCB98F /* kindergartenApp */;
-			targetProxy = 248B6A731B19A39200FCB98F /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		248B6A6B1B19A39200FCB98F /* LaunchScreen.xib */ = {
@@ -2495,7 +2439,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -2533,7 +2477,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -2555,7 +2499,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/kindergartenApp",
 				);
-				PRODUCT_NAME = kindergartenApp;
+				PRODUCT_NAME = "问界互动家园";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -2576,43 +2520,9 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/kindergartenApp",
 				);
-				PRODUCT_NAME = kindergartenApp;
+				PRODUCT_NAME = "问界互动家园";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
-			};
-			name = Release;
-		};
-		248B6A801B19A39200FCB98F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = kindergartenAppTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = kindergartenAppTests;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/kindergartenApp.app/kindergartenApp";
-			};
-			name = Debug;
-		};
-		248B6A811B19A39200FCB98F /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = kindergartenAppTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = kindergartenAppTests;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/kindergartenApp.app/kindergartenApp";
 			};
 			name = Release;
 		};
@@ -2633,15 +2543,6 @@
 			buildConfigurations = (
 				248B6A7D1B19A39200FCB98F /* Debug */,
 				248B6A7E1B19A39200FCB98F /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		248B6A7F1B19A39200FCB98F /* Build configuration list for PBXNativeTarget "kindergartenAppTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				248B6A801B19A39200FCB98F /* Debug */,
-				248B6A811B19A39200FCB98F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
