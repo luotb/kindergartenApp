@@ -13,6 +13,11 @@
 		244F74971B62AE5A0078D30D /* SphereMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 244F74961B62AE5A0078D30D /* SphereMenu.m */; };
 		245474D91B5FDD6C00D49D40 /* StudentInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 245474D71B5FDD6C00D49D40 /* StudentInfoViewController.m */; };
 		245474DA1B5FDD6C00D49D40 /* StudentInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 245474D81B5FDD6C00D49D40 /* StudentInfoViewController.xib */; };
+		2457FD021B711A65006A3AB7 /* AddressbookTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2457FD001B711A65006A3AB7 /* AddressbookTableViewCell.m */; };
+		2457FD031B711A65006A3AB7 /* AddressbookTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2457FD011B711A65006A3AB7 /* AddressbookTableViewCell.xib */; };
+		2457FD0B1B712C13006A3AB7 /* FaceBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = 2457FD061B712C13006A3AB7 /* FaceBoard.m */; };
+		2457FD0C1B712C13006A3AB7 /* FaceButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2457FD081B712C13006A3AB7 /* FaceButton.m */; };
+		2457FD0D1B712C13006A3AB7 /* GrayPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 2457FD0A1B712C13006A3AB7 /* GrayPageControl.m */; };
 		2469E2131B5B5E45004888A4 /* LoginRespDomain.m in Sources */ = {isa = PBXBuildFile; fileRef = 2469E2121B5B5E45004888A4 /* LoginRespDomain.m */; };
 		2469E2161B5B6039004888A4 /* ResMsgDomain.m in Sources */ = {isa = PBXBuildFile; fileRef = 2469E2151B5B6039004888A4 /* ResMsgDomain.m */; };
 		2474DFA41B6CA4840021506F /* BaseTopicInteractViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2474DFA31B6CA4840021506F /* BaseTopicInteractViewController.m */; };
@@ -271,6 +276,15 @@
 		245474D61B5FDD6C00D49D40 /* StudentInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StudentInfoViewController.h; sourceTree = "<group>"; };
 		245474D71B5FDD6C00D49D40 /* StudentInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StudentInfoViewController.m; sourceTree = "<group>"; };
 		245474D81B5FDD6C00D49D40 /* StudentInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StudentInfoViewController.xib; sourceTree = "<group>"; };
+		2457FCFF1B711A65006A3AB7 /* AddressbookTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressbookTableViewCell.h; sourceTree = "<group>"; };
+		2457FD001B711A65006A3AB7 /* AddressbookTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressbookTableViewCell.m; sourceTree = "<group>"; };
+		2457FD011B711A65006A3AB7 /* AddressbookTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddressbookTableViewCell.xib; sourceTree = "<group>"; };
+		2457FD051B712C13006A3AB7 /* FaceBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaceBoard.h; sourceTree = "<group>"; };
+		2457FD061B712C13006A3AB7 /* FaceBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FaceBoard.m; sourceTree = "<group>"; };
+		2457FD071B712C13006A3AB7 /* FaceButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaceButton.h; sourceTree = "<group>"; };
+		2457FD081B712C13006A3AB7 /* FaceButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FaceButton.m; sourceTree = "<group>"; };
+		2457FD091B712C13006A3AB7 /* GrayPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GrayPageControl.h; sourceTree = "<group>"; };
+		2457FD0A1B712C13006A3AB7 /* GrayPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GrayPageControl.m; sourceTree = "<group>"; };
 		2469E2111B5B5E45004888A4 /* LoginRespDomain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginRespDomain.h; sourceTree = "<group>"; };
 		2469E2121B5B5E45004888A4 /* LoginRespDomain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginRespDomain.m; sourceTree = "<group>"; };
 		2469E2141B5B6039004888A4 /* ResMsgDomain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResMsgDomain.h; sourceTree = "<group>"; };
@@ -775,6 +789,19 @@
 			name = SphereMenu;
 			sourceTree = "<group>";
 		};
+		2457FD041B712BF5006A3AB7 /* FaceBoard */ = {
+			isa = PBXGroup;
+			children = (
+				2457FD051B712C13006A3AB7 /* FaceBoard.h */,
+				2457FD061B712C13006A3AB7 /* FaceBoard.m */,
+				2457FD071B712C13006A3AB7 /* FaceButton.h */,
+				2457FD081B712C13006A3AB7 /* FaceButton.m */,
+				2457FD091B712C13006A3AB7 /* GrayPageControl.h */,
+				2457FD0A1B712C13006A3AB7 /* GrayPageControl.m */,
+			);
+			name = FaceBoard;
+			sourceTree = "<group>";
+		};
 		2474DFA81B6CB7AA0021506F /* SignRecord */ = {
 			isa = PBXGroup;
 			children = (
@@ -1042,6 +1069,9 @@
 		2489B6761B5ABA8000039E70 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2457FCFF1B711A65006A3AB7 /* AddressbookTableViewCell.h */,
+				2457FD001B711A65006A3AB7 /* AddressbookTableViewCell.m */,
+				2457FD011B711A65006A3AB7 /* AddressbookTableViewCell.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -1206,6 +1236,7 @@
 		248B6A881B19A95000FCB98F /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				2457FD041B712BF5006A3AB7 /* FaceBoard */,
 				F4DEA7501B6F3E15000FE0FB /* TQRichTextView */,
 				24AA0B301B690F2300DAC03B /* UUChat */,
 				F463E6491B6639A700AB92B9 /* HBVLinkedTextView */,
@@ -2196,6 +2227,7 @@
 				F4E636041B676AD400800924 /* AnnouncementInfoViewController.xib in Resources */,
 				F48783941B58DA1700CDC1A8 /* LICENSE in Resources */,
 				2474DFB51B6CBB1C0021506F /* StudentSignRecordTableViewCell.xib in Resources */,
+				2457FD031B711A65006A3AB7 /* AddressbookTableViewCell.xib in Resources */,
 				24E634821B6FB9CC00A23A66 /* RecipesHeadTableViewCell.xib in Resources */,
 				24A176041B5550EB00295997 /* TestViewController.xib in Resources */,
 				F4EA53941B60EAE30044BE7A /* StudentInfoHeaderView.xib in Resources */,
@@ -2324,6 +2356,7 @@
 				F4DEA75C1B6F3E36000FE0FB /* TQRichTextRunDelegate.m in Sources */,
 				24DEC8221B633F2B00C55828 /* DynamicMenuDomain.m in Sources */,
 				2489B66D1B5AB49E00039E70 /* SDWebImageManager.m in Sources */,
+				2457FD0B1B712C13006A3AB7 /* FaceBoard.m in Sources */,
 				24A3D3761B5E874600D4C212 /* KGHomeItemButton.m in Sources */,
 				2489B67C1B5ABAAB00039E70 /* AddressBooksViewController.m in Sources */,
 				F4C0AB971B1C3C54007B0E35 /* KGHttpService.m in Sources */,
@@ -2355,6 +2388,7 @@
 				2474DFCF1B6CD43C0021506F /* CookbookDomain.m in Sources */,
 				2489B66A1B5AB49E00039E70 /* SDWebImageDownloaderOperation.m in Sources */,
 				2474DFB41B6CBB1C0021506F /* StudentSignRecordTableViewCell.m in Sources */,
+				2457FD0C1B712C13006A3AB7 /* FaceButton.m in Sources */,
 				F4EA53921B60EAD20044BE7A /* StudentInfoHeaderView.m in Sources */,
 				F4DCD0EC1B1C2932007D61CA /* UIView+Shadow.m in Sources */,
 				2474DFAF1B6CB7D90021506F /* StudentSignRecordViewController.m in Sources */,
@@ -2400,11 +2434,13 @@
 				F4DEA75F1B6F3E36000FE0FB /* TQRichTextView.m in Sources */,
 				F48783AF1B58DA1700CDC1A8 /* MJProperty.m in Sources */,
 				F45EABD11B563F9F003C367C /* BaseViewController.m in Sources */,
+				2457FD0D1B712C13006A3AB7 /* GrayPageControl.m in Sources */,
 				F4E6B24A1B6B5D440087EAEB /* GiftwareArticlesTableViewCell.m in Sources */,
 				F4EA538B1B60C6DF0044BE7A /* MeFunTableViewCell.m in Sources */,
 				243918E41B5D1E5800F3727E /* KGNavigationController.m in Sources */,
 				24A175E81B5541BF00295997 /* KGDBHelperHandle.m in Sources */,
 				248B6A5F1B19A39200FCB98F /* main.m in Sources */,
+				2457FD021B711A65006A3AB7 /* AddressbookTableViewCell.m in Sources */,
 				2491BB521B6E27F00052532B /* RecipesStudentInfoTableViewCell.m in Sources */,
 				24AA0B531B69134400DAC03B /* NSDate+Utils.m in Sources */,
 				F48783B11B58DA1700CDC1A8 /* NSObject+MJCoding.m in Sources */,
@@ -2563,7 +2599,7 @@
 					"$(PROJECT_DIR)/kindergartenApp",
 				);
 				PRODUCT_NAME = "问界互动家园";
-				PROVISIONING_PROFILE = "31208916-a5f0-4b7e-963a-26c022ec5360";
+				PROVISIONING_PROFILE = "e17afd18-7c07-4604-9112-a4aacdc54384";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

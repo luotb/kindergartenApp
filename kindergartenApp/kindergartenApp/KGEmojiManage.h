@@ -10,7 +10,8 @@
 
 @interface KGEmojiManage : NSObject
 
-@property (strong, nonatomic) NSMutableArray * emojiNameArray; //所有的表情名称集合
+@property (strong, nonatomic) NSArray         * emojiArray;     //表情对象集合
+@property (strong, nonatomic) NSMutableArray  * emojiNameArray; //所有的表情名称集合
 
 
 + (KGEmojiManage *)sharedManage;

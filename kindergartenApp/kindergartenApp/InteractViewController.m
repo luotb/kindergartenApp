@@ -44,7 +44,17 @@
 //    [myWebView loadRequest:[[NSURLRequest alloc] initWithURL:[NSURL URLWithString:url]]];
     
     [self initReFreshView];
+    
+    //注册帖子回复功能通知
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cellFunClickedNotification:) name:Key_Notification_TopicFunClicked object:nil];
+    
+    //注册帖子高度改变通知
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(topicHeightChangeNotification:) name:Key_Notification_TopicHeightChange object:nil];
+}
+
+//帖子高度改变通知
+- (void)topicHeightChangeNotification:(NSNotification *)notification {
+    [reFreshView.tableView reloadData];
 }
 
 //cell点击监听通知

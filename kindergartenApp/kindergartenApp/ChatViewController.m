@@ -54,14 +54,6 @@
 }
 
 
-- (void)segmentChanged:(UISegmentedControl *)segment
-{
-    self.chatModel.isGroupChat = segment.selectedSegmentIndex;
-    [self.chatModel.dataSource removeAllObjects];
-    [self.chatModel populateRandomDataSource];
-    [self.chatTableView reloadData];
-}
-
 - (void)addRefreshViews
 {
     __weak typeof(self) weakSelf = self;

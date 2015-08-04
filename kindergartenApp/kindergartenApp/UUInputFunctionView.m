@@ -51,7 +51,7 @@
         [self.btnChangeVoiceState setBackgroundImage:[UIImage imageNamed:@"chat_ipunt_message"] forState:UIControlStateSelected];
         self.btnChangeVoiceState.titleLabel.font = [UIFont systemFontOfSize:12];
         [self.btnChangeVoiceState addTarget:self action:@selector(voiceRecord:) forControlEvents:UIControlEventTouchUpInside];
-//        [self addSubview:self.btnChangeVoiceState];
+        [self addSubview:self.btnChangeVoiceState];
 
         //语音录入键
         self.btnVoiceRecord = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -170,35 +170,35 @@
 //改变输入与录音状态
 - (void)voiceRecord:(UIButton *)sender
 {
-    self.btnVoiceRecord.hidden = !self.btnVoiceRecord.hidden;
-    self.TextViewInput.hidden  = !self.TextViewInput.hidden;
-    isbeginVoiceRecord = !isbeginVoiceRecord;
-    if (isbeginVoiceRecord) {
-        [self.btnChangeVoiceState setBackgroundImage:[UIImage imageNamed:@"chat_ipunt_message"] forState:UIControlStateNormal];
-        [self.TextViewInput resignFirstResponder];
-    }else{
-        [self.btnChangeVoiceState setBackgroundImage:[UIImage imageNamed:@"chat_voice_record"] forState:UIControlStateNormal];
-        [self.TextViewInput becomeFirstResponder];
+//    self.btnVoiceRecord.hidden = !self.btnVoiceRecord.hidden;
+//    self.TextViewInput.hidden  = !self.TextViewInput.hidden;
+//    isbeginVoiceRecord = !isbeginVoiceRecord;
+//    if (isbeginVoiceRecord) {
+//        [self.btnChangeVoiceState setBackgroundImage:[UIImage imageNamed:@"chat_ipunt_message"] forState:UIControlStateNormal];
+//        [self.TextViewInput resignFirstResponder];
+//    }else{
+//        [self.btnChangeVoiceState setBackgroundImage:[UIImage imageNamed:@"chat_voice_record"] forState:UIControlStateNormal];
+//        [self.TextViewInput becomeFirstResponder];
+//    }
+    
+    sender.selected = !sender.selected;
+    
+    [self.TextViewInput resignFirstResponder];
+    
+    if (!_faceBoard) {
+        
+        _faceBoard = [[FaceBoard alloc] init];
+//        _faceBoard.delegate = self;
+        _faceBoard.inputTextView = self.TextViewInput;
     }
     
-//    sender.selected = !sender.selected;
-//    
-//    [self.TextViewInput resignFirstResponder];
-//    
-//    if (!_faceBoard) {
-//        
-//        _faceBoard = [[FaceBoard alloc] init];
-//        _faceBoard.delegate = self;
-//        _faceBoard.inputTextView = self.TextViewInput;
-//    }
-//    
-//    if(sender.selected) {
-//        self.TextViewInput.inputView = _faceBoard;
-//    } else {
-//        self.TextViewInput.inputView = nil;
-//    }
-//    
-//    [self.TextViewInput becomeFirstResponder];
+    if(sender.selected) {
+        self.TextViewInput.inputView = _faceBoard;
+    } else {
+        self.TextViewInput.inputView = nil;
+    }
+    
+    [self.TextViewInput becomeFirstResponder];
 }
 
 //发送消息（文字图片）

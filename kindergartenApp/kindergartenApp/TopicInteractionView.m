@@ -192,6 +192,8 @@
             [self resetFrame:[[NSArray alloc] initWithObjects:self.replyTextField, nil] h:CGRectGetMaxY(self.topicFrame.dianzanViewF) + Number_Ten];
             
             _isDZList = YES;
+            
+            [self notificationTopicHeightChange];
         }
         
          [self getReplyList];
@@ -244,6 +246,7 @@
             self.topicFrame.cellHeight += addH;
             
             [self resetFrame:[[NSArray alloc] initWithObjects:self.replyTextField, nil] h:CGRectGetMaxY(_topicFrame.replyViewF)];
+            [self notificationTopicHeightChange];
         }
         
     } faild:^(NSString *errorMsg) {
@@ -266,6 +269,11 @@
 {
     return [@{NSFontAttributeName:[UIFont boldSystemFontOfSize:[UIFont systemFontSize]],
               NSForegroundColorAttributeName:[UIColor redColor]}mutableCopy];
+}
+
+//cell高度改变通知
+- (void)notificationTopicHeightChange {
+//    [[NSNotificationCenter defaultCenter] postNotificationName:Key_Notification_TopicHeightChange object:self userInfo:nil];
 }
 
 

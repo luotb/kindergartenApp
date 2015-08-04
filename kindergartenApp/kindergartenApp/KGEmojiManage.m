@@ -37,6 +37,9 @@
 
 //在子线程中同步下载表情
 - (void)downloadEmoji:(NSArray *)emojiArray {
+    
+    _emojiArray = emojiArray;
+    
     NSInteger index = Number_One;
     for(EmojiDomain * domain in emojiArray) {
         [self downloadFileURL:domain.descriptionUrl

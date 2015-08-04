@@ -52,6 +52,8 @@
 }
 
 - (void)packageTableData {
+    [self.tableDataSource removeAllObjects];
+    
     RecipesItemVO * itemVO1 = [[RecipesItemVO alloc] initItemVO:recipes.plandate cbArray:nil];
     [self.tableDataSource addObject:itemVO1];
     
@@ -139,6 +141,7 @@
 
 - (UITableViewCell *)loadStudentInfoCell:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     RecipesStudentInfoTableViewCell * cell = [RecipesStudentInfoTableViewCell cellWithTableView:tableView];
+    cell.backgroundColor = [UIColor clearColor];
     [cell resetCellParam:recipes];
     return cell;
 }
@@ -150,6 +153,8 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:RecipesInfoCellIdentifier];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
+    
+    cell.backgroundColor = [UIColor clearColor];
     
     RecipesItemVO * itemVO = [self.tableDataSource objectAtIndex:indexPath.section];
     [self loadRecipes:itemVO cell:cell];
@@ -163,12 +168,13 @@
     if(indexPath.section == Number_Zero) {
         return 59;
     } else if (indexPath.section == [self.tableDataSource count]-Number_One) {
-        return 280;
+        return 380;
     } else {
         return 70;
     }
 }
 
+//加载菜谱
 - (void)loadRecipes:(RecipesItemVO *)recipesVO cell:(UITableViewCell *)cell {
     CGRect frame = CGRectMake(CELLPADDING, Number_Zero, CELLCONTENTWIDTH, cell.height);
     UIView * recipesImgsView = [[UIView alloc] initWithFrame:frame];
@@ -202,12 +208,14 @@
     [cell addSubview:recipesImgsView];
 }
 
+//加载营养分析及帖子回复
 - (UITableViewCell *)loadRecipesNote:(UITableView *)tableView {
     UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:RecipesNoteCellIdentifier];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:RecipesNoteCellIdentifier];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
+    cell.backgroundColor = [UIColor clearColor];
     KGTextView * textView = [[KGTextView alloc] initWithFrame:CGRectMake(CELLPADDING, Number_Five, CELLCONTENTWIDTH, 150)];
     [textView setBorderWithWidth:Number_One color:[UIColor blackColor] radian:Number_Five];
     textView.text = recipes.analysis;

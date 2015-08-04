@@ -7,7 +7,10 @@
 //
 
 #import "BaseViewController.h"
+#import "AddressBookDomain.h"
 
 @interface ChatViewController : BaseViewController
+
+@property (strong, nonatomic) AddressBookDomain * addressbookDomain;
 
 @end

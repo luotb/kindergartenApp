@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FaceBoard.h"
 
 @class UUInputFunctionView;
 
@@ -36,7 +37,7 @@
 
 @property (nonatomic, assign) id<UUInputFunctionViewDelegate>delegate;
 
-//@property (strong, nonatomic) FaceBoard *faceBoard;
+@property (strong, nonatomic) FaceBoard *faceBoard;
 @property (assign, nonatomic) BOOL isFacBoard;
 
 
