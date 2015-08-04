@@ -147,6 +147,13 @@
 		F463E6451B66106D00AB92B9 /* DianZanDomain.m in Sources */ = {isa = PBXBuildFile; fileRef = F463E6441B66106D00AB92B9 /* DianZanDomain.m */; };
 		F463E6481B6613D500AB92B9 /* GroupDomain.m in Sources */ = {isa = PBXBuildFile; fileRef = F463E6471B6613D500AB92B9 /* GroupDomain.m */; };
 		F463E64C1B6639B800AB92B9 /* HBVLinkedTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = F463E64B1B6639B800AB92B9 /* HBVLinkedTextView.m */; };
+		F471EDEA1B709E6300EEBA1D /* EmojiDomain.m in Sources */ = {isa = PBXBuildFile; fileRef = F471EDE91B709E6300EEBA1D /* EmojiDomain.m */; };
+		F471EDED1B70A3A700EEBA1D /* AddressBookDomain.m in Sources */ = {isa = PBXBuildFile; fileRef = F471EDEC1B70A3A700EEBA1D /* AddressBookDomain.m */; };
+		F471EDF01B70A79B00EEBA1D /* WriteVO.m in Sources */ = {isa = PBXBuildFile; fileRef = F471EDEF1B70A79B00EEBA1D /* WriteVO.m */; };
+		F471EDF31B70A93700EEBA1D /* ChatInfoDomain.m in Sources */ = {isa = PBXBuildFile; fileRef = F471EDF21B70A93700EEBA1D /* ChatInfoDomain.m */; };
+		F471EDF61B70AA0E00EEBA1D /* QueryChatsVO.m in Sources */ = {isa = PBXBuildFile; fileRef = F471EDF51B70AA0E00EEBA1D /* QueryChatsVO.m */; };
+		F471EDF91B70ACC000EEBA1D /* AddressBookResp.m in Sources */ = {isa = PBXBuildFile; fileRef = F471EDF81B70ACC000EEBA1D /* AddressBookResp.m */; };
+		F471EDFC1B70B40100EEBA1D /* KGEmojiManage.m in Sources */ = {isa = PBXBuildFile; fileRef = F471EDFB1B70B40100EEBA1D /* KGEmojiManage.m */; };
 		F47AFEAE1B5E22EA00D43F38 /* AnnouncementListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F47AFEAC1B5E22EA00D43F38 /* AnnouncementListViewController.m */; };
 		F47AFEAF1B5E22EA00D43F38 /* AnnouncementListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F47AFEAD1B5E22EA00D43F38 /* AnnouncementListViewController.xib */; };
 		F47AFEB21B5E24BD00D43F38 /* AnnouncementDomain.m in Sources */ = {isa = PBXBuildFile; fileRef = F47AFEB11B5E24BD00D43F38 /* AnnouncementDomain.m */; };
@@ -513,6 +520,20 @@
 		F463E6471B6613D500AB92B9 /* GroupDomain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupDomain.m; sourceTree = "<group>"; };
 		F463E64A1B6639B800AB92B9 /* HBVLinkedTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HBVLinkedTextView.h; sourceTree = "<group>"; };
 		F463E64B1B6639B800AB92B9 /* HBVLinkedTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HBVLinkedTextView.m; sourceTree = "<group>"; };
+		F471EDE81B709E6300EEBA1D /* EmojiDomain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmojiDomain.h; sourceTree = "<group>"; };
+		F471EDE91B709E6300EEBA1D /* EmojiDomain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmojiDomain.m; sourceTree = "<group>"; };
+		F471EDEB1B70A3A700EEBA1D /* AddressBookDomain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressBookDomain.h; sourceTree = "<group>"; };
+		F471EDEC1B70A3A700EEBA1D /* AddressBookDomain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressBookDomain.m; sourceTree = "<group>"; };
+		F471EDEE1B70A79B00EEBA1D /* WriteVO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WriteVO.h; sourceTree = "<group>"; };
+		F471EDEF1B70A79B00EEBA1D /* WriteVO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WriteVO.m; sourceTree = "<group>"; };
+		F471EDF11B70A93700EEBA1D /* ChatInfoDomain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatInfoDomain.h; sourceTree = "<group>"; };
+		F471EDF21B70A93700EEBA1D /* ChatInfoDomain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatInfoDomain.m; sourceTree = "<group>"; };
+		F471EDF41B70AA0E00EEBA1D /* QueryChatsVO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueryChatsVO.h; sourceTree = "<group>"; };
+		F471EDF51B70AA0E00EEBA1D /* QueryChatsVO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueryChatsVO.m; sourceTree = "<group>"; };
+		F471EDF71B70ACC000EEBA1D /* AddressBookResp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressBookResp.h; sourceTree = "<group>"; };
+		F471EDF81B70ACC000EEBA1D /* AddressBookResp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressBookResp.m; sourceTree = "<group>"; };
+		F471EDFA1B70B40100EEBA1D /* KGEmojiManage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KGEmojiManage.h; sourceTree = "<group>"; };
+		F471EDFB1B70B40100EEBA1D /* KGEmojiManage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KGEmojiManage.m; sourceTree = "<group>"; };
 		F47AFEAB1B5E22EA00D43F38 /* AnnouncementListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnnouncementListViewController.h; sourceTree = "<group>"; };
 		F47AFEAC1B5E22EA00D43F38 /* AnnouncementListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnnouncementListViewController.m; sourceTree = "<group>"; };
 		F47AFEAD1B5E22EA00D43F38 /* AnnouncementListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AnnouncementListViewController.xib; sourceTree = "<group>"; };
@@ -1030,6 +1051,18 @@
 			children = (
 				24AA0B4E1B69112C00DAC03B /* ChatModel.h */,
 				24AA0B4F1B69112C00DAC03B /* ChatModel.m */,
+				F471EDE81B709E6300EEBA1D /* EmojiDomain.h */,
+				F471EDE91B709E6300EEBA1D /* EmojiDomain.m */,
+				F471EDEB1B70A3A700EEBA1D /* AddressBookDomain.h */,
+				F471EDEC1B70A3A700EEBA1D /* AddressBookDomain.m */,
+				F471EDEE1B70A79B00EEBA1D /* WriteVO.h */,
+				F471EDEF1B70A79B00EEBA1D /* WriteVO.m */,
+				F471EDF11B70A93700EEBA1D /* ChatInfoDomain.h */,
+				F471EDF21B70A93700EEBA1D /* ChatInfoDomain.m */,
+				F471EDF41B70AA0E00EEBA1D /* QueryChatsVO.h */,
+				F471EDF51B70AA0E00EEBA1D /* QueryChatsVO.m */,
+				F471EDF71B70ACC000EEBA1D /* AddressBookResp.h */,
+				F471EDF81B70ACC000EEBA1D /* AddressBookResp.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -1960,6 +1993,8 @@
 				F4C0AB931B1C3BB6007B0E35 /* KGHttpUrl.m */,
 				F4C0AB951B1C3C54007B0E35 /* KGHttpService.h */,
 				F4C0AB961B1C3C54007B0E35 /* KGHttpService.m */,
+				F471EDFA1B70B40100EEBA1D /* KGEmojiManage.h */,
+				F471EDFB1B70B40100EEBA1D /* KGEmojiManage.m */,
 			);
 			name = Service;
 			sourceTree = "<group>";
@@ -2210,6 +2245,7 @@
 				2489B66E1B5AB49E00039E70 /* SDWebImagePrefetcher.m in Sources */,
 				2489B6731B5AB77600039E70 /* KGIntroductionViewController.m in Sources */,
 				F487838B1B58DA1700CDC1A8 /* AFHTTPRequestOperation.m in Sources */,
+				F471EDED1B70A3A700EEBA1D /* AddressBookDomain.m in Sources */,
 				248B6A941B19A9D900FCB98F /* UIView+Extension.m in Sources */,
 				248B6AC81B19B54500FCB98F /* UIKeyboardViewController.m in Sources */,
 				24AA0B451B690F4300DAC03B /* UUMessageCell.m in Sources */,
@@ -2255,6 +2291,7 @@
 				24A176031B5550EB00295997 /* TestViewController.m in Sources */,
 				248B6AB91B19B51A00FCB98F /* PagedFlowView.m in Sources */,
 				F48783B41B58DA1700CDC1A8 /* NSString+MJExtension.m in Sources */,
+				F471EDFC1B70B40100EEBA1D /* KGEmojiManage.m in Sources */,
 				248B6ABF1B19B53000FCB98F /* QCSlideSwitchView.m in Sources */,
 				F48783AB1B58DA1700CDC1A8 /* README.mdown in Sources */,
 				F48783A61B58DA1700CDC1A8 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
@@ -2291,15 +2328,18 @@
 				2489B67C1B5ABAAB00039E70 /* AddressBooksViewController.m in Sources */,
 				F4C0AB971B1C3C54007B0E35 /* KGHttpService.m in Sources */,
 				248B6AC61B19B54500FCB98F /* KGFormVerify.m in Sources */,
+				F471EDF31B70A93700EEBA1D /* ChatInfoDomain.m in Sources */,
 				F48783B31B58DA1700CDC1A8 /* NSObject+MJProperty.m in Sources */,
 				F4E635FE1B675EB700800924 /* AnnouncementTableViewCell.m in Sources */,
 				2489B6231B5A40E200039E70 /* RegViewController.m in Sources */,
 				F48783921B58DA1700CDC1A8 /* AFURLResponseSerialization.m in Sources */,
 				24E0636F1B6D4502001F3283 /* TestCollectionViewCell.m in Sources */,
 				F48783AD1B58DA1700CDC1A8 /* MJConst.m in Sources */,
+				F471EDF61B70AA0E00EEBA1D /* QueryChatsVO.m in Sources */,
 				248B6AD61B19B5CF00FCB98F /* Reachability.m in Sources */,
 				F48783971B58DA1700CDC1A8 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				F4C0AB8C1B1C39D4007B0E35 /* KGNSStringUtil.m in Sources */,
+				F471EDF01B70A79B00EEBA1D /* WriteVO.m in Sources */,
 				2489B6661B5AB49E00039E70 /* UIImageView+HighlightedWebCache.m in Sources */,
 				244F74921B62A4630078D30D /* PostTopicViewController.m in Sources */,
 				F4DEA75E1B6F3E36000FE0FB /* TQRichTextRunURL.m in Sources */,
@@ -2323,6 +2363,7 @@
 				24A175F31B55430600295997 /* KGTableParam.m in Sources */,
 				2489B6651B5AB49E00039E70 /* UIImage+WebP.m in Sources */,
 				2489B6371B5AB32F00039E70 /* ImageCollectionView.m in Sources */,
+				F471EDEA1B709E6300EEBA1D /* EmojiDomain.m in Sources */,
 				F4EC989A1B62306800F5721F /* TopicFrame.m in Sources */,
 				F4C4D1C81B69F05C00335443 /* TopicInteractionView.m in Sources */,
 				F4C4D1CB1B69F34E00335443 /* TopicInteractionFrame.m in Sources */,
@@ -2333,6 +2374,7 @@
 				F4EA53861B60BD390044BE7A /* MeTableViewCell.m in Sources */,
 				2489B6611B5AB49E00039E70 /* NSData+ImageContentType.m in Sources */,
 				24DE91B01B67C24D00D3FFCE /* TeacherVO.m in Sources */,
+				F471EDF91B70ACC000EEBA1D /* AddressBookResp.m in Sources */,
 				2489B62B1B5A607A00039E70 /* KGAccountTool.m in Sources */,
 				248B6AAA1B19AD7A00FCB98F /* KGBaseDomain.m in Sources */,
 				F487839F1B58DA1700CDC1A8 /* MASCompositeConstraint.m in Sources */,
@@ -2510,8 +2552,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Chengdu WenJie Technology Co., Ltd. (M5PP646L93)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Chengdu WenJie Technology Co., Ltd. (M5PP646L93)";
 				GCC_PREFIX_HEADER = kindergartenApp/pchFile.pch;
 				INFOPLIST_FILE = kindergartenApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
@@ -2521,7 +2563,7 @@
 					"$(PROJECT_DIR)/kindergartenApp",
 				);
 				PRODUCT_NAME = "问界互动家园";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "31208916-a5f0-4b7e-963a-26c022ec5360";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

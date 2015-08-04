@@ -119,4 +119,25 @@
 //推送token
 + (NSString *)getPushTokenUrl;
 
+//表情
++ (NSString *)getEmojiUrl;
+
+//老师和园长通讯录
++ (NSString *)getTeacherPhoneBookUrl;
+
+//给老师发消息
++ (NSString *)getSaveTeacherUrl;
+
+//获取和老师的消息列表
++ (NSString *)getQueryByTeacherUrl;
+
+//给园长发消息
++ (NSString *)getSaveLeaderUrl;
+
+//获取园长消息列表
++ (NSString *)getQueryLeaderUrl;
+
+//阅读消息
++ (NSString *)getReadMsgUrl;
+
 @end

@@ -17,6 +17,9 @@
 #import "AnnouncementDomain.h"
 #import "TeacherVO.h"
 #import "GroupDomain.h"
+#import "WriteVO.h"
+#import "QueryChatsVO.h"
+#import "AddressBookResp.h"
 
 @interface KGHttpService : NSObject
 
@@ -42,6 +45,9 @@
 
 //提交推送token
 - (void)submitPushToken:(void (^)(NSString * msgStr))success faild:(void (^)(NSString * errorMsg))faild;
+
+//获取表情
+- (void)getEmojiList:(void (^)(NSString * msgStr))success faild:(void (^)(NSString * errorMsg))faild;
 
 //获取首页动态菜单
 - (void)getDynamicMenu:(void (^)(NSArray * menuArray))success faild:(void (^)(NSString * errorMsg))faild;
@@ -173,5 +179,21 @@
 - (void)getRecipesList:(NSString *)beginDate endDate:(NSString *)endDate success:(void (^)(NSArray * recipesArray))success faild:(void (^)(NSString * errorMsg))faild;
 
 //食谱 end
+
+
+
+
+//通讯录 begin
+
+//通讯录列表
+- (void)getAddressBookList:(void (^)(AddressBookResp * addressBookResp))success faild:(void (^)(NSString * errorMsg))faild;
+
+//查询和老师或者园长的信息列表
+- (void)getTeacherOrLeaderMsgList:(QueryChatsVO *)queryChatsVO success:(void (^)(NSArray * msgArray))success faild:(void (^)(NSString * errorMsg))faild;
+
+//给老师或者园长写信
+- (void)saveAddressBookInfo:(WriteVO *)writeVO success:(void (^)(NSString * msgStr))success faild:(void (^)(NSString * errorMsg))faild;
+
+//通讯录 end
 
 @end

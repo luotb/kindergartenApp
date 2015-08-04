@@ -16,6 +16,10 @@
 #import "MessageDomain.h"
 #import "StudentSignRecordDomain.h"
 #import "RecipesDomain.h"
+#import "EmojiDomain.h"
+#import "AddressBookDomain.h"
+#import "chatInfoDomain.h"
+#import "KGEmojiManage.h"
 
 @implementation KGHttpService
 
@@ -190,6 +194,31 @@
     }];
 }
 
+//获取表情
+- (void)getEmojiList:(void (^)(NSString * msgStr))success faild:(void (^)(NSString * errorMsg))faild {
+    
+    [[AFAppDotNetAPIClient sharedClient] GET:[KGHttpUrl getEmojiUrl]
+                                  parameters:nil
+                                     success:^(NSURLSessionDataTask* task, id responseObject) {
+                                         
+                                         KGBaseDomain * baseDomain = [KGBaseDomain objectWithKeyValues:responseObject];
+                                         
+                                         if([baseDomain.ResMsg.status isEqualToString:String_Success]) {
+                                             
+                                             NSArray * emojiArrayResp = [EmojiDomain objectArrayWithKeyValuesArray:((NSDictionary *)responseObject)[@"list"]];
+                                             
+                                             [[KGEmojiManage sharedManage] downloadEmoji:emojiArrayResp];
+                                             
+                                             success(baseDomain.ResMsg.message);
+                                         } else {
+                                             faild(baseDomain.ResMsg.message);
+                                         }
+                                     }
+                                     failure:^(NSURLSessionDataTask* task, NSError* error) {
+                                         [self requestErrorCode:error faild:faild];
+                                     }];
+}
+
 
 //获取首页动态菜单
 - (void)getDynamicMenu:(void (^)(NSArray * menuArray))success faild:(void (^)(NSString * errorMsg))faild {
@@ -272,6 +301,12 @@
                                               }];
                                               
                                               [self getGroupList:^(NSArray *groupArray) {
+                                                  
+                                              } faild:^(NSString *errorMsg) {
+                                                  
+                                              }];
+                                              
+                                              [self getEmojiList:^(NSString *msgStr) {
                                                   
                                               } faild:^(NSString *errorMsg) {
                                                   
@@ -760,6 +795,79 @@
 
 //食谱 end
 
+
+
+#pragma 通讯录 begin
+
+//通讯录列表
+- (void)getAddressBookList:(void (^)(AddressBookResp * addressBookResp))success faild:(void (^)(NSString * errorMsg))faild {
+    
+    [[AFAppDotNetAPIClient sharedClient] GET:[KGHttpUrl getTeacherPhoneBookUrl]
+                                  parameters:nil
+                                     success:^(NSURLSessionDataTask* task, id responseObject) {
+                                         
+                                         AddressBookResp * baseDomain = [AddressBookResp objectWithKeyValues:responseObject];
+                                         
+                                         if([baseDomain.ResMsg.status isEqualToString:String_Success]) {
+                                             
+                                             success(baseDomain);
+                                         } else {
+                                             faild(baseDomain.ResMsg.message);
+                                         }
+                                     }
+                                     failure:^(NSURLSessionDataTask* task, NSError* error) {
+                                         [self requestErrorCode:error faild:faild];
+                                     }];
+}
+
+//查询和老师或者园长的信息列表
+- (void)getTeacherOrLeaderMsgList:(QueryChatsVO *)queryChatsVO success:(void (^)(NSArray * msgArray))success faild:(void (^)(NSString * errorMsg))faild {
+    
+    NSString * url = [KGHttpUrl getSaveLeaderUrl];
+    if(queryChatsVO.isTeacher) {
+        url = [KGHttpUrl getSaveTeacherUrl];
+    }
+    
+    [[AFAppDotNetAPIClient sharedClient] GET:url
+                                  parameters:queryChatsVO.keyValues
+                                     success:^(NSURLSessionDataTask* task, id responseObject) {
+                                         
+                                         KGListBaseDomain * baseDomain = [KGListBaseDomain objectWithKeyValues:responseObject];
+                                         
+                                         if([baseDomain.ResMsg.status isEqualToString:String_Success]) {
+                                             NSArray * tempResp = [ChatInfoDomain objectArrayWithKeyValuesArray:baseDomain.data];
+                                             
+                                             success(tempResp);
+                                         } else {
+                                             faild(baseDomain.ResMsg.message);
+                                         }
+                                     }
+                                     failure:^(NSURLSessionDataTask* task, NSError* error) {
+                                         [self requestErrorCode:error faild:faild];
+                                     }];
+}
+
+//给老师或者园长写信
+- (void)saveAddressBookInfo:(WriteVO *)writeVO success:(void (^)(NSString * msgStr))success faild:(void (^)(NSString * errorMsg))faild {
+    
+    NSString * url = [KGHttpUrl getSaveLeaderUrl];
+    if(writeVO.isTeacher) {
+        url = [KGHttpUrl getSaveTeacherUrl];
+    }
+    
+    [self getServerJson:url params:writeVO.keyValues success:^(KGBaseDomain *baseDomain) {
+        if([baseDomain.ResMsg.status isEqualToString:String_Success]) {
+            
+            success(baseDomain.ResMsg.message);
+        } else {
+            faild(baseDomain.ResMsg.message);
+        }
+    } faild:^(NSString *errorMessage) {
+        faild(errorMessage);
+    }];
+}
+
+//通讯录 end
 
 
 @end

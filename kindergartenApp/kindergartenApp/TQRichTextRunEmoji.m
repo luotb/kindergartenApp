@@ -7,6 +7,8 @@
 //
 
 #import "TQRichTextRunEmoji.h"
+#import "KGEmojiManage.h"
+#import "SystemConfig.h"
 
 @implementation TQRichTextRunEmoji
 
@@ -15,7 +17,8 @@
  */
 + (NSArray *) emojiStringArray
 {
-    return [NSArray arrayWithObjects:@"[smile]",@"[cry]",@"[hei]",nil];
+//    return [NSArray arrayWithObjects:@"[smile]",@"[cry]",@"[hei]",nil];
+    return [KGEmojiManage sharedManage].emojiNameArray;
 }
 
 /**
@@ -84,7 +87,7 @@
 {
     CGContextRef context = UIGraphicsGetCurrentContext();
     
-    NSString *emojiString = [NSString stringWithFormat:@"%@.png",self.text];
+    NSString *emojiString = [NSString stringWithFormat:@"%@/%@.png", KGEmojiPath, self.text];
     
     UIImage *image = [UIImage imageNamed:emojiString];
     if (image)

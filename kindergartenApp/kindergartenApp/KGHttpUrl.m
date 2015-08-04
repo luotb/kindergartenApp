@@ -17,6 +17,15 @@
 #define regURL               @"rest/userinfo/reg.json"               //注册
 //#define updatepasswordURL    @"rest/userinfo/updatepassword.json"    //修改密码
 #define updatepasswordURL    @"rest/userinfo/updatepasswordBySms.json"  //修改密码
+
+#define teacherPhoneBookURL  @"rest/userinfo/getTeacherPhoneBook.json" //老师和园长通讯录
+#define saveToTeacherURL     @"rest/message/saveToTeacher.json"  //给老师写信
+#define queryByTeacherURL    @"rest/message/queryByTeacher.json" //查询和老师的信件
+#define saveToLeaderURL      @"rest/message/saveToLeader.json"   //给园长写信
+#define queryByLeaderURL     @"rest/message/queryByLeader.json"  //查询和园长的信件
+#define readMsgURL           @"rest/message/read.json"  //阅读信件
+
+
 #define phoneCodeURL         @"rest/sms/sendCode.json"               //短信验证码
 #define classNewsMyURL           @"rest/classnews/getClassNewsByMy.json"   //我的孩子班级互动列表
 #define classNewsByClassIdURL  @"rest/classnews/getClassNewsByClassuuid.json"   //班级互动列表
@@ -52,6 +61,7 @@
 
 #define recipesListURL        @"rest/cookbookplan/list.json"  //食谱列表
 #define pushDeviceURL         @"rest/pushMsgDevice/save.json"  //推送token提交
+#define emojiURL              @"rest/share/getEmot.json"      //表情
 
 
 
@@ -236,6 +246,40 @@
 //推送token
 + (NSString *)getPushTokenUrl {
     return URL(baseServiceURL, pushDeviceURL);
+}
+
+//表情
++ (NSString *)getEmojiUrl {
+    return URL(baseServiceURL, emojiURL);
+}
+
+//老师和园长通讯录
++ (NSString *)getTeacherPhoneBookUrl {
+    return URL(baseServiceURL, teacherPhoneBookURL);
+}
+
+//给老师发消息
++ (NSString *)getSaveTeacherUrl {
+    return URL(baseServiceURL, saveToTeacherURL);
+}
+//获取和老师的消息列表
++ (NSString *)getQueryByTeacherUrl {
+    return URL(baseServiceURL, queryByTeacherURL);
+}
+
+//给园长发消息
++ (NSString *)getSaveLeaderUrl {
+    return URL(baseServiceURL, saveToLeaderURL);
+}
+
+//获取园长消息列表
++ (NSString *)getQueryLeaderUrl {
+    return URL(baseServiceURL, queryByLeaderURL);
+}
+
+//阅读消息
++ (NSString *)getReadMsgUrl {
+    return URL(baseServiceURL, readMsgURL);
 }
 
 
