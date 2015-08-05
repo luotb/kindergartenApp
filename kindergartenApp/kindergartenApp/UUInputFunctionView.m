@@ -17,8 +17,6 @@
 //    Mp3Recorder *MP3;
     NSInteger playTime;
     NSTimer *playTimer;
-    
-    UILabel *placeHold;
 }
 @end
 
@@ -70,19 +68,15 @@
         [self addSubview:self.btnVoiceRecord];
         
         //输入框
-        self.TextViewInput = [[UITextView alloc]initWithFrame:CGRectMake(45, 5, Main_Screen_Width-2*45, 30)];
+        self.TextViewInput = [[KGTextView alloc]initWithFrame:CGRectMake(45, 5, Main_Screen_Width-2*45, 30)];
+        self.TextViewInput.textColor = [UIColor blackColor];
+        self.TextViewInput.placeholder = @"Input the contents here";
         self.TextViewInput.layer.cornerRadius = 4;
         self.TextViewInput.layer.masksToBounds = YES;
         self.TextViewInput.delegate = self;
         self.TextViewInput.layer.borderWidth = 1;
         self.TextViewInput.layer.borderColor = [[[UIColor lightGrayColor] colorWithAlphaComponent:0.4] CGColor];
         [self addSubview:self.TextViewInput];
-        
-        //输入框的提示语
-        placeHold = [[UILabel alloc]initWithFrame:CGRectMake(20, 0, 200, 30)];
-        placeHold.text = @"Input the contents here";
-        placeHold.textColor = [[UIColor lightGrayColor] colorWithAlphaComponent:0.8];
-        [self.TextViewInput addSubview:placeHold];
         
         //分割线
         self.layer.borderWidth = 1;
@@ -186,10 +180,13 @@
     [self.TextViewInput resignFirstResponder];
     
     if (!_faceBoard) {
-        
         _faceBoard = [[FaceBoard alloc] init];
-//        _faceBoard.delegate = self;
         _faceBoard.inputTextView = self.TextViewInput;
+        
+        __weak UUInputFunctionView * __self = self;
+        _faceBoard.FaceBoardInputedBlock = ^(NSString * emojiStr){
+            [__self changeSendBtnWithPhoto:emojiStr.length>0?NO:YES];
+        };
     }
     
     if(sender.selected) {
@@ -220,13 +217,12 @@
 
 - (void)textViewDidBeginEditing:(UITextView *)textView
 {
-    placeHold.hidden = self.TextViewInput.text.length > 0;
+
 }
 
 - (void)textViewDidChange:(UITextView *)textView
 {
     [self changeSendBtnWithPhoto:textView.text.length>0?NO:YES];
-    placeHold.hidden = textView.text.length>0;
 }
 
 - (void)changeSendBtnWithPhoto:(BOOL)isPhoto
@@ -240,7 +236,7 @@
 
 - (void)textViewDidEndEditing:(UITextView *)textView
 {
-    placeHold.hidden = self.TextViewInput.text.length > 0;
+
 }
 
 

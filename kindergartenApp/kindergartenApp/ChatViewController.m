@@ -13,6 +13,11 @@
 #import "ChatModel.h"
 #import "UUMessageFrame.h"
 #import "UUMessage.h"
+#import "KGEmojiManage.h"
+#import "KGHttpService.h"
+#import "KGEmojiManage.h"
+#import "WriteVO.h"
+#import "QueryChatsVO.h"
 
 @interface ChatViewController () <UUInputFunctionViewDelegate,UUMessageCellDelegate,UITableViewDataSource,UITableViewDelegate> {
     UUInputFunctionView *IFView;
@@ -33,6 +38,7 @@
     _chatTableView.delegate = self;
     _chatTableView.dataSource = self;
     
+    [KGEmojiManage sharedManage].isChatEmoji = YES;
     [self addRefreshViews];
     [self loadBaseViewsAndData];
 }
@@ -51,6 +57,7 @@
 {
     [super viewWillDisappear:animated];
     [[NSNotificationCenter defaultCenter]removeObserver:self];
+    [KGEmojiManage sharedManage].isChatEmoji = NO;
 }
 
 
@@ -145,6 +152,8 @@
     funcView.TextViewInput.text = @"";
     [funcView changeSendBtnWithPhoto:YES];
     [self dealTheFunctionData:dic];
+    
+    [self sendTextInfo:[KGEmojiManage sharedManage].chatHTMLInfo];
 }
 
 - (void)UUInputFunctionView:(UUInputFunctionView *)funcView sendPicture:(UIImage *)image
@@ -152,6 +161,8 @@
     NSDictionary *dic = @{@"picture": image,
                           @"type": @(UUMessageTypePicture)};
     [self dealTheFunctionData:dic];
+    
+    [self sendImgInfo:image];
 }
 
 - (void)UUInputFunctionView:(UUInputFunctionView *)funcView sendVoice:(NSData *)voice time:(NSInteger)second
@@ -201,6 +212,46 @@
     // headIamgeIcon is clicked
     UIAlertView *alert = [[UIAlertView alloc]initWithTitle:cell.messageFrame.message.strName message:@"headImage clicked" delegate:nil cancelButtonTitle:@"sure" otherButtonTitles:nil];
     [alert show];
+}
+
+//提交发送文本
+- (void)sendTextInfo:(NSString *)message {
+    WriteVO * writeVO = [[WriteVO alloc] init];
+    writeVO.isTeacher = _addressbookDomain.isTeacher;
+    writeVO.revice_useruuid = _addressbookDomain.teacher_uuid;
+    writeVO.message = message;
+    
+    [[KGHttpService sharedService] saveAddressBookInfo:writeVO success:^(NSString *msgStr) {
+        
+        [KGEmojiManage sharedManage].chatHTMLInfo = nil;
+    } faild:^(NSString *errorMsg) {
+        
+    }];
+}
+
+//发送图片
+- (void)sendImgInfo:(UIImage *)image {
+    
+    [[KGHttpService sharedService] uploadImg:image withName:@"file" type:0 success:^(NSString *msgStr) {
+        
+        [self sendTextInfo:msgStr];
+        
+    } faild:^(NSString *errorMsg) {
+        
+    }];
+}
+
+- (void)getChatInfoList {
+    QueryChatsVO * queryVO = [[QueryChatsVO alloc] init];
+    queryVO.isTeacher = _addressbookDomain.isTeacher;
+    queryVO.uuid = _addressbookDomain.teacher_uuid;
+    queryVO.pageNo = 1;
+    
+    [[KGHttpService sharedService] getTeacherOrLeaderMsgList:queryVO success:^(NSArray *msgArray) {
+        
+    } faild:^(NSString *errorMsg) {
+        
+    }];
 }
 
 

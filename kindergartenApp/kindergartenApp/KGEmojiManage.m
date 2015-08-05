@@ -26,6 +26,14 @@
     return _sharedService;
 }
 
+- (NSMutableString *)chatHTMLInfo {
+    if(!_chatHTMLInfo) {
+        _chatHTMLInfo = [[NSMutableString alloc] init];
+    }
+    
+    return _chatHTMLInfo;
+}
+
 
 - (NSMutableArray *)emojiNameArray {
     if(!_emojiNameArray) {

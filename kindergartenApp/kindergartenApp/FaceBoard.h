@@ -7,8 +7,8 @@
 //  http://github.com/bluemood
 
 #import <UIKit/UIKit.h>
-#import "FaceButton.h"
 #import "GrayPageControl.h"
+
 
 @interface FaceBoard : UIView<UIScrollViewDelegate>{
     UIScrollView *faceView;
@@ -17,5 +17,6 @@
 }
 @property (nonatomic, retain) UITextField *inputTextField;
 @property (nonatomic, retain) UITextView *inputTextView;
+@property (nonatomic, copy) void (^FaceBoardInputedBlock)(NSString * inputStr);
 
 @end

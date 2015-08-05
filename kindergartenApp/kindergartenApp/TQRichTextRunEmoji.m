@@ -92,7 +92,14 @@
     UIImage *image = [UIImage imageNamed:emojiString];
     if (image)
     {
-        CGContextDrawImage(context, rect, image.CGImage);
+        CGRect frame = rect;
+        if([KGEmojiManage sharedManage].isChatEmoji) {
+            frame.origin.y -= 5;
+        } else {
+            frame.origin.y -= 2;
+        }
+        
+        CGContextDrawImage(context, frame, image.CGImage);
     }
 }
 

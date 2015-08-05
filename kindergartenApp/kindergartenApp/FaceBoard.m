@@ -12,15 +12,24 @@
 #import "EmojiDomain.h"
 #import "UIButton+Extension.h"
 
+
+#define FACE_COUNT_ROW  4
+
+#define FACE_COUNT_CLU  7
+
+#define FACE_ICON_SIZE  44
+
 @implementation FaceBoard
 @synthesize inputTextField = _inputTextField;
 @synthesize inputTextView = _inputTextView;
 
 - (id)init
 {
-    self = [super initWithFrame:CGRectMake(0, 0, 320, 216)];
+    self = [super initWithFrame:CGRectMake(0, 0, KGSCREEN.size.width, 216)];
     if (self) {
         self.backgroundColor = [UIColor colorWithRed:243.0/255.0 green:243.0/255.0 blue:243.0/255.0 alpha:1];
+//        self.backgroundColor = [UIColor brownColor];
+        
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         NSArray *languages = [defaults objectForKey:@"AppleLanguages"];
         if ([[languages objectAtIndex:0] hasPrefix:@"zh"]) {
@@ -29,34 +38,65 @@
             _faceMap = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle]pathForResource:@"faceMap_en" ofType:@"plist"]];
         }
        
+        NSArray * emojiArray = [KGEmojiManage sharedManage].emojiArray;
+        
+        NSMutableArray * array = [[NSMutableArray alloc] initWithArray:emojiArray];
+        [array addObjectsFromArray:emojiArray];
+        [array addObjectsFromArray:emojiArray];
+        
+        NSInteger FACE_COUNT_ALL = [array count];
+        NSInteger pageSize = FACE_COUNT_ROW * FACE_COUNT_CLU;
+        CGFloat faceViewH = 190;
+        
+        NSInteger pageCount = (FACE_COUNT_ALL + pageSize - 1) / pageSize;
         //表情盘
-        faceView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, 320, 190)];
+        faceView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, KGSCREEN.size.width, faceViewH)];
         faceView.pagingEnabled = YES;
-        faceView.contentSize = CGSizeMake((85/28+1)*320, 190);
+        faceView.contentSize = CGSizeMake(pageCount*KGSCREEN.size.width, faceViewH);
         faceView.showsHorizontalScrollIndicator = NO;
         faceView.showsVerticalScrollIndicator = NO;
         faceView.delegate = self;
         
-        NSArray * emojiArray = [KGEmojiManage sharedManage].emojiArray;
         EmojiDomain * emojiDomain = nil;
         
         UIButton * faceButton = nil;
+    
+        CGFloat btnWH = 44;
+        CGFloat spliteX = (KGSCREEN.size.width-(7*btnWH)) / 8;
+        CGFloat spliteY = (faceViewH - (4*btnWH)) / 5;
+        CGFloat x = spliteX;
+        CGFloat y = spliteY;
+        CGFloat cell = 0;
+        CGFloat row  = 0;
+        CGFloat page = 0;
+       
         
-        for (int i = 1; i<=[emojiArray count]; i++) {
-//            FaceButton *faceButton = [FaceButton buttonWithType:UIButtonTypeCustom];
-//            faceButton.buttonIndex = i-1;
-            emojiDomain = [emojiArray objectAtIndex:i-1];
+        for (int i = 0; i<[array count]; i++) {
+            emojiDomain = [array objectAtIndex:i];
+            
+            x = spliteX + (btnWH*cell) + (spliteX*cell) + (page*KGSCREEN.size.width);
+            
+            if(cell == 7) {
+                cell = 0;
+                row++;
+                x = spliteX + (page*KGSCREEN.size.width);
+                y = spliteY + (btnWH*row) + (spliteY*row);
+            }
+            
+            if(i/pageSize>0 && i%pageSize==0) {
+                page++;
+                x = spliteX + (page*KGSCREEN.size.width);
+                y = spliteY;
+                row = 0;
+                cell = 0;
+            }
             
             faceButton = [UIButton buttonWithType:UIButtonTypeCustom];
+            faceButton.frame = CGRectMake(x, y, btnWH, btnWH);
             faceButton.targetObj = emojiDomain;
             [faceButton addTarget:self
                            action:@selector(faceButton:)
                  forControlEvents:UIControlEventTouchUpInside];
-            
-            //计算每一个表情按钮的坐标和在哪一屏
-            faceButton.frame = CGRectMake((((i-1)%28)%7)*44+6+((i-1)/28*320), (((i-1)%28)/7)*44+8, 44, 44);
-            
-//            [faceButton setImage:[UIImage imageNamed:[NSString stringWithFormat:@"%03d",i]] forState:UIControlStateNormal];
             
             [SDWebImageManager.sharedManager downloadImageWithURL:[NSURL URLWithString:emojiDomain.descriptionUrl] options:SDWebImageLowPriority progress:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
                 
@@ -66,16 +106,18 @@
             
             
             [faceView addSubview:faceButton];
+            
+            cell++;
         }
         
         //添加PageControl
-        facePageControl = [[GrayPageControl alloc]initWithFrame:CGRectMake(110, 190, 100, 20)];
+        facePageControl = [[GrayPageControl alloc]initWithFrame:CGRectMake(110, faceViewH, 100, 20)];
         
         [facePageControl addTarget:self
                             action:@selector(pageChange:)
                   forControlEvents:UIControlEventValueChanged];
         
-        facePageControl.numberOfPages = 85/28+1;
+        facePageControl.numberOfPages = [emojiArray count]/28+1;
         facePageControl.currentPage = 0;
         [self addSubview:facePageControl];
         
@@ -97,27 +139,39 @@
 
 //停止滚动的时候
 -(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
-    [facePageControl setCurrentPage:faceView.contentOffset.x/320];
+    [facePageControl setCurrentPage:faceView.contentOffset.x / KGSCREEN.size.width];
     [facePageControl updateCurrentPageDisplay];
 }
 
 - (void)pageChange:(id)sender {
-    [faceView setContentOffset:CGPointMake(facePageControl.currentPage*320, 0) animated:YES];
+    [faceView setContentOffset:CGPointMake(facePageControl.currentPage * KGSCREEN.size.width, 0) animated:YES];
     [facePageControl setCurrentPage:facePageControl.currentPage];
 }
 
 - (void)faceButton:(UIButton *)sender {
     EmojiDomain * domain = (EmojiDomain *)sender.targetObj;
+    NSString * emojiStr = [NSString stringWithFormat:@"[%@]", domain.datavalue];
     if (self.inputTextField) {
         NSMutableString *faceString = [[NSMutableString alloc]initWithString:self.inputTextField.text];
-        [faceString appendString:[_faceMap objectForKey:[NSString stringWithFormat:@"[%@]", domain.datavalue]]];
+        [self packageChatHTMLInfo:domain text:faceString];
+        [faceString appendString:emojiStr];
         self.inputTextField.text = faceString;
     }
     if (self.inputTextView) {
         NSMutableString *faceString = [[NSMutableString alloc]initWithString:self.inputTextView.text];
-        [faceString appendString:[_faceMap objectForKey:[NSString stringWithFormat:@"[%@]", domain.datavalue]]];
+        [self packageChatHTMLInfo:domain text:faceString];
+        [faceString appendString:emojiStr];
         self.inputTextView.text = faceString;
     }
+    
+    if(_FaceBoardInputedBlock) {
+        _FaceBoardInputedBlock(emojiStr);
+    }
+}
+
+- (void)packageChatHTMLInfo:(EmojiDomain *)domain text:(NSString *)text{
+    NSString * imgHTML = [NSString stringWithFormat:@"<img alt=\"%@\" src=\"%@\" />", domain.datavalue, domain.descriptionUrl];
+    [[KGEmojiManage sharedManage].chatHTMLInfo appendFormat:@"%@%@", text, imgHTML];
 }
 
 - (void)backFace{

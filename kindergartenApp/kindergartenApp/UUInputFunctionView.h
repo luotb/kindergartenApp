@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "FaceBoard.h"
+#import "KGTextView.h"
 
 @class UUInputFunctionView;
 
@@ -29,7 +30,7 @@
 @property (nonatomic, retain) UIButton *btnSendMessage;
 @property (nonatomic, retain) UIButton *btnChangeVoiceState;
 @property (nonatomic, retain) UIButton *btnVoiceRecord;
-@property (nonatomic, retain) UITextView *TextViewInput;
+@property (nonatomic, retain) KGTextView *TextViewInput;
 
 @property (nonatomic, assign) BOOL isAbleToSendTextMessage;
 
