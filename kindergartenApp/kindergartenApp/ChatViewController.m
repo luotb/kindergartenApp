@@ -18,6 +18,8 @@
 #import "KGEmojiManage.h"
 #import "WriteVO.h"
 #import "QueryChatsVO.h"
+#import "ChatInfoDomain.h"
+#import "KGHUD.h"
 
 @interface ChatViewController () <UUInputFunctionViewDelegate,UUMessageCellDelegate,UITableViewDataSource,UITableViewDelegate> {
     UUInputFunctionView *IFView;
@@ -39,8 +41,11 @@
     _chatTableView.dataSource = self;
     
     [KGEmojiManage sharedManage].isChatEmoji = YES;
+    
+    [self getChatInfoList];
     [self addRefreshViews];
     [self loadBaseViewsAndData];
+    [self loadInputFuniView];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -86,18 +91,26 @@
     };
 }
 
+//加载底部输入功能View
+- (void)loadInputFuniView {
+    IFView = [[UUInputFunctionView alloc]initWithSuperVC:self];
+    IFView.delegate = self;
+    [self.view addSubview:IFView];
+}
+
+- (void)loadChatListData:(NSArray *)chatsArray {
+    
+    [self.chatModel addChatInfosToDataSource:chatsArray];
+    [self.chatTableView reloadData];
+    [self tableViewScrollToBottom];
+}
+
 - (void)loadBaseViewsAndData
 {
     self.chatModel = [[ChatModel alloc]init];
     self.chatModel.isGroupChat = NO;
-    [self.chatModel populateRandomDataSource];
-    
-    IFView = [[UUInputFunctionView alloc]initWithSuperVC:self];
-    IFView.delegate = self;
-    [self.view addSubview:IFView];
-    
-    [self.chatTableView reloadData];
-    [self tableViewScrollToBottom];
+//    [self.chatModel populateRandomDataSource];
+   
 }
 
 -(void)keyboardChange:(NSNotification *)notification
@@ -249,8 +262,10 @@
     
     [[KGHttpService sharedService] getTeacherOrLeaderMsgList:queryVO success:^(NSArray *msgArray) {
         
-    } faild:^(NSString *errorMsg) {
+        [self loadChatListData:msgArray];
         
+    } faild:^(NSString *errorMsg) {
+        [[KGHUD sharedHud] show:self.contentView onlyMsg:errorMsg];
     }];
 }
 

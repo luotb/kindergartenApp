@@ -138,6 +138,7 @@
 		24DEC8221B633F2B00C55828 /* DynamicMenuDomain.m in Sources */ = {isa = PBXBuildFile; fileRef = 24DEC8211B633F2B00C55828 /* DynamicMenuDomain.m */; };
 		24E0636F1B6D4502001F3283 /* TestCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24E0636D1B6D4502001F3283 /* TestCollectionViewCell.m */; };
 		24E063701B6D4502001F3283 /* TestCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24E0636E1B6D4502001F3283 /* TestCollectionViewCell.xib */; };
+		24E1F5671B7279C600057C44 /* MoreMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24E1F5661B7279C600057C44 /* MoreMenuViewController.m */; };
 		24E4D9471B64E9810088745A /* libBaiduMobStat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 24E4D9461B64E9810088745A /* libBaiduMobStat.a */; };
 		24E4D9491B64EE690088745A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24E4D9481B64EE690088745A /* SystemConfiguration.framework */; };
 		24E4D94B1B64EE710088745A /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24E4D94A1B64EE710088745A /* MessageUI.framework */; };
@@ -512,6 +513,8 @@
 		24E0636C1B6D4502001F3283 /* TestCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestCollectionViewCell.h; sourceTree = "<group>"; };
 		24E0636D1B6D4502001F3283 /* TestCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestCollectionViewCell.m; sourceTree = "<group>"; };
 		24E0636E1B6D4502001F3283 /* TestCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestCollectionViewCell.xib; sourceTree = "<group>"; };
+		24E1F5651B7279C600057C44 /* MoreMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreMenuViewController.h; sourceTree = "<group>"; };
+		24E1F5661B7279C600057C44 /* MoreMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreMenuViewController.m; sourceTree = "<group>"; };
 		24E4D9451B64E9760088745A /* BaiduMobStat.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaiduMobStat.h; sourceTree = "<group>"; };
 		24E4D9461B64E9810088745A /* libBaiduMobStat.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libBaiduMobStat.a; sourceTree = "<group>"; };
 		24E4D9481B64EE690088745A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -1346,6 +1349,7 @@
 		248B6AA51B19AD3800FCB98F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				24E1F5611B726BAE00057C44 /* MoreView */,
 				24A3D3731B5E870E00D4C212 /* ItemBtn */,
 				2489B6321B5AB31800039E70 /* ImageCollectionView */,
 			);
@@ -1723,6 +1727,15 @@
 				24DE91B31B67C78700D3FFCE /* TeacherJudgeViewController.xib */,
 			);
 			name = Controller;
+			sourceTree = "<group>";
+		};
+		24E1F5611B726BAE00057C44 /* MoreView */ = {
+			isa = PBXGroup;
+			children = (
+				24E1F5651B7279C600057C44 /* MoreMenuViewController.h */,
+				24E1F5661B7279C600057C44 /* MoreMenuViewController.m */,
+			);
+			name = MoreView;
 			sourceTree = "<group>";
 		};
 		24E4D9431B64E95B0088745A /* Baidu */ = {
@@ -2312,6 +2325,7 @@
 				F4C0AB8B1B1C39D4007B0E35 /* KGDateUtil.m in Sources */,
 				F487838E1B58DA1700CDC1A8 /* AFNetworkReachabilityManager.m in Sources */,
 				F487838F1B58DA1700CDC1A8 /* AFSecurityPolicy.m in Sources */,
+				24E1F5671B7279C600057C44 /* MoreMenuViewController.m in Sources */,
 				2489B66C1B5AB49E00039E70 /* SDWebImageDecoder.m in Sources */,
 				2474DFC91B6CD2070021506F /* RecipesItemVO.m in Sources */,
 				F4EA538F1B60D8390044BE7A /* StudentInfoItemVO.m in Sources */,

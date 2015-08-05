@@ -27,4 +27,6 @@
 
 - (IBAction)submitBtnClicked:(UIButton *)sender;
 
+- (void)judgedHandler;
+
 @end

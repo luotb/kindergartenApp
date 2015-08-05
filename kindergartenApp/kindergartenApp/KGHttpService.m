@@ -291,8 +291,6 @@
 //                                              [self userCookie:cookies];
                                               
                                               
-                                              _loginRespDomain.list = [KGUser objectArrayWithKeyValuesArray:_loginRespDomain.list];
-                                              
                                               //获取首页动态菜单
                                               [self getDynamicMenu:^(NSArray *menuArray) {
                                                   
@@ -641,7 +639,7 @@
     NSArray * teacherArray2 = [TeacherVO objectArrayWithKeyValuesArray:responseObject[@"list_judge"]];
     
     for(TeacherVO * teacherVO in teacherArray1) {
-        teacherVO.teacheruuid = teacherVO.uuid;
+//        teacherVO.teacheruuid = teacherVO.uuid;
         
         for(TeacherVO * teacherVO2 in teacherArray2) {
             if([teacherVO.teacher_uuid isEqualToString:teacherVO2.teacheruuid]) {

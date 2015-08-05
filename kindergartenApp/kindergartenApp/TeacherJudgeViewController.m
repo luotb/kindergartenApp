@@ -13,6 +13,7 @@
 #import "KGHUD.h"
 #import "PageInfoDomain.h"
 #import "UIColor+Extension.h"
+#import "TeacherJudgeTableViewCell.h"
 
 @interface TeacherJudgeViewController () <KGReFreshViewDelegate> {
     ReFreshTableViewController * reFreshView;
@@ -49,8 +50,9 @@
 - (void)teacherJudgeClickedNotification:(NSNotification *)notification {
     NSDictionary * dic = [notification userInfo];
     TeacherVO * teacherObj = [dic objectForKey:@"tearchVO"];
+    TeacherJudgeTableViewCell * cell = [dic objectForKey:@"tableViewCell"];
     
-    [self saveTeacherJudge:teacherObj];
+    [self saveTeacherJudge:teacherObj cell:cell];
 }
 
 //获取数据加载表格
@@ -69,11 +71,12 @@
 }
 
 //保存老师评价
-- (void)saveTeacherJudge:(TeacherVO *)teacherVO {
+- (void)saveTeacherJudge:(TeacherVO *)teacherVO cell:(TeacherJudgeTableViewCell *)cell{
     
     [[KGHUD sharedHud] show:self.contentView];
     [[KGHttpService sharedService] saveTeacherJudge:teacherVO success:^(NSString *msgStr) {
         [[KGHUD sharedHud] show:self.contentView onlyMsg:msgStr];
+        [cell judgedHandler];
     } faild:^(NSString *errorMsg) {
         [[KGHUD sharedHud] show:self.contentView onlyMsg:errorMsg];
     }];

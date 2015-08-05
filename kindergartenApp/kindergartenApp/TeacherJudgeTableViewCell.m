@@ -38,21 +38,15 @@
     _teachVO = (TeacherVO *)baseDomain;
     _nameLabel.text = _teachVO.name;
     
-//    [_headImageView sd_setImageWithURL:[NSURL URLWithString:@""] placeholderImage:[UIImage imageNamed:@"head_def"] options:SDWebImageLowPriority completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-//        [self.headImageView setBorderWithWidth:Number_Zero color:KGColorFrom16(0xE7E7EE) radian:self.headImageView.width / Number_Two];
-//    }];
+    [_headImageView sd_setImageWithURL:[NSURL URLWithString:_teachVO.img] placeholderImage:[UIImage imageNamed:@"head_def"] options:SDWebImageLowPriority completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        [self.headImageView setBorderWithWidth:Number_Zero color:KGColorFrom16(0xE7E7EE) radian:self.headImageView.width / Number_Two];
+    }];
 
     
     if(_teachVO.teacheruuid) {
         //已经评价
         _judgeTextView.text = _teachVO.content;
-        _submitBtn.enabled = YES;
-        _submitBtn.userInteractionEnabled = NO;
-        
-        UIImageView * imageView = (UIImageView *)[self viewWithTag:_teachVO.type * 100];
-        imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"judge_yes_%ld", (long)_teachVO.type]];
-        
-        
+        [self judgedHandler];
     }
 //    else {
 //        _judgeTextView.text = judgeTeacherDefText;
@@ -81,8 +75,19 @@
 - (IBAction)submitBtnClicked:(UIButton *)sender {
     _teachVO.content = [KGNSStringUtil trimString:_judgeTextView.text];
     _teachVO.type = lastSelTag / Number_Ten;
-    NSDictionary *dic = @{@"tearchVO" : _teachVO};
+    _teachVO.teacheruuid = _teachVO.teacher_uuid;
+    NSDictionary *dic = @{@"tearchVO" : _teachVO, @"tableViewCell" : self};
     [[NSNotificationCenter defaultCenter] postNotificationName:Key_Notification_TeacherJudge object:self userInfo:dic];
+}
+
+
+- (void)judgedHandler {
+    _judgeTextView.editable = NO;
+    _submitBtn.enabled = YES;
+    _submitBtn.userInteractionEnabled = NO;
+    
+    UIImageView * imageView = (UIImageView *)[self viewWithTag:_teachVO.type * 100];
+    imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"judge_yes_%ld", (long)_teachVO.type]];
 }
 
 @end

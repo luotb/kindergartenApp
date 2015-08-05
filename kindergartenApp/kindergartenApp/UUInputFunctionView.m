@@ -35,8 +35,9 @@
         self.btnSendMessage = [UIButton buttonWithType:UIButtonTypeCustom];
         self.btnSendMessage.frame = CGRectMake(Main_Screen_Width-40, 5, 30, 30);
         self.isAbleToSendTextMessage = NO;
-        [self.btnSendMessage setTitle:@"" forState:UIControlStateNormal];
-        [self.btnSendMessage setBackgroundImage:[UIImage imageNamed:@"Chat_take_picture"] forState:UIControlStateNormal];
+        [self.btnSendMessage setTitle:@"send" forState:UIControlStateNormal];
+//        [self.btnSendMessage setBackgroundImage:[UIImage imageNamed:@"Chat_take_picture"] forState:UIControlStateNormal];
+        [self.btnSendMessage setBackgroundImage:[UIImage imageNamed:@"chat_send_message"] forState:UIControlStateNormal];
         self.btnSendMessage.titleLabel.font = [UIFont systemFontOfSize:12];
         [self.btnSendMessage addTarget:self action:@selector(sendMessage:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:self.btnSendMessage];
@@ -201,15 +202,15 @@
 //发送消息（文字图片）
 - (void)sendMessage:(UIButton *)sender
 {
-    if (self.isAbleToSendTextMessage) {
+//    if (self.isAbleToSendTextMessage) {
         NSString *resultStr = [self.TextViewInput.text stringByReplacingOccurrencesOfString:@"   " withString:@""];
         [self.delegate UUInputFunctionView:self sendMessage:resultStr];
-    }
-    else{
-        [self.TextViewInput resignFirstResponder];
-        UIActionSheet *actionSheet= [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Camera",@"Images",nil];
-        [actionSheet showInView:self.window];
-    }
+//    }
+//    else{
+//        [self.TextViewInput resignFirstResponder];
+//        UIActionSheet *actionSheet= [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Camera",@"Images",nil];
+//        [actionSheet showInView:self.window];
+//    }
 }
 
 
@@ -227,11 +228,12 @@
 
 - (void)changeSendBtnWithPhoto:(BOOL)isPhoto
 {
-    self.isAbleToSendTextMessage = !isPhoto;
-    [self.btnSendMessage setTitle:isPhoto?@"":@"send" forState:UIControlStateNormal];
-    self.btnSendMessage.frame = RECT_CHANGE_width(self.btnSendMessage, isPhoto?30:35);
-    UIImage *image = [UIImage imageNamed:isPhoto?@"Chat_take_picture":@"chat_send_message"];
-    [self.btnSendMessage setBackgroundImage:image forState:UIControlStateNormal];
+    self.isAbleToSendTextMessage = YES;
+//    self.isAbleToSendTextMessage = !isPhoto;
+//    [self.btnSendMessage setTitle:isPhoto?@"":@"send" forState:UIControlStateNormal];
+//    self.btnSendMessage.frame = RECT_CHANGE_width(self.btnSendMessage, isPhoto?30:35);
+//    UIImage *image = [UIImage imageNamed:isPhoto?@"Chat_take_picture":@"chat_send_message"];
+//    [self.btnSendMessage setBackgroundImage:image forState:UIControlStateNormal];
 }
 
 - (void)textViewDidEndEditing:(UITextView *)textView

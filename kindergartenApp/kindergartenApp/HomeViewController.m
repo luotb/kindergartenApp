@@ -22,8 +22,9 @@
 #import "GiftwareArticlesViewController.h"
 #import "StudentSignRecordViewController.h"
 #import "RecipesViewController.h"
+#import "MoreMenuViewController.h"
 
-@interface HomeViewController () <ImageCollectionViewDelegate, SphereMenuDelegate> {
+@interface HomeViewController () <ImageCollectionViewDelegate> {
     
     IBOutlet UIScrollView * scrollView;
     IBOutlet UIView * photosView;
@@ -31,7 +32,7 @@
     
     IBOutlet UIView * moreView;
     IBOutlet UIImageView * moreImageView;
-    SphereMenu * sphereMenu;
+    
 }
 
 @end
@@ -40,12 +41,6 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        
-        [self loadMoreMenu:[KGHttpService sharedService].dynamicMenuArray];
-        
-    });
 }
 
 - (void)viewDidLoad {
@@ -71,25 +66,25 @@
 //    }];
 }
 
-- (void)loadMoreMenu:(NSArray *)menuArray {
-    
-    [sphereMenu removeFromSuperview];
-    
-    UIImage *startImage = [UIImage imageNamed:@"yuan"];
-//    UIImage *image1 = [UIImage imageNamed:@"yuan"];
-//    UIImage *image2 = [UIImage imageNamed:@"yuan"];
-//    UIImage *image3 = [UIImage imageNamed:@"yuan"];
-//    NSArray *images = @[image1, image2, image3];
-    
-    sphereMenu = [[SphereMenu alloc] initWithStartPoint:moreImageView.center
-                                             startImage:startImage
-                                          submenu:menuArray];
-    sphereMenu.sphereDamping = 0.8;
-    sphereMenu.sphereLength = 65;
-    sphereMenu.angle = M_PI_2 / 2;
-    sphereMenu.delegate = self;
-    [moreView addSubview:sphereMenu];
-}
+//- (void)loadMoreMenu:(NSArray *)menuArray {
+//    
+//    [sphereMenu removeFromSuperview];
+//    
+//    UIImage *startImage = [UIImage imageNamed:@"yuan"];
+////    UIImage *image1 = [UIImage imageNamed:@"yuan"];
+////    UIImage *image2 = [UIImage imageNamed:@"yuan"];
+////    UIImage *image3 = [UIImage imageNamed:@"yuan"];
+////    NSArray *images = @[image1, image2, image3];
+//    
+//    sphereMenu = [[SphereMenu alloc] initWithStartPoint:moreImageView.center
+//                                             startImage:startImage
+//                                          submenu:menuArray];
+//    sphereMenu.sphereDamping = 0.8;
+//    sphereMenu.sphereLength = 65;
+//    sphereMenu.angle = M_PI_2 / 2;
+//    sphereMenu.delegate = self;
+//    [moreView addSubview:sphereMenu];
+//}
 
 
 - (void)loadPhotoView {
@@ -166,12 +161,14 @@
 
 
 - (void)loadMoreFunMenu:(UIButton *)sender {
-    [sphereMenu showMenu];
-}
-
-
-- (void)sphereDidSelected:(int)index {
-    NSLog(@"sphere %d selected", index);
+    NSArray * moreMenuArray = [KGHttpService sharedService].dynamicMenuArray;
+    
+    MoreMenuViewController * moreVC = [[MoreMenuViewController alloc] init];
+    moreVC.menuArray = moreMenuArray;
+    
+//    UIWindow * window = [UIApplication sharedApplication].keyWindow;
+    [self presentViewController:moreVC animated:YES completion:nil];
+    
 }
 
 
