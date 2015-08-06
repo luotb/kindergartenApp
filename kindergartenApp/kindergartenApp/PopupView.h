@@ -6,9 +6,9 @@
 //  Copyright (c) 2014年 LQ. All rights reserved.
 //
 
-#import "BaseView.h"
+#import "KGBaseView.h"
 
-@interface PopupView : BaseView <UIGestureRecognizerDelegate>
+@interface PopupView : KGBaseView <UIGestureRecognizerDelegate>
 
 @property (strong, nonatomic) UIView * popupContentView;
 

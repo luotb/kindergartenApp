@@ -38,27 +38,16 @@
 
 //添加手势
 - (void)addGestureBtn {
-    UITapGestureRecognizer *singleTapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTap)];
-    singleTapGesture.delegate = self;
-    singleTapGesture.numberOfTapsRequired = Number_One;
-    singleTapGesture.cancelsTouchesInView = NO;
-    [self addGestureRecognizer:singleTapGesture];
-}
-
-//单击手势响应
-- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
-    if(touch.view.frame.size.width==self.frame.size.width && touch.view.frame.size.height==self.frame.size.height)
-        return YES;
-    return NO;
+    UIButton * btn = [[UIButton alloc] initWithFrame:CGRectMake(Number_Zero, Number_Zero, self.width, self.height)];
+    [btn addTarget:self action:@selector(singleBtnTap) forControlEvents:UIControlEventTouchUpInside];
+    [self addSubview:btn];
 }
 
 //单击响应
-- (void)singleTap{
+- (void)singleBtnTap{
     [UIView viewAnimate:^{
         self.alpha = Number_Zero;
     } time:0.5f];
-    
-    [[UIApplication sharedApplication] sendAction:@selector(resignFirstResponder) to:nil from:nil forEvent:nil];
 }
 
 @end

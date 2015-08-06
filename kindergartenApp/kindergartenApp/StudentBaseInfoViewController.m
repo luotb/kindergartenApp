@@ -9,7 +9,7 @@
 #import "StudentBaseInfoViewController.h"
 #import "KGTextField.h"
 #import "Masonry.h"
-#import "KGPopupViewController.h"
+#import "PopupView.h"
 #import "KGNSStringUtil.h"
 #import "UIImageView+WebCache.h"
 #import "KGHttpService.h"
@@ -18,7 +18,7 @@
 #import "UIView+Extension.h"
 #import "UIColor+Extension.h"
 
-@interface StudentBaseInfoViewController () <UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate, KGPopupVCDelegate> {
+@interface StudentBaseInfoViewController () <UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate> {
     
     IBOutlet UIImageView * headImageView;
     IBOutlet KGTextField * nameTextField;
@@ -28,7 +28,7 @@
     IBOutlet UIImageView * girlImageView;
     NSString * filePath;
     
-    KGPopupViewController * popupVC;
+    PopupView * popupView;
     UIDatePicker * datePicker;
 }
 
@@ -245,10 +245,14 @@
 
 - (IBAction)birthdayBtnClicked:(UIButton *)sender {
     sender.selected = !sender.selected;
-    if(!popupVC) {
-        popupVC = [[KGPopupViewController alloc] init];
-        popupVC.delegate = self;
+     
+    if(!popupView) {
+        popupView = [[PopupView alloc] initWithFrame:CGRectMake(Number_Zero, Number_Zero, KGSCREEN.size.width, KGSCREEN.size.height)];
+        popupView.alpha = Number_Zero;
+        
+        CGFloat height = 216;
         datePicker = [[UIDatePicker alloc] init];
+        datePicker.frame = CGRectMake(Number_Zero, KGSCREEN.size.height-height, KGSCREEN.size.width, height);
         datePicker.datePickerMode = UIDatePickerModeDate;
         
         if(_studentInfo.birthday) {
@@ -256,14 +260,15 @@
         }
         
         [datePicker addTarget:self action:@selector(dateChanged:) forControlEvents:UIControlEventValueChanged ];
-        [popupVC setContentView:datePicker];
+        [popupView addSubview:datePicker];
+        
+        UIWindow * window = [UIApplication sharedApplication].keyWindow;
+        [window addSubview:popupView];
     }
-    [self.navigationController presentViewController:popupVC animated:YES completion:nil];
-}
-
-
-- (void)popupCallback {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    
+    [UIView viewAnimate:^{
+        popupView.alpha = Number_One;
+    } time:Number_AnimationTime_Five];
 }
 
 
@@ -284,9 +289,6 @@
         
     }];
 }
-
-
-
 
 
 @end

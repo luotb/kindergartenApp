@@ -76,10 +76,10 @@
             break;
         case 11: {
             //分享
-            ShareViewController * baseVC = [[ShareViewController alloc] init];
+//            ShareViewController * baseVC = [[ShareViewController alloc] init];
 //            baseVC.view.frame = CGRectMake(0, 0, KGSCREEN.size.height-140, 140);
-            [self presentViewController:baseVC animated:YES completion:nil];
-//            [self shareClicked];
+//            [self presentViewController:baseVC animated:YES completion:nil];
+            [self shareClicked];
             
             break;
         }
@@ -113,15 +113,17 @@
     if(!popupView) {
         popupView = [[PopupView alloc] initWithFrame:CGRectMake(Number_Zero, Number_Zero, KGSCREEN.size.width, KGSCREEN.size.height)];
         popupView.alpha = Number_Zero;
+        
+        CGFloat height = 140;
         shareVC = [[ShareViewController alloc] init];
-        shareVC.view.frame = CGRectMake(0,  KGSCREEN.size.height-140, KGSCREEN.size.width, 140);
+        shareVC.view.frame = CGRectMake(Number_Zero,  KGSCREEN.size.height-height, KGSCREEN.size.width, height);
         [popupView addSubview:shareVC.view];
         [self.view addSubview:popupView];
     }
     
     [UIView viewAnimate:^{
         popupView.alpha = Number_One;
-    } time:0.5f];
+    } time:Number_AnimationTime_Five];
     
 }
 
