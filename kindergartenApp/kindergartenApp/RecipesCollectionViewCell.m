@@ -11,13 +11,16 @@
 #import "RecipesHeadTableViewCell.h"
 #import "UIColor+Extension.h"
 #import "RecipesStudentInfoTableViewCell.h"
-#import "CookbookDomain.h"
 #import "UIImageView+WebCache.h"
 #import "KGTextView.h"
 #import "TopicInteractionView.h"
 #import "TopicInteractionDomain.h"
 #import "TopicInteractionFrame.h"
 #import "UIView+Extension.h"
+#import "UUImageAvatarBrowser.h"
+#import "UIButton+Extension.h"
+#import <objc/runtime.h>
+#import "CookbookDomain.h"
 
 #define RecipesInfoCellIdentifier  @"RecipesInfoCellIdentifier"
 #define RecipesNoteCellIdentifier  @"RecipesNoteCellIdentifier"
@@ -185,6 +188,7 @@
     CGFloat index = Number_Zero;
     
     UIImageView * imageView = nil;
+    UIButton    * btn = nil;
     for(CookbookDomain * cookbook in recipesVO.cookbookArray) {
         
         imageView = [[UIImageView alloc] initWithFrame:CGRectMake(index * w, y, w, h)];
@@ -193,6 +197,12 @@
         [imageView sd_setImageWithURL:[NSURL URLWithString:cookbook.img] placeholderImage:nil options:SDWebImageLowPriority completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
             
         }];
+        
+        btn = [[UIButton alloc] initWithFrame:CGRectMake(index * w, y, w, h)];
+        btn.targetObj = imageView;
+        objc_setAssociatedObject(btn, "cookbook", cookbook, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+        [btn addTarget:self action:@selector(showRecipesImgClicked:) forControlEvents:UIControlEventTouchUpInside];
+        [recipesImgsView addSubview:btn];
         
         if(index == Number_Two) {
             index = Number_Zero;
@@ -236,6 +246,12 @@
     [cell addSubview:topicView];
     
     return cell;
+}
+
+- (void)showRecipesImgClicked:(UIButton *)sender{
+    UIImageView * imageView = (UIImageView *)sender.targetObj;
+    CookbookDomain * cookbook = objc_getAssociatedObject(sender, "cookbook");
+    [UUImageAvatarBrowser showImage:imageView url:cookbook.img];
 }
 
 @end

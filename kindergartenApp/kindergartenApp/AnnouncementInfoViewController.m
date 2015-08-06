@@ -85,7 +85,7 @@
 
 - (void)resetViewParam {
     titleLabel.text = _announcementDomain.title;
-    [myWebView loadHTMLString:_announcementDomain.content baseURL:nil];
+    [myWebView loadHTMLString:_announcementDomain.message baseURL:nil];
     groupLabel.text = [[KGHttpService sharedService] getGroupNameByUUID:_announcementDomain.groupuuid];
     createTimeLabel.text = _announcementDomain.create_time;
 }

@@ -13,7 +13,7 @@
 #import "KGHUD.h"
 #import "PageInfoDomain.h"
 #import "UIColor+Extension.h"
-#import "AnnouncementInfoViewController.h"
+#import "GiftwareArticlesInfoViewController.h"
 
 @interface GiftwareArticlesViewController () <KGReFreshViewDelegate> {
     ReFreshTableViewController * reFreshView;
@@ -81,7 +81,7 @@
  *  @param indexPath   indexPath
  */
 - (void)didSelectRowCallBack:(id)baseDomain tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath {
-    AnnouncementInfoViewController * infoVC = [[AnnouncementInfoViewController alloc] init];
+    GiftwareArticlesInfoViewController * infoVC = [[GiftwareArticlesInfoViewController alloc] init];
     infoVC.announcementDomain = baseDomain;
     [self.navigationController pushViewController:infoVC animated:YES];
 }

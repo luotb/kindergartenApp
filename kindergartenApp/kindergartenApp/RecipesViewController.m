@@ -128,7 +128,7 @@
             }
         }
     } else {
-        lastDateStr = [KGDateUtil getDate:Number_Six];
+        lastDateStr = [KGDateUtil getDate:Number_Eight];
     }
     
     isNoFirstReq = YES;

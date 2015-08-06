@@ -7,6 +7,7 @@
 //
 
 #import "KGTextView.h"
+#import "UIColor+Extension.h"
 
 @interface KGTextView ()
 
@@ -31,7 +32,7 @@
 
 //当用nib创建时会调用此方法
 - (void)awakeFromNib {
-    textColor = [UIColor redColor];
+//    textColor = KGColorFrom16(0xE7E7EE);
     [self addObserver];
 }
 

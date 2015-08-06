@@ -32,7 +32,7 @@
     
     teacherLabel.text = domain.create_user;
     titleLabel.text = domain.title;
-    contentLabel.text = domain.content;
+    contentLabel.text = domain.message;
     
     if(domain.create_time) {
         NSDate * date = [KGDateUtil getDateByDateStr:domain.create_time format:dateFormatStr2];

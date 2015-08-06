@@ -12,6 +12,10 @@
 #import "BPush.h"
 #import "KGHttpService.h"
 #import "KeychainItemWrapper.h"
+#import "UMSocial.h"
+#import "UMSocialWechatHandler.h"
+#import "UMSocialSinaHandler.h"
+#import "SystemShareKey.h"
 
 @interface AppDelegate ()
 
@@ -205,6 +209,45 @@
     
     //    AppKey:e633eaf16d
     [statTracker startWithAppId:BaiduMobStatAppId];//设置您在mtj网站上添加的app的appkey,此处AppId即为应用的appKey
+}
+
+
+//share config
+- (void)umengShareConfig{
+    [UMSocialData setAppKey:uMengAppKey];
+    [UMSocialData openLog:NO];
+    //设置微信AppId、appSecret，分享url
+    [UMSocialWechatHandler setWXAppId:ShareKey_WeChat appSecret:ShareKey_WeChatSecret url:webUrl];
+    
+    //打开新浪微博的SSO开关
+    [UMSocialSinaHandler openSSOWithRedirectURL:@"http://sns.whalecloud.com/sina2/callback"];
+    
+    //打开腾讯微博SSO开关，设置回调地址  因腾讯微博sdk暂未提供64位SDK 所以友盟也没法增加针对腾讯微博的64位处理
+    //    [UMSocialTencentWeiboHandler openSSOWithRedirectUrl:@"http://sns.whalecloud.com/tencent2/callback"];
+}
+
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
+{
+    BOOL judge = [UMSocialSnsService handleOpenURL:url];
+    return judge;
+}
+
+- (BOOL)application:(UIApplication *)application
+            openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication
+         annotation:(id)annotation
+{
+    BOOL judge = [UMSocialSnsService handleOpenURL:url];
+    
+    return  judge;
+}
+
+/**
+ 这里处理新浪微博SSO授权进入新浪微博客户端后进入后台，再返回原来应用
+ */
+- (void)applicationDidBecomeActive:(UIApplication *)application
+{
+    [UMSocialSnsService  applicationDidBecomeActive];
 }
 
 

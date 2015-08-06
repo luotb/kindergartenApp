@@ -117,7 +117,7 @@
     else if (self.messageFrame.message.type == UUMessageTypePicture)
     {
         if (self.btnContent.backImageView) {
-            [UUImageAvatarBrowser showImage:self.btnContent.backImageView];
+            [UUImageAvatarBrowser showImage:self.btnContent.backImageView url:nil];
         }
         if ([self.delegate isKindOfClass:[UIViewController class]]) {
             [[(UIViewController *)self.delegate view] endEditing:YES];

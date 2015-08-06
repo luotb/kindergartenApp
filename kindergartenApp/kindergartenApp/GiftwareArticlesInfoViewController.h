@@ -7,7 +7,12 @@
 //
 
 #import "BaseViewController.h"
+#import "AnnouncementDomain.h"
 
 @interface GiftwareArticlesInfoViewController : BaseViewController
+
+@property (strong, nonatomic) AnnouncementDomain * announcementDomain;
+
+- (IBAction)articlesFunBtnClicked:(UIButton *)sender;
 
 @end
