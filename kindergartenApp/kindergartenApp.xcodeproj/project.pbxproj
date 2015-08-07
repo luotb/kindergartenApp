@@ -152,6 +152,8 @@
 		F463E6451B66106D00AB92B9 /* DianZanDomain.m in Sources */ = {isa = PBXBuildFile; fileRef = F463E6441B66106D00AB92B9 /* DianZanDomain.m */; };
 		F463E6481B6613D500AB92B9 /* GroupDomain.m in Sources */ = {isa = PBXBuildFile; fileRef = F463E6471B6613D500AB92B9 /* GroupDomain.m */; };
 		F463E64C1B6639B800AB92B9 /* HBVLinkedTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = F463E64B1B6639B800AB92B9 /* HBVLinkedTextView.m */; };
+		F46CBD0A1B7449AB00380EC3 /* RecipesListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F46CBD081B7449AB00380EC3 /* RecipesListViewController.m */; };
+		F46CBD0B1B7449AB00380EC3 /* RecipesListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F46CBD091B7449AB00380EC3 /* RecipesListViewController.xib */; };
 		F471EDEA1B709E6300EEBA1D /* EmojiDomain.m in Sources */ = {isa = PBXBuildFile; fileRef = F471EDE91B709E6300EEBA1D /* EmojiDomain.m */; };
 		F471EDED1B70A3A700EEBA1D /* AddressBookDomain.m in Sources */ = {isa = PBXBuildFile; fileRef = F471EDEC1B70A3A700EEBA1D /* AddressBookDomain.m */; };
 		F471EDF01B70A79B00EEBA1D /* WriteVO.m in Sources */ = {isa = PBXBuildFile; fileRef = F471EDEF1B70A79B00EEBA1D /* WriteVO.m */; };
@@ -559,6 +561,9 @@
 		F463E6471B6613D500AB92B9 /* GroupDomain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GroupDomain.m; sourceTree = "<group>"; };
 		F463E64A1B6639B800AB92B9 /* HBVLinkedTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HBVLinkedTextView.h; sourceTree = "<group>"; };
 		F463E64B1B6639B800AB92B9 /* HBVLinkedTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HBVLinkedTextView.m; sourceTree = "<group>"; };
+		F46CBD071B7449AB00380EC3 /* RecipesListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipesListViewController.h; sourceTree = "<group>"; };
+		F46CBD081B7449AB00380EC3 /* RecipesListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipesListViewController.m; sourceTree = "<group>"; };
+		F46CBD091B7449AB00380EC3 /* RecipesListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecipesListViewController.xib; sourceTree = "<group>"; };
 		F471EDE81B709E6300EEBA1D /* EmojiDomain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmojiDomain.h; sourceTree = "<group>"; };
 		F471EDE91B709E6300EEBA1D /* EmojiDomain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmojiDomain.m; sourceTree = "<group>"; };
 		F471EDEB1B70A3A700EEBA1D /* AddressBookDomain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressBookDomain.h; sourceTree = "<group>"; };
@@ -963,6 +968,9 @@
 				2474DFBD1B6CCE460021506F /* RecipesViewController.h */,
 				2474DFBE1B6CCE460021506F /* RecipesViewController.m */,
 				2474DFBF1B6CCE460021506F /* RecipesViewController.xib */,
+				F46CBD071B7449AB00380EC3 /* RecipesListViewController.h */,
+				F46CBD081B7449AB00380EC3 /* RecipesListViewController.m */,
+				F46CBD091B7449AB00380EC3 /* RecipesListViewController.xib */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -2463,6 +2471,7 @@
 				244F74931B62A4630078D30D /* PostTopicViewController.xib in Resources */,
 				F4E6B2461B6B59960087EAEB /* GiftwareArticlesViewController.xib in Resources */,
 				F4E61BDF1B734A0300E5851A /* UMSCommentInputController.xib in Resources */,
+				F46CBD0B1B7449AB00380EC3 /* RecipesListViewController.xib in Resources */,
 				F4EA538C1B60C6DF0044BE7A /* MeFunTableViewCell.xib in Resources */,
 				F4E61B7A1B73438F00E5851A /* ShareViewController.xib in Resources */,
 				24AA0B4D1B690FA800DAC03B /* ChatViewController.xib in Resources */,
@@ -2623,6 +2632,7 @@
 				F471EDF31B70A93700EEBA1D /* ChatInfoDomain.m in Sources */,
 				F48783B31B58DA1700CDC1A8 /* NSObject+MJProperty.m in Sources */,
 				F4E635FE1B675EB700800924 /* AnnouncementTableViewCell.m in Sources */,
+				F46CBD0A1B7449AB00380EC3 /* RecipesListViewController.m in Sources */,
 				2489B6231B5A40E200039E70 /* RegViewController.m in Sources */,
 				F48783921B58DA1700CDC1A8 /* AFURLResponseSerialization.m in Sources */,
 				24E0636F1B6D4502001F3283 /* TestCollectionViewCell.m in Sources */,

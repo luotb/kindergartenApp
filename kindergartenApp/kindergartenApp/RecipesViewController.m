@@ -37,7 +37,7 @@
     self.title = @"每日食谱";
     
     lastRow = -1;
-    dataCount = 3;
+    dataCount = 100;
     [self initCollectionView];
     [self collectionViewScrollToRight];
 }

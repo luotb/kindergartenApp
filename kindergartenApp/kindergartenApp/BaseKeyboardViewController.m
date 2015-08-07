@@ -32,6 +32,7 @@ typedef enum : NSInteger {
     [super viewDidLoad];
     _keyBoardController=[[UIKeyboardViewController alloc] initWithControllerDelegate:self];
     [self addGestureBtn];
+    [self addSwipeGesture];
     
     textFieldMArray = [[NSMutableArray alloc] init];
     [self addTextFieldToMArray];
@@ -42,6 +43,13 @@ typedef enum : NSInteger {
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
     [_keyBoardController removeKeyBoardNotification];
+}
+
+//滑动手势
+- (void)addSwipeGesture {
+    UIPanGestureRecognizer* recognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipe:)];
+//    [recognizer setDirection:(UISwipeGestureRecognizerDirectionDown)];
+    [[self view] addGestureRecognizer:recognizer];
 }
 
 

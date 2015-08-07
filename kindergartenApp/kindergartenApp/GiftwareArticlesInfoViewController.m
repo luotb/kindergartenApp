@@ -76,11 +76,7 @@
             break;
         case 11: {
             //分享
-//            ShareViewController * baseVC = [[ShareViewController alloc] init];
-//            baseVC.view.frame = CGRectMake(0, 0, KGSCREEN.size.height-140, 140);
-//            [self presentViewController:baseVC animated:YES completion:nil];
             [self shareClicked];
-            
             break;
         }
         case 12:
