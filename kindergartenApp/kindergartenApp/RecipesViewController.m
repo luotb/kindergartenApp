@@ -20,11 +20,9 @@
     
     IBOutlet UICollectionView * recipesCollectionView;
     NSMutableArray * dataSource; //数据源 key  只是存储了日期
-    NSMutableDictionary * recipesMDict; //食谱数据 key=日期 value=食谱Domain
-    NSInteger dataCount;
     NSInteger lastRow;
     NSString * lastDateStr;
-    BOOL isNoFirstReq;
+    BOOL isFirstReq;
 }
 
 @end
@@ -36,8 +34,10 @@
     
     self.title = @"每日食谱";
     
+    isFirstReq = YES;
     lastRow = -1;
-    dataCount = 100;
+    
+    [self initDataSource];
     [self initCollectionView];
     [self collectionViewScrollToRight];
 }
@@ -49,23 +49,9 @@
 
 - (void)initDataSource {
     dataSource = [[NSMutableArray alloc] init];
-    
-}
-
-- (void)getRecipesList:(NSInteger)index success:(void (^)(RecipesDomain * domain))success{
-    
-    [self getQueryDate:index];
-    
-    NSString * endDate = isNoFirstReq ? nil : [KGDateUtil getDate:Number_Three];
-    
-    [[KGHttpService sharedService] getRecipesList:lastDateStr endDate:endDate success:^(NSArray *recipesArray) {
-        
-        if(recipesArray && [recipesArray count]>Number_Zero) {
-            success([recipesArray objectAtIndex:Number_Zero]);
-        }
-    } faild:^(NSString *errorMsg) {
-        [[KGHUD sharedHud] show:self.contentView onlyMsg:errorMsg];
-    }];
+    [dataSource addObject:[[RecipesDomain alloc] init]];
+    [dataSource addObject:[[RecipesDomain alloc] init]];
+    [dataSource addObject:[[RecipesDomain alloc] init]];
 }
 
 
@@ -91,7 +77,7 @@
 #pragma mark - UICollectionViewDataSource methods
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return dataCount;
+    return [dataSource count];
 }
 
 
@@ -99,10 +85,8 @@
     
     static NSString *identifierCell = recipesCollectionCellIden;
     RecipesCollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifierCell forIndexPath:indexPath];
-    
-    [self getRecipesList:indexPath.row success:^(RecipesDomain *domain) {
-        [cell loadRecipesData:domain];
-    }];
+    [self getQueryDate:indexPath.row];
+    [cell loadRecipesInfoByData:lastDateStr];
     
     return cell;
 }
@@ -110,29 +94,28 @@
 //collectionView Scroll to right
 - (void)collectionViewScrollToRight
 {
-    NSIndexPath * indexPath = [NSIndexPath indexPathForRow:dataCount-Number_One inSection:Number_Zero];
+    NSIndexPath * indexPath = [NSIndexPath indexPathForRow:[dataSource count]-Number_One inSection:Number_Zero];
     
     [recipesCollectionView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionRight animated:YES];
 }
 
 
 - (void)getQueryDate:(NSInteger)index {
-    if(isNoFirstReq) {
+    if(!isFirstReq) {
         if(index != lastRow) {
-            if(index > lastRow) {
-                //明天
-                lastDateStr = [KGDateUtil nextOrPreyDay:lastDateStr isNext:YES];
-            } else {
-                //昨天
-                lastDateStr = [KGDateUtil nextOrPreyDay:lastDateStr isNext:NO];
-            }
+            lastDateStr = [KGDateUtil nextOrPreyDay:lastDateStr date:lastRow-index];
         }
     } else {
-        lastDateStr = [KGDateUtil getDate:Number_Eight];
+        lastDateStr = [KGDateUtil getDate:Number_Two];
     }
     
-    isNoFirstReq = YES;
     lastRow = index;
+    NSLog(@"lastDate:%@, lastRow:%ld", lastDateStr, (long)lastRow);
+    
+    if(index == Number_Zero) {
+        [dataSource insertObject:[[RecipesDomain alloc] init] atIndex:Number_Zero];
+        [recipesCollectionView reloadData];
+    }
 }
 
 

@@ -19,7 +19,7 @@
 + (NSString *)getDate:(NSInteger)date;
 
 //获取上一天或者下一天日期
-+ (NSString *)nextOrPreyDay:(NSString *)currentDateStr isNext:(BOOL)isNext;
++ (NSString *)nextOrPreyDay:(NSString *)currentDateStr date:(NSInteger)date;
 
 //毫秒时间
 + (NSString *)millisecond;

@@ -19,7 +19,6 @@
 + (instancetype)cellWithTableView:(UITableView *)tableView;
 
 @property(nonatomic,strong) TopicFrame * topicFrame;
-@property(nonatomic,assign) NSInteger    cellForRowIndex;
 
 
 /** 用户信息 */
@@ -41,7 +40,7 @@
 @property (nonatomic, weak) UIView  * topicImgsView;
 
 /** 帖子互动视图 */
-@property (nonatomic, strong) TopicInteractionView  * topicInteractionView;
+@property (nonatomic, weak) TopicInteractionView  * topicInteractionView;
 
 /** 分割线 */
 @property (nonatomic,weak) UILabel * levelab;

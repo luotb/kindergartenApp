@@ -7,6 +7,8 @@
 //
 
 #import "KGBaseDomain.h"
+#import "DianZanDomain.h"
+#import "ReplyPageDomain.h"
 
 @interface RecipesDomain : KGBaseDomain
 
@@ -29,5 +31,9 @@
 @property (strong, nonatomic) NSString * share_url;  //用于分享的地址.全路径.
 
 @property (assign, nonatomic) NSInteger count;       //浏览次数
+
+@property (strong, nonatomic) DianZanDomain * dianzan;//点赞数据
+@property (strong, nonatomic) ReplyPageDomain * replyPage; //帖子回复列表
+
 
 @end

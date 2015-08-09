@@ -10,8 +10,6 @@
 #import "KGHttpService.h"
 #import "KGHUD.h"
 #import "TopicInteractionView.h"
-#import "TopicInteractionDomain.h"
-#import "TopicInteractionFrame.h"
 #import "Masonry.h"
 
 @interface AnnouncementInfoViewController () {
@@ -40,16 +38,12 @@
 
 //加载帖子互动
 - (void)loadTopicInteractionView {
-    TopicInteractionDomain * domain = [[TopicInteractionDomain alloc] init];
-    domain.uuid = _announcementDomain.uuid;
-    domain.topicType = Topic_Announcement;
-    
-    TopicInteractionFrame * topicFrame = [[TopicInteractionFrame alloc] init];
-    topicFrame.topicInteractionDomain = domain;
-    
+   
     CGFloat y = CGRectGetMaxY(createTimeLabel.frame) + Number_Ten;
     TopicInteractionView * topicView = [[TopicInteractionView alloc] init];
-    topicView.topicFrame = topicFrame;
+    [topicView loadFunView:_announcementDomain.dianzan reply:_announcementDomain.replyPage];
+    topicView.topicType = Topic_Announcement;
+    topicView.topicUUID = _announcementDomain.uuid;
     [contentScrollView addSubview:topicView];
     
     [topicView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -57,15 +51,14 @@
         make.left.equalTo(@(0));
         make.right.equalTo(@(0));
         make.width.equalTo(@(CELLCONTENTWIDTH));
-        make.height.equalTo(@(topicFrame.cellHeight));
+        make.height.equalTo(@(topicView.topicInteractHeight));
     }];
     
     [self.keyBoardController buildDelegate];
     
-    CGFloat contentHeight = y + topicFrame.cellHeight + 64;
+    CGFloat contentHeight = y + topicView.topicInteractHeight + 64;
     CGFloat contentWidth  = KGSCREEN.size.width;
     contentScrollView.contentSize = CGSizeMake(contentWidth, contentHeight);
-    NSLog(@"scroll:%@", NSStringFromCGRect(contentScrollView.frame));
 }
 
 

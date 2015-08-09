@@ -39,17 +39,18 @@
 }
 
 //获取上一天或者下一天日期
-+ (NSString *)nextOrPreyDay:(NSString *)currentDateStr isNext:(BOOL)isNext {
++ (NSString *)nextOrPreyDay:(NSString *)currentDateStr date:(NSInteger)date {
     NSDateFormatter * format = [[NSDateFormatter alloc] init];
     [format setDateFormat:dateFormatStr1];
     
-    NSDate * date = [format dateFromString:currentDateStr];
+    NSDate * currentDate = [format dateFromString:currentDateStr];
     NSDate * newDate = nil;
-    if(isNext) {
-        newDate = [[NSDate alloc] initWithTimeIntervalSinceReferenceDate:([date timeIntervalSinceReferenceDate] + 24*3600)];
-    } else {
-        newDate = [[NSDate alloc] initWithTimeIntervalSinceReferenceDate:([date timeIntervalSinceReferenceDate] - 24*3600)];
-    }
+//    if(isNext) {
+//        newDate = [[NSDate alloc] initWithTimeIntervalSinceReferenceDate:([date timeIntervalSinceReferenceDate] + 24*3600)];
+//    } else {
+    long temp = date * 24 * 3600;
+        newDate = [[NSDate alloc] initWithTimeIntervalSinceReferenceDate:([currentDate timeIntervalSinceReferenceDate] - temp)];
+//    }
     return [format stringFromDate:newDate];
 }
 

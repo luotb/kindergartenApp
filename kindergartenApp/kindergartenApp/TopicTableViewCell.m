@@ -17,6 +17,9 @@
 #import "KGDateUtil.h"
 #import "KGNSStringUtil.h"
 #import "UIImageView+WebCache.h"
+#import "UUImageAvatarBrowser.h"
+#import "UIButton+Extension.h"
+#import <objc/runtime.h>
 
 #define TOPICTABLECELL @"topicTableCell"
 
@@ -47,7 +50,7 @@
         [self initContentView];
         
         //加载帖子互动视图
-        [self initTopicInteractionView];
+//        [self initTopicInteractionView];
         
         //分割线
         [self initLeve];
@@ -104,7 +107,7 @@
     _topicTextView = topicTextView;
     
     UIView  * topicImgsView = [[UIView alloc] init];
-//    topicImgsView.backgroundColor = [UIColor greenColor];
+    topicImgsView.backgroundColor = [UIColor greenColor];
     [topicContentView addSubview:topicImgsView];
     
     _topicImgsView = topicImgsView;
@@ -113,6 +116,9 @@
 
 //加载帖子互动视图
 - (void)initTopicInteractionView {
+    if(_topicInteractionView) {
+        [_topicInteractionView removeFromSuperview];
+    }
     TopicInteractionView  * topicInteractionView = [[TopicInteractionView alloc] init];
     [self addSubview:topicInteractionView];
 //    topicInteractionView.backgroundColor = [UIColor brownColor];
@@ -161,24 +167,17 @@
     [self loadTopicImgs];
     
     //帖子互动视图
-    [self.topicInteractionView loadFunView];
-    
-    TopicInteractionDomain * domain = [[TopicInteractionDomain alloc] init];
-    domain.uuid = topic.uuid;
-    domain.topicType = Topic_Interact;
-    
-    TopicInteractionFrame * topicInteractionFrame = [[TopicInteractionFrame alloc] init];
-    topicInteractionFrame.topicInteractionDomain = domain;
-    self.topicInteractionView.topicFrame = topicInteractionFrame;
-    
-    CGRect frame = self.topicFrame.topicInteractionViewF;
-    self.topicFrame.topicInteractionViewF = CGRectMake(frame.origin.x, frame.origin.y, frame.size.width, topicInteractionFrame.cellHeight);
+    [self initTopicInteractionView];
+    [self.topicInteractionView loadFunView:self.topicFrame.topic.dianzan reply:self.topicFrame.topic.replyPage];
+    self.topicInteractionView.topicUUID = self.topicFrame.topic.uuid;
+    self.topicInteractionView.topicType = Topic_Interact;
     self.topicInteractionView.frame = self.topicFrame.topicInteractionViewF;
     
     //分割线
     CGRect levelabFrame = self.topicFrame.levelabF;
-    self.topicFrame.levelabF = CGRectMake(levelabFrame.origin.x, CGRectGetMaxY(frame) + 15, levelabFrame.size.width, levelabFrame.size.height);
+    self.topicFrame.levelabF = CGRectMake(levelabFrame.origin.x, CGRectGetMaxY(self.topicInteractionView.frame), levelabFrame.size.width, 0.5);
     self.levelab.frame = self.topicFrame.levelabF;
+//    self.levelab.backgroundColor = [UIColor blackColor];
 }
 
 
@@ -193,11 +192,11 @@
     if(topic.imgs && ![topic.imgs isEqualToString:String_DefValue_Empty]) {
         NSArray * imgArray = topic.imgsList;
         
-        if([imgArray count] > Number_One) {
+//        if([imgArray count] > Number_One) {
             [self loadMoreTopicImgs:imgArray];
-        } else {
-            [self onlyOneTopicImg:[imgArray objectAtIndex:Number_Zero]];
-        }
+//        } else {
+//            [self onlyOneTopicImg:[imgArray objectAtIndex:Number_Zero]];
+//        }
     }
 }
 
@@ -208,7 +207,7 @@
     CGFloat wh = self.topicFrame.topicImgsViewF.size.width / Number_Three;
     CGFloat index = Number_Zero;
     
-    
+    UIButton * btn = nil;
     for(NSString * imgUrl in imgUrlArray) {
         
         imageView = [[UIImageView alloc] initWithFrame:CGRectMake(index * wh, y, wh, wh)];
@@ -217,6 +216,12 @@
         [imageView sd_setImageWithURL:[NSURL URLWithString:imgUrl] placeholderImage:nil options:SDWebImageLowPriority completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
             
         }];
+        
+        btn = [[UIButton alloc] initWithFrame:CGRectMake(index * wh, y, wh, wh)];
+        btn.targetObj = imageView;
+        objc_setAssociatedObject(btn, "imgUrl", imgUrl, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+        [btn addTarget:self action:@selector(showImgClicked:) forControlEvents:UIControlEventTouchUpInside];
+        [self.topicImgsView addSubview:btn];
         
         if(index == Number_Two) {
             index = Number_Zero;
@@ -247,14 +252,10 @@
     }];
 }
 
-
-- (void)topicFunBtnClicked:(UIButton *)sender {
-    sender.selected = !sender.selected;
-    
-    NSDictionary *dic = @{Key_TopicCellFunType : [NSNumber numberWithInteger:sender.tag],
-                          Key_TopicUUID : _topicFrame.topic.uuid,
-                          Key_TopicFunRequestType : [NSNumber numberWithBool:sender.selected]};
-    [[NSNotificationCenter defaultCenter] postNotificationName:Key_Notification_TopicFunClicked object:self userInfo:dic];
+- (void)showImgClicked:(UIButton *)sender{
+    UIImageView * imageView = (UIImageView *)sender.targetObj;
+    NSString * imgUrl = objc_getAssociatedObject(sender, "imgUrl");
+    [UUImageAvatarBrowser showImage:imageView url:imgUrl];
 }
 
 

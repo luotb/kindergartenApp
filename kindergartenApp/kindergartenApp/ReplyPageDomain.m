@@ -1,24 +1,23 @@
 //
-//  ClassNewsDomain.m
+//  ReplyPageDomain.m
 //  kindergartenApp
 //
-//  Created by yangyangxun on 15/7/22.
+//  Created by yangyangxun on 15/8/7.
 //  Copyright (c) 2015年 funi. All rights reserved.
 //
 
-#import "TopicDomain.h"
+#import "ReplyPageDomain.h"
 #import "MJExtension.h"
 
-@implementation TopicDomain
+@implementation ReplyPageDomain
 
 //属性名映射
 +(void)initialize{
     [super initialize];
     
     [self setupObjectClassInArray:^NSDictionary *{
-        return @{@"imgsList"   : @"NSSring"};
+        return @{@"data"   : @"ReplyDomain"};
     }];
 }
-
 
 @end

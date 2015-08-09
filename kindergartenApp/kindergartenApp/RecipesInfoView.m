@@ -1,12 +1,12 @@
 //
-//  RecipesCollectionViewCell.m
+//  RecipesInfoView.m
 //  kindergartenApp
 //
-//  Created by yangyangxun on 15/8/1.
+//  Created by yangyangxun on 15/8/8.
 //  Copyright (c) 2015年 funi. All rights reserved.
 //
 
-#import "RecipesCollectionViewCell.h"
+#import "RecipesInfoView.h"
 #import "RecipesItemVO.h"
 #import "RecipesHeadTableViewCell.h"
 #import "UIColor+Extension.h"
@@ -19,24 +19,30 @@
 #import "UIButton+Extension.h"
 #import <objc/runtime.h>
 #import "CookbookDomain.h"
-#import "KGHUD.h"
-#import "KGHttpService.h"
 
 #define RecipesInfoCellIdentifier  @"RecipesInfoCellIdentifier"
 #define RecipesNoteCellIdentifier  @"RecipesNoteCellIdentifier"
 
-@implementation RecipesCollectionViewCell
+@implementation RecipesInfoView
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
+- (id)initWithFrame:(CGRect)frame {
+    self = [super initWithFrame:frame];
+    if(self) {
+        [self initTableView];
+    }
     
+    return self;
+}
+
+- (void)initTableView {
+    recipesTableView = [[UITableView alloc] initWithFrame:CGRectMake(Number_Zero, Number_Zero, self.width, self.height)];
     recipesTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     recipesTableView.separatorColor = [UIColor clearColor];
     recipesTableView.delegate   = self;
     recipesTableView.dataSource = self;
-    
-    self.backgroundColor = [UIColor grayColor];
+    [self addSubview:recipesTableView];
 }
+
 
 - (NSMutableArray *)tableDataSource {
     if(!_tableDataSource) {
@@ -52,28 +58,6 @@
     
     [self packageTableData];
     [recipesTableView reloadData];
-}
-
-//加载食谱数据
-- (void)loadRecipesInfoByData:(NSString *)dateStr {
-    [[KGHUD sharedHud] show:self];
-    
-    [[KGHttpService sharedService] getRecipesList:dateStr endDate:nil success:^(NSArray *recipesArray) {
-        
-        [[KGHUD sharedHud] hide:self];
-        
-        RecipesDomain * tempDomain = [[RecipesDomain alloc] init];
-        tempDomain.plandate = dateStr;
-        if(recipesArray && [recipesArray count]>Number_Zero) {
-            tempDomain = [recipesArray objectAtIndex:Number_Zero];
-        }
-        
-        [self packageTableData];
-        [recipesTableView reloadData];
-        
-    } faild:^(NSString *errorMsg) {
-        [[KGHUD sharedHud] show:self.contentView onlyMsg:errorMsg];
-    }];
 }
 
 - (void)packageTableData {

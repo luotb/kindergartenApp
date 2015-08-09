@@ -10,4 +10,7 @@
 
 @interface BaseTopicInteractViewController : BaseKeyboardViewController
 
+//重置回复内容
+- (void)resetTopicReplyContent;
+
 @end

@@ -7,41 +7,51 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "TopicInteractionFrame.h"
+#import "DianZanDomain.h"
+#import "ReplyPageDomain.h"
 #import "HBVLinkedTextView.h"
 #import "KGTextField.h"
+#import "ReplyDomain.h"
 
 @interface TopicInteractionView : UIView <UITextFieldDelegate>
 
-
-@property (weak, nonatomic) TopicInteractionFrame * topicFrame;
+@property (strong, nonatomic) DianZanDomain * dianzan;//点赞数据
+@property (strong, nonatomic) ReplyPageDomain * replyPage; //帖子回复列表
+@property (strong, nonatomic) NSString        * topicUUID; //帖子UUID
+@property (assign, nonatomic) KGTopicType       topicType; //帖子类型
 
 /** 功能按钮视图 */
-@property (nonatomic, weak) UIView   * funView;
+@property (strong, nonatomic) UIView   * funView;
 /** 发帖时间 */
-@property (nonatomic, weak) UILabel  * dateLabel;
+@property (strong, nonatomic) UILabel  * dateLabel;
 /** 点赞按钮 */
-@property (nonatomic, weak) UIButton * dianzanBtn;
+@property (strong, nonatomic) UIButton * dianzanBtn;
 /** 回复按钮 */
-@property (nonatomic, weak) UIButton * replyBtn;
+@property (strong, nonatomic) UIButton * replyBtn;
 
 /** 点赞列表视图 */
-@property (nonatomic, weak) UIView   * dianzanView;
+@property (strong, nonatomic) UIView   * dianzanView;
 /** 点赞列表ICON */
-@property (nonatomic, weak) UIImageView * dianzanIconImg;
+@property (strong, nonatomic) UIImageView * dianzanIconImg;
 
 /** 点赞列表文本 */
-@property (nonatomic, weak) UILabel  * dianzanLabel;
+@property (strong, nonatomic) UILabel  * dianzanLabel;
 
 /** 回复列表视图 */
-@property (nonatomic, weak) HBVLinkedTextView  * replyView;
+@property (strong, nonatomic) HBVLinkedTextView  * replyView;
 
 /** 回复输入框 */
-@property (nonatomic, weak) KGTextField * replyTextField;
+@property (strong, nonatomic) KGTextField * replyTextField;
 
-@property (assign, nonatomic) BOOL isDZList;
+@property (assign, nonatomic) CGFloat topicInteractHeight;
 
 
-- (void)loadFunView;
+- (void)loadFunView:(DianZanDomain *)dzDomain reply:(ReplyPageDomain *)replyPageDomain;
+
+//重置点赞列表
+- (void)resetDZName:(BOOL)isAdd name:(NSString *)name;
+
+//重置回复
+- (void)resetReplyList:(ReplyDomain *)replyDomain;
 
 @end

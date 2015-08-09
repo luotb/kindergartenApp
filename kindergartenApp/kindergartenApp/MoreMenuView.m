@@ -9,7 +9,7 @@
 #import "MoreMenuView.h"
 #import "DynamicMenuDomain.h"
 #import "UIImageView+WebCache.h"
-#import "UIButton+Extension.m"
+#import "UIButton+Extension.h"
 
 @interface MoreMenuView () {
     UIView * headView;

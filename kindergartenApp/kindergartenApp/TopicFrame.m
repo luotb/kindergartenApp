@@ -99,20 +99,54 @@
     }
     
     self.topicContentViewF = CGRectMake(nameX, CGRectGetMaxY(self.titleLabF), topicContentW, topicContentH);
-
     
     /* cell的高度 */
     self.cellHeight = CGRectGetMaxY(self.topicContentViewF);
     
     //帖子互动
-    self.topicInteractionViewF = CGRectMake(Number_Zero, self.cellHeight + TopicCellBorderW, cellW, Number_Fifty);
-    
-    /* cell的高度 */
-    self.cellHeight = CGRectGetMaxY(self.topicInteractionViewF);
+    [self setTopicInterActionRect];
     
     self.levelabF = CGRectMake(0, self.cellHeight + TopicCellBorderW, cellW, 0.5);
     
     self.cellHeight = CGRectGetMaxY(self.levelabF) + TopicCellBorderW;
+}
+
+//计算点赞回复的rect
+- (void)setTopicInterActionRect {
+    // cell的宽度
+    CGFloat cellW = KGSCREEN.size.width;
+    CGFloat height = Number_Zero;
+    
+    //点赞回复功能H
+    height += CELLPADDING;
+    
+    //点赞列表
+    if(_topic.dianzan) {
+        height += TopicCellBorderW + TopicCellBorderW;
+    }
+    
+    if(_topic.replyPage && _topic.replyPage.data && [_topic.replyPage.data count]>Number_Zero) {
+        NSMutableString * replyStr       = [[NSMutableString alloc] init];
+        
+        for(ReplyDomain * reply in _topic.replyPage.data) {
+            [replyStr appendFormat:@"%@:%@ \n", reply.create_user, reply.content ? reply.title : @""];
+        }
+        
+        CGSize size = [replyStr sizeWithFont:[UIFont systemFontOfSize:APPUILABELFONTNO12]
+                           constrainedToSize:CGSizeMake(CELLCONTENTWIDTH, 2000)
+                               lineBreakMode:NSLineBreakByWordWrapping];
+        
+        height += (size.height + TopicCellBorderW);
+    }
+    
+    //回复输入框
+    height += 30 + TopicCellBorderW;
+    
+    
+    self.topicInteractionViewF = CGRectMake(Number_Zero, self.cellHeight + TopicCellBorderW, cellW, height);
+    
+    /* cell的高度 */
+    self.cellHeight = CGRectGetMaxY(self.topicInteractionViewF);
 }
 
 

@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "DianZanDomain.h"
 #import "ReplyDomain.h"
+#import "ReplyPageDomain.h"
 
 @interface TopicDomain : NSObject
 
@@ -40,14 +41,9 @@
 
 @property (assign, nonatomic) NSInteger usertype; //
 
-@property (strong, nonatomic) DianZanDomain * dianZanDomain;//点赞数据
+@property (strong, nonatomic) DianZanDomain * dianzan;//点赞数据
 
-@property (strong, nonatomic) NSMutableArray * replyMArray; //帖子回复列表
-
-@property (assign, nonatomic) BOOL isReqDianZan;//是否请求过点赞数据
-
-@property (assign, nonatomic) BOOL isReqReplyMArray; //是否请求过帖子回复列表
-
+@property (strong, nonatomic) ReplyPageDomain * replyPage; //帖子回复列表
 
 /** rongyugaodu */
 @property (nonatomic,assign)CGFloat cellH;

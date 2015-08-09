@@ -21,4 +21,9 @@
 //加载食谱数据
 - (void)loadRecipesData:(RecipesDomain *)recipesDomain;
 
+//加载食谱数据
+- (void)loadRecipesInfoByData:(NSString *)dateStr;
+
+
+
 @end

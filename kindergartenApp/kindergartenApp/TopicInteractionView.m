@@ -10,22 +10,23 @@
 #import "UIColor+Extension.h"
 #import "UIView+Extension.h"
 #import "UIButton+Extension.h"
-#import "KGHttpService.h"
+#import "KGNSStringUtil.h"
 
 @implementation TopicInteractionView 
 
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if(self) {
-        
-        [self loadFunView];
     }
     
     return self;
 }
 
-
-- (void)loadFunView {
+- (void)loadFunView:(DianZanDomain *)dzDomain reply:(ReplyPageDomain *)replyPageDomain {
+    
+    _dianzan = dzDomain;
+    _replyPage = replyPageDomain;
+    
     //加载功能按钮 (点赞、回复)
     [self initFunView];
     
@@ -42,89 +43,148 @@
 
 //加载功能按钮 (点赞、回复)
 - (void)initFunView {
-    UIView * funView = [[UIView alloc] init];
-    funView.backgroundColor = CLEARCOLOR;
+    // cell的宽度
+    CGFloat cellW = KGSCREEN.size.width;
+    
+    _funView = [[UIView alloc] initWithFrame:CGRectMake(CELLPADDING, Number_Zero, CELLCONTENTWIDTH, CELLPADDING)];
+    _funView.backgroundColor = CLEARCOLOR;
 //    funView.backgroundColor = [UIColor redColor];
-    [self addSubview:funView];
+    [self addSubview:_funView];
     
-    _funView = funView;
+    /* cell的高度 */
+    self.topicInteractHeight = CGRectGetMaxY(_funView.frame);
     
-    UILabel * datelab = [[UILabel alloc] init];
-    datelab.backgroundColor = CLEARCOLOR;
-    datelab.font = TopicCellDateFont;
-    datelab.textColor = KGColorFrom16(0x666666);
-    [funView addSubview:datelab];
-    _dateLabel = datelab;
+    _dateLabel = [[UILabel alloc] initWithFrame:CGRectMake(Number_Zero, Number_Three, 100, 10)];
+    _dateLabel.backgroundColor = CLEARCOLOR;
+    _dateLabel.font = TopicCellDateFont;
+    _dateLabel.textColor = KGColorFrom16(0x666666);
+    [_funView addSubview:_dateLabel];
     
-    UIButton * dzBtn = [[UIButton alloc] init];
-    [dzBtn setBackgroundImage:@"anzan" selImg:@"hongzan"];
-    dzBtn.tag = Number_Ten;
-    [dzBtn addTarget:self action:@selector(topicFunBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
-    [funView addSubview:dzBtn];
-    _dianzanBtn = dzBtn;
+    //回复按钮
+    CGSize funBtnSize = CGSizeMake(31, 16);
+    CGFloat replyBtnX = cellW - funBtnSize.width - CELLPADDING - CELLPADDING;
+    CGFloat replyBtnY = 0;
     
-    UIButton * replyBtn = [[UIButton alloc] init];
-    [replyBtn setBackgroundImage:@"pinglun" selImg:@"pinglun"];
-    replyBtn.tag = Number_Eleven;
-    [replyBtn addTarget:self action:@selector(topicFunBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
-    [funView addSubview:replyBtn];
-    _replyBtn = replyBtn;
+    //点赞按钮
+    CGFloat dzBtnX = replyBtnX - 15 - funBtnSize.width;
+    
+    _dianzanBtn = [[UIButton alloc] initWithFrame:CGRectMake(replyBtnX, replyBtnY, funBtnSize.width, funBtnSize.height)];
+    [_dianzanBtn setBackgroundImage:@"anzan" selImg:@"hongzan"];
+    _dianzanBtn.selected = !_dianzan.canDianzan;
+    _dianzanBtn.tag = Number_Ten;
+    [_dianzanBtn addTarget:self action:@selector(topicFunBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [_funView addSubview:_dianzanBtn];
+    
+    _replyBtn = [[UIButton alloc] initWithFrame:CGRectMake(dzBtnX, replyBtnY, funBtnSize.width, funBtnSize.height)];
+    [_replyBtn setBackgroundImage:@"pinglun" selImg:@"pinglun"];
+    _replyBtn.tag = Number_Eleven;
+    [_replyBtn addTarget:self action:@selector(replyBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [_funView addSubview:_replyBtn];
 }
 
 //加载点赞列表
 - (void)initDZLabel {
-    UIView * dzView = [[UIView alloc] init];
-    dzView.backgroundColor = CLEARCOLOR;
+    
+    _dianzanView = [[UIView alloc] initWithFrame:CGRectMake(Number_Zero, self.topicInteractHeight + TopicCellBorderW, CELLCONTENTWIDTH, TopicCellBorderW)];
+    _dianzanView.backgroundColor = CLEARCOLOR;
 //    dzView.backgroundColor = [UIColor brownColor];
+    [self addSubview:_dianzanView];
     
-    [self addSubview:dzView];
-    
-    _dianzanView = dzView;
-    
-    UIImageView * dzImage = [[UIImageView alloc] init];
-    dzImage.image = [UIImage imageNamed:@"wodehuizan"];
+    _dianzanIconImg = [[UIImageView alloc] initWithFrame:CGRectMake(CELLPADDING, Number_Zero, Number_Ten, Number_Ten)];
+    _dianzanIconImg.image = [UIImage imageNamed:@"wodehuizan"];
 //    dzImage.backgroundColor = [UIColor redColor];
-    [dzView addSubview:dzImage];
+    [_dianzanView addSubview:_dianzanIconImg];
     
-    _dianzanIconImg = dzImage;
+    //点赞列表
+    // cell的宽度
+    CGFloat cellW = KGSCREEN.size.width;
+    CGFloat dzLabelX = CGRectGetMaxX(_dianzanIconImg.frame) + Number_Ten;
+    CGFloat dzLabelW = cellW - dzLabelX - CELLPADDING;
     
-    UILabel * dzlabel = [[UILabel alloc] init];
-    dzlabel.backgroundColor = CLEARCOLOR;
-    dzlabel.font = TopicCellDateFont;
-    [dzView addSubview:dzlabel];
-    _dianzanLabel = dzlabel;
+    _dianzanLabel = [[UILabel alloc] initWithFrame:CGRectMake(dzLabelX, Number_Zero, dzLabelW, Number_Ten)];
+    _dianzanLabel.backgroundColor = CLEARCOLOR;
+    _dianzanLabel.font = TopicCellDateFont;
+    [_dianzanView addSubview:_dianzanLabel];
+    
+    [self resetDZText];
+    
+    /* cell的高度 */
+    self.topicInteractHeight = CGRectGetMaxY(_dianzanView.frame);
+    
 }
 
 //加载回复
 - (void)initReplyView {
-    HBVLinkedTextView * replyLabel = [[HBVLinkedTextView alloc] init];
-    replyLabel.backgroundColor = CLEARCOLOR;
-//    replyLabel.backgroundColor = [UIColor greenColor];
-    replyLabel.font = TopicCellDateFont;
-    [self addSubview:replyLabel];
     
-    _replyView = replyLabel;
+    _replyView = [[HBVLinkedTextView alloc] init];
+    _replyView.backgroundColor = CLEARCOLOR;
+//    replyLabel.backgroundColor = [UIColor greenColor];
+    _replyView.font = TopicCellDateFont;
+    [self addSubview:_replyView];
+    
+    [self addReplyData];
+}
+
+- (void)addReplyData {
+    self.replyView.text = String_DefValue_Empty;
+    
+    if(_replyPage.data && [_replyPage.data count]>Number_Zero) {
+        NSMutableArray  * arrayOfStrings = [[NSMutableArray alloc] initWithCapacity:[_replyPage.data count]];
+        NSMutableString * replyStr       = [[NSMutableString alloc] init];
+        
+        for(ReplyDomain * reply in _replyPage.data) {
+            [replyStr appendFormat:@"%@:%@ \n", reply.create_user, reply.content ? reply.title : @""];
+            [arrayOfStrings addObject:[NSString stringWithFormat:@"%@:", reply.create_user]];
+        }
+        
+        CGSize size = [replyStr sizeWithFont:[UIFont systemFontOfSize:APPUILABELFONTNO12]
+                           constrainedToSize:CGSizeMake(CELLCONTENTWIDTH, 2000)
+                               lineBreakMode:NSLineBreakByWordWrapping];
+        
+        _replyView.frame = CGRectMake(CELLPADDING, self.topicInteractHeight + Number_Five, CELLCONTENTWIDTH, size.height);
+        
+        self.replyView.text = replyStr;
+        [self.replyView linkStrings:arrayOfStrings
+                  defaultAttributes:[self exampleAttributes]
+              highlightedAttributes:[self exampleAttributes]
+                         tapHandler:nil];
+        /* cell的高度 */
+        self.topicInteractHeight = CGRectGetMaxY(_replyView.frame);
+    }
 }
 
 
 //加载回复输入框
 - (void)initReplyTextField {
-    KGTextField * replyTextField = [[KGTextField alloc] init];
-    replyTextField.placeholder = @"我来说一句...";
-    replyTextField.returnKeyType = UIReturnKeySend;
-    replyTextField.delegate = self;
-    [self addSubview:replyTextField];
+    _replyTextField = [[KGTextField alloc] initWithFrame:CGRectMake(CELLPADDING, self.topicInteractHeight + TopicCellBorderW, CELLCONTENTWIDTH, 30)];
+    _replyTextField.placeholder = @"我来说一句...";
+    _replyTextField.returnKeyType = UIReturnKeySend;
+    _replyTextField.delegate = self;
+    [self addSubview:_replyTextField];
+    [_replyTextField setBorderWithWidth:1 color:[UIColor blackColor] radian:5.0];
     
-    [replyTextField setBorderWithWidth:1 color:[UIColor blackColor] radian:5.0];
-    
-    _replyTextField = replyTextField;
+    self.topicInteractHeight = CGRectGetMaxY(_replyTextField.frame) + Number_Ten;
+    self.height = self.topicInteractHeight;
 }
 
 
 //键盘回车
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    NSString * replyText = [KGNSStringUtil trimString:textField.text];
+    if(replyText && ![replyText isEqualToString:String_DefValue_Empty]) {
+        NSDictionary *dic = @{Key_TopicTypeReplyText : [KGNSStringUtil trimString:textField.text],
+                              Key_TopicUUID : _topicUUID,
+                              Key_TopicType : [NSNumber numberWithInteger:_topicType]};
+        [[NSNotificationCenter defaultCenter] postNotificationName:Key_Notification_TopicFunClicked object:self userInfo:dic];
+        
+        [textField resignFirstResponder];
+    }
     
     return YES;
+}
+
+- (void)replyBtnClicked:(UIButton *)sender {
+    [_replyTextField becomeFirstResponder];
 }
 
 
@@ -132,138 +192,12 @@
     sender.selected = !sender.selected;
     
     NSDictionary *dic = @{Key_TopicCellFunType : [NSNumber numberWithInteger:sender.tag],
-                          Key_TopicUUID : _topicFrame.topicInteractionDomain.uuid,
-                          Key_TopicFunRequestType : [NSNumber numberWithBool:sender.selected]};
+                          Key_TopicUUID : _topicUUID,
+                          Key_TopicFunRequestType : [NSNumber numberWithBool:sender.selected],
+                          Key_TopicType : [NSNumber numberWithInteger:_topicType],
+                          Key_TopicInteractionView : self};
     [[NSNotificationCenter defaultCenter] postNotificationName:Key_Notification_TopicFunClicked object:self userInfo:dic];
 }
-
-
--(void)setTopicFrame:(TopicInteractionFrame *)topicFrame {
-    
-    _topicFrame = topicFrame;
-    //功能按钮
-    self.funView.frame = self.topicFrame.funViewF;
-    self.dateLabel.frame = self.topicFrame.dateLabelF;
-    self.dianzanBtn.frame = self.topicFrame.dianzanBtnF;
-    self.replyBtn.frame   = self.topicFrame.replyBtnF;
-    
-    //时间
-//    if(topic.create_time) {
-//        NSDate * date = [KGDateUtil getDateByDateStr:topic.create_time format:dateFormatStr2];
-//        self.dateLabel.text = [KGNSStringUtil compareCurrentTime:date];
-//    }
-    
-    //回复输入框
-    self.replyTextField.frame = self.topicFrame.replyTextFieldF;
-    
-//    [self getDZInfo];
-   
-    NSLog(@"fun:%@, reply:%@", NSStringFromCGRect(self.topicFrame.funViewF), NSStringFromCGRect(self.topicFrame.replyTextFieldF));
-}
-
-
-- (void)getDZInfo {
-    
-    [[KGHttpService sharedService] getDZList:_topicFrame.topicInteractionDomain.uuid success:^(DianZanDomain *dzDomain) {
-        
-        if(dzDomain && dzDomain.count>Number_Zero) {
-            //点赞
-            self.dianzanView.frame = self.topicFrame.dianzanViewF;
-            self.dianzanIconImg.frame = self.topicFrame.dianzanIconImgF;
-            
-            //点赞文本
-            self.dianzanLabel.frame = self.topicFrame.dianzanLabelF;
-            
-            NSArray * nameArray = [dzDomain.names componentsSeparatedByString:@","];
-            
-            if([nameArray count] >= Number_Five) {
-                self.dianzanLabel.text = [NSString stringWithFormat:@"%@等%ld人觉得很赞", dzDomain.names, (long)dzDomain.count];
-            } else {
-                self.dianzanLabel.text = [NSString stringWithFormat:@"%@ %ld人觉得很赞", dzDomain.names, (long)dzDomain.count];
-            }
-            
-            self.dianzanBtn.selected = dzDomain.canDianzan;
-            
-            CGFloat h = CGRectGetHeight(self.topicFrame.dianzanViewF);
-            
-            /* cell的高度 */
-            self.topicFrame.cellHeight += h;
-            
-            [self resetFrame:[[NSArray alloc] initWithObjects:self.replyTextField, nil] h:CGRectGetMaxY(self.topicFrame.dianzanViewF) + Number_Ten];
-            
-            _isDZList = YES;
-            
-            [self notificationTopicHeightChange];
-        }
-        
-         [self getReplyList];
-        
-    } faild:^(NSString *errorMsg) {
-         [self getReplyList];
-    }];
-}
-
-
-- (void)getReplyList {
-    
-    PageInfoDomain * pageInfo = [[PageInfoDomain alloc] initPageInfo:Number_One size:Number_Ten];
-    
-    [[KGHttpService sharedService] getReplyList:pageInfo topicUUID:_topicFrame.topicInteractionDomain.uuid success:^(PageInfoDomain *pageInfo) {
-        
-        if([pageInfo.data count] > Number_Zero) {
-            
-            CGFloat y = CGRectGetMaxY(self.topicFrame.funViewF);
-            
-            if(_isDZList) {
-                y = CGRectGetMaxY(self.topicFrame.dianzanViewF);
-            }
-            
-            NSMutableArray  * arrayOfStrings = [[NSMutableArray alloc] initWithCapacity:[pageInfo.data count]];
-            NSMutableString * replyStr       = [[NSMutableString alloc] init];
-            
-            for(ReplyDomain * reply in pageInfo.data) {
-                [replyStr appendFormat:@"%@:%@ \n", reply.create_user, reply.title ? reply.title : @""];
-                [arrayOfStrings addObject:[NSString stringWithFormat:@"%@:", reply.create_user]];
-            }
-            
-            CGSize size = [replyStr sizeWithFont:[UIFont systemFontOfSize:APPUILABELFONTNO12]
-                               constrainedToSize:CGSizeMake(CELLCONTENTWIDTH, 2000)
-                                   lineBreakMode:NSLineBreakByWordWrapping];
-            
-            
-            _topicFrame.replyViewF = CGRectMake(CELLPADDING, y + Number_Five, CELLCONTENTWIDTH, size.height);
-            _replyView.frame = _topicFrame.replyViewF;
-            
-            self.replyView.text = replyStr;
-            [self.replyView linkStrings:arrayOfStrings
-                      defaultAttributes:[self exampleAttributes]
-                  highlightedAttributes:[self exampleAttributes]
-                             tapHandler:nil];
-            
-            CGFloat addH = CGRectGetMaxY(_replyView.frame) - y;
-            
-            /* cell的高度 */
-            self.topicFrame.cellHeight += addH;
-            
-            [self resetFrame:[[NSArray alloc] initWithObjects:self.replyTextField, nil] h:CGRectGetMaxY(_topicFrame.replyViewF)];
-            [self notificationTopicHeightChange];
-        }
-        
-    } faild:^(NSString *errorMsg) {
-        
-    }];
-}
-
-- (void)resetFrame:(NSArray *)views h:(CGFloat)h {
-    CGFloat y = h;
-    for(UIView * view in views){
-        if(view) {
-            view.y = y;
-            y = CGRectGetMaxY(view.frame);
-        }
-    }
-}
-
 
 - (NSMutableDictionary *)exampleAttributes
 {
@@ -271,10 +205,98 @@
               NSForegroundColorAttributeName:[UIColor redColor]}mutableCopy];
 }
 
-//cell高度改变通知
-- (void)notificationTopicHeightChange {
-//    [[NSNotificationCenter defaultCenter] postNotificationName:Key_Notification_TopicHeightChange object:self userInfo:nil];
+//重置点赞列表
+- (void)resetDZName:(BOOL)isAdd name:(NSString *)name {
+    if(isAdd) {
+        [self addDZ:name];
+    } else {
+        [self removeDZName:name];
+    }
 }
 
+- (void)addDZ:(NSString *)name {
+    NSArray * nameArray = [_dianzan.names componentsSeparatedByString:String_DefValue_SpliteStr];
+    NSMutableString * tempNames = [[NSMutableString alloc] init];
+    NSRange range = [_dianzan.names rangeOfString:name];//判断字符串是否包含
+    
+    if(range.location == NSNotFound) {
+        //不包含
+        [tempNames appendString:name];
+        for(NSInteger i=Number_Zero; i<[nameArray count]; i++) {
+            if(i > Number_Four) {
+                break;
+            }
+            
+            if(![[nameArray objectAtIndex:i] isEqualToString:name]) {
+                [tempNames appendFormat:@",%@", [nameArray objectAtIndex:i]];
+            }
+        }
+        
+        _dianzan.canDianzan = NO;
+        _dianzan.count++;
+        _dianzan.names = tempNames;
+        
+        [self resetDZText];
+    }
+}
+
+- (void)removeDZName:(NSString *)name {
+    NSRange range = [_dianzan.names rangeOfString:name];//判断字符串是否包含
+    if (range.length > Number_Zero) {
+        //包含
+        [self reserDZListText:name];
+    }
+}
+
+- (void)reserDZListText:(NSString *)name {
+    NSArray * nameArray = [_dianzan.names componentsSeparatedByString:String_DefValue_SpliteStr];
+    NSMutableString * tempNames = [[NSMutableString alloc] init];
+    
+    for(NSInteger i=Number_Zero; i<[nameArray count]; i++) {
+        if(i > Number_Four) {
+            break;
+        }
+        
+        if(![[nameArray objectAtIndex:i] isEqualToString:name]) {
+            [tempNames appendString:[nameArray objectAtIndex:i]];
+        }
+    }
+    
+    _dianzan.canDianzan = YES;
+    _dianzan.count--;
+    _dianzan.names = tempNames;
+    
+    [self resetDZText];
+}
+
+- (void)resetDZText {
+    if(_dianzan.count > Number_Five) {
+        _dianzanLabel.text = [NSString stringWithFormat:@"%@等%ld人觉得很赞", _dianzan.names, (long)(_dianzan.count-Number_Five)];
+    } else {
+        _dianzanLabel.text = [NSString stringWithFormat:@"%@  %ld人觉得很赞", _dianzan.names, (long)_dianzan.count];
+    }
+}
+
+//重置回复
+- (void)resetReplyList:(ReplyDomain *)replyDomain {
+    if(!_replyPage.data) {
+        _replyPage.data = [[NSMutableArray alloc] init];
+    }
+    [_replyPage.data addObject:replyDomain];
+//    [self addReplyData];
+    
+    //通知改变view高度
+//    [[NSNotificationCenter defaultCenter] postNotificationName:Key_Notification_TopicHeight object:self userInfo:nil];
+}
 
 @end
+
+
+
+
+
+
+
+
+
+
