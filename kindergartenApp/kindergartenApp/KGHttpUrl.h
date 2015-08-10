@@ -140,4 +140,7 @@
 //阅读消息
 + (NSString *)getReadMsgUrl;
 
+//课程表
++ (NSString *)getTeachingPlanUrl;
+
 @end

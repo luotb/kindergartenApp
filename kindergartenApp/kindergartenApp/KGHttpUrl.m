@@ -62,6 +62,7 @@
 #define recipesListURL        @"rest/cookbookplan/list.json"  //食谱列表
 #define pushDeviceURL         @"rest/pushMsgDevice/save.json"  //推送token提交
 #define emojiURL              @"rest/share/getEmot.json"      //表情
+#define teachingPLanURL       @"rest/teachingplan/list.json"      //课程表
 
 
 
@@ -280,6 +281,11 @@
 //阅读消息
 + (NSString *)getReadMsgUrl {
     return URL(baseServiceURL, readMsgURL);
+}
+
+//课程表
++ (NSString *)getTeachingPlanUrl {
+    return URL(baseServiceURL, teachingPLanURL);
 }
 
 

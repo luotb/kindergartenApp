@@ -20,6 +20,7 @@
 #import "AddressBookDomain.h"
 #import "chatInfoDomain.h"
 #import "KGEmojiManage.h"
+#import "TimetableDomain.h"
 
 @implementation KGHttpService
 
@@ -866,6 +867,45 @@
 }
 
 //通讯录 end
+
+
+
+#pragma 课程表 begin
+
+//课程表列表
+- (void)getTeachingPlanList:(NSString *)beginDate endDate:(NSString *)endDate success:(void (^)(NSArray * teachPlanArray))success faild:(void (^)(NSString * errorMsg))faild {
+    
+    NSString * classuuid = @"";
+    
+    for(KGUser * user in _loginRespDomain.list) {
+        classuuid = user.classuuid;
+        break;
+    }
+    
+    NSDictionary * dic = @{@"begDateStr" : beginDate,
+                           @"endDateStr" : endDate ? endDate : beginDate,
+                           @"classuuid" : classuuid};
+    
+    [[AFAppDotNetAPIClient sharedClient] GET:[KGHttpUrl getTeachingPlanUrl]
+                                  parameters:dic
+                                     success:^(NSURLSessionDataTask* task, id responseObject) {
+                                         
+                                         KGBaseDomain * baseDomain = [KGBaseDomain objectWithKeyValues:responseObject];
+                                         
+                                         if([baseDomain.ResMsg.status isEqualToString:String_Success]) {
+                                             NSArray * tempResp = [TimetableDomain objectArrayWithKeyValuesArray:[responseObject objectForKey:@"list"]];
+                                             
+                                             success(tempResp);
+                                         } else {
+                                             faild(baseDomain.ResMsg.message);
+                                         }
+                                     }
+                                     failure:^(NSURLSessionDataTask* task, NSError* error) {
+                                         [self requestErrorCode:error faild:faild];
+                                     }];
+}
+
+//课程表 end
 
 
 @end

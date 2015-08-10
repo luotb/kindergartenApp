@@ -62,13 +62,10 @@
 - (void)loadRecipesInfoViewToScrollView {
     itemViewArray = [[NSMutableArray alloc] initWithCapacity:totalCount];
     
-    RecipesInfoView * tempItemView = nil;
     for(NSInteger i=Number_Zero; i<totalCount; i++){
         RecipesInfoView * itemView = [[RecipesInfoView alloc] initWithFrame:CGRectMake(i*KGSCREEN.size.width, Number_Zero, KGSCREEN.size.width, KGSCREEN.size.height - 64)];
         [contentScrollView addSubview:itemView];
         [itemViewArray addObject:itemView];
-        
-        tempItemView = itemView;
     }
     
     contentScrollView.contentSize = CGSizeMake(KGSCREEN.size.width * totalCount, self.contentView.height);

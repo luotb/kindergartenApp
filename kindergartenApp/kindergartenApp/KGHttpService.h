@@ -196,4 +196,12 @@
 
 //通讯录 end
 
+
+//课程表 begin
+
+//课程表列表
+- (void)getTeachingPlanList:(NSString *)beginDate endDate:(NSString *)endDate success:(void (^)(NSArray * teachPlanArray))success faild:(void (^)(NSString * errorMsg))faild;
+
+//课程表 end
+
 @end
