@@ -2487,7 +2487,6 @@
 				TargetAttributes = {
 					248B6A581B19A39200FCB98F = {
 						CreatedOnToolsVersion = 6.3;
-						DevelopmentTeam = T9FW97NDZK;
 					};
 				};
 			};
@@ -2906,8 +2905,8 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_WARN_CXX0X_EXTENSIONS = NO;
 				CLANG_WARN__EXIT_TIME_DESTRUCTORS = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer: funi cloudcode (7TCF9SE4F9)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: funi cloudcode (7TCF9SE4F9)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Chengdu WenJie Technology Co., Ltd. (M5PP646L93)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Chengdu WenJie Technology Co., Ltd. (M5PP646L93)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/kindergartenApp/Share_4.2.3/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
@@ -2925,7 +2924,7 @@
 					"$(PROJECT_DIR)/kindergartenApp/Share_4.2.3/UMSocial_Sdk_Extra_Frameworks/Wechat",
 				);
 				PRODUCT_NAME = "问界互动家园";
-				PROVISIONING_PROFILE = "2b815530-3e27-4373-b8ba-d4660acba3fe";
+				PROVISIONING_PROFILE = "e17afd18-7c07-4604-9112-a4aacdc54384";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -2937,8 +2936,8 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_WARN_CXX0X_EXTENSIONS = NO;
 				CLANG_WARN__EXIT_TIME_DESTRUCTORS = NO;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: zhang jing (T9FW97NDZK)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: zhang jing (T9FW97NDZK)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Chengdu WenJie Technology Co., Ltd. (M5PP646L93)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Chengdu WenJie Technology Co., Ltd. (M5PP646L93)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/kindergartenApp/Share_4.2.3/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
@@ -2956,7 +2955,7 @@
 					"$(PROJECT_DIR)/kindergartenApp/Share_4.2.3/UMSocial_Sdk_Extra_Frameworks/Wechat",
 				);
 				PRODUCT_NAME = "问界互动家园";
-				PROVISIONING_PROFILE = "c0fc92bb-2edd-4150-8870-675836c3c4be";
+				PROVISIONING_PROFILE = "e17afd18-7c07-4604-9112-a4aacdc54384";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
