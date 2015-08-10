@@ -35,5 +35,6 @@
 @property (strong, nonatomic) DianZanDomain * dianzan;//点赞数据
 @property (strong, nonatomic) ReplyPageDomain * replyPage; //帖子回复列表
 
+@property (assign, nonatomic) BOOL isReqSuccessData;       //是否成功请求数据
 
 @end

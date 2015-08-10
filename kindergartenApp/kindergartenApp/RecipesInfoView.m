@@ -53,41 +53,43 @@
 
 
 //加载食谱数据
-- (void)loadRecipesData:(RecipesDomain *)recipesDomain; {
-    recipes = recipesDomain;
+- (void)loadRecipesData:(RecipesDomain *)recipes {
+    _recipesDomain = recipes;
     
     [self packageTableData];
     [recipesTableView reloadData];
+    
+    NSLog(@"table:%@", NSStringFromCGRect(recipesTableView.frame));
 }
 
 - (void)packageTableData {
     [self.tableDataSource removeAllObjects];
     
-    RecipesItemVO * itemVO1 = [[RecipesItemVO alloc] initItemVO:recipes.plandate cbArray:nil];
+    RecipesItemVO * itemVO1 = [[RecipesItemVO alloc] initItemVO:_recipesDomain.plandate cbArray:nil];
     [self.tableDataSource addObject:itemVO1];
     
-    if(recipes.list_time_1 && [recipes.list_time_1 count]>Number_Zero) {
-        RecipesItemVO * itemVO2 = [[RecipesItemVO alloc] initItemVO:@"早餐" cbArray:recipes.list_time_1];
+    if(_recipesDomain.list_time_1 && [_recipesDomain.list_time_1 count]>Number_Zero) {
+        RecipesItemVO * itemVO2 = [[RecipesItemVO alloc] initItemVO:@"早餐" cbArray:_recipesDomain.list_time_1];
         [self.tableDataSource addObject:itemVO2];
     }
     
-    if(recipes.list_time_2 && [recipes.list_time_2 count]>Number_Zero) {
-        RecipesItemVO * itemVO3 = [[RecipesItemVO alloc] initItemVO:@"早上加餐" cbArray:recipes.list_time_2];
+    if(_recipesDomain.list_time_2 && [_recipesDomain.list_time_2 count]>Number_Zero) {
+        RecipesItemVO * itemVO3 = [[RecipesItemVO alloc] initItemVO:@"早上加餐" cbArray:_recipesDomain.list_time_2];
         [self.tableDataSource addObject:itemVO3];
     }
     
-    if(recipes.list_time_3 && [recipes.list_time_3 count]>Number_Zero) {
-        RecipesItemVO * itemVO4 = [[RecipesItemVO alloc] initItemVO:@"午餐" cbArray:recipes.list_time_3];
+    if(_recipesDomain.list_time_3 && [_recipesDomain.list_time_3 count]>Number_Zero) {
+        RecipesItemVO * itemVO4 = [[RecipesItemVO alloc] initItemVO:@"午餐" cbArray:_recipesDomain.list_time_3];
         [self.tableDataSource addObject:itemVO4];
     }
     
-    if(recipes.list_time_4 && [recipes.list_time_4 count]>Number_Zero) {
-        RecipesItemVO * itemVO5 = [[RecipesItemVO alloc] initItemVO:@"下午加餐" cbArray:recipes.list_time_4];
+    if(_recipesDomain.list_time_4 && [_recipesDomain.list_time_4 count]>Number_Zero) {
+        RecipesItemVO * itemVO5 = [[RecipesItemVO alloc] initItemVO:@"下午加餐" cbArray:_recipesDomain.list_time_4];
         [self.tableDataSource addObject:itemVO5];
     }
     
-    if(recipes.list_time_5 && [recipes.list_time_5 count]>Number_Zero) {
-        RecipesItemVO * itemVO6 = [[RecipesItemVO alloc] initItemVO:@"晚餐" cbArray:recipes.list_time_5];
+    if(_recipesDomain.list_time_5 && [_recipesDomain.list_time_5 count]>Number_Zero) {
+        RecipesItemVO * itemVO6 = [[RecipesItemVO alloc] initItemVO:@"晚餐" cbArray:_recipesDomain.list_time_5];
         [self.tableDataSource addObject:itemVO6];
     }
     
@@ -122,7 +124,7 @@
 
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    if(section!=Number_Zero) {
+    if(section!=Number_Zero && _recipesDomain.isReqSuccessData) {
         RecipesItemVO * itemVO = [self.tableDataSource objectAtIndex:section];
         
         NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"RecipesHeadTableViewCell" owner:nil options:nil];
@@ -151,7 +153,7 @@
 - (UITableViewCell *)loadStudentInfoCell:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     RecipesStudentInfoTableViewCell * cell = [RecipesStudentInfoTableViewCell cellWithTableView:tableView];
     cell.backgroundColor = [UIColor clearColor];
-    [cell resetCellParam:recipes];
+    [cell resetCellParam:_recipesDomain];
     return cell;
 }
 
@@ -179,7 +181,11 @@
     } else if (indexPath.section == [self.tableDataSource count]-Number_One) {
         return 380;
     } else {
-        return 70;
+        RecipesItemVO * itemVO = [self.tableDataSource objectAtIndex:indexPath.section];
+        NSInteger total = [itemVO.cookbookArray count];
+        NSInteger pageSize = Number_Three;
+        NSInteger page = (total + pageSize - Number_One) / pageSize;
+        return 70 * page;
     }
 }
 
@@ -188,37 +194,37 @@
     CGRect frame = CGRectMake(CELLPADDING, Number_Zero, CELLCONTENTWIDTH, cell.height);
     UIView * recipesImgsView = [[UIView alloc] initWithFrame:frame];
     
-    CGFloat y = Number_Zero;
-    CGFloat w = (frame.size.width - CELLPADDING) / Number_Three;
+    CGFloat w = (frame.size.width - CELLPADDING * Number_Two) / Number_Three;
     CGFloat h = 70;
     CGFloat index = Number_Zero;
+    CGFloat row   = Number_Zero;
     
     UIImageView * imageView = nil;
     UIButton    * btn = nil;
     for(CookbookDomain * cookbook in recipesVO.cookbookArray) {
         
-        imageView = [[UIImageView alloc] initWithFrame:CGRectMake(index * w, y, w, h)];
+        imageView = [[UIImageView alloc] initWithFrame:CGRectMake(CELLPADDING + index * w, row * h, w, h)];
         [recipesImgsView addSubview:imageView];
         
         [imageView sd_setImageWithURL:[NSURL URLWithString:cookbook.img] placeholderImage:nil options:SDWebImageLowPriority completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
             
         }];
         
-        btn = [[UIButton alloc] initWithFrame:CGRectMake(index * w, y, w, h)];
+        btn = [[UIButton alloc] initWithFrame:CGRectMake(index * w, imageView.y, w, h)];
         btn.targetObj = imageView;
         objc_setAssociatedObject(btn, "cookbook", cookbook, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
         [btn addTarget:self action:@selector(showRecipesImgClicked:) forControlEvents:UIControlEventTouchUpInside];
         [recipesImgsView addSubview:btn];
         
-        if(index == Number_Two) {
-            index = Number_Zero;
-            y += h;
-        }
-        
         index++;
+        
+        if(index == Number_Three) {
+            index = Number_Zero;
+            row++;
+        }
     }
     
-    frame.size.height = h + (y * h);
+    frame.size.height = CGRectGetMaxY(imageView.frame);
     recipesImgsView.frame = frame;
     
     [cell addSubview:recipesImgsView];
@@ -226,26 +232,31 @@
 
 //加载营养分析及帖子回复
 - (UITableViewCell *)loadRecipesNote:(UITableView *)tableView {
+    
     UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:RecipesNoteCellIdentifier];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:RecipesNoteCellIdentifier];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     cell.backgroundColor = [UIColor clearColor];
-    KGTextView * textView = [[KGTextView alloc] initWithFrame:CGRectMake(CELLPADDING, Number_Five, CELLCONTENTWIDTH, 150)];
-    [textView setBorderWithWidth:Number_One color:[UIColor blackColor] radian:Number_Five];
-    textView.text = recipes.analysis;
-    [cell addSubview:textView];
     
-    
-    CGFloat y = CGRectGetMaxY(textView.frame) + Number_Ten;
-    CGRect frame = CGRectMake(Number_Zero, y, KGSCREEN.size.width, 56);
-    TopicInteractionView * topicView = [[TopicInteractionView alloc] initWithFrame:frame];
-    [topicView loadFunView:recipes.dianzan reply:recipes.replyPage];
-    topicView.topicType = Topic_Recipes;
-    topicView.topicUUID = recipes.uuid;
-    [cell addSubview:topicView];
-    [topicView loadFunView:recipes.dianzan reply:recipes.replyPage];
+    if(_recipesDomain.isReqSuccessData) {
+        KGTextView * textView = [[KGTextView alloc] initWithFrame:CGRectMake(CELLPADDING, Number_Five, CELLCONTENTWIDTH, 150)];
+        [textView setBorderWithWidth:Number_One color:[UIColor blackColor] radian:Number_Five];
+        textView.text = _recipesDomain.analysis;
+        textView.editable = NO;
+        [cell addSubview:textView];
+        
+        
+        CGFloat y = CGRectGetMaxY(textView.frame) + Number_Ten;
+        CGRect frame = CGRectMake(Number_Zero, y, KGSCREEN.size.width, 56);
+        TopicInteractionView * topicView = [[TopicInteractionView alloc] initWithFrame:frame];
+        [topicView loadFunView:_recipesDomain.dianzan reply:_recipesDomain.replyPage];
+        topicView.topicType = Topic_Recipes;
+        topicView.topicUUID = _recipesDomain.uuid;
+        [cell addSubview:topicView];
+        [topicView loadFunView:_recipesDomain.dianzan reply:_recipesDomain.replyPage];
+    }
     
     return cell;
 }

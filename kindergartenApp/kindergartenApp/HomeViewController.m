@@ -25,6 +25,7 @@
 #import "MoreMenuView.h"
 #import "PopupView.h"
 #import "RecipesListViewController.h"
+#import "TimetableViewController.h"
 
 @interface HomeViewController () <ImageCollectionViewDelegate, MoreMenuViewDelegate> {
     
@@ -104,10 +105,9 @@
             baseVC = [[StudentSignRecordViewController alloc] init];
             break;
         case 14:
-            baseVC = [[AnnouncementListViewController alloc] init];
+            baseVC = [[TimetableViewController alloc] init];
             break;
         case 15:
-//            baseVC = [[RecipesViewController alloc] init];
             baseVC = [[RecipesListViewController alloc] init];
             break;
         case 16:

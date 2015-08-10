@@ -237,6 +237,10 @@
 		F4DEA75D1B6F3E36000FE0FB /* TQRichTextRunEmoji.m in Sources */ = {isa = PBXBuildFile; fileRef = F4DEA7561B6F3E36000FE0FB /* TQRichTextRunEmoji.m */; };
 		F4DEA75E1B6F3E36000FE0FB /* TQRichTextRunURL.m in Sources */ = {isa = PBXBuildFile; fileRef = F4DEA7581B6F3E36000FE0FB /* TQRichTextRunURL.m */; };
 		F4DEA75F1B6F3E36000FE0FB /* TQRichTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = F4DEA75A1B6F3E36000FE0FB /* TQRichTextView.m */; };
+		F4DF3BA41B78AC75001D9DF7 /* TimetableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4DF3BA21B78AC75001D9DF7 /* TimetableViewController.m */; };
+		F4DF3BA51B78AC75001D9DF7 /* TimetableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4DF3BA31B78AC75001D9DF7 /* TimetableViewController.xib */; };
+		F4DF3BA81B78AC97001D9DF7 /* TimetableDomain.m in Sources */ = {isa = PBXBuildFile; fileRef = F4DF3BA71B78AC97001D9DF7 /* TimetableDomain.m */; };
+		F4DF3BAB1B78B05A001D9DF7 /* TimetableItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = F4DF3BAA1B78B05A001D9DF7 /* TimetableItemView.m */; };
 		F4E2D4811B6B6334001472EC /* GiftwareArticlesInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4E2D47F1B6B6334001472EC /* GiftwareArticlesInfoViewController.m */; };
 		F4E2D4821B6B6334001472EC /* GiftwareArticlesInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4E2D4801B6B6334001472EC /* GiftwareArticlesInfoViewController.xib */; };
 		F4E61B6B1B7335A900E5851A /* ReplyListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4E61B691B7335A900E5851A /* ReplyListViewController.m */; };
@@ -727,6 +731,13 @@
 		F4DEA7581B6F3E36000FE0FB /* TQRichTextRunURL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TQRichTextRunURL.m; sourceTree = "<group>"; };
 		F4DEA7591B6F3E36000FE0FB /* TQRichTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TQRichTextView.h; sourceTree = "<group>"; };
 		F4DEA75A1B6F3E36000FE0FB /* TQRichTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TQRichTextView.m; sourceTree = "<group>"; };
+		F4DF3BA11B78AC75001D9DF7 /* TimetableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimetableViewController.h; sourceTree = "<group>"; };
+		F4DF3BA21B78AC75001D9DF7 /* TimetableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimetableViewController.m; sourceTree = "<group>"; };
+		F4DF3BA31B78AC75001D9DF7 /* TimetableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimetableViewController.xib; sourceTree = "<group>"; };
+		F4DF3BA61B78AC97001D9DF7 /* TimetableDomain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimetableDomain.h; sourceTree = "<group>"; };
+		F4DF3BA71B78AC97001D9DF7 /* TimetableDomain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimetableDomain.m; sourceTree = "<group>"; };
+		F4DF3BA91B78B05A001D9DF7 /* TimetableItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimetableItemView.h; sourceTree = "<group>"; };
+		F4DF3BAA1B78B05A001D9DF7 /* TimetableItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimetableItemView.m; sourceTree = "<group>"; };
 		F4E2D47E1B6B6334001472EC /* GiftwareArticlesInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GiftwareArticlesInfoViewController.h; sourceTree = "<group>"; };
 		F4E2D47F1B6B6334001472EC /* GiftwareArticlesInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GiftwareArticlesInfoViewController.m; sourceTree = "<group>"; };
 		F4E2D4801B6B6334001472EC /* GiftwareArticlesInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GiftwareArticlesInfoViewController.xib; sourceTree = "<group>"; };
@@ -1410,6 +1421,7 @@
 		248B6AA31B19ACEC00FCB98F /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				F4DF3B9D1B78AC40001D9DF7 /* Timetable */,
 				F4E61B721B73432200E5851A /* Share */,
 				2474DFB91B6CCDD80021506F /* Recipes */,
 				2474DFA81B6CB7AA0021506F /* SignRecord */,
@@ -2177,6 +2189,44 @@
 			name = TQRichTextView;
 			sourceTree = "<group>";
 		};
+		F4DF3B9D1B78AC40001D9DF7 /* Timetable */ = {
+			isa = PBXGroup;
+			children = (
+				F4DF3BA01B78AC55001D9DF7 /* Controller */,
+				F4DF3B9F1B78AC4E001D9DF7 /* Model */,
+				F4DF3B9E1B78AC46001D9DF7 /* View */,
+			);
+			name = Timetable;
+			sourceTree = "<group>";
+		};
+		F4DF3B9E1B78AC46001D9DF7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F4DF3BA91B78B05A001D9DF7 /* TimetableItemView.h */,
+				F4DF3BAA1B78B05A001D9DF7 /* TimetableItemView.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		F4DF3B9F1B78AC4E001D9DF7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F4DF3BA61B78AC97001D9DF7 /* TimetableDomain.h */,
+				F4DF3BA71B78AC97001D9DF7 /* TimetableDomain.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		F4DF3BA01B78AC55001D9DF7 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F4DF3BA11B78AC75001D9DF7 /* TimetableViewController.h */,
+				F4DF3BA21B78AC75001D9DF7 /* TimetableViewController.m */,
+				F4DF3BA31B78AC75001D9DF7 /* TimetableViewController.xib */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
 		F4E61B721B73432200E5851A /* Share */ = {
 			isa = PBXGroup;
 			children = (
@@ -2499,6 +2549,7 @@
 				F4EA53941B60EAE30044BE7A /* StudentInfoHeaderView.xib in Resources */,
 				245474DA1B5FDD6C00D49D40 /* StudentInfoViewController.xib in Resources */,
 				F48783A91B58DA1700CDC1A8 /* LICENSE in Resources */,
+				F4DF3BA51B78AC75001D9DF7 /* TimetableViewController.xib in Resources */,
 				24C46B4A1B5A2B7A00A58F92 /* InteractViewController.xib in Resources */,
 				F4E6B24B1B6B5D440087EAEB /* GiftwareArticlesTableViewCell.xib in Resources */,
 				F4EA53991B60EF800044BE7A /* StudentBaseInfoViewController.xib in Resources */,
@@ -2565,6 +2616,7 @@
 				F487839C1B58DA1700CDC1A8 /* UIRefreshControl+AFNetworking.m in Sources */,
 				24C46B281B5A28CF00A58F92 /* BaseKeyboardViewController.m in Sources */,
 				2474DFC51B6CCF0D0021506F /* RecipesCollectionViewCell.m in Sources */,
+				F4DF3BAB1B78B05A001D9DF7 /* TimetableItemView.m in Sources */,
 				2469E2131B5B5E45004888A4 /* LoginRespDomain.m in Sources */,
 				F48783951B58DA1700CDC1A8 /* README.md in Sources */,
 				244F74971B62AE5A0078D30D /* SphereMenu.m in Sources */,
@@ -2628,6 +2680,7 @@
 				F4E61BF41B735D5400E5851A /* PopupView.m in Sources */,
 				F4DEA75C1B6F3E36000FE0FB /* TQRichTextRunDelegate.m in Sources */,
 				24DEC8221B633F2B00C55828 /* DynamicMenuDomain.m in Sources */,
+				F4DF3BA41B78AC75001D9DF7 /* TimetableViewController.m in Sources */,
 				2489B66D1B5AB49E00039E70 /* SDWebImageManager.m in Sources */,
 				2457FD0B1B712C13006A3AB7 /* FaceBoard.m in Sources */,
 				24A3D3761B5E874600D4C212 /* KGHomeItemButton.m in Sources */,
@@ -2691,6 +2744,7 @@
 				24AA0B501B69112C00DAC03B /* ChatModel.m in Sources */,
 				2489B6601B5AB49E00039E70 /* MKAnnotationView+WebCache.m in Sources */,
 				2489B65F1B5AB49E00039E70 /* SDImageCache.m in Sources */,
+				F4DF3BA81B78AC97001D9DF7 /* TimetableDomain.m in Sources */,
 				F4E636071B67939D00800924 /* MessageDomain.m in Sources */,
 				24A175E71B5541BF00295997 /* KGDBHelper.m in Sources */,
 				F4DCD0EF1B1C2C50007D61CA /* KGDeviceUtil.m in Sources */,

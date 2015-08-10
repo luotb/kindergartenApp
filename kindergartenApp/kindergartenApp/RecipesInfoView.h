@@ -13,13 +13,13 @@
     
     UITableView    * recipesTableView;
     NSMutableArray * recipesDataSourceMArray;
-    RecipesDomain  * recipes;
 }
 
 @property (strong, nonatomic) NSMutableArray * tableDataSource; //根据食谱对象重新封装
+@property (strong, nonatomic) RecipesDomain  * recipesDomain;
 
 //加载食谱数据
-- (void)loadRecipesData:(RecipesDomain *)recipesDomain;
+- (void)loadRecipesData:(RecipesDomain *)recipes;
 
 
 @end
