@@ -107,7 +107,7 @@
     _topicTextView = topicTextView;
     
     UIView  * topicImgsView = [[UIView alloc] init];
-    topicImgsView.backgroundColor = [UIColor greenColor];
+//    topicImgsView.backgroundColor = [UIColor greenColor];
     [topicContentView addSubview:topicImgsView];
     
     _topicImgsView = topicImgsView;
@@ -130,6 +130,7 @@
 -(void)initLeve{
     UILabel * levelab = [[UILabel alloc] init];
     levelab.backgroundColor = KGColor(225, 225, 225, 1);
+//    levelab.backgroundColor = [UIColor redColor];
     [self addSubview:levelab];
     
     _levelab = levelab;
@@ -158,13 +159,20 @@
     self.titleLab.text =  topic.title;
     
     //内容
-    self.topicContentView.frame = self.topicFrame.topicContentViewF;
+//    self.topicContentView.frame = self.topicFrame.topicContentViewF;
     
-    self.topicTextView.frame = self.topicFrame.topicTextViewF;
-    self.topicTextView.text = topic.content;
+    if(topic.content) {
+        self.topicTextView.frame = self.topicFrame.topicTextViewF;
+        self.topicTextView.text = topic.content;
+    }
     
-    self.topicImgsView.frame = self.topicFrame.topicImgsViewF;
-    [self loadTopicImgs];
+    if(topic.imgs && topic.imgs.length > Number_One) {
+        self.topicImgsView.hidden = NO;
+        self.topicImgsView.frame = self.topicFrame.topicImgsViewF;
+        [self loadTopicImgs];
+    } else {
+        self.topicImgsView.hidden = YES;
+    }
     
     //帖子互动视图
     [self initTopicInteractionView];
@@ -220,7 +228,8 @@
         btn = [[UIButton alloc] initWithFrame:CGRectMake(index * wh, y, wh, wh)];
         btn.targetObj = imageView;
         objc_setAssociatedObject(btn, "imgUrl", imgUrl, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-        [btn addTarget:self action:@selector(showImgClicked:) forControlEvents:UIControlEventTouchUpInside];
+        [btn addTarget:self action:@selector(showTopicImgClicked:) forControlEvents:UIControlEventTouchUpInside];
+//        btn.backgroundColor = [UIColor brownColor];
         [self.topicImgsView addSubview:btn];
         
         if(index == Number_Two) {
@@ -252,7 +261,7 @@
     }];
 }
 
-- (void)showImgClicked:(UIButton *)sender{
+- (void)showTopicImgClicked:(UIButton *)sender{
     UIImageView * imageView = (UIImageView *)sender.targetObj;
     NSString * imgUrl = objc_getAssociatedObject(sender, "imgUrl");
     [UUImageAvatarBrowser showImage:imageView url:imgUrl];

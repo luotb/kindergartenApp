@@ -19,9 +19,6 @@
     
     // cell的宽度
     CGFloat cellW = KGSCREEN.size.width;
-    //内容 x Y 提前定义，坐标变化
-//    CGFloat contentX = 27;
-    CGFloat contentY = 0;
     
     //用户信息整体
     CGFloat uviewW = cellW;
@@ -29,8 +26,6 @@
     CGFloat ux = 0;
     CGFloat uy = 0;
     self.userViewF = CGRectMake(ux, uy, uviewW, uviewH);
-    //第一次设置contentY
-    contentY = CGRectGetMaxY(self.userViewF) + TopicCellBorderW;
     
     //头像
     CGFloat headWH = 45;
@@ -54,30 +49,27 @@
         
         /* cell的高度 */
         self.cellHeight = CGRectGetMaxY(self.titleLabF);
-        //如果有title得情况 设置content Y
-        contentY = CGRectGetMaxY(self.titleLabF) + 15;
     }
     
     //内容
     CGFloat topicContentW = cellW - nameX - CELLPADDING;
-    CGFloat topicContentH = Number_Zero;
-    CGFloat topicContentX = Number_Zero;
+//    CGFloat topicContentH = Number_Zero;
+    CGFloat topicContentX = nameX;
     
     if(_topic.content && ![_topic.content isEqualToString:String_DefValue_Empty]) {
         //内容 文本+表情
-        CGFloat topicTextViewY = TopicCellBorderW;
+        CGFloat topicTextViewY = self.cellHeight + TopicCellBorderW;
         CGRect rect = [TQRichTextView boundingRectWithSize:CGSizeMake(topicContentW, 500) font:[UIFont systemFontOfSize:12] string:_topic.title lineSpace:1.0f];
         
         self.topicTextViewF = CGRectMake(topicContentX, topicTextViewY, topicContentW, rect.size.height);
-        topicContentH = CGRectGetMaxY(self.topicTextViewF);
-        
-        contentY += CGRectGetMaxY(self.topicTextViewF);
+        /* cell的高度 */
+        self.cellHeight = CGRectGetMaxY(self.topicTextViewF);
     }
     
     
     if(_topic.imgs && ![_topic.imgs isEqualToString:String_DefValue_Empty]) {
         //内容 图片
-        CGFloat topicImgsViewY = topicContentH + TopicCellBorderW;
+        CGFloat topicImgsViewY = self.cellHeight + TopicCellBorderW;
         CGFloat topicImgsViewH = Number_Zero;
         NSArray * imgArray = [_topic.imgs componentsSeparatedByString:@","];
         
@@ -93,15 +85,14 @@
         }
         
         self.topicImgsViewF = CGRectMake(topicContentX, topicImgsViewY, topicContentW, topicImgsViewH);
-        topicContentH += topicImgsViewH;
         
-        contentY += CGRectGetMaxY(self.topicImgsViewF);
+        self.cellHeight = CGRectGetMaxY(self.topicImgsViewF);
     }
     
-    self.topicContentViewF = CGRectMake(nameX, CGRectGetMaxY(self.titleLabF), topicContentW, topicContentH);
+//    self.topicContentViewF = CGRectMake(nameX, CGRectGetMaxY(self.titleLabF), topicContentW, topicContentH);
     
     /* cell的高度 */
-    self.cellHeight = CGRectGetMaxY(self.topicContentViewF);
+//    self.cellHeight = CGRectGetMaxY(self.topicContentViewF);
     
     //帖子互动
     [self setTopicInterActionRect];
@@ -128,8 +119,13 @@
     if(_topic.replyPage && _topic.replyPage.data && [_topic.replyPage.data count]>Number_Zero) {
         NSMutableString * replyStr       = [[NSMutableString alloc] init];
         
+        NSInteger count = Number_Zero;
         for(ReplyDomain * reply in _topic.replyPage.data) {
-            [replyStr appendFormat:@"%@:%@ \n", reply.create_user, reply.content ? reply.title : @""];
+            
+            if(count < Number_Five) {
+                [replyStr appendFormat:@"%@:%@ \n", reply.create_user, reply.content ? reply.title : @""];
+            }
+            count++;
         }
         
         CGSize size = [replyStr sizeWithFont:[UIFont systemFontOfSize:APPUILABELFONTNO12]
@@ -137,10 +133,14 @@
                                lineBreakMode:NSLineBreakByWordWrapping];
         
         height += (size.height + TopicCellBorderW);
+        
+        if(_topic.replyPage.totalCount>_topic.replyPage.pageSize || [_topic.replyPage.data count]>Number_Five) {
+            height += 30;
+        }
     }
     
     //回复输入框
-    height += 30 + TopicCellBorderW;
+    height += 50 + TopicCellBorderW;
     
     
     self.topicInteractionViewF = CGRectMake(Number_Zero, self.cellHeight + TopicCellBorderW, cellW, height);

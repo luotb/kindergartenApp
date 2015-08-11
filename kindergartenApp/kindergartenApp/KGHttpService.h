@@ -82,6 +82,9 @@
 // 根据互动id获取互动详情
 - (void)getClassNewsByUUID:(NSString *)uuid success:(void (^)(TopicDomain * classNewInfo))success faild:(void (^)(NSString * errorMsg))faild;
 
+// 新增互动
+- (void)saveClassNews:(TopicDomain *)topicDomain success:(void (^)(NSString * msgStr))success faild:(void (^)(NSString * errorMsg))faild;
+
 
 // 分页获取班级互动列表
 - (void)getClassNews:(PageInfoDomain *)pageObj success:(void (^)(PageInfoDomain * pageInfo))success faild:(void (^)(NSString * errorMsg))faild;

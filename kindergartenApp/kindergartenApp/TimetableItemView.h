@@ -8,11 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "TimetableDomain.h"
+#import "TopicInteractionView.h"
 
 @interface TimetableItemView : UIView <UITableViewDataSource, UITableViewDelegate> {
     
     UITableView    * timetableTableView;
     NSMutableArray * timetableDataSourceMArray;
+    TopicInteractionView * topicView;
 }
 
 @property (strong, nonatomic) NSMutableArray   * tableDataSource; //<TimetableItemVO>

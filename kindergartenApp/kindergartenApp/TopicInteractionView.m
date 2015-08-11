@@ -46,6 +46,10 @@
     // cell的宽度
     CGFloat cellW = KGSCREEN.size.width;
     
+    if(_funView) {
+        [_funView removeFromSuperview];
+    }
+    
     _funView = [[UIView alloc] initWithFrame:CGRectMake(CELLPADDING, Number_Zero, CELLCONTENTWIDTH, CELLPADDING)];
     _funView.backgroundColor = CLEARCOLOR;
 //    funView.backgroundColor = [UIColor redColor];
@@ -84,7 +88,9 @@
 
 //加载点赞列表
 - (void)initDZLabel {
-    
+    if(_dianzanView) {
+        [_dianzanView removeFromSuperview];
+    }
     _dianzanView = [[UIView alloc] initWithFrame:CGRectMake(Number_Zero, self.topicInteractHeight + TopicCellBorderW, CELLCONTENTWIDTH, TopicCellBorderW)];
     _dianzanView.backgroundColor = CLEARCOLOR;
 //    dzView.backgroundColor = [UIColor brownColor];
@@ -115,6 +121,9 @@
 
 //加载回复
 - (void)initReplyView {
+    if(_replyView) {
+        [_replyView removeFromSuperview];
+    }
     
     _replyView = [[HBVLinkedTextView alloc] init];
     _replyView.backgroundColor = CLEARCOLOR;
@@ -126,15 +135,21 @@
 }
 
 - (void)addReplyData {
-    self.replyView.text = String_DefValue_Empty;
     
     if(_replyPage.data && [_replyPage.data count]>Number_Zero) {
+        
+        self.replyView.text = String_DefValue_Empty;
+        
         NSMutableArray  * arrayOfStrings = [[NSMutableArray alloc] initWithCapacity:[_replyPage.data count]];
         NSMutableString * replyStr       = [[NSMutableString alloc] init];
-        
+        NSInteger count = Number_Zero;
         for(ReplyDomain * reply in _replyPage.data) {
-            [replyStr appendFormat:@"%@:%@ \n", reply.create_user, reply.content ? reply.title : @""];
-            [arrayOfStrings addObject:[NSString stringWithFormat:@"%@:", reply.create_user]];
+            if(count < Number_Five) {
+                [replyStr appendFormat:@"%@:%@ \n", reply.create_user, reply.content ? reply.content : @""];
+                [arrayOfStrings addObject:[NSString stringWithFormat:@"%@:", reply.create_user]];
+            }
+            
+            count++;
         }
         
         CGSize size = [replyStr sizeWithFont:[UIFont systemFontOfSize:APPUILABELFONTNO12]
@@ -142,7 +157,7 @@
                                lineBreakMode:NSLineBreakByWordWrapping];
         
         _replyView.frame = CGRectMake(CELLPADDING, self.topicInteractHeight + Number_Five, CELLCONTENTWIDTH, size.height);
-        
+//        _replyView.backgroundColor = [UIColor brownColor];
         self.replyView.text = replyStr;
         [self.replyView linkStrings:arrayOfStrings
                   defaultAttributes:[self exampleAttributes]
@@ -150,12 +165,37 @@
                          tapHandler:nil];
         /* cell的高度 */
         self.topicInteractHeight = CGRectGetMaxY(_replyView.frame);
+        
+        [self loadMoreBtn];
+    }
+}
+
+//加载显示更多
+- (void)loadMoreBtn {
+    if(_replyPage.totalCount > _replyPage.pageSize) {
+        if(_moreBtn) {
+            [_moreBtn removeFromSuperview];
+        }
+        
+        CGFloat w = 50;
+        CGFloat x = KGSCREEN.size.width - w  - CELLPADDING;
+        CGRect frame = CGRectMake(x, CGRectGetMaxY(self.replyView.frame) - 20, w, 20);
+        _moreBtn = [[UIButton alloc] initWithFrame:frame];
+        [_moreBtn setText:@"显示更多"];
+//        _moreBtn.backgroundColor = [UIColor brownColor];
+        _moreBtn.titleLabel.font = [UIFont systemFontOfSize:Number_Ten];
+        [_moreBtn setTextColor:[UIColor blueColor] sel:[UIColor blueColor]];
+        [_moreBtn addTarget:self action:@selector(moreBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+        [self addSubview:_moreBtn];
     }
 }
 
 
 //加载回复输入框
 - (void)initReplyTextField {
+    if(_replyTextField) {
+        [_replyTextField removeFromSuperview];
+    }
     _replyTextField = [[KGTextField alloc] initWithFrame:CGRectMake(CELLPADDING, self.topicInteractHeight + TopicCellBorderW, CELLCONTENTWIDTH, 30)];
     _replyTextField.placeholder = @"我来说一句...";
     _replyTextField.returnKeyType = UIReturnKeySend;
@@ -185,6 +225,14 @@
 
 - (void)replyBtnClicked:(UIButton *)sender {
     [_replyTextField becomeFirstResponder];
+}
+
+//加载更多按钮点击
+- (void)moreBtnClicked:(UIButton *)sender {
+    NSDictionary *dic = @{Key_TopicUUID : _topicUUID,
+                          Key_TopicFunRequestType : [NSNumber numberWithBool:sender.selected],
+                          Key_TopicType : [NSNumber numberWithInteger:_topicType]};
+    [[NSNotificationCenter defaultCenter] postNotificationName:Key_Notification_TopicLoadMore object:self userInfo:dic];
 }
 
 
@@ -223,7 +271,7 @@
         //不包含
         [tempNames appendString:name];
         for(NSInteger i=Number_Zero; i<[nameArray count]; i++) {
-            if(i > Number_Four) {
+            if(i >= Number_Four) {
                 break;
             }
             
@@ -282,21 +330,15 @@
     if(!_replyPage.data) {
         _replyPage.data = [[NSMutableArray alloc] init];
     }
-    [_replyPage.data addObject:replyDomain];
-//    [self addReplyData];
+    [_replyPage.data insertObject:replyDomain atIndex:Number_Zero];
+    [self addReplyData];
+    
+    self.replyTextField.y = CGRectGetMaxY(self.replyView.frame);
+    self.topicInteractHeight = CGRectGetMaxY(self.replyTextField.frame) + Number_Ten;
     
     //通知改变view高度
-//    [[NSNotificationCenter defaultCenter] postNotificationName:Key_Notification_TopicHeight object:self userInfo:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:Key_Notification_TopicHeight object:self userInfo:nil];
 }
 
 @end
-
-
-
-
-
-
-
-
-
 

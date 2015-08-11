@@ -8,6 +8,9 @@
 
 #import "BaseViewController.h"
 
-@interface KGIntroductionViewController : BaseViewController
+@interface IntroductionViewController : BaseViewController
+
+- (IBAction)topFunBtnClicked:(UIButton *)sender;
+
 
 @end

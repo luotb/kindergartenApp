@@ -18,6 +18,9 @@
 //#define updatepasswordURL    @"rest/userinfo/updatepassword.json"    //修改密码
 #define updatepasswordURL    @"rest/userinfo/updatepasswordBySms.json"  //修改密码
 
+#define KDInfoURL            @"rest/share/getKDInfo.html" //校园相关
+#define ZSJHInfoURL          @"rest/share/getRecruitBygroupuuid.html" //招生计划
+
 #define teacherPhoneBookURL  @"rest/userinfo/getTeacherPhoneBook.json" //老师和园长通讯录
 #define saveToTeacherURL     @"rest/message/saveToTeacher.json"  //给老师写信
 #define queryByTeacherURL    @"rest/message/queryByTeacher.json" //查询和老师的信件
@@ -26,14 +29,13 @@
 #define readMsgURL           @"rest/message/read.json"  //阅读信件
 
 
-#define phoneCodeURL         @"rest/sms/sendCode.json"               //短信验证码
-#define classNewsMyURL           @"rest/classnews/getClassNewsByMy.json"   //我的孩子班级互动列表
+#define phoneCodeURL           @"rest/sms/sendCode.json"               //短信验证码
+#define classNewsMyURL         @"rest/classnews/getClassNewsByMy.json"   //我的孩子班级互动列表
 #define classNewsByClassIdURL  @"rest/classnews/getClassNewsByClassuuid.json"   //班级互动列表
-#define classNewsHTMLURL  @"kd/index.html?fn=phone_myclassNews"   //班级互动列表HTML
-
+#define classNewsHTMLURL       @"kd/index.html?fn=phone_myclassNews"   //班级互动列表HTML
+#define saveClassNewsHTMLURL   @"rest/classnews/save.json"   //新增班级互动
 
 #define groupListURL          @"rest/group/list.json" //获取机构列表
-
 
 #define announcementListURL   @"rest/announcements/queryMy.json"               //公告列表
 
@@ -108,6 +110,18 @@
     return URL(baseServiceURL, phoneCodeURL);
 }
 
+//校园介绍
++ (NSString *)getYQJSByGroupuuid:(NSString *)groupuuid {
+    return [NSString stringWithFormat:@"%@%@?uuid=%@", baseServiceURL, KDInfoURL, groupuuid];
+}
+
+//招生计划
++ (NSString *)getZSJHURLByGroupuuid:(NSString *)groupuuid {
+    return [NSString stringWithFormat:@"%@%@?uuid=%@", baseServiceURL, ZSJHInfoURL, groupuuid];
+}
+
+
+
 
 //AnnouncementList
 + (NSString *)getAnnouncementListUrl {
@@ -142,6 +156,11 @@
 //分页获取班级互动列表
 + (NSString *)getClassNewsByClassIdUrl {
     return URL(baseServiceURL, classNewsByClassIdURL);
+}
+
+//新增班级互动
++ (NSString *)getSaveClassNewsUrl {
+    return URL(baseServiceURL, saveClassNewsHTMLURL);
 }
 
 //班级互动HTML 地址

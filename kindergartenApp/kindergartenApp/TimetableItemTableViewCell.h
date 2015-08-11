@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "TimetableItemVO.h"
+#import "TimetableDomain.h"
 
 @interface TimetableItemTableViewCell : UITableViewCell {
     
@@ -17,6 +18,8 @@
     TimetableItemVO   * timetableItemVO;
     NSInteger   lastIndex;
 }
+
+@property (nonatomic, copy) void (^TimetableItemCellBlock)(TimetableDomain * domain);
 
 + (instancetype)cellWithTableView:(UITableView *)tableView;
 

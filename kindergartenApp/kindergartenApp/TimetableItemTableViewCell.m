@@ -7,10 +7,10 @@
 //
 
 #import "TimetableItemTableViewCell.h"
-#import "TimetableDomain.h"
 #import "KGHttpService.h"
 #import "UIImageView+WebCache.h"
 #import "UIButton+Extension.h"
+#import "UIColor+Extension.h"
 
 @implementation TimetableItemTableViewCell
 
@@ -44,16 +44,19 @@
     timetableItemVO = timetableVO;
     
     [self loadTimetable:Number_Zero];
+    UIButton * btn = (UIButton *)[self viewWithTag:Number_Ten];
+    btn.selected = YES;
     
     [headImageView sd_setImageWithURL:[NSURL URLWithString:timetableItemVO.headUrl] placeholderImage:[UIImage imageNamed:@"head_def"] options:SDWebImageLowPriority completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-        
+        [headImageView setBorderWithWidth:Number_Zero color:KGColorFrom16(0xE7E7EE) radian:headImageView.width / Number_Two];
     }];
 }
 
 - (IBAction)dateBtnClicked:(UIButton *)sender {
+    sender.selected = YES;
     if(sender.tag != lastIndex) {
         [self loadTimetable:sender.tag - Number_Ten];
-        UIButton * btn = (UIButton *)[self viewWithTag:sender.tag];
+        UIButton * btn = (UIButton *)[self viewWithTag:lastIndex];
         btn.selected = NO;
         lastIndex = sender.tag;
     }
@@ -65,10 +68,11 @@
         TimetableDomain * domain = [timetableItemVO.timetableMArray objectAtIndex:index];
         morningLabel.text = domain.morning;
         afternoonLabel.text = domain.afternoon;
+        
+        if(self.TimetableItemCellBlock) {
+            self.TimetableItemCellBlock(domain);
+        }
     }
-    
-    UIButton * btn = (UIButton *)[self viewWithTag:Number_Ten + index];
-    btn.selected = YES;
 }
 
 @end

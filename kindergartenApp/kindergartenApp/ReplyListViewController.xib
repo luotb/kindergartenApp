@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
@@ -19,7 +19,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ttj-ni-vfV">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="528"/>
+                    <rect key="frame" x="0.0" y="64" width="320" height="464"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tjZ-GB-uVs">
@@ -79,7 +79,7 @@
                 <constraint firstAttribute="trailing" secondItem="Ttj-ni-vfV" secondAttribute="trailing" id="6eg-Gm-HaV"/>
                 <constraint firstAttribute="bottom" secondItem="Ttj-ni-vfV" secondAttribute="bottom" constant="40" id="EN7-L6-Zi4"/>
                 <constraint firstItem="Ttj-ni-vfV" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Q0T-Tx-IZr"/>
-                <constraint firstItem="Ttj-ni-vfV" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="aTa-MR-ncH"/>
+                <constraint firstItem="Ttj-ni-vfV" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="aTa-MR-ncH"/>
                 <constraint firstAttribute="bottom" secondItem="tjZ-GB-uVs" secondAttribute="bottom" id="cTl-x1-dZK"/>
                 <constraint firstItem="tjZ-GB-uVs" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="h2p-Hc-DlL"/>
                 <constraint firstAttribute="trailing" secondItem="tjZ-GB-uVs" secondAttribute="trailing" id="kfv-5U-xbE"/>

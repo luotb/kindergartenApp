@@ -11,13 +11,14 @@
 #import "KGNSStringUtil.h"
 #import "KGHttpService.h"
 #import "KGHUD.h"
-#import "ReplyDomain.h"
+#import "TopicDomain.h"
+#import "KGTextView.h"
 
 #define contentTextViewDefText   @"说点什么吧..."
 
 @interface PostTopicViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIActionSheetDelegate, UITextViewDelegate> {
     
-    IBOutlet UITextView *contentTextView;
+    IBOutlet KGTextView * contentTextView;
     UIButton * selAddImgBtn;
     NSMutableArray * filePathMArray;
     NSMutableArray * imagesMArray;
@@ -42,7 +43,7 @@
     filePathMArray = [[NSMutableArray alloc] init];
     imagesMArray   = [[NSMutableArray alloc] init];
     replyContent   = [[NSMutableString alloc] init];
-    contentTextView.text = contentTextViewDefText;
+    contentTextView.placeholder = contentTextViewDefText;
     [contentTextView setBorderWithWidth:Number_One color:[UIColor grayColor] radian:5.0];
     [contentTextView setContentOffset:CGPointZero];
 }
@@ -62,9 +63,12 @@
 - (void)loadImg {
     if([imagesMArray count] > Number_Zero) {
         [[KGHUD sharedHud] show:self.contentView msg:@"上传图片中..."];
-        [[KGHttpService sharedService] uploadImg:[imagesMArray objectAtIndex:count] withName:@"file" type:1 success:^(NSString *msgStr) {
+        [[KGHttpService sharedService] uploadImg:[imagesMArray objectAtIndex:count] withName:@"file" type:_topicType success:^(NSString *msgStr) {
             
-            [replyContent appendFormat:@"<img src='%@' />", msgStr];
+            if(![replyContent isEqualToString:String_DefValue_EmptyStr]) {
+                [replyContent appendString:String_DefValue_SpliteStr];
+            }
+            [replyContent appendString:msgStr];
             
             [self uploadImgSuccessHandler];
         } faild:^(NSString *errorMsg) {
@@ -88,15 +92,12 @@
 - (void)sendReplyInfo {
     [[KGHUD sharedHud] changeText:self.contentView text:@"发表中..."];
     
-    ReplyDomain * replyObj = [[ReplyDomain alloc] init];
+    TopicDomain * domain = [[TopicDomain alloc] init];
+//    domain.classuuid = 
+    domain.content = [KGNSStringUtil trimString:contentTextView.text];
+    domain.imgs = replyContent;
     
-    [replyContent appendString:[KGNSStringUtil trimString:contentTextView.text]];
-    
-    replyObj.content = replyContent;
-    replyObj.newsuuid = _topicUUID;
-    replyObj.topicType = _topicType;
-    
-    [[KGHttpService sharedService] saveReply:replyObj success:^(NSString *msgStr) {
+    [[KGHttpService sharedService] saveClassNews:domain success:^(NSString *msgStr) {
         [[KGHUD sharedHud] show:self.contentView onlyMsg:msgStr];
     } faild:^(NSString *errorMsg) {
         [[KGHUD sharedHud] show:self.contentView onlyMsg:errorMsg];

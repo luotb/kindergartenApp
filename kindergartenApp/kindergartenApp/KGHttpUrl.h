@@ -35,6 +35,12 @@
 //phone code
 + (NSString *)getPhoneCodeUrl;
 
+//校园介绍
++ (NSString *)getYQJSByGroupuuid:(NSString *)groupuuid;
+
+//招生计划
++ (NSString *)getZSJHURLByGroupuuid:(NSString *)groupuuid;
+
 
 //AnnouncementList
 + (NSString *)getAnnouncementListUrl;
@@ -58,6 +64,9 @@
 
 //分页获取班级互动列表
 + (NSString *)getClassNewsByClassIdUrl;
+
+//新增班级互动
++ (NSString *)getSaveClassNewsUrl;
 
 //班级互动HTML 地址
 + (NSString *)getClassNewsHTMLURL;

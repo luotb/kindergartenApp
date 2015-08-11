@@ -40,6 +40,9 @@
 /** 回复列表视图 */
 @property (strong, nonatomic) HBVLinkedTextView  * replyView;
 
+/** 显示更多*/
+@property (strong, nonatomic) UIButton * moreBtn;
+
 /** 回复输入框 */
 @property (strong, nonatomic) KGTextField * replyTextField;
 

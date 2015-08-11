@@ -387,6 +387,16 @@
     
 }
 
+// 新增互动
+- (void)saveClassNews:(TopicDomain *)topicDomain success:(void (^)(NSString * msgStr))success faild:(void (^)(NSString * errorMsg))faild {
+    
+    [self getServerJson:[KGHttpUrl getSaveClassNewsUrl] params:topicDomain.keyValues success:^(KGBaseDomain *baseDomain) {
+        success(baseDomain.ResMsg.message);
+    } faild:^(NSString *errorMessage) {
+        faild(errorMessage);
+    }];
+}
+
 
 // 分页获取班级互动列表
 - (void)getClassNews:(PageInfoDomain *)pageObj success:(void (^)(PageInfoDomain * pageInfo))success faild:(void (^)(NSString * errorMsg))faild {
@@ -521,15 +531,11 @@
                                   parameters:dic
                                      success:^(NSURLSessionDataTask* task, id responseObject) {
                                          
-                                         [KGListBaseDomain setupObjectClassInArray:^NSDictionary* {
-                                             return @{ @"list.data" : @"TopicDomain" };
-                                         }];
-                                         
                                          KGListBaseDomain * baseDomain = [KGListBaseDomain objectWithKeyValues:responseObject];
                                          
                                          if([baseDomain.ResMsg.status isEqualToString:String_Success]) {
                                              
-                                             baseDomain.list.data = [TopicDomain objectArrayWithKeyValuesArray:baseDomain.list.data];
+                                             baseDomain.list.data = [ReplyDomain objectArrayWithKeyValuesArray:baseDomain.list.data];
                                              
                                              success(baseDomain.list);
                                          } else {
@@ -885,15 +891,8 @@
 //课程表列表
 - (void)getTeachingPlanList:(NSString *)beginDate endDate:(NSString *)endDate cuid:(NSString *)classuuid success:(void (^)(NSArray * teachPlanArray))success faild:(void (^)(NSString * errorMsg))faild {
     
-//    NSString * classuuid = @"";
-//    
-//    for(KGUser * user in _loginRespDomain.list) {
-//        classuuid = user.classuuid;
-//        break;
-//    }
-    
     NSDictionary * dic = @{@"begDateStr" : beginDate,
-                           @"endDateStr" : endDate ? endDate : beginDate,
+                           @"endDateStr" : endDate,
                            @"classuuid" : classuuid};
     
     [[AFAppDotNetAPIClient sharedClient] GET:[KGHttpUrl getTeachingPlanUrl]

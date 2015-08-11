@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
@@ -33,10 +33,15 @@
                                 </constraints>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="一">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <state key="selected" backgroundImage="timetablexuanzhong"/>
-                                <state key="highlighted" backgroundImage="timetablexuanzhong"/>
+                                <state key="selected" title="一" backgroundImage="timetablexuanzhong">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted" title="一" backgroundImage="timetablexuanzhong">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <connections>
                                     <action selector="dateBtnClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="vsD-8F-QBS"/>
                                 </connections>
@@ -49,10 +54,15 @@
                                 </constraints>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="二">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <state key="selected" backgroundImage="timetablexuanzhong"/>
-                                <state key="highlighted" backgroundImage="timetablexuanzhong"/>
+                                <state key="selected" title="二" backgroundImage="timetablexuanzhong">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted" title="二" backgroundImage="timetablexuanzhong">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <connections>
                                     <action selector="dateBtnClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="ke5-vE-vYs"/>
                                 </connections>
@@ -63,11 +73,17 @@
                                     <constraint firstAttribute="height" constant="30" id="0L1-Uc-tGm"/>
                                     <constraint firstAttribute="width" constant="30" id="lDc-uC-tUu"/>
                                 </constraints>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="三">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <state key="selected" backgroundImage="timetablexuanzhong"/>
-                                <state key="highlighted" backgroundImage="timetablexuanzhong"/>
+                                <state key="selected" title="三" backgroundImage="timetablexuanzhong">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted" title="三" backgroundImage="timetablexuanzhong">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <connections>
                                     <action selector="dateBtnClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Ffm-Tm-5VD"/>
                                 </connections>
@@ -78,11 +94,17 @@
                                     <constraint firstAttribute="width" constant="30" id="9nI-tv-Nyt"/>
                                     <constraint firstAttribute="height" constant="30" id="bn6-8h-GPQ"/>
                                 </constraints>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="四">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <state key="selected" backgroundImage="timetablexuanzhong"/>
-                                <state key="highlighted" backgroundImage="timetablexuanzhong"/>
+                                <state key="selected" title="四" backgroundImage="timetablexuanzhong">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted" title="四" backgroundImage="timetablexuanzhong">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <connections>
                                     <action selector="dateBtnClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="iXT-Dv-2DC"/>
                                 </connections>
@@ -93,11 +115,17 @@
                                     <constraint firstAttribute="width" constant="30" id="Jfh-BK-ZiG"/>
                                     <constraint firstAttribute="height" constant="30" id="fXa-GO-r24"/>
                                 </constraints>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <state key="normal" title="五">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <state key="selected" backgroundImage="timetablexuanzhong"/>
-                                <state key="highlighted" backgroundImage="timetablexuanzhong"/>
+                                <state key="selected" title="五" backgroundImage="timetablexuanzhong">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted" title="五" backgroundImage="timetablexuanzhong">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <connections>
                                     <action selector="dateBtnClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="wKB-s9-0HE"/>
                                 </connections>

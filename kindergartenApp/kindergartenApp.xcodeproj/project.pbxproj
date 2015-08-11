@@ -64,8 +64,8 @@
 		2489B66C1B5AB49E00039E70 /* SDWebImageDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 2489B65A1B5AB49E00039E70 /* SDWebImageDecoder.m */; };
 		2489B66D1B5AB49E00039E70 /* SDWebImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2489B65C1B5AB49E00039E70 /* SDWebImageManager.m */; };
 		2489B66E1B5AB49E00039E70 /* SDWebImagePrefetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 2489B65E1B5AB49E00039E70 /* SDWebImagePrefetcher.m */; };
-		2489B6731B5AB77600039E70 /* KGIntroductionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2489B6711B5AB77600039E70 /* KGIntroductionViewController.m */; };
-		2489B6741B5AB77600039E70 /* KGIntroductionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2489B6721B5AB77600039E70 /* KGIntroductionViewController.xib */; };
+		2489B6731B5AB77600039E70 /* IntroductionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2489B6711B5AB77600039E70 /* IntroductionViewController.m */; };
+		2489B6741B5AB77600039E70 /* IntroductionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2489B6721B5AB77600039E70 /* IntroductionViewController.xib */; };
 		2489B67C1B5ABAAB00039E70 /* AddressBooksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2489B67A1B5ABAAB00039E70 /* AddressBooksViewController.m */; };
 		2489B67D1B5ABAAB00039E70 /* AddressBooksViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2489B67B1B5ABAAB00039E70 /* AddressBooksViewController.xib */; };
 		248B6A5F1B19A39200FCB98F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 248B6A5E1B19A39200FCB98F /* main.m */; };
@@ -403,9 +403,9 @@
 		2489B65C1B5AB49E00039E70 /* SDWebImageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWebImageManager.m; sourceTree = "<group>"; };
 		2489B65D1B5AB49E00039E70 /* SDWebImagePrefetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDWebImagePrefetcher.h; sourceTree = "<group>"; };
 		2489B65E1B5AB49E00039E70 /* SDWebImagePrefetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDWebImagePrefetcher.m; sourceTree = "<group>"; };
-		2489B6701B5AB77600039E70 /* KGIntroductionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KGIntroductionViewController.h; sourceTree = "<group>"; };
-		2489B6711B5AB77600039E70 /* KGIntroductionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KGIntroductionViewController.m; sourceTree = "<group>"; };
-		2489B6721B5AB77600039E70 /* KGIntroductionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KGIntroductionViewController.xib; sourceTree = "<group>"; };
+		2489B6701B5AB77600039E70 /* IntroductionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntroductionViewController.h; sourceTree = "<group>"; };
+		2489B6711B5AB77600039E70 /* IntroductionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntroductionViewController.m; sourceTree = "<group>"; };
+		2489B6721B5AB77600039E70 /* IntroductionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IntroductionViewController.xib; sourceTree = "<group>"; };
 		2489B6791B5ABAAB00039E70 /* AddressBooksViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressBooksViewController.h; sourceTree = "<group>"; };
 		2489B67A1B5ABAAB00039E70 /* AddressBooksViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressBooksViewController.m; sourceTree = "<group>"; };
 		2489B67B1B5ABAAB00039E70 /* AddressBooksViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddressBooksViewController.xib; sourceTree = "<group>"; };
@@ -1155,9 +1155,9 @@
 		2489B66F1B5AB75200039E70 /* Introduction */ = {
 			isa = PBXGroup;
 			children = (
-				2489B6701B5AB77600039E70 /* KGIntroductionViewController.h */,
-				2489B6711B5AB77600039E70 /* KGIntroductionViewController.m */,
-				2489B6721B5AB77600039E70 /* KGIntroductionViewController.xib */,
+				2489B6701B5AB77600039E70 /* IntroductionViewController.h */,
+				2489B6711B5AB77600039E70 /* IntroductionViewController.m */,
+				2489B6721B5AB77600039E70 /* IntroductionViewController.xib */,
 			);
 			name = Introduction;
 			sourceTree = "<group>";
@@ -2569,7 +2569,7 @@
 				F4E61BE51B734A0300E5851A /* UMSShareListController.xib in Resources */,
 				2474DFB01B6CB7D90021506F /* StudentSignRecordViewController.xib in Resources */,
 				F48783AC1B58DA1700CDC1A8 /* LICENSE in Resources */,
-				2489B6741B5AB77600039E70 /* KGIntroductionViewController.xib in Resources */,
+				2489B6741B5AB77600039E70 /* IntroductionViewController.xib in Resources */,
 				248B6A6D1B19A39200FCB98F /* LaunchScreen.xib in Resources */,
 				24A176091B55563E00295997 /* TestTableViewCell.xib in Resources */,
 				F4C4D1C41B69CDE600335443 /* chat_cell_1.jpeg in Resources */,
@@ -2609,7 +2609,7 @@
 				F4E6B2451B6B59960087EAEB /* GiftwareArticlesViewController.m in Sources */,
 				24AA0B461B690F4300DAC03B /* UUMessageContentButton.m in Sources */,
 				2489B66E1B5AB49E00039E70 /* SDWebImagePrefetcher.m in Sources */,
-				2489B6731B5AB77600039E70 /* KGIntroductionViewController.m in Sources */,
+				2489B6731B5AB77600039E70 /* IntroductionViewController.m in Sources */,
 				F487838B1B58DA1700CDC1A8 /* AFHTTPRequestOperation.m in Sources */,
 				F471EDED1B70A3A700EEBA1D /* AddressBookDomain.m in Sources */,
 				248B6A941B19A9D900FCB98F /* UIView+Extension.m in Sources */,

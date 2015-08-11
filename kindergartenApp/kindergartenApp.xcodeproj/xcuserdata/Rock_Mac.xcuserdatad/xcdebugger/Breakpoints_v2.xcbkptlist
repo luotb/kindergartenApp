@@ -68,7 +68,7 @@
                   moduleName = "&#x95ee;&#x754c;&#x4e92;&#x52a8;&#x5bb6;&#x56ed;"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Rock_Mac/Documents/workspace/KG/kindergartenApp/kindergartenApp/StudentBaseInfoViewController.m"
-                  timestampString = "460905226.498843"
+                  timestampString = "461012663.08899"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "115"
@@ -83,7 +83,7 @@
                   moduleName = "&#x95ee;&#x754c;&#x4e92;&#x52a8;&#x5bb6;&#x56ed;"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Rock_Mac/Documents/workspace/KG/kindergartenApp/kindergartenApp/StudentBaseInfoViewController.m"
-                  timestampString = "460905226.49915"
+                  timestampString = "461012663.089521"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "115"
@@ -116,7 +116,7 @@
                   moduleName = "&#x95ee;&#x754c;&#x4e92;&#x52a8;&#x5bb6;&#x56ed;"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Rock_Mac/Documents/workspace/KG/kindergartenApp/kindergartenApp/StudentBaseInfoViewController.m"
-                  timestampString = "460905226.500448"
+                  timestampString = "461012663.108779"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "125"
@@ -131,7 +131,7 @@
                   moduleName = "&#x95ee;&#x754c;&#x4e92;&#x52a8;&#x5bb6;&#x56ed;"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Rock_Mac/Documents/workspace/KG/kindergartenApp/kindergartenApp/StudentBaseInfoViewController.m"
-                  timestampString = "460905226.500698"
+                  timestampString = "461012663.109116"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "125"
@@ -164,7 +164,7 @@
                   moduleName = "&#x95ee;&#x754c;&#x4e92;&#x52a8;&#x5bb6;&#x56ed;"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Rock_Mac/Documents/workspace/KG/kindergartenApp/kindergartenApp/StudentOtherInfoViewController.m"
-                  timestampString = "460905226.501907"
+                  timestampString = "461012663.12106"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "83"
@@ -179,7 +179,7 @@
                   moduleName = "&#x95ee;&#x754c;&#x4e92;&#x52a8;&#x5bb6;&#x56ed;"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/Rock_Mac/Documents/workspace/KG/kindergartenApp/kindergartenApp/StudentOtherInfoViewController.m"
-                  timestampString = "460905226.502212"
+                  timestampString = "461012663.121358"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "83"
@@ -275,22 +275,6 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "kindergartenApp/KGHttpService.m"
-            timestampString = "460904531.889232"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "702"
-            endingLineNumber = "702"
-            landmarkName = "-getArticlesInfo:success:faild:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "kindergartenApp/ChatViewController.m"
             timestampString = "460481094.538606"
             startingColumnNumber = "9223372036854775807"
@@ -323,102 +307,6 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "kindergartenApp/KGHttpService.m"
-            timestampString = "460904531.889232"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "857"
-            endingLineNumber = "857"
-            landmarkName = "-saveAddressBookInfo:success:faild:"
-            landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[KGHttpService saveAddressBookInfo:success:faild:]"
-                  moduleName = "&#x95ee;&#x754c;&#x4e92;&#x52a8;&#x5bb6;&#x56ed;"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Rock_Mac/Documents/workspace/KG/kindergartenApp/kindergartenApp/KGHttpService.m"
-                  timestampString = "460905226.531035"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "857"
-                  endingLineNumber = "857"
-                  offsetFromSymbolStart = "239">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__51-[KGHttpService saveAddressBookInfo:success:faild:]_block_invoke"
-                  moduleName = "&#x95ee;&#x754c;&#x4e92;&#x52a8;&#x5bb6;&#x56ed;"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/Rock_Mac/Documents/workspace/KG/kindergartenApp/kindergartenApp/KGHttpService.m"
-                  timestampString = "460905226.531354"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "857"
-                  endingLineNumber = "857"
-                  offsetFromSymbolStart = "39">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "kindergartenApp/KGHttpService.m"
-            timestampString = "460904531.889232"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "858"
-            endingLineNumber = "858"
-            landmarkName = "-saveAddressBookInfo:success:faild:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "kindergartenApp/KGHttpService.m"
-            timestampString = "460904531.889232"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "865"
-            endingLineNumber = "865"
-            landmarkName = "-saveAddressBookInfo:success:faild:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "kindergartenApp/TopicInteractionView.m"
-            timestampString = "460721826.133009"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "282"
-            endingLineNumber = "282"
-            landmarkName = "-resetReplyList:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "kindergartenApp/RecipesViewController.m"
             timestampString = "460732723.510444"
             startingColumnNumber = "9223372036854775807"
@@ -435,13 +323,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "kindergartenApp/KGHttpService.m"
-            timestampString = "460905139.81165"
+            filePath = "kindergartenApp/PostTopicViewController.m"
+            timestampString = "461004463.164584"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "893"
-            endingLineNumber = "893"
-            landmarkName = "-getTeachingPlanList:endDate:success:faild:"
+            startingLineNumber = "101"
+            endingLineNumber = "101"
+            landmarkName = "-sendReplyInfo"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -451,29 +339,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "kindergartenApp/KGHttpService.m"
-            timestampString = "460905139.81165"
+            filePath = "kindergartenApp/PostTopicViewController.m"
+            timestampString = "461004464.694526"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "904"
-            endingLineNumber = "904"
-            landmarkName = "-getTeachingPlanList:endDate:success:faild:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "kindergartenApp/KGHttpService.m"
-            timestampString = "460904779.046775"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "880"
-            endingLineNumber = "880"
-            landmarkName = "-getTeachingPlanList:endDate:success:faild:"
+            startingLineNumber = "103"
+            endingLineNumber = "103"
+            landmarkName = "-sendReplyInfo"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

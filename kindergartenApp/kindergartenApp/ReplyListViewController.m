@@ -13,8 +13,9 @@
 #import "ReFreshTableViewController.h"
 #import "UIColor+Extension.h"
 #import "KGTextView.h"
+#import "KGNSStringUtil.h"
 
-@interface ReplyListViewController () <KGReFreshViewDelegate> {
+@interface ReplyListViewController () <KGReFreshViewDelegate, UITextViewDelegate> {
     ReFreshTableViewController * reFreshView;
     PageInfoDomain * pageInfo;
     
@@ -36,6 +37,8 @@
     [self initPageInfo];
     [self initReFreshView];
     replyTextView.placeholder = @"写下您的评论...";
+//    replyTextView.returnKeyType = UIReturnKeySend;
+//    replyTextView.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -88,8 +91,54 @@
     
 }
 
+//键盘回车
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [self postTopic];
+    return YES;
+}
+
 
 - (IBAction)sendBtnClicked:(UIButton *)sender {
-    
+    [replyTextView resignFirstResponder];
+    [self postTopic];
 }
+
+
+- (void)postTopic {
+    [[KGHUD sharedHud] show:self.contentView];
+    NSString * replyText = [KGNSStringUtil trimString:replyTextView.text];
+    if(replyText && ![replyText isEqualToString:String_DefValue_Empty]) {
+        ReplyDomain * replyObj = [[ReplyDomain alloc] init];
+        replyObj.content = replyText;
+        replyObj.newsuuid = _topicUUID;
+        replyObj.topicType = _topicType;
+        
+        [[KGHttpService sharedService] saveReply:replyObj success:^(NSString *msgStr) {
+            [[KGHUD sharedHud] show:self.contentView onlyMsg:msgStr];
+            
+            ReplyDomain * domain = [[ReplyDomain alloc] init];
+            domain.content = replyText;
+            domain.newsuuid = _topicUUID;
+            domain.topicType = _topicType;
+            domain.create_user = [KGHttpService sharedService].loginRespDomain.userinfo.name;;
+            domain.create_useruuid = [KGHttpService sharedService].loginRespDomain.userinfo.uuid;
+            
+            if(reFreshView.dataSource) {
+                [reFreshView.dataSource insertObject:domain atIndex:Number_Zero];
+            } else {
+                NSArray * array = [[NSArray alloc] initWithObjects:domain, nil];
+                reFreshView.tableParam.dataSourceMArray = array;
+            }
+            
+            [reFreshView.tableView reloadData];
+            
+        } faild:^(NSString *errorMsg) {
+            [[KGHUD sharedHud] show:self.contentView onlyMsg:errorMsg];
+        }];
+    } else {
+        UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"请填写评论." delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+}
+
 @end
