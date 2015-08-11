@@ -40,6 +40,9 @@
 //获取学生信息
 - (KGUser *)getUserByUUID:(NSString *)uuid;
 
+//根据班级获取学生信息
+- (KGUser *)getUserByClassUUID:(NSString *)uuid;
+
 //图片上传
 - (void)uploadImg:(UIImage *)img withName:(NSString *)imgName type:(NSInteger)imgType success:(void (^)(NSString * msgStr))success faild:(void (^)(NSString * errorMsg))faild;
 
@@ -200,7 +203,7 @@
 //课程表 begin
 
 //课程表列表
-- (void)getTeachingPlanList:(NSString *)beginDate endDate:(NSString *)endDate success:(void (^)(NSArray * teachPlanArray))success faild:(void (^)(NSString * errorMsg))faild;
+- (void)getTeachingPlanList:(NSString *)beginDate endDate:(NSString *)endDate cuid:(NSString *)classuuid success:(void (^)(NSArray * teachPlanArray))success faild:(void (^)(NSString * errorMsg))faild;
 
 //课程表 end
 

@@ -116,7 +116,7 @@
 - (void)getQueryDate:(NSInteger)index {
     if(!isFirstReq) {
         if(index != lastIndex) {
-            lastDateStr = [KGDateUtil nextOrPreyDay:lastDateStr date:lastIndex-index];
+            lastDateStr = [KGDateUtil calculateDay:lastDateStr date:lastIndex-index];
         }
     } else {
         lastDateStr = [KGDateUtil getDate:Number_Zero];

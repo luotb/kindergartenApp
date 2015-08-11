@@ -31,3 +31,6 @@ typedef enum {
     Topic_Recipes =3,  //：食谱
     Topic_Articles = 4   //：文章
 } KGTopicType;
+
+//0:公告,3:精品文章.4:招生计划. 99:班级互动.10:html类型,直接去url地址,调用浏览器显示.
+//0:公告,3:精品文章.4:招生计划. 99:班级互动.10:html类型,直接去url地址,调用浏览器显示.

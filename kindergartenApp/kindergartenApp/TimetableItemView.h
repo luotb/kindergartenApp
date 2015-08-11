@@ -15,10 +15,10 @@
     NSMutableArray * timetableDataSourceMArray;
 }
 
-@property (strong, nonatomic) NSMutableArray   * tableDataSource;
-@property (strong, nonatomic) TimetableDomain  * timetableDomain;
+@property (strong, nonatomic) NSMutableArray   * tableDataSource; //<TimetableItemVO>
+@property (strong, nonatomic) NSString         * queryDate;
 
 //加载课程表数据
-- (void)loadTimetableData:(TimetableDomain *)timetable;
+- (void)loadTimetableData:(NSMutableArray *)timetableMArray date:(NSString *)queryDate;
 
 @end

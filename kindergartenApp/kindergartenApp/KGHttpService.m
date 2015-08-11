@@ -78,6 +78,16 @@
     return nil;
 }
 
+//根据班级获取学生信息
+- (KGUser *)getUserByClassUUID:(NSString *)uuid {
+    for(KGUser * user in _loginRespDomain.list) {
+        if([uuid isEqualToString:user.classuuid]) {
+            return user;
+        }
+    }
+    return nil;
+}
+
 
 /**
  *  获取服务器数据
@@ -873,14 +883,14 @@
 #pragma 课程表 begin
 
 //课程表列表
-- (void)getTeachingPlanList:(NSString *)beginDate endDate:(NSString *)endDate success:(void (^)(NSArray * teachPlanArray))success faild:(void (^)(NSString * errorMsg))faild {
+- (void)getTeachingPlanList:(NSString *)beginDate endDate:(NSString *)endDate cuid:(NSString *)classuuid success:(void (^)(NSArray * teachPlanArray))success faild:(void (^)(NSString * errorMsg))faild {
     
-    NSString * classuuid = @"";
-    
-    for(KGUser * user in _loginRespDomain.list) {
-        classuuid = user.classuuid;
-        break;
-    }
+//    NSString * classuuid = @"";
+//    
+//    for(KGUser * user in _loginRespDomain.list) {
+//        classuuid = user.classuuid;
+//        break;
+//    }
     
     NSDictionary * dic = @{@"begDateStr" : beginDate,
                            @"endDateStr" : endDate ? endDate : beginDate,
