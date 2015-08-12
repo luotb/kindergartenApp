@@ -11,6 +11,7 @@
 #import "KGHUD.h"
 #import "TopicInteractionView.h"
 #import "Masonry.h"
+#import "KGNSStringUtil.h"
 
 @interface AnnouncementInfoViewController () {
     
@@ -81,6 +82,18 @@
     [myWebView loadHTMLString:_announcementDomain.message baseURL:nil];
     groupLabel.text = [[KGHttpService sharedService] getGroupNameByUUID:_announcementDomain.groupuuid];
     createTimeLabel.text = _announcementDomain.create_time;
+}
+
+- (void)alttextFieldDidEndEditing:(UITextField *)textField {
+    NSString * replyText = [KGNSStringUtil trimString:textField.text];
+    if(replyText && ![replyText isEqualToString:String_DefValue_Empty]) {
+        NSDictionary *dic = @{Key_TopicTypeReplyText : [KGNSStringUtil trimString:textField.text],
+                              Key_TopicUUID : _announcementDomain.uuid,
+                              Key_TopicType : [NSNumber numberWithInteger:Topic_Announcement]};
+        [[NSNotificationCenter defaultCenter] postNotificationName:Key_Notification_TopicFunClicked object:self userInfo:dic];
+        
+        [textField resignFirstResponder];
+    }
 }
 
 

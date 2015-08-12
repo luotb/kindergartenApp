@@ -28,6 +28,7 @@
 #import "TimetableViewController.h"
 #import "UIColor+Extension.h"
 #import "UIButton+Extension.h"
+#import "ItemTitleButton.h"
 
 @interface HomeViewController () <ImageCollectionViewDelegate, MoreMenuViewDelegate, UIGestureRecognizerDelegate> {
     
@@ -39,8 +40,9 @@
     IBOutlet UIImageView * moreImageView;
     PopupView * popupView;
     UIView    * groupListView;
-    UIButton  * titleBtn;
+    ItemTitleButton  * titleBtn;
     NSArray   * groupDataArray;
+    CGFloat     groupViewHeight;
 }
 
 @end
@@ -50,6 +52,7 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
+    [self requestGroupDate];
     if(!groupListView) {
         [self loadGroupListView];
     }
@@ -58,19 +61,22 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     scrollView.contentSize = CGSizeMake(self.view.width, funiView.y + funiView.height + Number_Ten);
-    [self requestGroupDate];
     
     [self loadPhotoView];
-    [self addGestureBtn];
+//    [self addGestureBtn];
 }
 
 - (void)loadNavTitle {
-    titleBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 100, 30)];
-    [titleBtn setText:@"首页"];
-    titleBtn.titleLabel.textAlignment = NSTextAlignmentLeft;
+    titleBtn = [[ItemTitleButton alloc] initWithFrame:CGRectMake(0, 0, 200, 30)];
     [titleBtn setImage:@"xiajiantou" selImg:@"sjiantou"];
-    [titleBtn setImageEdgeInsets:UIEdgeInsetsMake(10, 90, 10, 0)];
-    [titleBtn addTarget:self action:@selector(titleFunBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+    
+    // 设置图片和文字
+    [titleBtn setTitle:@"首页"
+                 forState:UIControlStateNormal];
+    // 监听标题点击
+    [titleBtn addTarget:self
+                    action:@selector(titleFunBtnClicked:)
+          forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.titleView = titleBtn;
 }
 
@@ -79,7 +85,7 @@
     
     CGFloat y = 64;
     if(!sender.selected) {
-        y = Number_Zero;
+        y -= groupViewHeight;
         titleBtn.selected = NO;
     }
     
@@ -101,7 +107,7 @@
 //单击响应
 - (void)singleTap{
     [UIView animateWithDuration:Number_AnimationTime_Five animations:^{
-        groupListView.y   = Number_Zero;
+        groupListView.y   = 64-groupViewHeight;
         titleBtn.selected = NO;
     }];
 }
@@ -110,8 +116,8 @@
 - (void)loadGroupListView {
     if(groupDataArray && [groupDataArray count]>Number_Zero) {
         
-        CGFloat h = [groupDataArray count] * Cell_Height2;
-        groupListView = [[UIView alloc] initWithFrame:CGRectMake(Number_Zero, 64-h, KGSCREEN.size.width, h)];
+        groupViewHeight = [groupDataArray count] * Cell_Height2;
+        groupListView = [[UIView alloc] initWithFrame:CGRectMake(Number_Zero, 64-groupViewHeight, KGSCREEN.size.width, groupViewHeight)];
         groupListView.backgroundColor = KGColorFrom16(0xE64662);
         [self.view addSubview:groupListView];
         
@@ -119,26 +125,30 @@
         UILabel     * groupNameLabel = nil;
         UILabel     *    spliteLabel = nil;
         UIButton    *            btn = nil;
+        CGFloat   y = Number_Zero;
         
         for(NSInteger i=Number_Zero; i<[groupDataArray count]; i++) {
             
             domain = [groupDataArray objectAtIndex:i];
+            y = Number_Fifteen + (i*Cell_Height2);
             
-            groupNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(Number_Zero, Number_Fifteen + (i*Cell_Height2), KGSCREEN.size.width, Number_Fifteen)];
+            groupNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(Number_Zero, y, KGSCREEN.size.width, Number_Fifteen)];
             groupNameLabel.font = [UIFont systemFontOfSize:Number_Fifteen];
             groupNameLabel.text = domain.company_name;
             groupNameLabel.textColor = [UIColor whiteColor];
             groupNameLabel.textAlignment = NSTextAlignmentCenter;
             [groupListView addSubview:groupNameLabel];
             
-            spliteLabel = [[UILabel alloc] initWithFrame:CGRectMake(Number_Zero, CGRectGetMaxY(groupNameLabel.frame) + Number_Fifteen, KGSCREEN.size.width, Number_One)];
-            spliteLabel.backgroundColor = [UIColor whiteColor];
-            [groupListView addSubview:spliteLabel];
-            
-            btn = [[UIButton alloc] initWithFrame:CGRectMake(Number_Zero, Number_Zero, KGSCREEN.size.width, Cell_Height2)];
+            btn = [[UIButton alloc] initWithFrame:CGRectMake(Number_Zero, y, KGSCREEN.size.width, Cell_Height2)];
             btn.targetObj = domain;
             [btn addTarget:self action:@selector(didSelectedGroupList:) forControlEvents:UIControlEventTouchUpInside];
             [groupListView addSubview:btn];
+            
+            if(i < [groupDataArray count]-Number_One) {
+                spliteLabel = [[UILabel alloc] initWithFrame:CGRectMake(Number_Zero, CGRectGetMaxY(groupNameLabel.frame) + Number_Fifteen, KGSCREEN.size.width, 0.5)];
+                spliteLabel.backgroundColor = [UIColor whiteColor];
+                [groupListView addSubview:spliteLabel];
+            }
         }
     }
 }
@@ -150,7 +160,9 @@
     GroupDomain * domain = (GroupDomain *)sender.targetObj;
     [titleBtn setText:domain.company_name];
     [KGHttpService sharedService].groupDomain = domain;
-    [self singleTap];
+
+    [self titleFunBtnClicked:titleBtn];
+    
 }
 
 - (void)requestGroupDate {

@@ -257,31 +257,34 @@
 
 //获取机构列表
 - (void)getGroupList:(void (^)(NSArray * groupArray))success faild:(void (^)(NSString * errorMsg))faild {
-    
-    [[AFAppDotNetAPIClient sharedClient] GET:[KGHttpUrl getGroupUrl]
-                                  parameters:nil
-                                     success:^(NSURLSessionDataTask* task, id responseObject) {
-                                         
-                                         KGBaseDomain * baseDomain = [KGBaseDomain objectWithKeyValues:responseObject];
-                                         
-                                         if([baseDomain.ResMsg.status isEqualToString:String_Success]) {
+    if(_groupArray) {
+        success(_groupArray);
+    } else {
+        [[AFAppDotNetAPIClient sharedClient] GET:[KGHttpUrl getGroupUrl]
+                                      parameters:nil
+                                         success:^(NSURLSessionDataTask* task, id responseObject) {
                                              
-                                             NSArray * groupArrayResp = [GroupDomain objectArrayWithKeyValuesArray:(NSDictionary *)responseObject[@"list"]];
+                                             KGBaseDomain * baseDomain = [KGBaseDomain objectWithKeyValues:responseObject];
                                              
-                                             _groupArray = groupArrayResp;
-                                             
-                                             if(groupArrayResp && [groupArrayResp count]>Number_Zero) {
-                                                 _groupDomain = [groupArrayResp objectAtIndex:Number_Zero];
+                                             if([baseDomain.ResMsg.status isEqualToString:String_Success]) {
+                                                 
+                                                 NSArray * groupArrayResp = [GroupDomain objectArrayWithKeyValuesArray:(NSDictionary *)responseObject[@"list"]];
+                                                 
+                                                 _groupArray = groupArrayResp;
+                                                 
+                                                 if(groupArrayResp && [groupArrayResp count]>Number_Zero) {
+                                                     _groupDomain = [groupArrayResp objectAtIndex:Number_Zero];
+                                                 }
+                                                 
+                                                 success(groupArrayResp);
+                                             } else {
+                                                 faild(baseDomain.ResMsg.message);
                                              }
-                                             
-                                             success(groupArrayResp);
-                                         } else {
-                                             faild(baseDomain.ResMsg.message);
                                          }
-                                     }
-                                     failure:^(NSURLSessionDataTask* task, NSError* error) {
-                                         [self requestErrorCode:error faild:faild];
-                                     }];
+                                         failure:^(NSURLSessionDataTask* task, NSError* error) {
+                                             [self requestErrorCode:error faild:faild];
+                                         }];
+    }
 }
 
 

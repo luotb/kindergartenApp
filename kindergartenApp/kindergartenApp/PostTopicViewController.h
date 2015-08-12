@@ -7,8 +7,9 @@
 //
 
 #import "BaseKeyboardViewController.h"
+#import "BaseViewController.h"
 
-@interface PostTopicViewController : BaseKeyboardViewController
+@interface PostTopicViewController : BaseViewController
 
 @property (strong, nonatomic) NSString * topicUUID;
 @property (assign, nonatomic) KGTopicType topicType;

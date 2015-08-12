@@ -32,8 +32,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.title = @"发表动态";
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    self.title = @"发表互动";
     
     UIBarButtonItem * rightBarItem = [[UIBarButtonItem alloc] initWithTitle:@"发表" style:UIBarButtonItemStyleDone target:self action:@selector(pustTopicBtnClicked)];
     rightBarItem.tintColor = [UIColor whiteColor];

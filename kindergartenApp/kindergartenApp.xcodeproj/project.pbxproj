@@ -36,6 +36,8 @@
 		2474DFCF1B6CD43C0021506F /* CookbookDomain.m in Sources */ = {isa = PBXBuildFile; fileRef = 2474DFCE1B6CD43C0021506F /* CookbookDomain.m */; };
 		24759EAD1B5FC48500A3087D /* TopicDomain.m in Sources */ = {isa = PBXBuildFile; fileRef = 24759EAC1B5FC48500A3087D /* TopicDomain.m */; };
 		24759EB01B5FC89900A3087D /* KGListBaseDomain.m in Sources */ = {isa = PBXBuildFile; fileRef = 24759EAF1B5FC89900A3087D /* KGListBaseDomain.m */; };
+		24850B141B7B860E003C442E /* ClassDomain.m in Sources */ = {isa = PBXBuildFile; fileRef = 24850B131B7B860E003C442E /* ClassDomain.m */; };
+		24850B201B7BA499003C442E /* ItemTitleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 24850B1F1B7BA499003C442E /* ItemTitleButton.m */; };
 		2487E63B1B61663E0030320A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2487E63A1B61663E0030320A /* QuartzCore.framework */; };
 		2487E63D1B6166660030320A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2487E63C1B6166660030320A /* UIKit.framework */; };
 		2487E63F1B6166700030320A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2487E63E1B6166700030320A /* Foundation.framework */; };
@@ -351,6 +353,10 @@
 		24759EAC1B5FC48500A3087D /* TopicDomain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopicDomain.m; sourceTree = "<group>"; };
 		24759EAE1B5FC89900A3087D /* KGListBaseDomain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KGListBaseDomain.h; sourceTree = "<group>"; };
 		24759EAF1B5FC89900A3087D /* KGListBaseDomain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KGListBaseDomain.m; sourceTree = "<group>"; };
+		24850B121B7B860E003C442E /* ClassDomain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassDomain.h; sourceTree = "<group>"; };
+		24850B131B7B860E003C442E /* ClassDomain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassDomain.m; sourceTree = "<group>"; };
+		24850B1E1B7BA499003C442E /* ItemTitleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemTitleButton.h; sourceTree = "<group>"; };
+		24850B1F1B7BA499003C442E /* ItemTitleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemTitleButton.m; sourceTree = "<group>"; };
 		2487E63A1B61663E0030320A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		2487E63C1B6166660030320A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		2487E63E1B6166700030320A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -999,6 +1005,15 @@
 			name = Controller;
 			sourceTree = "<group>";
 		};
+		24850B1D1B7BA485003C442E /* ItemButton */ = {
+			isa = PBXGroup;
+			children = (
+				24850B1E1B7BA499003C442E /* ItemTitleButton.h */,
+				24850B1F1B7BA499003C442E /* ItemTitleButton.m */,
+			);
+			name = ItemButton;
+			sourceTree = "<group>";
+		};
 		2489B61B1B5A397900039E70 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -1300,6 +1315,7 @@
 		248B6A841B19A92300FCB98F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				24850B1D1B7BA485003C442E /* ItemButton */,
 				F4E61BF11B735D4700E5851A /* PopupView */,
 				F4C4D1C51B69F03100335443 /* TopicInteraction */,
 				24C46B2A1B5A29F700A58F92 /* MessageView */,
@@ -1475,6 +1491,8 @@
 				24DEC8211B633F2B00C55828 /* DynamicMenuDomain.m */,
 				F463E6461B6613D500AB92B9 /* GroupDomain.h */,
 				F463E6471B6613D500AB92B9 /* GroupDomain.m */,
+				24850B121B7B860E003C442E /* ClassDomain.h */,
+				24850B131B7B860E003C442E /* ClassDomain.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -2728,6 +2746,7 @@
 				2474DFCF1B6CD43C0021506F /* CookbookDomain.m in Sources */,
 				2489B66A1B5AB49E00039E70 /* SDWebImageDownloaderOperation.m in Sources */,
 				2474DFB41B6CBB1C0021506F /* StudentSignRecordTableViewCell.m in Sources */,
+				24850B201B7BA499003C442E /* ItemTitleButton.m in Sources */,
 				F4E61B701B73372500E5851A /* ReplyTableViewCell.m in Sources */,
 				F4EA53921B60EAD20044BE7A /* StudentInfoHeaderView.m in Sources */,
 				F4DCD0EC1B1C2932007D61CA /* UIView+Shadow.m in Sources */,
@@ -2735,6 +2754,7 @@
 				F48783D91B58E46000CDC1A8 /* UIScrollView+Extension.m in Sources */,
 				248B6A931B19A9D900FCB98F /* UIColor+Extension.m in Sources */,
 				24A175F31B55430600295997 /* KGTableParam.m in Sources */,
+				24850B141B7B860E003C442E /* ClassDomain.m in Sources */,
 				2489B6651B5AB49E00039E70 /* UIImage+WebP.m in Sources */,
 				2489B6371B5AB32F00039E70 /* ImageCollectionView.m in Sources */,
 				F471EDEA1B709E6300EEBA1D /* EmojiDomain.m in Sources */,

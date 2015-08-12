@@ -31,6 +31,7 @@
                         </textView>
                         <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iWb-wQ-TD5">
                             <rect key="frame" x="16" y="100" width="70" height="70"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="70" id="R81-kP-aXz"/>
                                 <constraint firstAttribute="width" constant="70" id="e77-H1-cU5"/>
@@ -38,6 +39,8 @@
                             <state key="normal" backgroundImage="tianjiatupian">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <state key="selected" backgroundImage="tianjiatupian"/>
+                            <state key="highlighted" backgroundImage="tianjiatupian"/>
                             <connections>
                                 <action selector="addImgBtnClicked:" destination="-1" eventType="touchUpInside" id="UH7-iW-QTM"/>
                             </connections>
@@ -51,6 +54,8 @@
                             <state key="normal" backgroundImage="tianjiatupian">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <state key="selected" backgroundImage="tianjiatupian"/>
+                            <state key="highlighted" backgroundImage="tianjiatupian"/>
                             <connections>
                                 <action selector="addImgBtnClicked:" destination="-1" eventType="touchUpInside" id="yuK-2o-vkn"/>
                             </connections>
@@ -64,6 +69,8 @@
                             <state key="normal" backgroundImage="tianjiatupian">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
+                            <state key="selected" backgroundImage="tianjiatupian"/>
+                            <state key="highlighted" backgroundImage="tianjiatupian"/>
                             <connections>
                                 <action selector="addImgBtnClicked:" destination="-1" eventType="touchUpInside" id="rfc-cL-Wni"/>
                             </connections>
