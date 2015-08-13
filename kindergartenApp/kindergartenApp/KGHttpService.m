@@ -55,6 +55,19 @@
     }
 }
 
+//根据组织id得到图片
+- (NSString *)getGroupImgByUUID:(NSString *)groupUUID {
+    NSString * str = @"group_head_def";
+    for(GroupDomain * domain in self.groupArray) {
+        if([domain.uuid isEqualToString:groupUUID]) {
+            str = domain.img;
+            break;
+        }
+    }
+    
+    return str;
+}
+
 
 //根据组织id得到名称
 - (NSString *)getGroupNameByUUID:(NSString *)groupUUID {

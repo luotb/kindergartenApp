@@ -230,7 +230,7 @@
 //提交发送文本
 - (void)sendTextInfo:(NSString *)message {
     WriteVO * writeVO = [[WriteVO alloc] init];
-    writeVO.isTeacher = _addressbookDomain.isTeacher;
+    writeVO.isTeacher = _addressbookDomain.type;
     writeVO.revice_useruuid = _addressbookDomain.teacher_uuid;
     writeVO.message = message;
     
@@ -256,7 +256,7 @@
 
 - (void)getChatInfoList {
     QueryChatsVO * queryVO = [[QueryChatsVO alloc] init];
-    queryVO.isTeacher = _addressbookDomain.isTeacher;
+    queryVO.isTeacher = _addressbookDomain.type;
     queryVO.uuid = _addressbookDomain.teacher_uuid;
     queryVO.pageNo = 1;
     

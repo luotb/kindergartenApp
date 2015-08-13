@@ -34,6 +34,8 @@
 
 + (KGHttpService *)sharedService;
 
+//根据组织id得到图片
+- (NSString *)getGroupImgByUUID:(NSString *)groupUUID;
 
 //根据组织id得到名称
 - (NSString *)getGroupNameByUUID:(NSString *)groupUUID;

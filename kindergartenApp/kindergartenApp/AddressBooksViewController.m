@@ -99,7 +99,6 @@
         [cell resetValue:[addressBookList.listKD objectAtIndex:indexPath.row] parame:nil];
     } else {
         AddressBookDomain * domain = [addressBookList.listKD objectAtIndex:indexPath.row];
-        domain.isTeacher = YES;
         [cell resetValue:domain parame:nil];
     }
     

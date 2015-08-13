@@ -13,11 +13,12 @@
 #import "StudentInfoHeaderView.h"
 #import "UIColor+Extension.h"
 #import "StudentBaseInfoViewController.h"
-#import "StudentOtherInfoViewController.h"
+#import "StudentMomOrDodInfoViewController.h"
 #import "StudentNoteInfoViewController.h"
 #import "KGHttpService.h"
 #import "KGHUD.h"
 #import "CardInfoDomain.h"
+#import "StudentOtherInfoViewController.h"
 
 #define StudentInfoCellIdentifier @"StudentInfoCellIdentifier"
 #define StudentOtherInfoCellIdentifier @"StudentOtherInfoCellIdentifier"
@@ -40,6 +41,7 @@
     studentInfoTableView.delegate   = self;
     studentInfoTableView.dataSource = self;
     
+    tableDataSource = [[NSMutableArray alloc] init];
     [self getBuildCardInfo];
 }
 
@@ -64,7 +66,9 @@
 
 ///封装table需要的数据
 - (void)packageTableDataSource {
-    tableDataSource = [[NSMutableArray alloc] init];
+    if(tableDataSource) {
+        [tableDataSource removeAllObjects];
+    }
     
     StudentInfoItemVO * item1 = [[StudentInfoItemVO alloc] init];
     item1.headHeight = Number_Zero;
@@ -109,12 +113,10 @@
                            [NSString stringWithFormat:@"外婆:%@", _studentInfo.waipo_tel], nil];
     [tableDataSource addObject:item5];
     
-    
-    StudentInfoItemVO * item6 = [[StudentInfoItemVO alloc] init];
-    item6.head = @"卡号绑定";
-    
     if(buildCardArray && [buildCardArray count]>Number_Zero) {
-        
+        StudentInfoItemVO * item6 = [[StudentInfoItemVO alloc] init];
+        item6.head = @"卡号绑定";
+        item6.isArrow = NO;
         NSMutableArray * cardArray = [[NSMutableArray alloc] initWithCapacity:[buildCardArray count]];
         
         for(CardInfoDomain * domain in buildCardArray) {
@@ -122,16 +124,21 @@
         }
         
         item6.contentMArray = cardArray;
+        [tableDataSource addObject:item6];
     }
-    
-    [tableDataSource addObject:item6];
     
     StudentInfoItemVO * item7 = [[StudentInfoItemVO alloc] init];
     item7.head = @"备注";
     item7.isNote = YES;
+    item7.isArrow = NO;
+    
     NSString * noteStr = (_studentInfo.note&&![_studentInfo.note isEqualToString:String_DefValue_Empty]) ? _studentInfo.note : @"暂无";
     
     item7.contentMArray = [[NSMutableArray alloc] initWithObjects:noteStr ,nil];
+    
+    CGSize size =  [self sizeWithString:noteStr font:[UIFont systemFontOfSize:15]];
+    item7.cellHeight = size.height;
+    item7.cellHeight = 70;
     [tableDataSource addObject:item7];
     
     [studentInfoTableView reloadData];
@@ -222,30 +229,17 @@
         cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
     }
     
+    if(indexPath.section == [tableDataSource count]-Number_One) {
+        cell.textLabel.numberOfLines = Number_Zero;
+    }
+    
     return cell;
 }
 
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    CGFloat height = 35;
-//    
-//    switch (indexPath.section) {
-//        case Number_Zero:
-//            height = 60;
-//            break;
-//        case Number_Six:
-//            height = 70;
-//            break;
-//        case Number_Five:
-//            height = [buildCardArray count] * 35;
-//        default:
-//            height = 35;
-//            break;
-//    }
     StudentInfoItemVO * itemVO = [tableDataSource objectAtIndex:indexPath.section];
-//    NSLog(@"s:%d,h:%.f，head:%@", indexPath.section, height, itemVO.head);
-    
     return itemVO.cellHeight;
 }
 
@@ -253,6 +247,15 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if(indexPath.section == Number_Zero) {
         [self editStudentBaseInfo];
+    }
+    
+    if(indexPath.section>Number_One && indexPath.section<[tableDataSource count]-Number_One) {
+        StudentInfoItemVO * itemVO = [tableDataSource objectAtIndex:indexPath.section];
+        if([itemVO.head isEqualToString:@"爸爸"] || [itemVO.head isEqualToString:@"妈妈"]) {
+            [self editStudentMomOrDodInfo:indexPath.section];
+        } else {
+            [self editStudentOtherInfo:indexPath.section];
+        }
     }
 }
 
@@ -264,10 +267,39 @@
     
     baseInfoVC.StudentUpdateBlock = ^(KGUser * studentObj){
         self.studentInfo = studentObj;
+        [self packageTableDataSource];
         [studentInfoTableView reloadData];
     };
     
     [self.navigationController pushViewController:baseInfoVC animated:YES];
+}
+
+//编辑爸爸 || 妈妈信息
+- (void)editStudentMomOrDodInfo:(NSInteger)index {
+    StudentMomOrDodInfoViewController * otherInfoVC = [[StudentMomOrDodInfoViewController alloc] init];
+    otherInfoVC.itemVO = [tableDataSource objectAtIndex:index];
+    otherInfoVC.studentInfo = _studentInfo;
+    otherInfoVC.StudentUpdateBlock = ^(KGUser * studentObj){
+        self.studentInfo = studentObj;
+        [self packageTableDataSource];
+        [studentInfoTableView reloadData];
+    };
+    
+    [self.navigationController pushViewController:otherInfoVC animated:YES];
+}
+
+//编辑其他信息
+- (void)editStudentOtherInfo:(NSInteger)index {
+    StudentOtherInfoViewController * otherInfoVC = [[StudentOtherInfoViewController alloc] init];
+    otherInfoVC.itemVO = [tableDataSource objectAtIndex:index];
+    otherInfoVC.studentInfo = _studentInfo;
+    otherInfoVC.StudentUpdateBlock = ^(KGUser * studentObj){
+        self.studentInfo = studentObj;
+        [self packageTableDataSource];
+        [studentInfoTableView reloadData];
+    };
+    
+    [self.navigationController pushViewController:otherInfoVC animated:YES];
 }
 
 
@@ -278,29 +310,21 @@
     
     noteInfoVC.StudentUpdateBlock = ^(KGUser * studentObj){
         self.studentInfo = studentObj;
+        [self packageTableDataSource];
         [studentInfoTableView reloadData];
     };
     
     [self.navigationController pushViewController:noteInfoVC animated:YES];
-//    if(sender.tag < Number_Seven) {
-//        StudentOtherInfoViewController * otherInfoVC = [[StudentOtherInfoViewController alloc] init];
-//        otherInfoVC.index = sender.tag;
-//        otherInfoVC.dataSource = tableDataSource;
-//        otherInfoVC.studentInfo = _studentInfo;
-//        otherInfoVC.StudentUpdateBlock = ^(KGUser * studentObj){
-//            self.studentInfo = studentObj;
-//            [studentInfoTableView reloadData];
-//        };
-//        
-//        [self.navigationController pushViewController:otherInfoVC animated:YES];
-//    }
-//    
-//    if(sender.tag == Number_Eight) {
-//        
-//    }
 }
 
-
-
+- (CGSize)sizeWithString:(NSString *)string font:(UIFont *)font
+{
+    CGRect rect = [string boundingRectWithSize:CGSizeMake(320, 8000)//限制最大的宽度和高度
+                                       options:NSStringDrawingTruncatesLastVisibleLine | NSStringDrawingUsesFontLeading  |NSStringDrawingUsesLineFragmentOrigin//采用换行模式
+                                    attributes:@{NSFontAttributeName: font}//传人的字体字典
+                                       context:nil];
+    
+    return rect.size;
+}
 
 @end

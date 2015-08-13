@@ -1,8 +1,8 @@
 //
 //  StudentOtherInfoViewController.h
 //  kindergartenApp
-//
-//  Created by yangyangxun on 15/8/13.
+//  学生其他信息
+//  Created by You on 15/7/24.
 //  Copyright (c) 2015年 funi. All rights reserved.
 //
 
@@ -10,7 +10,8 @@
 #import "KGUser.h"
 #import "StudentInfoItemVO.h"
 
-@interface StudentOtherInfoViewController : BaseKeyboardViewController
+@interface StudentMomOrDodInfoViewController : BaseKeyboardViewController
+
 
 @property (strong, nonatomic) KGUser * studentInfo;
 @property (strong, nonatomic) StudentInfoItemVO * itemVO;
