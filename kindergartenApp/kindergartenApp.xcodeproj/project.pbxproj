@@ -223,6 +223,10 @@
 		F48783DB1B58E46000CDC1A8 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = F48783D31B58E46000CDC1A8 /* UIView+Extension.m */; };
 		F48783DE1B58EB1900CDC1A8 /* ReFreshTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F48783DD1B58EB1900CDC1A8 /* ReFreshTableViewController.m */; };
 		F48783E11B58EC8C00CDC1A8 /* ReFreshBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F48783E01B58EC8C00CDC1A8 /* ReFreshBaseCell.m */; };
+		F4885C661B7C508600AF97CF /* FavoritesDomain.m in Sources */ = {isa = PBXBuildFile; fileRef = F4885C651B7C508600AF97CF /* FavoritesDomain.m */; };
+		F4885C6B1B7C78C400AF97CF /* BrowseURLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4885C691B7C78C400AF97CF /* BrowseURLViewController.m */; };
+		F4885C6C1B7C78C400AF97CF /* BrowseURLViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4885C6A1B7C78C400AF97CF /* BrowseURLViewController.xib */; };
+		F4885C6F1B7C982B00AF97CF /* CardInfoDomain.m in Sources */ = {isa = PBXBuildFile; fileRef = F4885C6E1B7C982B00AF97CF /* CardInfoDomain.m */; };
 		F4C0AB8B1B1C39D4007B0E35 /* KGDateUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = F4C0AB881B1C39D4007B0E35 /* KGDateUtil.m */; };
 		F4C0AB8C1B1C39D4007B0E35 /* KGNSStringUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = F4C0AB8A1B1C39D4007B0E35 /* KGNSStringUtil.m */; };
 		F4C0AB901B1C3B29007B0E35 /* SandboxFile.m in Sources */ = {isa = PBXBuildFile; fileRef = F4C0AB8F1B1C3B29007B0E35 /* SandboxFile.m */; };
@@ -710,6 +714,13 @@
 		F48783DD1B58EB1900CDC1A8 /* ReFreshTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReFreshTableViewController.m; sourceTree = "<group>"; };
 		F48783DF1B58EC8C00CDC1A8 /* ReFreshBaseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReFreshBaseCell.h; sourceTree = "<group>"; };
 		F48783E01B58EC8C00CDC1A8 /* ReFreshBaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReFreshBaseCell.m; sourceTree = "<group>"; };
+		F4885C641B7C508600AF97CF /* FavoritesDomain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoritesDomain.h; sourceTree = "<group>"; };
+		F4885C651B7C508600AF97CF /* FavoritesDomain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoritesDomain.m; sourceTree = "<group>"; };
+		F4885C681B7C78C400AF97CF /* BrowseURLViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BrowseURLViewController.h; sourceTree = "<group>"; };
+		F4885C691B7C78C400AF97CF /* BrowseURLViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BrowseURLViewController.m; sourceTree = "<group>"; };
+		F4885C6A1B7C78C400AF97CF /* BrowseURLViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BrowseURLViewController.xib; sourceTree = "<group>"; };
+		F4885C6D1B7C982B00AF97CF /* CardInfoDomain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardInfoDomain.h; sourceTree = "<group>"; };
+		F4885C6E1B7C982B00AF97CF /* CardInfoDomain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardInfoDomain.m; sourceTree = "<group>"; };
 		F4C0AB871B1C39D4007B0E35 /* KGDateUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KGDateUtil.h; sourceTree = "<group>"; };
 		F4C0AB881B1C39D4007B0E35 /* KGDateUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KGDateUtil.m; sourceTree = "<group>"; };
 		F4C0AB891B1C39D4007B0E35 /* KGNSStringUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KGNSStringUtil.h; sourceTree = "<group>"; };
@@ -1052,6 +1063,8 @@
 				2489B6261B5A5FEB00039E70 /* KGUser.m */,
 				2469E2111B5B5E45004888A4 /* LoginRespDomain.h */,
 				2469E2121B5B5E45004888A4 /* LoginRespDomain.m */,
+				F4885C6D1B7C982B00AF97CF /* CardInfoDomain.h */,
+				F4885C6E1B7C982B00AF97CF /* CardInfoDomain.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -1445,6 +1458,7 @@
 		248B6AA31B19ACEC00FCB98F /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				F4885C601B7C4FF000AF97CF /* Favorites */,
 				F4DF3B9D1B78AC40001D9DF7 /* Timetable */,
 				F4E61B721B73432200E5851A /* Share */,
 				2474DFB91B6CCDD80021506F /* Recipes */,
@@ -1500,6 +1514,7 @@
 		248B6AA71B19AD4700FCB98F /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				F4885C671B7C784C00AF97CF /* URLController */,
 				F4E6B2381B6B53A60087EAEB /* SpecialtyCourses */,
 				2489B66F1B5AB75200039E70 /* Introduction */,
 				24C46B341B5A2A9900A58F92 /* HomeViewController.h */,
@@ -2155,6 +2170,49 @@
 			path = MJRefresh;
 			sourceTree = "<group>";
 		};
+		F4885C601B7C4FF000AF97CF /* Favorites */ = {
+			isa = PBXGroup;
+			children = (
+				F4885C631B7C500500AF97CF /* Controller */,
+				F4885C621B7C4FFF00AF97CF /* Model */,
+				F4885C611B7C4FF900AF97CF /* View */,
+			);
+			name = Favorites;
+			sourceTree = "<group>";
+		};
+		F4885C611B7C4FF900AF97CF /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		F4885C621B7C4FFF00AF97CF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F4885C641B7C508600AF97CF /* FavoritesDomain.h */,
+				F4885C651B7C508600AF97CF /* FavoritesDomain.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		F4885C631B7C500500AF97CF /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		F4885C671B7C784C00AF97CF /* URLController */ = {
+			isa = PBXGroup;
+			children = (
+				F4885C681B7C78C400AF97CF /* BrowseURLViewController.h */,
+				F4885C691B7C78C400AF97CF /* BrowseURLViewController.m */,
+				F4885C6A1B7C78C400AF97CF /* BrowseURLViewController.xib */,
+			);
+			name = URLController;
+			sourceTree = "<group>";
+		};
 		F4C0AB8D1B1C3B1C007B0E35 /* Sandbox */ = {
 			isa = PBXGroup;
 			children = (
@@ -2549,6 +2607,7 @@
 				F4E61B711B73372500E5851A /* ReplyTableViewCell.xib in Resources */,
 				F4E61BE41B734A0300E5851A /* UMSnsAccountViewController.xib in Resources */,
 				2489B67D1B5ABAAB00039E70 /* AddressBooksViewController.xib in Resources */,
+				F4885C6C1B7C78C400AF97CF /* BrowseURLViewController.xib in Resources */,
 				24C46B411B5A2B1100A58F92 /* MeViewController.xib in Resources */,
 				F4E61BE31B734A0300E5851A /* UMSLoginViewController.xib in Resources */,
 				F47AFEAF1B5E22EA00D43F38 /* AnnouncementListViewController.xib in Resources */,
@@ -2670,6 +2729,7 @@
 				24C46B491B5A2B7A00A58F92 /* InteractViewController.m in Sources */,
 				F4C0AB941B1C3BB6007B0E35 /* KGHttpUrl.m in Sources */,
 				F4C0AB8B1B1C39D4007B0E35 /* KGDateUtil.m in Sources */,
+				F4885C6F1B7C982B00AF97CF /* CardInfoDomain.m in Sources */,
 				F487838E1B58DA1700CDC1A8 /* AFNetworkReachabilityManager.m in Sources */,
 				F487838F1B58DA1700CDC1A8 /* AFSecurityPolicy.m in Sources */,
 				24E1F5671B7279C600057C44 /* MoreMenuView.m in Sources */,
@@ -2692,6 +2752,7 @@
 				24AA0B481B690F4300DAC03B /* UUProgressHUD.m in Sources */,
 				F48783D71B58E46000CDC1A8 /* MJRefreshFooterView.m in Sources */,
 				24DE91B41B67C78700D3FFCE /* TeacherJudgeViewController.m in Sources */,
+				F4885C6B1B7C78C400AF97CF /* BrowseURLViewController.m in Sources */,
 				F48783B51B58DA1700CDC1A8 /* README.md in Sources */,
 				2469E2161B5B6039004888A4 /* ResMsgDomain.m in Sources */,
 				2474DFC01B6CCE460021506F /* RecipesViewController.m in Sources */,
@@ -2825,6 +2886,7 @@
 				F48783E11B58EC8C00CDC1A8 /* ReFreshBaseCell.m in Sources */,
 				24C46B401B5A2B1100A58F92 /* MeViewController.m in Sources */,
 				248B6AC71B19B54500FCB98F /* KGTextField.m in Sources */,
+				F4885C661B7C508600AF97CF /* FavoritesDomain.m in Sources */,
 				24AA0B431B690F4300DAC03B /* UUInputFunctionView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

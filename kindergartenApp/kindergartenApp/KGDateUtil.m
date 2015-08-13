@@ -65,7 +65,7 @@
 + (NSString *)presentTime
 {
     NSDateFormatter * formatter = [[NSDateFormatter alloc ] init];
-    [formatter setDateFormat:@"YYYYMMddhhmmss"];
+    [formatter setDateFormat:dateFormatStr2];
     NSString *date =  [formatter stringFromDate:[NSDate date]];
     NSString *timeLocal = [[NSString alloc] initWithFormat:@"%@", date];
     return timeLocal;

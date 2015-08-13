@@ -39,7 +39,7 @@
     topicInteractionView = [dic objectForKey:Key_TopicInteractionView];
     
     _topicUUID = [dic objectForKey:Key_TopicUUID];
-    _topicType = (KGTopicType)[dic objectForKey:Key_TopicType];
+    _topicType = [[dic objectForKey:Key_TopicType] integerValue];
     
     [[KGHUD sharedHud] show:self.contentView];
     if(type == Number_Ten) {
@@ -77,7 +77,7 @@
     ReplyDomain * replyObj = [[ReplyDomain alloc] init];
     replyObj.content = replyText;
     replyObj.newsuuid = _topicUUID;
-    replyObj.topicType = _topicType;
+    replyObj.type = _topicType;
     
     [[KGHttpService sharedService] saveReply:replyObj success:^(NSString *msgStr) {
         [[KGHUD sharedHud] show:self.contentView onlyMsg:msgStr];
@@ -85,7 +85,7 @@
         ReplyDomain * domain = [[ReplyDomain alloc] init];
         domain.content = replyText;
         domain.newsuuid = _topicUUID;
-        domain.topicType = _topicType;
+        domain.type = _topicType;
         domain.create_user = [KGHttpService sharedService].loginRespDomain.userinfo.name;;
         domain.create_useruuid = [KGHttpService sharedService].loginRespDomain.userinfo.uuid;
         

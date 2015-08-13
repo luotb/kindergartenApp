@@ -28,8 +28,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    introductionWebView.backgroundColor = [UIColor clearColor];
+    introductionWebView.opaque = NO;
+    
     [self loadNavTitle];
-    [self topFunBtnClicked:btn1];
+    
+    if(_isNoXYXG) {
+        [self topFunBtnClicked:btn2];
+    } else {
+        [self topFunBtnClicked:btn1];
+    }
+    
     [self addGestureBtn];
 }
 
@@ -58,9 +67,9 @@
 
 - (void)loadNavTitle {
     titleBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 100, 30)];
-    [titleBtn setText:@"校园相关"];
     titleBtn.titleLabel.textAlignment = NSTextAlignmentLeft;
-    [titleBtn setImage:@"xiajiantou" selImg:@"sjiantou"];
+//    [titleBtn setText:@"校园相关"];
+//    [titleBtn setImage:@"xiajiantou" selImg:@"sjiantou"];
     [titleBtn setImageEdgeInsets:UIEdgeInsetsMake(10, 90, 10, 0)];
     [titleBtn addTarget:self action:@selector(titleFunBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.titleView = titleBtn;
@@ -99,6 +108,7 @@
     NSURLRequest * request = [NSURLRequest requestWithURL:[NSURL URLWithString:webUrl]];
     [introductionWebView loadRequest:request];
 
+    [titleBtn setText:sender.titleLabel.text];
 }
 
 @end

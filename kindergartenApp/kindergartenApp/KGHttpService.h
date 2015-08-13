@@ -20,6 +20,7 @@
 #import "WriteVO.h"
 #import "QueryChatsVO.h"
 #import "AddressBookResp.h"
+#import "FavoritesDomain.h"
 
 @interface KGHttpService : NSObject
 
@@ -36,6 +37,9 @@
 
 //根据组织id得到名称
 - (NSString *)getGroupNameByUUID:(NSString *)groupUUID;
+
+//根据学生id得到班级
+- (NSString *)getClassNameByUUID:(NSString *)classUUID;
 
 //获取学生信息
 - (KGUser *)getUserByUUID:(NSString *)uuid;
@@ -68,6 +72,9 @@
 
 
 - (void)updatePwd:(KGUser *)user success:(void (^)(NSString * msgStr))success faild:(void (^)(NSString * errorMsg))faild;
+
+//获取指定学生绑定的卡号信息
+- (void)getBuildCardList:(NSString *)useruuid success:(void (^)(NSArray * cardArray))success faild:(void (^)(NSString * errorMsg))faild;
 
 
 - (void)getPhoneVlCode:(NSString *)phone success:(void (^)(NSString * msgStr))success faild:(void (^)(NSString * errorMsg))faild;
@@ -209,5 +216,16 @@
 - (void)getTeachingPlanList:(NSString *)beginDate endDate:(NSString *)endDate cuid:(NSString *)classuuid success:(void (^)(NSArray * teachPlanArray))success faild:(void (^)(NSString * errorMsg))faild;
 
 //课程表 end
+
+
+//收藏 begin
+
+//收藏列表
+- (void)getFavoritesList:(NSInteger)pageNo success:(void (^)(NSArray * favoritesArray))success faild:(void (^)(NSString * errorMsg))faild;
+
+//保存收藏
+- (void)saveFavorites:(FavoritesDomain *)favoritesDomain success:(void (^)(NSString * msgStr))success faild:(void (^)(NSString * errorMsg))faild;
+
+//收藏 end
 
 @end

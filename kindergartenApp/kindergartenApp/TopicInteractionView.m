@@ -79,6 +79,10 @@
     [_dianzanBtn addTarget:self action:@selector(topicFunBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
     [_funView addSubview:_dianzanBtn];
     
+    if(_dianzan && _dianzan.canDianzan) {
+        _dianzanBtn.selected = YES;
+    }
+    
     _replyBtn = [[UIButton alloc] initWithFrame:CGRectMake(dzBtnX, replyBtnY, funBtnSize.width, funBtnSize.height)];
     [_replyBtn setBackgroundImage:@"pinglun" selImg:@"pinglun"];
     _replyBtn.tag = Number_Eleven;
@@ -127,7 +131,7 @@
     
     _replyView = [[HBVLinkedTextView alloc] init];
     _replyView.backgroundColor = CLEARCOLOR;
-//    replyLabel.backgroundColor = [UIColor greenColor];
+    _replyView.backgroundColor = [UIColor greenColor];
     _replyView.font = TopicCellDateFont;
     [self addSubview:_replyView];
     
@@ -156,7 +160,11 @@
                            constrainedToSize:CGSizeMake(CELLCONTENTWIDTH, 2000)
                                lineBreakMode:NSLineBreakByWordWrapping];
         
-        _replyView.frame = CGRectMake(CELLPADDING, self.topicInteractHeight + Number_Five, CELLCONTENTWIDTH, size.height);
+        _replyView.frame = CGRectMake(CELLPADDING, CGRectGetMaxY(_dianzanView.frame)
+                                      , CELLCONTENTWIDTH, size.height);
+        
+        NSLog(@"frame:%@, bou:%@", NSStringFromCGRect(_replyView.frame), NSStringFromCGRect(_replyView.bounds));
+        
 //        _replyView.backgroundColor = [UIColor brownColor];
         self.replyView.text = replyStr;
         [self.replyView linkStrings:arrayOfStrings
@@ -199,6 +207,7 @@
     _replyTextField = [[KGTextField alloc] initWithFrame:CGRectMake(CELLPADDING, self.topicInteractHeight + TopicCellBorderW, CELLCONTENTWIDTH, 30)];
     _replyTextField.placeholder = @"我来说一句...";
     _replyTextField.returnKeyType = UIReturnKeySend;
+    _replyTextField.backgroundColor = [UIColor brownColor];
     _replyTextField.delegate = self;
     [self addSubview:_replyTextField];
     [_replyTextField setBorderWithWidth:1 color:[UIColor blackColor] radian:5.0];
@@ -216,7 +225,7 @@
                               Key_TopicUUID : _topicUUID,
                               Key_TopicType : [NSNumber numberWithInteger:_topicType]};
         [[NSNotificationCenter defaultCenter] postNotificationName:Key_Notification_TopicFunClicked object:self userInfo:dic];
-        
+        textField.text = String_DefValue_Empty;
         [textField resignFirstResponder];
     }
     

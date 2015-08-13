@@ -81,8 +81,9 @@
  *  @param indexPath   indexPath
  */
 - (void)didSelectRowCallBack:(id)baseDomain tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath {
+    AnnouncementDomain * annDomain = (AnnouncementDomain *)baseDomain;
     GiftwareArticlesInfoViewController * infoVC = [[GiftwareArticlesInfoViewController alloc] init];
-    infoVC.announcementDomain = baseDomain;
+    infoVC.annuuid = annDomain.uuid;
     [self.navigationController pushViewController:infoVC animated:YES];
 }
 

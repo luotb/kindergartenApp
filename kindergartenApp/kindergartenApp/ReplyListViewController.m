@@ -12,16 +12,15 @@
 #import "PageInfoDomain.h"
 #import "ReFreshTableViewController.h"
 #import "UIColor+Extension.h"
-#import "KGTextView.h"
+#import "KGTextField.h"
 #import "KGNSStringUtil.h"
 
-@interface ReplyListViewController () <KGReFreshViewDelegate, UITextViewDelegate> {
+@interface ReplyListViewController () <KGReFreshViewDelegate> {
     ReFreshTableViewController * reFreshView;
     PageInfoDomain * pageInfo;
     
-    
+    IBOutlet KGTextField *replyTextField;
     IBOutlet UIButton *sendBtn;
-    IBOutlet KGTextView *replyTextView;
 }
 
 
@@ -36,9 +35,7 @@
     
     [self initPageInfo];
     [self initReFreshView];
-    replyTextView.placeholder = @"写下您的评论...";
-//    replyTextView.returnKeyType = UIReturnKeySend;
-//    replyTextView.delegate = self;
+    replyTextField.placeholder = @"写下您的评论...";
 }
 
 - (void)didReceiveMemoryWarning {
@@ -99,19 +96,19 @@
 
 
 - (IBAction)sendBtnClicked:(UIButton *)sender {
-    [replyTextView resignFirstResponder];
+    [replyTextField resignFirstResponder];
     [self postTopic];
 }
 
 
 - (void)postTopic {
     [[KGHUD sharedHud] show:self.contentView];
-    NSString * replyText = [KGNSStringUtil trimString:replyTextView.text];
+    NSString * replyText = [KGNSStringUtil trimString:replyTextField.text];
     if(replyText && ![replyText isEqualToString:String_DefValue_Empty]) {
         ReplyDomain * replyObj = [[ReplyDomain alloc] init];
         replyObj.content = replyText;
         replyObj.newsuuid = _topicUUID;
-        replyObj.topicType = _topicType;
+        replyObj.type = _topicType;
         
         [[KGHttpService sharedService] saveReply:replyObj success:^(NSString *msgStr) {
             [[KGHUD sharedHud] show:self.contentView onlyMsg:msgStr];
@@ -119,7 +116,7 @@
             ReplyDomain * domain = [[ReplyDomain alloc] init];
             domain.content = replyText;
             domain.newsuuid = _topicUUID;
-            domain.topicType = _topicType;
+            domain.type = _topicType;
             domain.create_user = [KGHttpService sharedService].loginRespDomain.userinfo.name;;
             domain.create_useruuid = [KGHttpService sharedService].loginRespDomain.userinfo.uuid;
             
@@ -131,7 +128,7 @@
             }
             
             [reFreshView.tableView reloadData];
-            
+            replyTextField.text = String_DefValue_Empty;
         } faild:^(NSString *errorMsg) {
             [[KGHUD sharedHud] show:self.contentView onlyMsg:errorMsg];
         }];
@@ -139,6 +136,10 @@
         UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"请填写评论." delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
         [alert show];
     }
+}
+
+- (void)alttextFieldDidEndEditing:(UITextField *)textField {
+    [self postTopic];
 }
 
 @end

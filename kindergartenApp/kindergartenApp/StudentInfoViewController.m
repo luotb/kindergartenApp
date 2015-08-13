@@ -16,6 +16,8 @@
 #import "StudentOtherInfoViewController.h"
 #import "StudentNoteInfoViewController.h"
 #import "KGHttpService.h"
+#import "KGHUD.h"
+#import "CardInfoDomain.h"
 
 #define StudentInfoCellIdentifier @"StudentInfoCellIdentifier"
 #define StudentOtherInfoCellIdentifier @"StudentOtherInfoCellIdentifier"
@@ -23,6 +25,7 @@
 @interface StudentInfoViewController () <UITableViewDataSource, UITableViewDelegate>  {
     NSMutableArray * tableDataSource;
     IBOutlet UITableView * studentInfoTableView;
+    NSArray * buildCardArray;
 }
 
 @end
@@ -36,15 +39,26 @@
     studentInfoTableView.backgroundColor = KGColorFrom16(0xE7E7EE);
     studentInfoTableView.delegate   = self;
     studentInfoTableView.dataSource = self;
+    
+    [self getBuildCardInfo];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
 
-- (void)setStudentInfo:(KGUser *)studentInfo {
-    _studentInfo = studentInfo;
-    [self packageTableDataSource];
+//获取绑定的卡号列表
+- (void)getBuildCardInfo {
+    [[KGHUD sharedHud] show:self.contentView];
+    
+    [[KGHttpService sharedService] getBuildCardList:_studentInfo.uuid success:^(NSArray *cardArray) {
+        buildCardArray = cardArray;
+        [self packageTableDataSource];
+        [[KGHUD sharedHud] hide:self.view];
+    } faild:^(NSString *errorMsg) {
+        [self packageTableDataSource];
+        [[KGHUD sharedHud] hide:self.view];
+    }];
 }
 
 
@@ -53,66 +67,74 @@
     tableDataSource = [[NSMutableArray alloc] init];
     
     StudentInfoItemVO * item1 = [[StudentInfoItemVO alloc] init];
-    item1.head = @"";
+    item1.headHeight = Number_Zero;
+    item1.cellHeight = 60;
     item1.contentMArray = [[NSMutableArray alloc] initWithObjects:
                           [NSString stringWithFormat:@""],nil];
     [tableDataSource addObject:item1];
     
     StudentInfoItemVO * item2 = [[StudentInfoItemVO alloc] init];
-    item2.head = @"爸爸";
+    item2.headHeight = Number_Zero;
+    item2.isArrow = NO;
+    NSString * groupName = [[KGHttpService sharedService] getGroupNameByUUID:_studentInfo.groupuuid];
+    NSString * className = [[KGHttpService sharedService] getClassNameByUUID:_studentInfo.uuid];
+    
     item2.contentMArray = [[NSMutableArray alloc] initWithObjects:
-                          [NSString stringWithFormat:@"姓名:%@", _studentInfo.ba_name],
-                          [NSString stringWithFormat:@"电话:%@", _studentInfo.ba_tel],
-                          [NSString stringWithFormat:@"工作单位:%@", _studentInfo.ba_work], nil];
+                           [NSString stringWithFormat:@"关联学校:%@", groupName ? groupName : @""],
+                           [NSString stringWithFormat:@"关联班级:%@", className ? className : @""], nil];
     [tableDataSource addObject:item2];
     
     StudentInfoItemVO * item3 = [[StudentInfoItemVO alloc] init];
-    item3.head = @"妈妈";
+    item3.head = @"爸爸";
     item3.contentMArray = [[NSMutableArray alloc] initWithObjects:
-                           [NSString stringWithFormat:@"姓名:%@", _studentInfo.ma_name],
-                           [NSString stringWithFormat:@"电话:%@", _studentInfo.ma_tel],
-                           [NSString stringWithFormat:@"工作单位:%@", _studentInfo.ma_work], nil];
+                          [NSString stringWithFormat:@"姓名:%@", _studentInfo.ba_name],
+                          [NSString stringWithFormat:@"电话:%@", _studentInfo.ba_tel],
+                          [NSString stringWithFormat:@"工作单位:%@", _studentInfo.ba_work], nil];
     [tableDataSource addObject:item3];
     
     StudentInfoItemVO * item4 = [[StudentInfoItemVO alloc] init];
-    item4.head = @"爷爷";
+    item4.head = @"妈妈";
     item4.contentMArray = [[NSMutableArray alloc] initWithObjects:
-                           [NSString stringWithFormat:@"姓名:爷爷"],
-                           [NSString stringWithFormat:@"电话:%@", _studentInfo.ye_tel], nil];
+                           [NSString stringWithFormat:@"姓名:%@", _studentInfo.ma_name],
+                           [NSString stringWithFormat:@"电话:%@", _studentInfo.ma_tel],
+                           [NSString stringWithFormat:@"工作单位:%@", _studentInfo.ma_work], nil];
     [tableDataSource addObject:item4];
     
     StudentInfoItemVO * item5 = [[StudentInfoItemVO alloc] init];
-    item5.head = @"奶奶";
+    item5.head = @"其他联系人";
     item5.contentMArray = [[NSMutableArray alloc] initWithObjects:
-                           [NSString stringWithFormat:@"姓名:奶奶"],
-                           [NSString stringWithFormat:@"电话:%@", _studentInfo.nai_tel], nil];
+                           [NSString stringWithFormat:@"爷爷:%@", _studentInfo.ye_tel],
+                           [NSString stringWithFormat:@"奶奶:%@", _studentInfo.nai_tel],
+                           [NSString stringWithFormat:@"外公:%@", _studentInfo.waigong_tel],
+                           [NSString stringWithFormat:@"外婆:%@", _studentInfo.waipo_tel], nil];
     [tableDataSource addObject:item5];
     
+    
     StudentInfoItemVO * item6 = [[StudentInfoItemVO alloc] init];
-    item6.head = @"外公";
-    item6.contentMArray = [[NSMutableArray alloc] initWithObjects:
-                           [NSString stringWithFormat:@"姓名:外公"],
-                           [NSString stringWithFormat:@"电话:%@", _studentInfo.waigong_tel], nil];
+    item6.head = @"卡号绑定";
+    
+    if(buildCardArray && [buildCardArray count]>Number_Zero) {
+        
+        NSMutableArray * cardArray = [[NSMutableArray alloc] initWithCapacity:[buildCardArray count]];
+        
+        for(CardInfoDomain * domain in buildCardArray) {
+            [cardArray addObject:[NSString stringWithFormat:@"%@:%@", domain.name, domain.cardid]];
+        }
+        
+        item6.contentMArray = cardArray;
+    }
+    
     [tableDataSource addObject:item6];
     
     StudentInfoItemVO * item7 = [[StudentInfoItemVO alloc] init];
-    item7.head = @"外婆";
-    item7.contentMArray = [[NSMutableArray alloc] initWithObjects:
-                           [NSString stringWithFormat:@"姓名:外婆"],
-                           [NSString stringWithFormat:@"电话:%@", _studentInfo.waipo_tel], nil];
+    item7.head = @"备注";
+    item7.isNote = YES;
+    NSString * noteStr = (_studentInfo.note&&![_studentInfo.note isEqualToString:String_DefValue_Empty]) ? _studentInfo.note : @"暂无";
+    
+    item7.contentMArray = [[NSMutableArray alloc] initWithObjects:noteStr ,nil];
     [tableDataSource addObject:item7];
     
-    StudentInfoItemVO * item8 = [[StudentInfoItemVO alloc] init];
-    item8.head = @"";
-    item8.contentMArray = [[NSMutableArray alloc] initWithObjects:
-                           [NSString stringWithFormat:@"关联学校:%@", [[KGHttpService sharedService] getGroupNameByUUID:_studentInfo.groupuuid]],
-                           [NSString stringWithFormat:@"关联班级:%@", _studentInfo.ma_tel], nil];
-    [tableDataSource addObject:item8];
-    
-    StudentInfoItemVO * item9 = [[StudentInfoItemVO alloc] init];
-    item9.head = @"备注";
-    item9.contentMArray = [[NSMutableArray alloc] initWithObjects:_studentInfo.note ? _studentInfo.note : @"暂无" ,nil];
-    [tableDataSource addObject:item9];
+    [studentInfoTableView reloadData];
 }
 
 
@@ -127,22 +149,20 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    
     StudentInfoItemVO * itemVO = [tableDataSource objectAtIndex:section];
     return [itemVO.contentMArray count];
 }
 
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    if(section!=Number_Zero && section!=Number_Seven) {
-        return Cell_Height2;
-    }
-    return Number_Zero;
+    StudentInfoItemVO * itemVO = [tableDataSource objectAtIndex:section];
+    return itemVO.headHeight;
 }
 
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    if(section!=Number_Zero && section!=Number_Seven) {
+    StudentInfoItemVO * itemVO = [tableDataSource objectAtIndex:section];
+    if(itemVO.head) {
         StudentInfoItemVO * itemVO = [tableDataSource objectAtIndex:section];
         
         NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"StudentInfoHeaderView" owner:nil options:nil];
@@ -150,7 +170,15 @@
         view.titleLabel.text = itemVO.head;
         view.backgroundColor = KGColorFrom16(0xE7E7EE);
         view.funBtn.tag = section;
-        [view.funBtn addTarget:self action:@selector(sectionBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+        
+        if(itemVO.isNote) {
+            //备注 增加编辑按钮
+            UIImageView * imgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bianjiicon"]];
+            imgView.frame = CGRectMake(KGSCREEN.size.width - 31, 10, 15, 15);
+            [view addSubview:imgView];
+            [view.funBtn addTarget:self action:@selector(editStudentNote) forControlEvents:UIControlEventTouchUpInside];
+        }
+        
         return view;
     }
     
@@ -174,6 +202,7 @@
         NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"MeTableViewCell" owner:nil options:nil];
         cell = [nib objectAtIndex:Number_Zero];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
     }
     [cell resetCellParam:_studentInfo];
     return cell;
@@ -189,6 +218,9 @@
     
     StudentInfoItemVO * itemVO = [tableDataSource objectAtIndex:indexPath.section];
     cell.textLabel.text = [itemVO.contentMArray objectAtIndex:indexPath.row];
+    if(itemVO.isArrow) {
+        cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
+    }
     
     return cell;
 }
@@ -196,60 +228,76 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if(indexPath.section == Number_Zero) {
-        return 60;
-    }else{
-        if(indexPath.section == Number_Eight) {
-            return 70;
-        } else {
-            return 35;
-        }
-    }
+//    CGFloat height = 35;
+//    
+//    switch (indexPath.section) {
+//        case Number_Zero:
+//            height = 60;
+//            break;
+//        case Number_Six:
+//            height = 70;
+//            break;
+//        case Number_Five:
+//            height = [buildCardArray count] * 35;
+//        default:
+//            height = 35;
+//            break;
+//    }
+    StudentInfoItemVO * itemVO = [tableDataSource objectAtIndex:indexPath.section];
+//    NSLog(@"s:%d,h:%.f，head:%@", indexPath.section, height, itemVO.head);
+    
+    return itemVO.cellHeight;
 }
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if(indexPath.section == Number_Zero) {
-        //编辑学生基本资料
-        StudentBaseInfoViewController * baseInfoVC = [[StudentBaseInfoViewController alloc] init];
-        baseInfoVC.studentInfo = _studentInfo;
-        
-        baseInfoVC.StudentUpdateBlock = ^(KGUser * studentObj){
-            self.studentInfo = studentObj;
-            [studentInfoTableView reloadData];
-        };
-        
-        [self.navigationController pushViewController:baseInfoVC animated:YES];
+        [self editStudentBaseInfo];
     }
 }
 
-
-//section点击
-- (void)sectionBtnClicked:(UIButton *)sender {
-    if(sender.tag < Number_Seven) {
-        StudentOtherInfoViewController * otherInfoVC = [[StudentOtherInfoViewController alloc] init];
-        otherInfoVC.index = sender.tag;
-        otherInfoVC.dataSource = tableDataSource;
-        otherInfoVC.studentInfo = _studentInfo;
-        otherInfoVC.StudentUpdateBlock = ^(KGUser * studentObj){
-            self.studentInfo = studentObj;
-            [studentInfoTableView reloadData];
-        };
-        
-        [self.navigationController pushViewController:otherInfoVC animated:YES];
-    }
+//编辑学生基本信息
+- (void)editStudentBaseInfo {
+    //编辑学生基本资料
+    StudentBaseInfoViewController * baseInfoVC = [[StudentBaseInfoViewController alloc] init];
+    baseInfoVC.studentInfo = _studentInfo;
     
-    if(sender.tag == Number_Eight) {
-        StudentNoteInfoViewController * noteInfoVC = [[StudentNoteInfoViewController alloc] init];
-        noteInfoVC.studentInfo = _studentInfo;
-        
-        noteInfoVC.StudentUpdateBlock = ^(KGUser * studentObj){
-            self.studentInfo = studentObj;
-            [studentInfoTableView reloadData];
-        };
-        
-        [self.navigationController pushViewController:noteInfoVC animated:YES];
-    }
+    baseInfoVC.StudentUpdateBlock = ^(KGUser * studentObj){
+        self.studentInfo = studentObj;
+        [studentInfoTableView reloadData];
+    };
+    
+    [self.navigationController pushViewController:baseInfoVC animated:YES];
+}
+
+
+//编辑 备注
+- (void)editStudentNote {
+    StudentNoteInfoViewController * noteInfoVC = [[StudentNoteInfoViewController alloc] init];
+    noteInfoVC.studentInfo = _studentInfo;
+    
+    noteInfoVC.StudentUpdateBlock = ^(KGUser * studentObj){
+        self.studentInfo = studentObj;
+        [studentInfoTableView reloadData];
+    };
+    
+    [self.navigationController pushViewController:noteInfoVC animated:YES];
+//    if(sender.tag < Number_Seven) {
+//        StudentOtherInfoViewController * otherInfoVC = [[StudentOtherInfoViewController alloc] init];
+//        otherInfoVC.index = sender.tag;
+//        otherInfoVC.dataSource = tableDataSource;
+//        otherInfoVC.studentInfo = _studentInfo;
+//        otherInfoVC.StudentUpdateBlock = ^(KGUser * studentObj){
+//            self.studentInfo = studentObj;
+//            [studentInfoTableView reloadData];
+//        };
+//        
+//        [self.navigationController pushViewController:otherInfoVC animated:YES];
+//    }
+//    
+//    if(sender.tag == Number_Eight) {
+//        
+//    }
 }
 
 

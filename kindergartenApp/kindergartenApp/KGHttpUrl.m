@@ -10,7 +10,7 @@
 
 #define URL(baseURL, businessURL) [NSString stringWithFormat:@"%@%@", baseURL, businessURL];
 
-#define baseServiceURL       @"http://120.25.248.31/px-mobile/"      //正式
+#define baseServiceURL       @"http://jz.wenjienet.com/px-mobile/"      //正式
 #define dynamicMenuURL       @"rest/userinfo/getDynamicMenu.json"    //首页动态菜单
 #define loginURL             @"rest/userinfo/login.json"             //登录
 #define logoutURL            @"rest/userinfo/logout.json"            //登出
@@ -66,6 +66,8 @@
 #define emojiURL              @"rest/share/getEmot.json"      //表情
 #define teachingPLanURL       @"rest/teachingplan/list.json"      //课程表
 
+#define saveFavoritesURL      @"rest/favorites/save.json"      //保存收藏
+#define favoritesListURL      @"rest/favorites/query.json"     //收藏列表
 
 
 @implementation KGHttpUrl
@@ -102,6 +104,11 @@
 //updatepassword
 + (NSString *)getUpdatepasswordUrl {
     return URL(baseServiceURL, updatepasswordURL);
+}
+
+//绑定的卡号列表
++ (NSString *)getBuildCardUrl:(NSString *)uuid {
+    return [NSString stringWithFormat:@"%@rest/studentbind/%@.json", baseServiceURL, uuid];
 }
 
 
@@ -305,6 +312,16 @@
 //课程表
 + (NSString *)getTeachingPlanUrl {
     return URL(baseServiceURL, teachingPLanURL);
+}
+
+//收藏列表
++ (NSString *)getFavoritesListUrl {
+    return URL(baseServiceURL, favoritesListURL);
+}
+
+//保存收藏
++ (NSString *)getsaveFavoritesUrl {
+    return URL(baseServiceURL, saveFavoritesURL);
 }
 
 

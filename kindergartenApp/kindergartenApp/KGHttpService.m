@@ -21,6 +21,8 @@
 #import "chatInfoDomain.h"
 #import "KGEmojiManage.h"
 #import "TimetableDomain.h"
+#import "ClassDomain.h"
+#import "CardInfoDomain.h"
 
 @implementation KGHttpService
 
@@ -60,6 +62,19 @@
     for(GroupDomain * domain in self.groupArray) {
         if([domain.uuid isEqualToString:groupUUID]) {
             str = domain.brand_name;
+            break;
+        }
+    }
+    
+    return str;
+}
+
+//根据学生id得到班级
+- (NSString *)getClassNameByUUID:(NSString *)classUUID {
+    NSString * str = nil;
+    for(ClassDomain * domain in self.loginRespDomain.class_list) {
+        if([domain.uuid isEqualToString:classUUID]) {
+            str = domain.name;
             break;
         }
     }
@@ -132,7 +147,11 @@
                 if([baseDomainResp.ResMsg.status isEqualToString:String_Success]) {
                     success(baseDomainResp);
                 } else {
-                    faild(baseDomainResp.ResMsg.message);
+                    NSString * errorMessage = baseDomainResp.ResMsg.message;
+                    if(!errorMessage) {
+                        errorMessage = String_Message_RequestError;
+                    }
+                    faild(errorMessage);
                 }
             });
         }
@@ -369,6 +388,30 @@
 }
 
 
+//获取指定学生绑定的卡号信息
+- (void)getBuildCardList:(NSString *)useruuid success:(void (^)(NSArray * cardArray))success faild:(void (^)(NSString * errorMsg))faild {
+    
+    [[AFAppDotNetAPIClient sharedClient] GET:[KGHttpUrl getBuildCardUrl:useruuid]
+                                  parameters:nil
+                                     success:^(NSURLSessionDataTask* task, id responseObject) {
+                                         
+                                         KGBaseDomain * baseDomain = [KGBaseDomain objectWithKeyValues:responseObject];
+                                         
+                                         if([baseDomain.ResMsg.status isEqualToString:String_Success]) {
+                                             
+                                             NSArray * arrayResp = [CardInfoDomain objectArrayWithKeyValuesArray:baseDomain.data];
+                                             
+                                             success(arrayResp);
+                                         } else {
+                                             faild(baseDomain.ResMsg.message);
+                                         }
+                                     }
+                                     failure:^(NSURLSessionDataTask* task, NSError* error) {
+                                         [self requestErrorCode:error faild:faild];
+                                     }];
+}
+
+
 - (void)getPhoneVlCode:(NSString *)phone success:(void (^)(NSString * msgStr))success faild:(void (^)(NSString * errorMsg))faild {
     
     NSDictionary * dic = @{@"tel" : phone};
@@ -407,10 +450,6 @@
     [[AFAppDotNetAPIClient sharedClient] GET:[KGHttpUrl getClassNewsMyByClassIdUrl]
                                    parameters:pageObj.keyValues
                                       success:^(NSURLSessionDataTask* task, id responseObject) {
-                                          
-                                          [KGListBaseDomain setupObjectClassInArray:^NSDictionary* {
-                                              return @{ @"list.data" : @"ClassNewsDomain" };
-                                          }];
                                           
                                           KGListBaseDomain * baseDomain = [KGListBaseDomain objectWithKeyValues:responseObject];
                                           
@@ -919,5 +958,43 @@
 
 //课程表 end
 
+
+#pragma 收藏 begin
+
+//收藏列表
+- (void)getFavoritesList:(NSInteger)pageNo success:(void (^)(NSArray * favoritesArray))success faild:(void (^)(NSString * errorMsg))faild {
+    
+    NSDictionary * dic = @{@"PageNo" : [NSNumber numberWithInteger:pageNo]};
+    
+    [[AFAppDotNetAPIClient sharedClient] GET:[KGHttpUrl getFavoritesListUrl]
+                                  parameters:dic
+                                     success:^(NSURLSessionDataTask* task, id responseObject) {
+                                         
+                                         KGListBaseDomain * baseDomain = [KGListBaseDomain objectWithKeyValues:responseObject];
+                                         
+                                         if([baseDomain.ResMsg.status isEqualToString:String_Success]) {
+                                             NSArray * tempResp = [FavoritesDomain objectArrayWithKeyValuesArray:[responseObject objectForKey:baseDomain.list.data]];
+                                             
+                                             success(tempResp);
+                                         } else {
+                                             faild(baseDomain.ResMsg.message);
+                                         }
+                                     }
+                                     failure:^(NSURLSessionDataTask* task, NSError* error) {
+                                         [self requestErrorCode:error faild:faild];
+                                     }];
+}
+
+//保存收藏
+- (void)saveFavorites:(FavoritesDomain *)favoritesDomain success:(void (^)(NSString * msgStr))success faild:(void (^)(NSString * errorMsg))faild {
+    
+    [self getServerJson:[KGHttpUrl getsaveFavoritesUrl] params:favoritesDomain.keyValues success:^(KGBaseDomain *baseDomain) {
+        success(baseDomain.ResMsg.message);
+    } faild:^(NSString *errorMessage) {
+        faild(errorMessage);
+    }];
+}
+
+//收藏 end
 
 @end

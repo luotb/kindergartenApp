@@ -31,6 +31,9 @@
 //updatepassword
 + (NSString *)getUpdatepasswordUrl;
 
+//绑定的卡号列表
++ (NSString *)getBuildCardUrl:(NSString *)uuid;
+
 
 //phone code
 + (NSString *)getPhoneCodeUrl;
@@ -151,5 +154,11 @@
 
 //课程表
 + (NSString *)getTeachingPlanUrl;
+
+//收藏列表
++ (NSString *)getFavoritesListUrl;
+
+//保存收藏
++ (NSString *)getsaveFavoritesUrl;
 
 @end

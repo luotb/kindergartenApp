@@ -29,8 +29,9 @@
 #import "UIColor+Extension.h"
 #import "UIButton+Extension.h"
 #import "ItemTitleButton.h"
+#import "BrowseURLViewController.h"
 
-@interface HomeViewController () <ImageCollectionViewDelegate, MoreMenuViewDelegate, UIGestureRecognizerDelegate> {
+@interface HomeViewController () <ImageCollectionViewDelegate, UIGestureRecognizerDelegate> {
     
     IBOutlet UIScrollView * scrollView;
     IBOutlet UIView * photosView;
@@ -63,7 +64,6 @@
     scrollView.contentSize = CGSizeMake(self.view.width, funiView.y + funiView.height + Number_Ten);
     
     [self loadPhotoView];
-//    [self addGestureBtn];
 }
 
 - (void)loadNavTitle {
@@ -91,24 +91,6 @@
     
     [UIView animateWithDuration:0.3 animations:^{
         groupListView.y = y;
-    }];
-}
-
-//添加手势
-- (void)addGestureBtn {
-    UITapGestureRecognizer *singleTapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTap)];
-    singleTapGesture.delegate = self;
-    singleTapGesture.numberOfTapsRequired = Number_One;
-    singleTapGesture.cancelsTouchesInView = NO;
-    [self.contentView addGestureRecognizer:singleTapGesture];
-}
-
-
-//单击响应
-- (void)singleTap{
-    [UIView animateWithDuration:Number_AnimationTime_Five animations:^{
-        groupListView.y   = 64-groupViewHeight;
-        titleBtn.selected = NO;
     }];
 }
 
@@ -265,9 +247,11 @@
         CGFloat moreViewH = (totalRow * 77) + 64;
         CGFloat moreViewY = KGSCREEN.size.height - moreViewH;
         MoreMenuView * moreVC = [[MoreMenuView alloc] initWithFrame:CGRectMake(Number_Zero, moreViewY, KGSCREEN.size.width, moreViewH)];
-        moreVC.delegate = self;
         [popupView addSubview:moreVC];
         [moreVC loadMoreMenu:moreMenuArray];
+        moreVC.MoreMenuBlock = ^(DynamicMenuDomain * domain){
+            [self didSelectedMoreMenuItem:domain];
+        };
 
         UIWindow * window = [UIApplication sharedApplication].keyWindow;
         [window addSubview:popupView];
@@ -279,14 +263,22 @@
     
 }
 
-- (void)cancelCallback; {
-    [self popupCallback];
-}
 
 - (void)popupCallback {
     [UIView viewAnimate:^{
         popupView.alpha = Number_Zero;
     } time:Number_AnimationTime_Five];
+}
+
+- (void)didSelectedMoreMenuItem:(DynamicMenuDomain *)domain {
+    [self popupCallback];
+    
+    if(domain) {
+        BrowseURLViewController * vc = [[BrowseURLViewController alloc] init];
+        vc.title = domain.name;
+        vc.url = domain.url;
+        [self.navigationController pushViewController:vc animated:YES];
+    }
 }
 
 

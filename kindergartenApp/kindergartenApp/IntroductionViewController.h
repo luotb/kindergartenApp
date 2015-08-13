@@ -10,6 +10,8 @@
 
 @interface IntroductionViewController : BaseViewController
 
+@property (assign, nonatomic) BOOL isNoXYXG;
+
 - (IBAction)topFunBtnClicked:(UIButton *)sender;
 
 

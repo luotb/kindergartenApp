@@ -39,8 +39,8 @@
         timeLabel.text = [KGNSStringUtil compareCurrentTime:date];
     }
     
-    if(domain.count > Number_Zero) {
-        dzCountLabel.text = [NSString stringWithFormat:@"%ld", (long)domain.count];
+    if(domain.dianzan) {
+        dzCountLabel.text = [NSString stringWithFormat:@"%ld", (long)domain.dianzan.count];
     }
 }
 

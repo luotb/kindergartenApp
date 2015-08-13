@@ -108,6 +108,7 @@
         NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"MeTableViewCell" owner:nil options:nil];
         cell = [nib objectAtIndex:Number_Zero];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
     }
     [cell resetCellParam:(KGUser *)[studentMArray objectAtIndex:indexPath.row]];
     return cell;
@@ -120,15 +121,16 @@
         NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"MeFunTableViewCell" owner:nil options:nil];
         cell = [nib objectAtIndex:Number_Zero];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
     }
     
     
     switch (indexPath.section - [studentMArray count]) {
         case Number_Zero:
-            [cell resetCellParam:@"收藏" img:nil];
+            [cell resetCellParam:@"收藏" img:@"meshoucang"];
             break;
         case Number_One:
-            [cell resetCellParam:@"设置" img:nil];
+            [cell resetCellParam:@"设置" img:@"meshezhi"];
             break;
         case Number_Two:
             [cell resetCellParam:@"退出登录" img:nil];

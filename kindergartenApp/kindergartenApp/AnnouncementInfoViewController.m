@@ -20,6 +20,8 @@
     IBOutlet UIWebView * myWebView;
     IBOutlet UILabel   * groupLabel;
     IBOutlet UILabel   * createTimeLabel;
+    TopicInteractionView * topicView;
+    AnnouncementDomain * announcementDomain;
 }
 
 @end
@@ -29,6 +31,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    myWebView.backgroundColor = [UIColor clearColor];
+    myWebView.opaque = NO;
     [self getAnnouncementDomainInfo];
 }
 
@@ -40,11 +44,13 @@
 //加载帖子互动
 - (void)loadTopicInteractionView {
    
+    self.topicType = announcementDomain.topicType;
+    
     CGFloat y = CGRectGetMaxY(createTimeLabel.frame) + Number_Ten;
-    TopicInteractionView * topicView = [[TopicInteractionView alloc] init];
-    [topicView loadFunView:_announcementDomain.dianzan reply:_announcementDomain.replyPage];
-    topicView.topicType = Topic_Announcement;
-    topicView.topicUUID = _announcementDomain.uuid;
+    topicView = [[TopicInteractionView alloc] init];
+    topicView.topicType = self.topicType;
+    topicView.topicUUID = announcementDomain.uuid;
+    [topicView loadFunView:announcementDomain.dianzan reply:announcementDomain.replyPage];
     [contentScrollView addSubview:topicView];
     
     [topicView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -65,9 +71,9 @@
 
 - (void)getAnnouncementDomainInfo {
     
-    [[KGHttpService sharedService] getAnnouncementInfo:_announcementDomain.uuid success:^(AnnouncementDomain *announcementObj) {
+    [[KGHttpService sharedService] getAnnouncementInfo:_annuuid success:^(AnnouncementDomain *announcementObj) {
         
-        _announcementDomain = announcementObj;
+        announcementDomain = announcementObj;
         [self resetViewParam];
         [self loadTopicInteractionView];
         
@@ -78,18 +84,19 @@
 
 
 - (void)resetViewParam {
-    titleLabel.text = _announcementDomain.title;
-    [myWebView loadHTMLString:_announcementDomain.message baseURL:nil];
-    groupLabel.text = [[KGHttpService sharedService] getGroupNameByUUID:_announcementDomain.groupuuid];
-    createTimeLabel.text = _announcementDomain.create_time;
+    titleLabel.text = announcementDomain.title;
+    [myWebView loadHTMLString:announcementDomain.message baseURL:nil];
+    groupLabel.text = [[KGHttpService sharedService] getGroupNameByUUID:announcementDomain.groupuuid];
+    createTimeLabel.text = announcementDomain.create_time;
 }
 
 - (void)alttextFieldDidEndEditing:(UITextField *)textField {
     NSString * replyText = [KGNSStringUtil trimString:textField.text];
     if(replyText && ![replyText isEqualToString:String_DefValue_Empty]) {
         NSDictionary *dic = @{Key_TopicTypeReplyText : [KGNSStringUtil trimString:textField.text],
-                              Key_TopicUUID : _announcementDomain.uuid,
-                              Key_TopicType : [NSNumber numberWithInteger:Topic_Announcement]};
+                              Key_TopicUUID : announcementDomain.uuid,
+                              Key_TopicType : [NSNumber numberWithInteger:self.topicType],
+                              Key_TopicInteractionView : topicView};
         [[NSNotificationCenter defaultCenter] postNotificationName:Key_Notification_TopicFunClicked object:self userInfo:dic];
         
         [textField resignFirstResponder];

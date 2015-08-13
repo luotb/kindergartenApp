@@ -128,6 +128,6 @@
     </objects>
     <resources>
         <image name="hongtiao" width="5" height="13"/>
-        <image name="wodekuang" width="60" height="60"/>
+        <image name="wodekuang" width="288" height="30"/>
     </resources>
 </document>

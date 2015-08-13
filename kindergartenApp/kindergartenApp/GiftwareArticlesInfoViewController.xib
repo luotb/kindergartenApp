@@ -11,6 +11,8 @@
                 <outlet property="createUserLabel" destination="6it-xu-0Qt" id="I0C-k0-Vai"/>
                 <outlet property="dzBtn" destination="428-LE-jEd" id="pQJ-bj-PXc"/>
                 <outlet property="dzImageView" destination="Nqq-zx-brt" id="U0u-IR-2aD"/>
+                <outlet property="favBtn" destination="pcS-43-jew" id="U1I-Ll-4H5"/>
+                <outlet property="favImageView" destination="yNZ-Ye-nrD" id="2P9-G1-V86"/>
                 <outlet property="myWebView" destination="Eba-Co-a5l" id="G7Q-RG-umR"/>
                 <outlet property="timeLabel" destination="VK4-QC-NtL" id="agM-RD-uB9"/>
                 <outlet property="titleLabel" destination="WFH-zg-nYI" id="Uar-31-RVZ"/>

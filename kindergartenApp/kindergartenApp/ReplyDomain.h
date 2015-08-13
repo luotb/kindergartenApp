@@ -14,7 +14,7 @@
 @property (strong, nonatomic) NSString * content;
 @property (strong, nonatomic) NSString * newsuuid;
 @property (strong, nonatomic) NSString * img;
-@property (assign, nonatomic) KGTopicType topicType;
+@property (assign, nonatomic) KGTopicType type;
 @property (strong, nonatomic) NSString * classuuid;   //关联班级id.需要转换成班级名
 @property (strong, nonatomic) NSString * title;   //标题
 @property (strong, nonatomic) NSString * create_user;   //创建人名
