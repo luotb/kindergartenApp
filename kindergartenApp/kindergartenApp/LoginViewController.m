@@ -7,7 +7,6 @@
 //
 
 #import "LoginViewController.h"
-#import "TestViewController.h"
 #import "RegViewController.h"
 #import "AppDelegate.h"
 #import "UIWindow+Extension.h"
@@ -59,12 +58,6 @@
     [_userPwdTextField setTextFielType:KGTextFielType_Empty];
     [_userPwdTextField setMessageStr:@"密码不能为空"];
     [textFieldMArray addObject:_userPwdTextField];
-}
-
-
-- (IBAction)testBtnClicked:(UIButton *)sender {
-    TestViewController *testVC = [[TestViewController alloc] init];
-    [self.navigationController pushViewController:testVC animated:YES];
 }
 
 

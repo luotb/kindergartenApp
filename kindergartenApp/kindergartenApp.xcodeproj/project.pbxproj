@@ -101,10 +101,6 @@
 		24A175F91B5543E600295997 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 24A175F81B5543E600295997 /* libsqlite3.dylib */; };
 		24A175FE1B5550B000295997 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A175FC1B5550B000295997 /* LoginViewController.m */; };
 		24A175FF1B5550B000295997 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24A175FD1B5550B000295997 /* LoginViewController.xib */; };
-		24A176031B5550EB00295997 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A176011B5550EB00295997 /* TestViewController.m */; };
-		24A176041B5550EB00295997 /* TestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24A176021B5550EB00295997 /* TestViewController.xib */; };
-		24A176081B55563E00295997 /* TestTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A176061B55563E00295997 /* TestTableViewCell.m */; };
-		24A176091B55563E00295997 /* TestTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24A176071B55563E00295997 /* TestTableViewCell.xib */; };
 		24A3D3761B5E874600D4C212 /* KGHomeItemButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A3D3751B5E874600D4C212 /* KGHomeItemButton.m */; };
 		24AA0B411B690F4300DAC03B /* UUAVAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 24AA0B321B690F4300DAC03B /* UUAVAudioPlayer.m */; };
 		24AA0B421B690F4300DAC03B /* UUImageAvatarBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 24AA0B341B690F4300DAC03B /* UUImageAvatarBrowser.m */; };
@@ -492,12 +488,6 @@
 		24A175FB1B5550B000295997 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		24A175FC1B5550B000295997 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		24A175FD1B5550B000295997 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
-		24A176001B5550EB00295997 /* TestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
-		24A176011B5550EB00295997 /* TestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
-		24A176021B5550EB00295997 /* TestViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestViewController.xib; sourceTree = "<group>"; };
-		24A176051B55563E00295997 /* TestTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestTableViewCell.h; sourceTree = "<group>"; };
-		24A176061B55563E00295997 /* TestTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestTableViewCell.m; sourceTree = "<group>"; };
-		24A176071B55563E00295997 /* TestTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TestTableViewCell.xib; sourceTree = "<group>"; };
 		24A3D3741B5E874600D4C212 /* KGHomeItemButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KGHomeItemButton.h; sourceTree = "<group>"; };
 		24A3D3751B5E874600D4C212 /* KGHomeItemButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KGHomeItemButton.m; sourceTree = "<group>"; };
 		24AA0B311B690F4300DAC03B /* UUAVAudioPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UUAVAudioPlayer.h; sourceTree = "<group>"; };
@@ -1080,12 +1070,6 @@
 				24A175FB1B5550B000295997 /* LoginViewController.h */,
 				24A175FC1B5550B000295997 /* LoginViewController.m */,
 				24A175FD1B5550B000295997 /* LoginViewController.xib */,
-				24A176001B5550EB00295997 /* TestViewController.h */,
-				24A176011B5550EB00295997 /* TestViewController.m */,
-				24A176021B5550EB00295997 /* TestViewController.xib */,
-				24A176051B55563E00295997 /* TestTableViewCell.h */,
-				24A176061B55563E00295997 /* TestTableViewCell.m */,
-				24A176071B55563E00295997 /* TestTableViewCell.xib */,
 				2489B6201B5A40E200039E70 /* RegViewController.h */,
 				2489B6211B5A40E200039E70 /* RegViewController.m */,
 				2489B6221B5A40E200039E70 /* RegViewController.xib */,
@@ -2644,7 +2628,6 @@
 				24E634821B6FB9CC00A23A66 /* RecipesHeadTableViewCell.xib in Resources */,
 				F4E61BDC1B734A0300E5851A /* UMSocialLocalizable.strings in Resources */,
 				F4E61BEA1B734A0300E5851A /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
-				24A176041B5550EB00295997 /* TestViewController.xib in Resources */,
 				F4EA53941B60EAE30044BE7A /* StudentInfoHeaderView.xib in Resources */,
 				245474DA1B5FDD6C00D49D40 /* StudentInfoViewController.xib in Resources */,
 				F48783A91B58DA1700CDC1A8 /* LICENSE in Resources */,
@@ -2657,7 +2640,6 @@
 				F48783AC1B58DA1700CDC1A8 /* LICENSE in Resources */,
 				2489B6741B5AB77600039E70 /* IntroductionViewController.xib in Resources */,
 				248B6A6D1B19A39200FCB98F /* LaunchScreen.xib in Resources */,
-				24A176091B55563E00295997 /* TestTableViewCell.xib in Resources */,
 				F4C4D1C41B69CDE600335443 /* chat_cell_1.jpeg in Resources */,
 				F4C4D1C21B69CDDF00335443 /* chat_cell_0.jpeg in Resources */,
 				2491BB531B6E27F00052532B /* RecipesStudentInfoTableViewCell.xib in Resources */,
@@ -2747,7 +2729,6 @@
 				F4E61B6B1B7335A900E5851A /* ReplyListViewController.m in Sources */,
 				2474DFC91B6CD2070021506F /* RecipesItemVO.m in Sources */,
 				F4EA538F1B60D8390044BE7A /* StudentInfoItemVO.m in Sources */,
-				24A176031B5550EB00295997 /* TestViewController.m in Sources */,
 				248B6AB91B19B51A00FCB98F /* PagedFlowView.m in Sources */,
 				F48783B41B58DA1700CDC1A8 /* NSString+MJExtension.m in Sources */,
 				F471EDFC1B70B40100EEBA1D /* KGEmojiManage.m in Sources */,
@@ -2832,7 +2813,6 @@
 				F471EDEA1B709E6300EEBA1D /* EmojiDomain.m in Sources */,
 				F4EC989A1B62306800F5721F /* TopicFrame.m in Sources */,
 				F4C4D1C81B69F05C00335443 /* TopicInteractionView.m in Sources */,
-				24A176081B55563E00295997 /* TestTableViewCell.m in Sources */,
 				2489B6311B5A683E00039E70 /* AFAppDotNetAPIClient.m in Sources */,
 				24A175FE1B5550B000295997 /* LoginViewController.m in Sources */,
 				F4EC98881B61F64400F5721F /* StudentMomOrDodInfoViewController.m in Sources */,

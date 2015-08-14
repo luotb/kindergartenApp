@@ -383,7 +383,6 @@
     [self getServerJson:[KGHttpUrl getRegUrl] params:user.keyValues success:^(KGBaseDomain * baseDomain) {
        
         success(baseDomain.ResMsg.message);
-        NSLog(@"message:%@", baseDomain.ResMsg.message);
     } faild:^(NSString *errorMessage) {
         faild(errorMessage);
     }];
@@ -398,6 +397,28 @@
     } faild:^(NSString *errorMsg) {
         faild(errorMsg);
     }];
+    
+//    NSDictionary * dic = @{@"tel"  : user.tel,
+//                           @"password" : user.password,
+//                           };
+    
+//    [[AFAppDotNetAPIClient sharedClient] GET:[KGHttpUrl getUpdatepasswordUrl]
+//                                  parameters:user
+//     .keyValues
+//                                     success:^(NSURLSessionDataTask* task, id responseObject) {
+//                                         
+//                                         KGBaseDomain * baseDomain = [KGBaseDomain objectWithKeyValues:responseObject];
+//                                         
+//                                         if([baseDomain.ResMsg.status isEqualToString:String_Success]) {
+//                                             
+//                                             success(baseDomain.ResMsg.message);
+//                                         } else {
+//                                             faild(baseDomain.ResMsg.message);
+//                                         }
+//                                     }
+//                                     failure:^(NSURLSessionDataTask* task, NSError* error) {
+//                                         [self requestErrorCode:error faild:faild];
+//                                     }];
 }
 
 
@@ -425,14 +446,26 @@
 }
 
 
-- (void)getPhoneVlCode:(NSString *)phone success:(void (^)(NSString * msgStr))success faild:(void (^)(NSString * errorMsg))faild {
+- (void)getPhoneVlCode:(NSString *)phone type:(NSInteger)type success:(void (^)(NSString * msgStr))success faild:(void (^)(NSString * errorMsg))faild {
     
-    NSDictionary * dic = @{@"tel" : phone};
-    [self getServerJson:[KGHttpUrl getPhoneCodeUrl] params:dic success:^(KGBaseDomain *baseDomain) {
-        success(baseDomain.ResMsg.message);
-    } faild:^(NSString *errorMessage) {
-        faild(errorMessage);
-    }];
+    NSDictionary * dic = @{@"tel"  : phone,
+                           @"type" : [NSNumber numberWithInteger:type]};
+    
+    [[AFAppDotNetAPIClient sharedClient] GET:[KGHttpUrl getPhoneCodeUrl]
+                                  parameters:dic
+                                     success:^(NSURLSessionDataTask* task, id responseObject) {
+                                         
+                                         KGBaseDomain * baseDomain = [KGBaseDomain objectWithKeyValues:responseObject];
+                                         
+                                         if([baseDomain.ResMsg.status isEqualToString:String_Success]) {
+                                             success(baseDomain.ResMsg.message);
+                                         } else {
+                                             faild(baseDomain.ResMsg.message);
+                                         }
+                                     }
+                                     failure:^(NSURLSessionDataTask* task, NSError* error) {
+                                         [self requestErrorCode:error faild:faild];
+                                     }];
 
 }
 
