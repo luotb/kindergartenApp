@@ -218,6 +218,7 @@
 		4D5CE78B1B7E4535002F1088 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D5CE78A1B7E4535002F1088 /* AudioToolbox.framework */; };
 		4D5CE78D1B7E453B002F1088 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D5CE78C1B7E453B002F1088 /* StoreKit.framework */; };
 		4D5CE78F1B7E4540002F1088 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D5CE78E1B7E4540002F1088 /* AdSupport.framework */; };
+		4D5CE7941B7E531C002F1088 /* libMobClickLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D5CE7911B7E531C002F1088 /* libMobClickLibrary.a */; };
 		F45EABD11B563F9F003C367C /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F45EABD01B563F9F003C367C /* BaseViewController.m */; };
 		F463E6451B66106D00AB92B9 /* DianZanDomain.m in Sources */ = {isa = PBXBuildFile; fileRef = F463E6441B66106D00AB92B9 /* DianZanDomain.m */; };
 		F463E6481B6613D500AB92B9 /* GroupDomain.m in Sources */ = {isa = PBXBuildFile; fileRef = F463E6471B6613D500AB92B9 /* GroupDomain.m */; };
@@ -755,6 +756,9 @@
 		4D5CE78A1B7E4535002F1088 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		4D5CE78C1B7E453B002F1088 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		4D5CE78E1B7E4540002F1088 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		4D5CE7911B7E531C002F1088 /* libMobClickLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMobClickLibrary.a; sourceTree = "<group>"; };
+		4D5CE7921B7E531C002F1088 /* MobClick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClick.h; sourceTree = "<group>"; };
+		4D5CE7931B7E531C002F1088 /* MobClickSocialAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClickSocialAnalytics.h; sourceTree = "<group>"; };
 		F45EABCF1B563F9F003C367C /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		F45EABD01B563F9F003C367C /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		F463E6431B66106D00AB92B9 /* DianZanDomain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DianZanDomain.h; sourceTree = "<group>"; };
@@ -1063,6 +1067,7 @@
 				24E4D9531B64EEB10088745A /* libz.dylib in Frameworks */,
 				4D5CE6F51B7E42CE002F1088 /* libUMFeedback.a in Frameworks */,
 				F4E61BE71B734A0300E5851A /* libSocialSina.a in Frameworks */,
+				4D5CE7941B7E531C002F1088 /* libMobClickLibrary.a in Frameworks */,
 				F4E61BE91B734A0300E5851A /* TencentOpenAPI.framework in Frameworks */,
 				24E4D9491B64EE690088745A /* SystemConfiguration.framework in Frameworks */,
 				2487E63F1B6166700030320A /* Foundation.framework in Frameworks */,
@@ -2331,6 +2336,16 @@
 			name = View;
 			sourceTree = "<group>";
 		};
+		4D5CE7901B7E531C002F1088 /* UMAnalytics_Sdk_3.5.10 */ = {
+			isa = PBXGroup;
+			children = (
+				4D5CE7911B7E531C002F1088 /* libMobClickLibrary.a */,
+				4D5CE7921B7E531C002F1088 /* MobClick.h */,
+				4D5CE7931B7E531C002F1088 /* MobClickSocialAnalytics.h */,
+			);
+			path = UMAnalytics_Sdk_3.5.10;
+			sourceTree = "<group>";
+		};
 		C925B64CB131B415E0126F11 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -2795,6 +2810,7 @@
 		F4E61B7B1B73481D00E5851A /* Umeng */ = {
 			isa = PBXGroup;
 			children = (
+				4D5CE7901B7E531C002F1088 /* UMAnalytics_Sdk_3.5.10 */,
 				4D5CE6CA1B7E42CE002F1088 /* UMengFeedback_SDK */,
 				F4E61BB11B734A0300E5851A /* Share_4.2.3 */,
 			);
@@ -3534,6 +3550,7 @@
 					"$(PROJECT_DIR)/kindergartenApp/UMengFeedback_SDK",
 					"$(PROJECT_DIR)/kindergartenApp/UMengFeedback_SDK/UMOpus",
 					"$(PROJECT_DIR)/kindergartenApp/Baidu_Union_SDK",
+					"$(PROJECT_DIR)/kindergartenApp/UMAnalytics_Sdk_3.5.10",
 				);
 				PRODUCT_NAME = "问界互动家园";
 				PROVISIONING_PROFILE = "";
@@ -3568,6 +3585,7 @@
 					"$(PROJECT_DIR)/kindergartenApp/UMengFeedback_SDK",
 					"$(PROJECT_DIR)/kindergartenApp/UMengFeedback_SDK/UMOpus",
 					"$(PROJECT_DIR)/kindergartenApp/Baidu_Union_SDK",
+					"$(PROJECT_DIR)/kindergartenApp/UMAnalytics_Sdk_3.5.10",
 				);
 				PRODUCT_NAME = "问界互动家园";
 				PROVISIONING_PROFILE = "";

@@ -10,10 +10,13 @@
 
 #define webUrl                  @"http://www.funi.com"
 #define shareSDKKey             @"1f2984542c5e"
-#define uMengAppKey             @"532f9d2656240bc06b1bc31f"
+
+#define uMengAppKey             @"55be15a4e0f55a624c007b24"
+
 #define ShareKey_TencentWB      @"801524237"
 #define ShareKey_TencentSecret  @"7a06f33c7727b96071964a6c02634b7e"
 #define ShareKey_SinaWB         @"392054516"
 #define ShareKey_SinaSecret     @"e9c9d3b09a74c706ba1402341ab53021"
 #define ShareKey_WeChat         @"wx0ddf69d3ba2cd570"
 #define ShareKey_WeChatSecret   @"423d8a3ae6d2a2cae88fc0b96c1ca68e"
+

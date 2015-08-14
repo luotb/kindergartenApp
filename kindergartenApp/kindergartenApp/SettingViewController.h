@@ -20,6 +20,8 @@
 #import "KGHUD.h"
 #import "KGNavigationController.h"
 
+#import "SystemShareKey.h"
+
 @interface SettingViewController : BaseViewController 
 
 @end
