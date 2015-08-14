@@ -171,7 +171,10 @@
     switch (index) {
         case Number_Zero:
             break;
-        case Number_One:
+        case Number_One:{
+            SettingViewController * vc = [[SettingViewController alloc] init];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
             break;
         case Number_Two:
             [self logoutBtnClicked];

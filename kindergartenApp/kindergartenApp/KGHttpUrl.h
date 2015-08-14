@@ -161,4 +161,7 @@
 //保存收藏
 + (NSString *)getsaveFavoritesUrl;
 
+//修改密码
++ (NSString *)getModidyPWDUrl;
+
 @end

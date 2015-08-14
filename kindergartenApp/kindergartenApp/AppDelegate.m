@@ -16,6 +16,9 @@
 #import "UMSocialWechatHandler.h"
 #import "UMSocialSinaHandler.h"
 #import "SystemShareKey.h"
+#import "UMFeedback.h"
+
+#define UMengFeedBackKey @"55be15a4e0f55a624c007b24"
 
 @interface AppDelegate ()
 
@@ -53,6 +56,9 @@
     [self.window switchRootViewController];
     
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    
+    //设置友盟反馈 appkey
+    [UMFeedback setAppkey:UMengFeedBackKey];
 //    [self.window makeKeyAndVisible];
     return YES;
 }
