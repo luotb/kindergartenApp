@@ -397,28 +397,6 @@
     } faild:^(NSString *errorMsg) {
         faild(errorMsg);
     }];
-    
-//    NSDictionary * dic = @{@"tel"  : user.tel,
-//                           @"password" : user.password,
-//                           };
-    
-//    [[AFAppDotNetAPIClient sharedClient] GET:[KGHttpUrl getUpdatepasswordUrl]
-//                                  parameters:user
-//     .keyValues
-//                                     success:^(NSURLSessionDataTask* task, id responseObject) {
-//                                         
-//                                         KGBaseDomain * baseDomain = [KGBaseDomain objectWithKeyValues:responseObject];
-//                                         
-//                                         if([baseDomain.ResMsg.status isEqualToString:String_Success]) {
-//                                             
-//                                             success(baseDomain.ResMsg.message);
-//                                         } else {
-//                                             faild(baseDomain.ResMsg.message);
-//                                         }
-//                                     }
-//                                     failure:^(NSURLSessionDataTask* task, NSError* error) {
-//                                         [self requestErrorCode:error faild:faild];
-//                                     }];
 }
 
 

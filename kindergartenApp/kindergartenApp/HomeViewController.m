@@ -12,7 +12,6 @@
 #import "IntroductionViewController.h"
 #import "UIView+Extension.h"
 #import "RegViewController.h"
-#import "SphereMenu.h"
 #import "KGHttpService.h"
 #import "KGHUD.h"
 #import "AnnouncementListViewController.h"

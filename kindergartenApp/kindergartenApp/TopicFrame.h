@@ -22,9 +22,6 @@
 /** 标题 */
 @property (nonatomic,assign) CGRect titleLabF;
 
-/** 内容 */
-@property (nonatomic,assign) CGRect topicContentViewF;
-
 /** 内容 文本表情 */
 @property (nonatomic,assign) CGRect topicTextViewF;
 

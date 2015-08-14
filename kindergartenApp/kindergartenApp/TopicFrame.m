@@ -8,7 +8,7 @@
 
 #import "TopicFrame.h"
 #import "TopicDomain.h"
-#import "TQRichTextView.h"
+#import "MLEmojiLabel.h"
 
 @implementation TopicFrame
 
@@ -27,6 +27,9 @@
     CGFloat uy = 0;
     self.userViewF = CGRectMake(ux, uy, uviewW, uviewH);
     
+    /* cell的高度 */
+    self.cellHeight = CGRectGetMaxY(self.userViewF);
+    
     //头像
     CGFloat headWH = 45;
     CGFloat headX  = CELLPADDING;
@@ -35,33 +38,31 @@
     
     //名称
     CGFloat nameX = CGRectGetMaxX(self.headImageViewF) + TopicCellBorderW;
-    CGFloat nameY = 20;
-    CGSize nameSize =[topic.create_user sizeWithAttributes:[NSDictionary dictionaryWithObjectsAndKeys:TopicCellNameFont,NSFontAttributeName, nil]];
-    self.nameLabF = (CGRect){{nameX, nameY}, nameSize};
+    CGFloat nameY = headY;
+    CGFloat nameW = cellW - CELLPADDING - nameX;
+    CGFloat nameH = APPUILABELFONTNO14;
+    self.nameLabF = CGRectMake(nameX, nameY, nameW, nameH);
     
     
     //title
     if (self.topic.title && ![self.topic.title isEqualToString:String_DefValue_Empty]) {
         CGFloat titleX = nameX;
         CGFloat titleY = CGRectGetMaxY(self.nameLabF) + 8;
-        CGSize titleSize =[topic.title sizeWithAttributes:[NSDictionary dictionaryWithObjectsAndKeys:TopicCellNameFont,NSFontAttributeName, nil]];
-        self.titleLabF = (CGRect){{titleX, titleY}, titleSize};
-        
-        /* cell的高度 */
-        self.cellHeight = CGRectGetMaxY(self.titleLabF);
+        CGFloat titleH = APPUILABELFONTNO13;
+        self.titleLabF = CGRectMake(titleX, titleY, nameW, titleH);
     }
     
     //内容
     CGFloat topicContentW = cellW - nameX - CELLPADDING;
-//    CGFloat topicContentH = Number_Zero;
+    CGFloat topicTextViewH = Number_Zero;
     CGFloat topicContentX = nameX;
+    CGFloat topicTextViewY = CGRectGetMaxY(self.userViewF) + TopicCellBorderW;
     
     if(_topic.content && ![_topic.content isEqualToString:String_DefValue_Empty]) {
         //内容 文本+表情
-        CGFloat topicTextViewY = self.cellHeight + TopicCellBorderW;
-        CGRect rect = [TQRichTextView boundingRectWithSize:CGSizeMake(topicContentW, 500) font:[UIFont systemFontOfSize:12] string:_topic.title lineSpace:1.0f];
-        
-        self.topicTextViewF = CGRectMake(topicContentX, topicTextViewY, topicContentW, rect.size.height);
+        CGSize size = [MLEmojiLabel boundingRectWithSize:_topic.content w:topicContentW font:12];
+        topicTextViewH = size.height;
+        self.topicTextViewF = CGRectMake(topicContentX, topicTextViewY, topicContentW, topicTextViewH);
         /* cell的高度 */
         self.cellHeight = CGRectGetMaxY(self.topicTextViewF);
     }
@@ -71,17 +72,18 @@
         //内容 图片
         CGFloat topicImgsViewY = self.cellHeight + TopicCellBorderW;
         CGFloat topicImgsViewH = Number_Zero;
-        NSArray * imgArray = [_topic.imgs componentsSeparatedByString:@","];
+        NSArray * imgArray = [_topic.imgs componentsSeparatedByString:String_DefValue_SpliteStr];
         
         //图片=1 根据图片实际大小决定高度
         //图片>3 换行
-        if([imgArray count] > Number_One) {
+        CGFloat imgCellH = topicContentW / Number_Three;
+        topicImgsViewH = imgCellH;
+        
+        if([imgArray count] > Number_Three) {
             //大于三张图片需要换行
             NSInteger page = ([imgArray count] + Number_Three - Number_One) / Number_Three;
-            CGFloat imgCellH = topicContentW / Number_Three;
+            
             topicImgsViewH = page * imgCellH;
-        } else {
-            topicImgsViewH = topicContentW;
         }
         
         self.topicImgsViewF = CGRectMake(topicContentX, topicImgsViewY, topicContentW, topicImgsViewH);
@@ -89,17 +91,12 @@
         self.cellHeight = CGRectGetMaxY(self.topicImgsViewF);
     }
     
-//    self.topicContentViewF = CGRectMake(nameX, CGRectGetMaxY(self.titleLabF), topicContentW, topicContentH);
-    
-    /* cell的高度 */
-//    self.cellHeight = CGRectGetMaxY(self.topicContentViewF);
-    
     //帖子互动
     [self setTopicInterActionRect];
     
-    self.levelabF = CGRectMake(0, self.cellHeight + TopicCellBorderW, cellW, 0.5);
+    self.levelabF = CGRectMake(0, self.cellHeight, cellW, 0.5);
     
-    self.cellHeight = CGRectGetMaxY(self.levelabF) + TopicCellBorderW;
+    self.cellHeight = CGRectGetMaxY(self.levelabF);
 }
 
 //计算点赞回复的rect
@@ -117,7 +114,7 @@
     }
     
     if(_topic.replyPage && _topic.replyPage.data && [_topic.replyPage.data count]>Number_Zero) {
-        NSMutableString * replyStr       = [[NSMutableString alloc] init];
+        NSMutableString * replyStr = [[NSMutableString alloc] init];
         
         NSInteger count = Number_Zero;
         for(ReplyDomain * reply in _topic.replyPage.data) {
@@ -134,13 +131,17 @@
         
         height += (size.height + TopicCellBorderW);
         
-        if(_topic.replyPage.totalCount>_topic.replyPage.pageSize || [_topic.replyPage.data count]>Number_Five) {
-            height += 30;
+//        if(_topic.replyPage.totalCount>_topic.replyPage.pageSize || [_topic.replyPage.data count]>Number_Five) {
+//            height += 30;
+//        }
+        
+        if(count > Number_Four) {
+            height += 30; //显示更多 按钮项
         }
     }
     
     //回复输入框
-    height += 50 + TopicCellBorderW;
+    height += 40;
     
     
     self.topicInteractionViewF = CGRectMake(Number_Zero, self.cellHeight + TopicCellBorderW, cellW, height);

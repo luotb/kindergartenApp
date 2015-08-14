@@ -17,8 +17,8 @@
  */
 + (NSArray *) emojiStringArray
 {
-//    return [NSArray arrayWithObjects:@"[smile]",@"[cry]",@"[hei]",nil];
-    return [KGEmojiManage sharedManage].emojiNameArray;
+    return [NSArray arrayWithObjects:@"[smile]",@"[cry]",@"[hei]",nil];
+//    return [KGEmojiManage sharedManage].emojiNameArray;
 }
 
 /**

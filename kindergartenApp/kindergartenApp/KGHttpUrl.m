@@ -16,7 +16,7 @@
 #define logoutURL            @"rest/userinfo/logout.json"            //登出
 #define regURL               @"rest/userinfo/reg.json"               //注册
 //#define updatepasswordURL    @"rest/userinfo/updatepassword.json"    //修改密码
-#define updatepasswordURL    @"rest/userinfo/updatepasswordBySms.json"  //修改密码
+#define updatepasswordURL    @"rest/userinfo/updatePasswordBySms.json"  //修改密码
 
 #define KDInfoURL            @"rest/share/getKDInfo.html" //校园相关
 #define ZSJHInfoURL          @"rest/share/getRecruitBygroupuuid.html" //招生计划
