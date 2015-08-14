@@ -62,6 +62,7 @@
         //内容 文本+表情
         CGSize size = [MLEmojiLabel boundingRectWithSize:_topic.content w:topicContentW font:12];
         topicTextViewH = size.height;
+        
         self.topicTextViewF = CGRectMake(topicContentX, topicTextViewY, topicContentW, topicTextViewH);
         /* cell的高度 */
         self.cellHeight = CGRectGetMaxY(self.topicTextViewF);
