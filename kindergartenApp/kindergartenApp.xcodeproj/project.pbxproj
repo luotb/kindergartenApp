@@ -150,6 +150,8 @@
 		24E4D9531B64EEB10088745A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 24E4D9521B64EEB10088745A /* libz.dylib */; };
 		24E634811B6FB9CC00A23A66 /* RecipesHeadTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24E6347F1B6FB9CC00A23A66 /* RecipesHeadTableViewCell.m */; };
 		24E634821B6FB9CC00A23A66 /* RecipesHeadTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24E634801B6FB9CC00A23A66 /* RecipesHeadTableViewCell.xib */; };
+		4D5CE6C81B7E3F76002F1088 /* FavoritesListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D5CE6C61B7E3F76002F1088 /* FavoritesListViewController.m */; };
+		4D5CE6C91B7E3F76002F1088 /* FavoritesListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D5CE6C71B7E3F76002F1088 /* FavoritesListViewController.xib */; };
 		F45EABD11B563F9F003C367C /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F45EABD01B563F9F003C367C /* BaseViewController.m */; };
 		F463E6451B66106D00AB92B9 /* DianZanDomain.m in Sources */ = {isa = PBXBuildFile; fileRef = F463E6441B66106D00AB92B9 /* DianZanDomain.m */; };
 		F463E6481B6613D500AB92B9 /* GroupDomain.m in Sources */ = {isa = PBXBuildFile; fileRef = F463E6471B6613D500AB92B9 /* GroupDomain.m */; };
@@ -570,6 +572,9 @@
 		24E6347E1B6FB9CC00A23A66 /* RecipesHeadTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipesHeadTableViewCell.h; sourceTree = "<group>"; };
 		24E6347F1B6FB9CC00A23A66 /* RecipesHeadTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipesHeadTableViewCell.m; sourceTree = "<group>"; };
 		24E634801B6FB9CC00A23A66 /* RecipesHeadTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecipesHeadTableViewCell.xib; sourceTree = "<group>"; };
+		4D5CE6C51B7E3F76002F1088 /* FavoritesListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoritesListViewController.h; sourceTree = "<group>"; };
+		4D5CE6C61B7E3F76002F1088 /* FavoritesListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoritesListViewController.m; sourceTree = "<group>"; };
+		4D5CE6C71B7E3F76002F1088 /* FavoritesListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FavoritesListViewController.xib; sourceTree = "<group>"; };
 		F45EABCF1B563F9F003C367C /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		F45EABD01B563F9F003C367C /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		F463E6431B66106D00AB92B9 /* DianZanDomain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DianZanDomain.h; sourceTree = "<group>"; };
@@ -2185,6 +2190,9 @@
 		F4885C631B7C500500AF97CF /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				4D5CE6C51B7E3F76002F1088 /* FavoritesListViewController.h */,
+				4D5CE6C61B7E3F76002F1088 /* FavoritesListViewController.m */,
+				4D5CE6C71B7E3F76002F1088 /* FavoritesListViewController.xib */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -2661,6 +2669,7 @@
 				24DE91BA1B67C9D400D3FFCE /* TeacherJudgeTableViewCell.xib in Resources */,
 				24C46B381B5A2A9900A58F92 /* HomeViewController.xib in Resources */,
 				F4EC988E1B6211AC00F5721F /* StudentNoteInfoViewController.xib in Resources */,
+				4D5CE6C91B7E3F76002F1088 /* FavoritesListViewController.xib in Resources */,
 				F4EA53871B60BD390044BE7A /* MeTableViewCell.xib in Resources */,
 				F4E61BDE1B734A0300E5851A /* UMSCommentDetailController.xib in Resources */,
 				24DED4FD1B7CCFD1005BC46E /* StudentOtherInfoViewController.xib in Resources */,
@@ -2834,6 +2843,7 @@
 				24AA0B411B690F4300DAC03B /* UUAVAudioPlayer.m in Sources */,
 				24759EAD1B5FC48500A3087D /* TopicDomain.m in Sources */,
 				24AA0B501B69112C00DAC03B /* ChatModel.m in Sources */,
+				4D5CE6C81B7E3F76002F1088 /* FavoritesListViewController.m in Sources */,
 				2489B6601B5AB49E00039E70 /* MKAnnotationView+WebCache.m in Sources */,
 				2489B65F1B5AB49E00039E70 /* SDImageCache.m in Sources */,
 				F4DF3BA81B78AC97001D9DF7 /* TimetableDomain.m in Sources */,
