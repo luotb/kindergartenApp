@@ -230,4 +230,7 @@
 
 //收藏 end
 
+#pragma mark - 修改密码
+- (void)modifyPassword:(KGUser *)user success:(void(^)(NSString * msg))success faild:(void(^)(NSString * errorMsg))faild;
+
 @end

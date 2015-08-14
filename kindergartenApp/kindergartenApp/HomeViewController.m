@@ -30,7 +30,11 @@
 #import "ItemTitleButton.h"
 #import "BrowseURLViewController.h"
 
-@interface HomeViewController () <ImageCollectionViewDelegate, UIGestureRecognizerDelegate> {
+#import "BaiduMobAdInterstitial.h"
+#import "BaiduMobAdDelegateProtocol.h"
+#import "BaiduMobAdView.h"
+
+@interface HomeViewController () <ImageCollectionViewDelegate, UIGestureRecognizerDelegate,BaiduMobAdViewDelegate> {
     
     IBOutlet UIScrollView * scrollView;
     IBOutlet UIView * photosView;
@@ -43,6 +47,8 @@
     ItemTitleButton  * titleBtn;
     NSArray   * groupDataArray;
     CGFloat     groupViewHeight;
+    
+    BaiduMobAdView * sharedAdView;
 }
 
 @end
@@ -163,25 +169,136 @@
 }
 
 - (void)loadPhotoView {
-    NSMutableArray * list = [[NSMutableArray alloc] initWithObjects:@"http://f.hiphotos.baidu.com/image/pic/item/a08b87d6277f9e2fa2e847f21c30e924b999f36f.jpg", @"http://a.hiphotos.baidu.com/image/pic/item/342ac65c10385343eb8dfdb69013b07ecb8088e2.jpg", @"http://h.hiphotos.baidu.com/image/pic/item/cefc1e178a82b901e592a725708da9773912efed.jpg", @"http://g.hiphotos.baidu.com/image/pic/item/dbb44aed2e738bd40df8d727a28b87d6267ff9cf.jpg", @"http://f.hiphotos.baidu.com/image/pic/item/3801213fb80e7beca940b6b12d2eb9389a506bcc.jpg", nil];
+//    NSMutableArray * list = [[NSMutableArray alloc] initWithObjects:@"http://f.hiphotos.baidu.com/image/pic/item/a08b87d6277f9e2fa2e847f21c30e924b999f36f.jpg", @"http://a.hiphotos.baidu.com/image/pic/item/342ac65c10385343eb8dfdb69013b07ecb8088e2.jpg", @"http://h.hiphotos.baidu.com/image/pic/item/cefc1e178a82b901e592a725708da9773912efed.jpg", @"http://g.hiphotos.baidu.com/image/pic/item/dbb44aed2e738bd40df8d727a28b87d6267ff9cf.jpg", @"http://f.hiphotos.baidu.com/image/pic/item/3801213fb80e7beca940b6b12d2eb9389a506bcc.jpg", nil];
+//    
+//    ImageCollectionView * imgcollview = [[ImageCollectionView alloc] initWithFrame:CGRectMake(Number_Zero, Number_Zero, CGRectGetWidth(self.view.frame), CGRectGetHeight(photosView.frame))];
+//    imgcollview.dataSource = list;
+//    imgcollview._delegate = self;
+//    
+//    [photosView addSubview:imgcollview];
+//    imgcollview.backgroundColor = [UIColor grayColor];
+//    [imgcollview mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.top.equalTo(photosView.mas_top);
+//        make.left.equalTo(photosView.mas_left);
+//        make.right.equalTo(photosView.mas_right);
+//        make.bottom.equalTo(photosView.mas_bottom);
+//    }];
+//    
+//    [imgcollview showImageCollectionView];
     
-    ImageCollectionView * imgcollview = [[ImageCollectionView alloc] initWithFrame:CGRectMake(Number_Zero, Number_Zero, CGRectGetWidth(self.view.frame), CGRectGetHeight(photosView.frame))];
-    imgcollview.dataSource = list;
-    imgcollview._delegate = self;
-    
-    [photosView addSubview:imgcollview];
-    imgcollview.backgroundColor = [UIColor grayColor];
-    [imgcollview mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(photosView.mas_top);
-        make.left.equalTo(photosView.mas_left);
-        make.right.equalTo(photosView.mas_right);
-        make.bottom.equalTo(photosView.mas_bottom);
-    }];
-    
-    [imgcollview showImageCollectionView];
+    sharedAdView = [[BaiduMobAdView alloc] init];
+    sharedAdView.AdType = BaiduMobAdViewTypeBanner;
+    sharedAdView.frame = CGRectMake(0, 0, APPWINDOWWIDTH, photosView.height);
+    sharedAdView.delegate = self;
+    [photosView addSubview:sharedAdView];
+    [sharedAdView start];
+}
+
+#pragma mark - 百度广告代理方法
+- (NSString *)publisherId{
+    return @"e7fccb77";
+}
+
+- (BOOL)enableLocation{
+    return NO;
+}
+
+- (void)willDisplayAd:(BaiduMobAdView *)adview{
+    sharedAdView.hidden = NO;
+    CGRect f = sharedAdView.frame;
+    f.origin.x = -APPWINDOWWIDTH;
+    sharedAdView.frame = f;
+    [UIView beginAnimations:nil context:nil];
+    f.origin.x = 0;
+    sharedAdView.frame = f;
+    [UIView commitAnimations];
+}
+
+- (void)failedDisplayAd:(BaiduMobFailReason)reason{
+    NSLog(@"广告加载失败");
+}
+
+//人群属性接口
+/**
+ *  - 关键词数组
+ */
+-(NSArray*) keywords{
+    NSArray* keywords = [NSArray arrayWithObjects:@"测试",@"关键词", nil];
+    return keywords;
+}
+
+/**
+ *  - 用户性别
+ */
+-(BaiduMobAdUserGender) userGender{
+    return BaiduMobAdMale;
+}
+
+/**
+ *  - 用户生日
+ */
+-(NSDate*) userBirthday{
+    NSDate* birthday = [NSDate dateWithTimeIntervalSince1970:0];
+    return birthday;
+}
+
+/**
+ *  - 用户城市
+ */
+-(NSString*) userCity{
+    return @"上海";
 }
 
 
+/**
+ *  - 用户邮编
+ */
+-(NSString*) userPostalCode{
+    return @"435200";
+}
+
+
+/**
+ *  - 用户职业
+ */
+-(NSString*) userWork{
+    return @"家长";
+}
+
+/**
+ *  - 用户最高教育学历
+ *  - 学历输入数字，范围为0-6
+ *  - 0表示小学，1表示初中，2表示中专/高中，3表示专科
+ *  - 4表示本科，5表示硕士，6表示博士
+ */
+-(NSInteger) userEducation{
+    return  2;
+}
+
+/**
+ *  - 用户收入
+ *  - 收入输入数字,以元为单位
+ */
+-(NSInteger) userSalary{
+    return 10000;
+}
+
+/**
+ *  - 用户爱好
+ */
+-(NSArray*) userHobbies{
+    NSArray* hobbies = [NSArray arrayWithObjects:@"学习",@"学生",@"爱好", nil];
+    return hobbies;
+}
+
+/**
+ *  - 其他自定义字段
+ */
+-(NSDictionary*) userOtherAttributes{
+    NSMutableDictionary* other = [[NSMutableDictionary alloc] init];
+    [other setValue:@"测试" forKey:@"测试"];
+    return other;
+}
 
 #pragma ImageCollectionViewDelegate
 

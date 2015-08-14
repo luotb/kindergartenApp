@@ -1021,4 +1021,24 @@
 
 //收藏 end
 
+#pragma mark - 修改密码
+- (void)modifyPassword:(KGUser *)user success:(void(^)(NSString * msg))success faild:(void(^)(NSString * errorMsg))faild{
+    
+    NSDictionary * dic = @{@"oldpassword":user.oldpassowrd,
+                           @"password":user.password};
+    
+    [self getServerJson:[KGHttpUrl getModidyPWDUrl] params:dic success:^(KGBaseDomain *baseDomain) {
+        if ([baseDomain.ResMsg.status isEqualToString:String_Success]) {
+            success(baseDomain.ResMsg.message);
+        }else{
+            faild(baseDomain.ResMsg.message);
+        }
+        NSLog(@"s:%@",baseDomain.ResMsg.message);
+    } faild:^(NSString *errorMessage) {
+        NSLog(@"f:%@",errorMessage);
+        faild(errorMessage);
+    }];
+    
+}
+
 @end
