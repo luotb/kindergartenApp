@@ -23,17 +23,17 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lZe-1U-F3V">
-                        <rect key="frame" x="71" y="22" width="139" height="16"/>
+                        <rect key="frame" x="71" y="22" width="141" height="16"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="16" id="4Xd-vG-gzJ"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XRp-QN-7Vq">
-                        <rect key="frame" x="210" y="0.0" width="55" height="60"/>
+                        <rect key="frame" x="212" y="0.0" width="55" height="60"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="55" id="NRg-If-1sa"/>
                             <constraint firstAttribute="height" constant="60" id="qLK-aE-lIF"/>
@@ -46,7 +46,7 @@
                         </connections>
                     </button>
                     <button opaque="NO" tag="11" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k5z-yA-sL4">
-                        <rect key="frame" x="265" y="0.0" width="55" height="60"/>
+                        <rect key="frame" x="267" y="0.0" width="55" height="60"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="60" id="hPW-kl-qAI"/>
                             <constraint firstAttribute="width" constant="55" id="u11-HB-ZO7"/>
@@ -62,7 +62,7 @@
                 <constraints>
                     <constraint firstItem="lZe-1U-F3V" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="14" id="89Q-vC-kQw"/>
                     <constraint firstItem="XRp-QN-7Vq" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-8" id="TOz-uY-2lF"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="k5z-yA-sL4" secondAttribute="trailing" constant="-8" id="aFy-Cf-0Nq"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="k5z-yA-sL4" secondAttribute="trailing" constant="-10" id="aFy-Cf-0Nq"/>
                     <constraint firstAttribute="bottomMargin" secondItem="k5z-yA-sL4" secondAttribute="bottom" constant="-9" id="cC0-0D-Qpf"/>
                     <constraint firstItem="lZe-1U-F3V" firstAttribute="leading" secondItem="Zwm-Lu-UnT" secondAttribute="trailing" constant="10" id="ech-b0-ouI"/>
                     <constraint firstAttribute="bottomMargin" secondItem="lZe-1U-F3V" secondAttribute="bottom" constant="13" id="fZA-YI-D8H"/>

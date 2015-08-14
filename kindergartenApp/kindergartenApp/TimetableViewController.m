@@ -36,6 +36,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.automaticallyAdjustsScrollViewInsets = NO;
     self.title = @"课程表";
     
     lastIndex  = Number_Fifteen;
