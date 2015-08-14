@@ -7,6 +7,7 @@
 //
 
 #import "ShareViewController.h"
+#import "PopupView.h"
 
 @interface ShareViewController ()
 
@@ -43,7 +44,10 @@
 }
 
 - (IBAction)cancelShareBtnClicked:(UIButton *)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    PopupView * view = (PopupView *)self.view.superview;
+    [view singleBtnTap];
 }
+
+
 
 @end
