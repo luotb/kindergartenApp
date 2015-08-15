@@ -153,8 +153,8 @@
 //            CGFloat inputH = 216;
 //            CGFloat inputY = wH - inputH - 40;
 //            IFView.y = inputY;
-            CGFloat tempY = emojiInputY;
-            IFView.y = tempY + 45;
+//            CGFloat tempY = emojiInputY;
+//            IFView.y = tempY + 45;
         } else {
 //            CGFloat inputH = self.keyBoardController.kboardHeight;
 //            CGFloat inputY = wH - inputH - 40;
