@@ -11,6 +11,7 @@
 #import "UMSocial.h"
 #import "UMSocialWechatHandler.h"
 #import "SystemShareKey.h"
+#import "KGHUD.h"
 
 @interface ShareViewController () <UMSocialUIDelegate>
 
@@ -56,6 +57,8 @@
     
     NSString * contentString = [NSString stringWithFormat:@"%@ %@",_announcementDomain.title,@"www.baidu.com"];
     
+    [[KGHUD sharedHud] show:self.view.superview];
+    
     //微信title设置方法：
     [UMSocialData defaultData].extConfig.wechatSessionData.title = _announcementDomain.title;
     //朋友圈title设置方法：
@@ -68,6 +71,40 @@
     snsPlatform.snsClickHandler(self, [UMSocialControllerService defaultControllerService],YES);
     
 }
+
+/**
+ 关闭当前页面之后
+ @param fromViewControllerType 关闭的页面类型
+ */
+-(void)didCloseUIViewController:(UMSViewControllerType)fromViewControllerType
+{
+    [[KGHUD sharedHud] hide:self.view.superview];
+}
+
+//下面得到分享完成的回调
+-(void)didFinishGetUMSocialDataInViewController:(UMSocialResponseEntity *)response
+{
+    [[KGHUD sharedHud] hide:self.view.superview];
+    //根据`responseCode`得到发送结果,如果分享成功
+    UIAlertView * alertView;
+    NSString * string;
+    if(response.responseCode == UMSResponseCodeSuccess){
+        string = @"分享成功";
+    }else if (response.responseCode == UMSResponseCodeCancel){
+    }else{
+        string = @"分享失败";
+    }
+    if (string && string.length) {
+        alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:string delegate:nil cancelButtonTitle:@"确定" otherButtonTitles: nil];
+        [alertView show];
+    }
+}
+
+-(void)didFinishShareInShakeView:(UMSocialResponseEntity *)response
+{
+    [[KGHUD sharedHud] hide:self.view.superview];
+}
+
 
 - (IBAction)cancelShareBtnClicked:(UIButton *)sender {
     PopupView * view = (PopupView *)self.view.superview;
