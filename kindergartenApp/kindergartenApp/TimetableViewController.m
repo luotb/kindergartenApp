@@ -38,6 +38,8 @@
     
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.title = @"课程表";
+    self.view.layer.masksToBounds = YES;
+    self.view.clipsToBounds = YES;
     
     lastIndex  = Number_Fifteen;
     totalCount = Number_Thirtyt;
@@ -71,26 +73,24 @@
     contentScrollView.delegate = self;
     contentScrollView.pagingEnabled = YES;
     contentScrollView.clipsToBounds = NO;
-    contentScrollView.showsHorizontalScrollIndicator = YES;
+    contentScrollView.showsHorizontalScrollIndicator = NO;
     contentScrollView.showsVerticalScrollIndicator = NO;
     [self.contentView addSubview:contentScrollView];
-    
-    [contentScrollView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self.contentView);
-    }];
+    contentScrollView.size = CGSizeMake(APPWINDOWWIDTH, APPWINDOWHEIGHT- APPWINDOWTOPHEIGHTIOS7);
+    contentScrollView.origin = CGPointZero;
+    contentScrollView.contentSize = CGSizeMake(APPWINDOWWIDTH * totalCount, contentScrollView.height);
 }
 
 - (void)loadRecipesInfoViewToScrollView {
     itemViewArray = [[NSMutableArray alloc] initWithCapacity:totalCount];
     
     for(NSInteger i=Number_Zero; i<totalCount; i++){
-        TimetableItemView * itemView = [[TimetableItemView alloc] initWithFrame:CGRectMake(i*KGSCREEN.size.width, Number_Zero, KGSCREEN.size.width, KGSCREEN.size.height - 64)];
+        TimetableItemView * itemView = [[TimetableItemView alloc] initWithFrame:CGRectMake(i*APPWINDOWWIDTH, Number_Zero, APPWINDOWWIDTH, contentScrollView.height)];
         [contentScrollView addSubview:itemView];
         [itemViewArray addObject:itemView];
     }
     
-    contentScrollView.contentSize = CGSizeMake(KGSCREEN.size.width * totalCount, self.contentView.height);
-    [contentScrollView setContentOffset:CGPointMake(KGSCREEN.size.width * (totalCount / Number_Twelve), Number_Zero) animated:NO];
+    [contentScrollView setContentOffset:CGPointMake(APPWINDOWWIDTH * (totalCount / Number_Twelve), Number_Zero) animated:NO];
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {

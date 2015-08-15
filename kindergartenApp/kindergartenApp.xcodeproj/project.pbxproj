@@ -2985,6 +2985,11 @@
 					248B6A581B19A39200FCB98F = {
 						CreatedOnToolsVersion = 6.3;
 						DevelopmentTeam = M5PP646L93;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};

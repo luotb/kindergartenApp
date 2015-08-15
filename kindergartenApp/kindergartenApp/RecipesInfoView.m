@@ -35,12 +35,14 @@
 }
 
 - (void)initTableView {
-    recipesTableView = [[UITableView alloc] initWithFrame:CGRectMake(Number_Zero, Number_Zero, self.width, self.height)];
+    recipesTableView = [[UITableView alloc] initWithFrame:CGRectMake(Number_Zero, Number_Zero, self.width, APPWINDOWHEIGHT-APPWINDOWTOPHEIGHTIOS7)];
     recipesTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     recipesTableView.separatorColor = [UIColor clearColor];
     recipesTableView.delegate   = self;
     recipesTableView.dataSource = self;
     [self addSubview:recipesTableView];
+    
+    self.backgroundColor = [UIColor yellowColor];
 }
 
 
