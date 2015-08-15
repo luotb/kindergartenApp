@@ -8,7 +8,7 @@
 
 #import "BaseViewController.h"
 #import "UIColor+Extension.h"
-#import "BaiduMobStat.h"
+//#import "BaiduMobStat.h"
 
 @interface BaseViewController ()
 
@@ -20,14 +20,14 @@
 -(void) viewDidAppear:(BOOL)animated
 {
     NSString* cName = [NSString stringWithFormat:@"%@",  self.title, nil];
-    [[BaiduMobStat defaultStat] pageviewStartWithName:cName];
+//    [[BaiduMobStat defaultStat] pageviewStartWithName:cName];
     
 }
 
 -(void) viewDidDisappear:(BOOL)animated
 {
     NSString* cName = [NSString stringWithFormat:@"%@", self.title, nil];
-    [[BaiduMobStat defaultStat] pageviewEndWithName:cName];
+//    [[BaiduMobStat defaultStat] pageviewEndWithName:cName];
 }
 
 - (void)viewDidLoad {
