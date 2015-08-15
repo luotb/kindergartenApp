@@ -63,10 +63,11 @@
     [UMSocialData defaultData].extConfig.wechatSessionData.title = _announcementDomain.title;
     //朋友圈title设置方法：
     [UMSocialData defaultData].extConfig.wechatTimelineData.title = _announcementDomain.title;
-    [UMSocialWechatHandler setWXAppId:ShareKey_WeChat appSecret:ShareKey_WeChatSecret url:webUrl];
+    [UMSocialData defaultData].extConfig.qqData.title = _announcementDomain.title;
+    [UMSocialData defaultData].extConfig.qqData.url = webUrl;
     
     //设置分享内容，和回调对象
-    [[UMSocialControllerService defaultControllerService] setShareText:contentString shareImage:nil socialUIDelegate:self];
+    [[UMSocialControllerService defaultControllerService] setShareText:contentString shareImage:[UIImage imageNamed:@"mingzihetu"] socialUIDelegate:self];
     UMSocialSnsPlatform * snsPlatform = [UMSocialSnsPlatformManager getSocialPlatformWithName:shareType];
     snsPlatform.snsClickHandler(self, [UMSocialControllerService defaultControllerService],YES);
     

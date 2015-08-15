@@ -176,7 +176,7 @@
     [UMSocialWechatHandler setWXAppId:ShareKey_WeChat appSecret:ShareKey_WeChatSecret url:webUrl];
     //设置qq
     [UMSocialQQHandler setQQWithAppId:ShareKey_TencentWB appKey:ShareKey_TencentSecret url:@"http://www.umeng.com/social"];
-    
+
     //打开新浪微博的SSO开关
     [UMSocialSinaHandler openSSOWithRedirectURL:@"http://sns.whalecloud.com/sina2/callback"];
     
