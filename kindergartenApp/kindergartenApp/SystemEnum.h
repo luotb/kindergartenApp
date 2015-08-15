@@ -25,13 +25,18 @@ typedef enum {
 
 
 typedef enum {
-    Topic_XYGG = 0,        //校园公告
-    Topic_Announcement = 1, //老师公告
-    Topic_Articles = 3,   //精品文章
-    Topic_ZSJH = 4,       //招生计划
-    Topic_Recipes =6,     //食谱
-    Topic_JPKC = 7,       //精品课程
-    Topic_YEYJS = 8,      //幼儿园介绍
-    Topic_Interact = 99,  //班级互动
-    Topic_HTML = 10       //html类型,直接去url地址,调用浏览器显示
+    Topic_XYGG        = 0,  //校园公告
+    Topic_Announcement= 1,  //老师公告
+    Topic_Articles    = 3,  //精品文章
+    Topic_ZSJH        = 4,  //招生计划
+    Topic_Recipes     = 6,  //食谱
+    Topic_JPKC        = 7,  //精品课程
+    Topic_YEYJS       = 8,  //幼儿园介绍
+    Topic_Interact    = 99, //班级互动
+    Topic_TeacherChat = 11, //与老师的写信列表
+    Topic_LeaderChat  = 12, //与幼儿园园长的写信列表
+    Topic_SignRecord  = 13, //与孩子的签到记录
+    Topic_HTML        = 10  //html类型,直接去url地址,调用浏览器显示
 } KGTopicType;
+
+

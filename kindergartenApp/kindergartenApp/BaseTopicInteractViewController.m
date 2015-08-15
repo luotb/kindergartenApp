@@ -31,43 +31,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     [self loadInputFuniView];
     
-    [self addGestureBtn];
+    self.keyBoardController.isEmojiInput = YES;
     
     //注册点赞回复通知
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(topicFunClickedNotification:) name:Key_Notification_TopicFunClicked object:nil];
     //注册加载更多回复通知
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(topicRelpyMoreBtnClickedNotification:) name:Key_Notification_TopicLoadMore object:nil];
-
-    //添加键盘通知
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyboardChange:) name:UIKeyboardWillShowNotification object:nil];
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyboardChange:) name:UIKeyboardWillHideNotification object:nil];
 }
 
-//添加手势
-- (void)addGestureBtn {
-    UITapGestureRecognizer *singleTapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTap)];
-    singleTapGesture.delegate = self;
-    singleTapGesture.numberOfTapsRequired = Number_One;
-    singleTapGesture.cancelsTouchesInView = NO;
-    [self.view addGestureRecognizer:singleTapGesture];
-}
-
-//单击手势响应
-- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
-    if ([touch.view isKindOfClass:[UITextField class]] ||
-        [touch.view.superview isKindOfClass:[UITextView class]] ||
-        [touch.view.superview isKindOfClass:[UUInputFunctionView class]])
-        return NO;
-    return YES;
-}
-
-//单击响应
-- (void)singleTap{
-    [[UIApplication sharedApplication] sendAction:@selector(resignFirstResponder) to:nil from:nil forEvent:nil];
-}
 
 //topicFun点击监听通知
 - (void)topicFunClickedNotification:(NSNotification *)notification {
@@ -86,7 +59,7 @@
         [self dzOperationHandler:isSelected];
     } else {
         //回复
-        [self postTopic:replyText];
+        [self postTopic:replyText viewMessage:replyText];
     }
 }
 
@@ -112,28 +85,28 @@
     }
 }
 
-- (void)postTopic:(NSString *)replyText {
+- (void)postTopic:(NSString *)replyText viewMessage:(NSString *)message {
     ReplyDomain * replyObj = [[ReplyDomain alloc] init];
     replyObj.content = replyText;
     replyObj.newsuuid = _topicUUID;
     replyObj.type = _topicType;
     
-    [[KGHttpService sharedService] saveReply:replyObj success:^(NSString *msgStr) {
-        [[KGHUD sharedHud] show:self.contentView onlyMsg:msgStr];
-        
-        ReplyDomain * domain = [[ReplyDomain alloc] init];
-        domain.content = replyText;
-        domain.newsuuid = _topicUUID;
-        domain.type = _topicType;
-        domain.create_user = [KGHttpService sharedService].loginRespDomain.userinfo.name;;
-        domain.create_useruuid = [KGHttpService sharedService].loginRespDomain.userinfo.uuid;
-        
-        [topicInteractionView resetReplyList:domain];
-        [self resetTopicReplyContent:domain];
-        
-    } faild:^(NSString *errorMsg) {
-        [[KGHUD sharedHud] show:self.contentView onlyMsg:errorMsg];
-    }];
+    //    [[KGHttpService sharedService] saveReply:replyObj success:^(NSString *msgStr) {
+    //        [[KGHUD sharedHud] show:self.contentView onlyMsg:msgStr];
+    //
+    //        ReplyDomain * domain = [[ReplyDomain alloc] init];
+    //        domain.content = message;
+    //        domain.newsuuid = _topicUUID;
+    //        domain.type = _topicType;
+    //        domain.create_user = [KGHttpService sharedService].loginRespDomain.userinfo.name;;
+    //        domain.create_useruuid = [KGHttpService sharedService].loginRespDomain.userinfo.uuid;
+    //
+    //        [topicInteractionView resetReplyList:domain];
+    //        [self resetTopicReplyContent:domain];
+    //
+    //    } faild:^(NSString *errorMsg) {
+    //        [[KGHUD sharedHud] show:self.contentView onlyMsg:errorMsg];
+    //    }];
 }
 
 //重置回复内容
@@ -155,59 +128,22 @@
 
 
 //键盘通知
--(void)keyboardChange:(NSNotification *)notification
-{
-    if(![KGEmojiManage sharedManage].isChatEmoji) {
-        
+- (void)keyboardWillShowOrHide:(BOOL)isShow inputY:(CGFloat)y {
+    if(![KGEmojiManage sharedManage].isSwitchEmoji) {
+        CGFloat wH  = KGSCREEN.size.height;
+        if(isShow) {
+            IFView.y = y;
+            [IFView resetTextEmojiInput];
+            [IFView.TextViewInput becomeFirstResponder];
+            IFView.hidden = NO;
+        } else {
+            IFView.y = wH;
+            IFView.hidden = YES;
+            [IFView.TextViewInput resignFirstResponder];
+        }
     }
-    NSDictionary * userInfo = [notification userInfo];
-    NSValue *value = [userInfo objectForKey:UIKeyboardFrameBeginUserInfoKey];
-    CGSize keyboardSize = [value CGRectValue].size;
-    NSLog(@"keyysize:%@", NSStringFromCGSize(keyboardSize));
-    
-    
-    
-    NSTimeInterval animationDuration;
-    UIViewAnimationCurve animationCurve;
-    CGRect keyboardEndFrame;
-    
-    [[userInfo objectForKey:UIKeyboardAnimationCurveUserInfoKey] getValue:&animationCurve];
-    [[userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey] getValue:&animationDuration];
-    [[userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] getValue:&keyboardEndFrame];
-    
-    [UIView beginAnimations:nil context:nil];
-    [UIView setAnimationDuration:animationDuration];
-    [UIView setAnimationCurve:animationCurve];
-    
-    
-    //adjust ChatTableView's height
-    if (notification.name == UIKeyboardWillShowNotification) {
-        
-        IFView.y = keyboardEndFrame.origin.y - IFView.height;
-        
-//        self.bottomConstraint.constant = keyboardEndFrame.size.height+40;
-//        self.contentView.y -= (keyboardEndFrame.size.height + 40);
-        [IFView.TextViewInput becomeFirstResponder];
-//        [self.contentView mas_updateConstraints:^(MASConstraintMaker *make) {
-//            make.bottom.equalTo(@(keyboardEndFrame.size.height+40));
-//        }];
-    }else{
-        IFView.y = self.view.height + IFView.height;
-//        self.bottomConstraint.constant = 40;
-//        self.contentView.y = 0;
-//        [self.contentView mas_updateConstraints:^(MASConstraintMaker *make) {
-//            make.bottom.equalTo(@(0));
-//        }];
-    }
-    
-    [self.view layoutIfNeeded];
-    
-    //adjust UUInputFunctionView's originPoint
-    
-    
-    [UIView commitAnimations];
-    
 }
+
 
 //加载底部输入功能View
 - (void)loadInputFuniView {
@@ -219,7 +155,10 @@
 #pragma UUIput Delegate
 // text
 - (void)UUInputFunctionView:(UUInputFunctionView *)funcView sendMessage:(NSString *)message {
-    
+    NSString * requestReplyStr = [KGEmojiManage sharedManage].chatHTMLInfo;
+    [self postTopic:requestReplyStr viewMessage:message];
+    [KGEmojiManage sharedManage].isSwitchEmoji = NO;
+    [self keyboardWillShowOrHide:NO inputY:8];
 }
 
 
