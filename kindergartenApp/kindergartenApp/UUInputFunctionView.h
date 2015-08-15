@@ -43,6 +43,8 @@
 @property (strong, nonatomic) FaceBoard *faceBoard;
 @property (assign, nonatomic) BOOL isFacBoard;
 
+//重置文本和表情输入状态
+- (void)resetTextEmojiInput;
 
 - (id)initWithSuperVC:(UIViewController *)superVC isShow:(BOOL)isShow;
 

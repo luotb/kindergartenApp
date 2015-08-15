@@ -166,23 +166,6 @@
     [self sendTextInfo:[KGEmojiManage sharedManage].chatHTMLInfo];
 }
 
-- (void)UUInputFunctionView:(UUInputFunctionView *)funcView sendPicture:(UIImage *)image
-{
-    NSDictionary *dic = @{@"picture": image,
-                          @"type": @(UUMessageTypePicture)};
-    [self dealTheFunctionData:dic];
-    
-    [self sendImgInfo:image];
-}
-
-- (void)UUInputFunctionView:(UUInputFunctionView *)funcView sendVoice:(NSData *)voice time:(NSInteger)second
-{
-    NSDictionary *dic = @{@"voice": voice,
-                          @"strVoiceTime": [NSString stringWithFormat:@"%d",(int)second],
-                          @"type": @(UUMessageTypeVoice)};
-    [self dealTheFunctionData:dic];
-}
-
 - (void)dealTheFunctionData:(NSDictionary *)dic
 {
     [self.chatModel addSpecifiedItem:dic];

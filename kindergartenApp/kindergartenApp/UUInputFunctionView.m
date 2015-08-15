@@ -51,7 +51,7 @@
         [self.btnChangeVoiceState setBackgroundImage:[UIImage imageNamed:@"chat_voice_record"] forState:UIControlStateNormal];
         [self.btnChangeVoiceState setBackgroundImage:[UIImage imageNamed:@"chat_ipunt_message"] forState:UIControlStateSelected];
         self.btnChangeVoiceState.titleLabel.font = [UIFont systemFontOfSize:12];
-        [self.btnChangeVoiceState addTarget:self action:@selector(voiceRecord:) forControlEvents:UIControlEventTouchUpInside];
+        [self.btnChangeVoiceState addTarget:self action:@selector(textEmojiRecord:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:self.btnChangeVoiceState];
 
         //语音录入键
@@ -86,7 +86,7 @@
         self.layer.borderColor = [[UIColor lightGrayColor] colorWithAlphaComponent:0.3].CGColor;
         
         //添加通知
-        [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(textViewDidEndEditing:) name:UIKeyboardWillHideNotification object:nil];
+//        [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(textViewDidEndEditing:) name:UIKeyboardWillHideNotification object:nil];
     }
     return self;
 }
@@ -164,8 +164,8 @@
 //    });
 }
 
-//改变输入与录音状态
-- (void)voiceRecord:(UIButton *)sender
+//改变文本和表情输入状态
+- (void)textEmojiRecord:(UIButton *)sender
 {
 //    self.btnVoiceRecord.hidden = !self.btnVoiceRecord.hidden;
 //    self.TextViewInput.hidden  = !self.TextViewInput.hidden;
@@ -180,6 +180,7 @@
     [KGEmojiManage sharedManage].isChatEmoji = YES;
     sender.selected = !sender.selected;
     
+    [KGEmojiManage sharedManage].isSwitchEmoji = YES;
     [self.TextViewInput resignFirstResponder];
     
     if (!_faceBoard) {
@@ -238,10 +239,10 @@
 //    [self.btnSendMessage setBackgroundImage:image forState:UIControlStateNormal];
 }
 
-- (void)textViewDidEndEditing:(UITextView *)textView
-{
-
-}
+//- (void)textViewDidEndEditing:(UITextView *)textView
+//{
+//    NSLog(@"te");
+//}
 
 
 #pragma mark - Add Picture
@@ -293,6 +294,12 @@
 
 -(void)dealloc{
     [[NSNotificationCenter defaultCenter]removeObserver:self];
+}
+
+//重置文本和表情输入状态
+- (void)resetTextEmojiInput {
+    self.btnChangeVoiceState.selected = YES;
+    [self textEmojiRecord:self.btnChangeVoiceState];
 }
 
 @end
