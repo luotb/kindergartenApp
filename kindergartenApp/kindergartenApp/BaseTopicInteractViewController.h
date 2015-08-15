@@ -6,10 +6,10 @@
 //  Copyright (c) 2015年 funi. All rights reserved.
 //
 
-#import "BaseKeyboardViewController.h"
+#import "BaseViewController.h"
 #import "ReplyDomain.h"
 
-@interface BaseTopicInteractViewController : BaseKeyboardViewController
+@interface BaseTopicInteractViewController : BaseViewController
 
 @property (strong, nonatomic) NSString        * topicUUID;  //帖子UUID
 @property (assign, nonatomic) KGTopicType       topicType; //帖子类型

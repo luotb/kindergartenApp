@@ -11,23 +11,62 @@
 #import "KGHUD.h"
 #import "TopicInteractionView.h"
 #import "ReplyListViewController.h"
+#import "UUInputFunctionView.h"
+#import "Masonry.h"
+#import "KGEmojiManage.h"
 
-@interface BaseTopicInteractViewController () {
-    
+@interface BaseTopicInteractViewController () <UUInputFunctionViewDelegate, UIGestureRecognizerDelegate> {
     TopicInteractionView * topicInteractionView; //点赞回复视图
+    UUInputFunctionView  * IFView;
 }
 
 @end
 
 @implementation BaseTopicInteractViewController
 
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self loadInputFuniView];
+    
+    [self addGestureBtn];
     
     //注册点赞回复通知
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(topicFunClickedNotification:) name:Key_Notification_TopicFunClicked object:nil];
     //注册加载更多回复通知
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(topicRelpyMoreBtnClickedNotification:) name:Key_Notification_TopicLoadMore object:nil];
+
+    //添加键盘通知
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyboardChange:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(keyboardChange:) name:UIKeyboardWillHideNotification object:nil];
+}
+
+//添加手势
+- (void)addGestureBtn {
+    UITapGestureRecognizer *singleTapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTap)];
+    singleTapGesture.delegate = self;
+    singleTapGesture.numberOfTapsRequired = Number_One;
+    singleTapGesture.cancelsTouchesInView = NO;
+    [self.view addGestureRecognizer:singleTapGesture];
+}
+
+//单击手势响应
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
+    if ([touch.view isKindOfClass:[UITextField class]] ||
+        [touch.view.superview isKindOfClass:[UITextView class]] ||
+        [touch.view.superview isKindOfClass:[UUInputFunctionView class]])
+        return NO;
+    return YES;
+}
+
+//单击响应
+- (void)singleTap{
+    [[UIApplication sharedApplication] sendAction:@selector(resignFirstResponder) to:nil from:nil forEvent:nil];
 }
 
 //topicFun点击监听通知
@@ -112,6 +151,75 @@
     baseVC.topicUUID = tUUID;
     baseVC.topicType = _topicType;
     [self.navigationController pushViewController:baseVC animated:YES];
+}
+
+
+//键盘通知
+-(void)keyboardChange:(NSNotification *)notification
+{
+    if(![KGEmojiManage sharedManage].isChatEmoji) {
+        
+    }
+    NSDictionary * userInfo = [notification userInfo];
+    NSValue *value = [userInfo objectForKey:UIKeyboardFrameBeginUserInfoKey];
+    CGSize keyboardSize = [value CGRectValue].size;
+    NSLog(@"keyysize:%@", NSStringFromCGSize(keyboardSize));
+    
+    
+    
+    NSTimeInterval animationDuration;
+    UIViewAnimationCurve animationCurve;
+    CGRect keyboardEndFrame;
+    
+    [[userInfo objectForKey:UIKeyboardAnimationCurveUserInfoKey] getValue:&animationCurve];
+    [[userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey] getValue:&animationDuration];
+    [[userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] getValue:&keyboardEndFrame];
+    
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:animationDuration];
+    [UIView setAnimationCurve:animationCurve];
+    
+    
+    //adjust ChatTableView's height
+    if (notification.name == UIKeyboardWillShowNotification) {
+        
+        IFView.y = keyboardEndFrame.origin.y - IFView.height;
+        
+//        self.bottomConstraint.constant = keyboardEndFrame.size.height+40;
+//        self.contentView.y -= (keyboardEndFrame.size.height + 40);
+        [IFView.TextViewInput becomeFirstResponder];
+//        [self.contentView mas_updateConstraints:^(MASConstraintMaker *make) {
+//            make.bottom.equalTo(@(keyboardEndFrame.size.height+40));
+//        }];
+    }else{
+        IFView.y = self.view.height + IFView.height;
+//        self.bottomConstraint.constant = 40;
+//        self.contentView.y = 0;
+//        [self.contentView mas_updateConstraints:^(MASConstraintMaker *make) {
+//            make.bottom.equalTo(@(0));
+//        }];
+    }
+    
+    [self.view layoutIfNeeded];
+    
+    //adjust UUInputFunctionView's originPoint
+    
+    
+    [UIView commitAnimations];
+    
+}
+
+//加载底部输入功能View
+- (void)loadInputFuniView {
+    IFView = [[UUInputFunctionView alloc]initWithSuperVC:self isShow:NO];
+    IFView.delegate = self;
+    [self.view addSubview:IFView];
+}
+
+#pragma UUIput Delegate
+// text
+- (void)UUInputFunctionView:(UUInputFunctionView *)funcView sendMessage:(NSString *)message {
+    
 }
 
 

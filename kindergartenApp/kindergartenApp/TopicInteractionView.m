@@ -167,10 +167,9 @@
         
 //        _replyView.backgroundColor = [UIColor brownColor];
         self.replyView.text = replyStr;
-        [self.replyView linkStrings:arrayOfStrings
-                  defaultAttributes:[self exampleAttributes]
-              highlightedAttributes:[self exampleAttributes]
-                         tapHandler:nil];
+        //设置回复人名字体颜色
+        [self resetReplyFont:arrayOfStrings];
+        
         /* cell的高度 */
         self.topicInteractHeight = CGRectGetMaxY(_replyView.frame);
         
@@ -347,6 +346,21 @@
     
     //通知改变view高度
     [[NSNotificationCenter defaultCenter] postNotificationName:Key_Notification_TopicHeight object:self userInfo:nil];
+}
+
+- (void)resetReplyFont:(NSArray *)replyNameArray {
+//    for(NSString * str in replyNameArray) {
+//        [self.replyView linkString:str
+//                  defaultAttributes:[self exampleAttributes]
+//              highlightedAttributes:[self exampleAttributes]
+//                         tapHandler:nil];
+//    }
+    
+    [self.replyView linkStrings:replyNameArray
+             defaultAttributes:[self exampleAttributes]
+         highlightedAttributes:[self exampleAttributes]
+                    tapHandler:nil];
+
 }
 
 @end

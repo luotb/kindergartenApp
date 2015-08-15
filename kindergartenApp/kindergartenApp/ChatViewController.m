@@ -40,8 +40,6 @@
     _chatTableView.delegate = self;
     _chatTableView.dataSource = self;
     
-    [KGEmojiManage sharedManage].isChatEmoji = YES;
-    
     [self getChatInfoList];
     [self addRefreshViews];
     [self loadBaseViewsAndData];
@@ -62,7 +60,6 @@
 {
     [super viewWillDisappear:animated];
     [[NSNotificationCenter defaultCenter]removeObserver:self];
-    [KGEmojiManage sharedManage].isChatEmoji = NO;
 }
 
 
@@ -93,7 +90,7 @@
 
 //加载底部输入功能View
 - (void)loadInputFuniView {
-    IFView = [[UUInputFunctionView alloc]initWithSuperVC:self];
+    IFView = [[UUInputFunctionView alloc]initWithSuperVC:self isShow:YES];
     IFView.delegate = self;
     [self.view addSubview:IFView];
 }

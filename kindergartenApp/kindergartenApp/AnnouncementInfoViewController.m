@@ -13,7 +13,7 @@
 #import "Masonry.h"
 #import "KGNSStringUtil.h"
 
-@interface AnnouncementInfoViewController () {
+@interface AnnouncementInfoViewController () <UIWebViewDelegate> {
     
     IBOutlet UIScrollView * contentScrollView;
     IBOutlet UILabel   * titleLabel;
@@ -32,8 +32,14 @@
     [super viewDidLoad];
     
     myWebView.backgroundColor = [UIColor clearColor];
+    myWebView.backgroundColor = [UIColor brownColor];
     myWebView.opaque = NO;
+    myWebView.delegate = self;
+//    myWebView.scalesPageToFit = YES;
     [self getAnnouncementDomainInfo];
+    
+    self.contentView.width = KGSCREEN.size.width;
+    contentScrollView.width = KGSCREEN.size.width;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -61,7 +67,7 @@
         make.height.equalTo(@(topicView.topicInteractHeight));
     }];
     
-    [self.keyBoardController buildDelegate];
+//    [self.keyBoardController buildDelegate];
     
     CGFloat contentHeight = y + topicView.topicInteractHeight + 64;
     CGFloat contentWidth  = KGSCREEN.size.width;
@@ -88,6 +94,14 @@
     [myWebView loadHTMLString:announcementDomain.message baseURL:nil];
     groupLabel.text = [[KGHttpService sharedService] getGroupNameByUUID:announcementDomain.groupuuid];
     createTimeLabel.text = announcementDomain.create_time;
+}
+
+- (void)webViewDidFinishLoad:(UIWebView *)webView {
+    //webview 自适应高度
+    CGRect frame = webView.frame;
+    CGSize fittingSize = [webView sizeThatFits:CGSizeZero];
+    frame.size = fittingSize;
+    webView.frame = CGRectMake(Number_Zero, CGRectGetMaxY(titleLabel.frame), KGSCREEN.size.width, fittingSize.height);
 }
 
 - (void)alttextFieldDidEndEditing:(UITextField *)textField {

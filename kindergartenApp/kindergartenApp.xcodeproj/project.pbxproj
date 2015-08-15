@@ -309,11 +309,6 @@
 		F4DCD0F21B1C2E87007D61CA /* UIButton+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = F4DCD0F11B1C2E87007D61CA /* UIButton+Extension.m */; };
 		F4DDEBBC1B7DFD7C00470D76 /* MLEmojiLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = F4DDEBB91B7DFD7C00470D76 /* MLEmojiLabel.m */; };
 		F4DDEBBD1B7DFD7C00470D76 /* TTTAttributedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = F4DDEBBB1B7DFD7C00470D76 /* TTTAttributedLabel.m */; };
-		F4DEA75B1B6F3E36000FE0FB /* TQRichTextRun.m in Sources */ = {isa = PBXBuildFile; fileRef = F4DEA7521B6F3E36000FE0FB /* TQRichTextRun.m */; };
-		F4DEA75C1B6F3E36000FE0FB /* TQRichTextRunDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F4DEA7541B6F3E36000FE0FB /* TQRichTextRunDelegate.m */; };
-		F4DEA75D1B6F3E36000FE0FB /* TQRichTextRunEmoji.m in Sources */ = {isa = PBXBuildFile; fileRef = F4DEA7561B6F3E36000FE0FB /* TQRichTextRunEmoji.m */; };
-		F4DEA75E1B6F3E36000FE0FB /* TQRichTextRunURL.m in Sources */ = {isa = PBXBuildFile; fileRef = F4DEA7581B6F3E36000FE0FB /* TQRichTextRunURL.m */; };
-		F4DEA75F1B6F3E36000FE0FB /* TQRichTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = F4DEA75A1B6F3E36000FE0FB /* TQRichTextView.m */; };
 		F4DF3BA41B78AC75001D9DF7 /* TimetableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F4DF3BA21B78AC75001D9DF7 /* TimetableViewController.m */; };
 		F4DF3BA51B78AC75001D9DF7 /* TimetableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F4DF3BA31B78AC75001D9DF7 /* TimetableViewController.xib */; };
 		F4DF3BA81B78AC97001D9DF7 /* TimetableDomain.m in Sources */ = {isa = PBXBuildFile; fileRef = F4DF3BA71B78AC97001D9DF7 /* TimetableDomain.m */; };
@@ -932,16 +927,6 @@
 		F4DDEBB91B7DFD7C00470D76 /* MLEmojiLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLEmojiLabel.m; sourceTree = "<group>"; };
 		F4DDEBBA1B7DFD7C00470D76 /* TTTAttributedLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTAttributedLabel.h; sourceTree = "<group>"; };
 		F4DDEBBB1B7DFD7C00470D76 /* TTTAttributedLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTAttributedLabel.m; sourceTree = "<group>"; };
-		F4DEA7511B6F3E36000FE0FB /* TQRichTextRun.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TQRichTextRun.h; sourceTree = "<group>"; };
-		F4DEA7521B6F3E36000FE0FB /* TQRichTextRun.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TQRichTextRun.m; sourceTree = "<group>"; };
-		F4DEA7531B6F3E36000FE0FB /* TQRichTextRunDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TQRichTextRunDelegate.h; sourceTree = "<group>"; };
-		F4DEA7541B6F3E36000FE0FB /* TQRichTextRunDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TQRichTextRunDelegate.m; sourceTree = "<group>"; };
-		F4DEA7551B6F3E36000FE0FB /* TQRichTextRunEmoji.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TQRichTextRunEmoji.h; sourceTree = "<group>"; };
-		F4DEA7561B6F3E36000FE0FB /* TQRichTextRunEmoji.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TQRichTextRunEmoji.m; sourceTree = "<group>"; };
-		F4DEA7571B6F3E36000FE0FB /* TQRichTextRunURL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TQRichTextRunURL.h; sourceTree = "<group>"; };
-		F4DEA7581B6F3E36000FE0FB /* TQRichTextRunURL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TQRichTextRunURL.m; sourceTree = "<group>"; };
-		F4DEA7591B6F3E36000FE0FB /* TQRichTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TQRichTextView.h; sourceTree = "<group>"; };
-		F4DEA75A1B6F3E36000FE0FB /* TQRichTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TQRichTextView.m; sourceTree = "<group>"; };
 		F4DF3BA11B78AC75001D9DF7 /* TimetableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimetableViewController.h; sourceTree = "<group>"; };
 		F4DF3BA21B78AC75001D9DF7 /* TimetableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimetableViewController.m; sourceTree = "<group>"; };
 		F4DF3BA31B78AC75001D9DF7 /* TimetableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimetableViewController.xib; sourceTree = "<group>"; };
@@ -1557,7 +1542,6 @@
 				F4DDEBB71B7DFD6900470D76 /* MLEmojiLabel */,
 				F4E61B7B1B73481D00E5851A /* Umeng */,
 				2457FD041B712BF5006A3AB7 /* FaceBoard */,
-				F4DEA7501B6F3E15000FE0FB /* TQRichTextView */,
 				24AA0B301B690F2300DAC03B /* UUChat */,
 				F463E6491B6639A700AB92B9 /* HBVLinkedTextView */,
 				F487830C1B58DA1700CDC1A8 /* Frameworks */,
@@ -2694,23 +2678,6 @@
 			name = MLEmojiLabel;
 			sourceTree = "<group>";
 		};
-		F4DEA7501B6F3E15000FE0FB /* TQRichTextView */ = {
-			isa = PBXGroup;
-			children = (
-				F4DEA7511B6F3E36000FE0FB /* TQRichTextRun.h */,
-				F4DEA7521B6F3E36000FE0FB /* TQRichTextRun.m */,
-				F4DEA7531B6F3E36000FE0FB /* TQRichTextRunDelegate.h */,
-				F4DEA7541B6F3E36000FE0FB /* TQRichTextRunDelegate.m */,
-				F4DEA7551B6F3E36000FE0FB /* TQRichTextRunEmoji.h */,
-				F4DEA7561B6F3E36000FE0FB /* TQRichTextRunEmoji.m */,
-				F4DEA7571B6F3E36000FE0FB /* TQRichTextRunURL.h */,
-				F4DEA7581B6F3E36000FE0FB /* TQRichTextRunURL.m */,
-				F4DEA7591B6F3E36000FE0FB /* TQRichTextView.h */,
-				F4DEA75A1B6F3E36000FE0FB /* TQRichTextView.m */,
-			);
-			name = TQRichTextView;
-			sourceTree = "<group>";
-		};
 		F4DF3B9D1B78AC40001D9DF7 /* Timetable */ = {
 			isa = PBXGroup;
 			children = (
@@ -3185,7 +3152,6 @@
 				4D5CE7801B7E4368002F1088 /* PushNotificationTableViewCell.m in Sources */,
 				F48783951B58DA1700CDC1A8 /* README.md in Sources */,
 				4D5CE7531B7E42E1002F1088 /* ioapi.c in Sources */,
-				F4DEA75D1B6F3E36000FE0FB /* TQRichTextRunEmoji.m in Sources */,
 				F463E6451B66106D00AB92B9 /* DianZanDomain.m in Sources */,
 				248B6A951B19A9D900FCB98F /* UIWindow+Extension.m in Sources */,
 				4D5CE7691B7E4333002F1088 /* AboutWeViewController.m in Sources */,
@@ -3194,7 +3160,6 @@
 				24AA0B421B690F4300DAC03B /* UUImageAvatarBrowser.m in Sources */,
 				4D5CE7511B7E42E1002F1088 /* CJSONScanner.m in Sources */,
 				4D5CE7711B7E4333002F1088 /* SettingViewController.m in Sources */,
-				F4DEA75B1B6F3E36000FE0FB /* TQRichTextRun.m in Sources */,
 				F48783AA1B58DA1700CDC1A8 /* MBProgressHUD.m in Sources */,
 				2489B6681B5AB49E00039E70 /* UIView+WebCacheOperation.m in Sources */,
 				4D5CE70C1B7E42CE002F1088 /* UMTextView.m in Sources */,
@@ -3253,7 +3218,6 @@
 				2474DFA41B6CA4840021506F /* BaseTopicInteractViewController.m in Sources */,
 				24DE91B91B67C9D400D3FFCE /* TeacherJudgeTableViewCell.m in Sources */,
 				F4E61BF41B735D5400E5851A /* PopupView.m in Sources */,
-				F4DEA75C1B6F3E36000FE0FB /* TQRichTextRunDelegate.m in Sources */,
 				24DEC8221B633F2B00C55828 /* DynamicMenuDomain.m in Sources */,
 				4D5CE74B1B7E42E1002F1088 /* CJSONDeserializer_BlocksExtensions.m in Sources */,
 				F4DF3BA41B78AC75001D9DF7 /* TimetableViewController.m in Sources */,
@@ -3281,7 +3245,6 @@
 				2489B6661B5AB49E00039E70 /* UIImageView+HighlightedWebCache.m in Sources */,
 				244F74921B62A4630078D30D /* PostTopicViewController.m in Sources */,
 				4D5CE7051B7E42CE002F1088 /* UMFeedbackViewController.m in Sources */,
-				F4DEA75E1B6F3E36000FE0FB /* TQRichTextRunURL.m in Sources */,
 				4D5CE7521B7E42E1002F1088 /* CJSONSerializer.m in Sources */,
 				248B6A621B19A39200FCB98F /* AppDelegate.m in Sources */,
 				F487838C1B58DA1700CDC1A8 /* AFHTTPRequestOperationManager.m in Sources */,
@@ -3351,7 +3314,6 @@
 				2474DFB81B6CBB8D0021506F /* StudentSignRecordDomain.m in Sources */,
 				F48783D81B58E46000CDC1A8 /* MJRefreshHeaderView.m in Sources */,
 				F48783A21B58DA1700CDC1A8 /* MASLayoutConstraint.m in Sources */,
-				F4DEA75F1B6F3E36000FE0FB /* TQRichTextView.m in Sources */,
 				F48783AF1B58DA1700CDC1A8 /* MJProperty.m in Sources */,
 				F45EABD11B563F9F003C367C /* BaseViewController.m in Sources */,
 				4D5CE76F1B7E4333002F1088 /* PushNotificationViewController.m in Sources */,

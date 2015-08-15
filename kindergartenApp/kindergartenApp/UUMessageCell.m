@@ -73,11 +73,12 @@
         
         [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(UUAVAudioPlayerDidFinishPlay) name:@"VoicePlayHasInterrupt" object:nil];
         
-        self.contentTextView = [[TQRichTextView alloc] init];
-        self.contentTextView.lineSpace = 1.0f;
-        self.contentTextView.userInteractionEnabled = NO;
+        self.contentTextView = [[MLEmojiLabel alloc] init];
+        self.contentTextView.numberOfLines = 0;
         self.contentTextView.font = [UIFont systemFontOfSize:14.0f];
-        self.contentTextView.backgroundColor = [UIColor clearColor];
+        self.contentTextView.lineBreakMode = NSLineBreakByCharWrapping;
+        self.contentTextView.isNeedAtAndPoundSign = YES;
+        self.contentTextView.customEmojiRegex = @"\\[[a-zA-Z0-9\\u4e00-\\u9fa5]+\\]";
         [self addSubview:self.contentTextView];
         
         //红外线感应监听
