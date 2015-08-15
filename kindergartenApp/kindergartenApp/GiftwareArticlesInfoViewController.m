@@ -132,8 +132,9 @@
         shareVC.view.frame = CGRectMake(Number_Zero,  KGSCREEN.size.height-height, KGSCREEN.size.width, height);
         [popupView addSubview:shareVC.view];
         [self.view addSubview:popupView];
+        [self addChildViewController:shareVC];
     }
-    
+    shareVC.announcementDomain = announcementDomain;
     [UIView viewAnimate:^{
         popupView.alpha = Number_One;
     } time:Number_AnimationTime_Five];
