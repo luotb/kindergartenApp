@@ -181,12 +181,12 @@
     if(remoteNotification){
         notification = (NSDictionary *)remoteNotification;
     }
-    NSDictionary * dic = [notification objectForKey:@"aps"];
+//    NSDictionary * dic = [notification objectForKey:@"aps"];
     //关闭友盟自带的弹出框
-    [UMessage setAutoAlert:YES];
+    [UMessage setAutoAlert:NO];
     [UMessage sendClickReportForRemoteNotification:notification];
-    UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:@"通知" message:[dic objectForKey:@"alert"] delegate:nil cancelButtonTitle:@"忽略" otherButtonTitles:@"查看", nil];
-    [alertView show];
+//    UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:@"通知" message:[dic objectForKey:@"alert"] delegate:nil cancelButtonTitle:@"忽略" otherButtonTitles:@"查看", nil];
+//    [alertView show];
     _pushNotification = notification;
     NSLog(@"%@",notification);
 }

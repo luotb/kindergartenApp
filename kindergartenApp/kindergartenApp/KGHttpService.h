@@ -228,6 +228,9 @@
 //保存收藏
 - (void)saveFavorites:(FavoritesDomain *)favoritesDomain success:(void (^)(NSString * msgStr))success faild:(void (^)(NSString * errorMsg))faild;
 
+//取消收藏
+- (void)delFavorites:(NSString *)uuid success:(void(^)(NSString *msgStr))success failed:(void(^)(NSString *errorMsg))faild;
+
 //收藏 end
 
 #pragma mark - 修改密码

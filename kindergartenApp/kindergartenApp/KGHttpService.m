@@ -1019,6 +1019,18 @@
     }];
 }
 
+//取消收藏
+- (void)delFavorites:(NSString *)uuid success:(void(^)(NSString *msgStr))success failed:(void(^)(NSString *errorMsg))faild{
+    NSDictionary * dic = @{@"reluuid":uuid};
+
+    [[AFAppDotNetAPIClient sharedClient] POST:[KGHttpUrl getDelFavoritesUrl] parameters:dic success:^(NSURLSessionDataTask *task, id responseObject) {
+        KGBaseDomain * baseDomain = [KGBaseDomain objectWithKeyValues:responseObject];
+        success(baseDomain.ResMsg.message);
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        faild(error.localizedDescription);
+    }];
+}
+
 //收藏 end
 
 #pragma mark - 修改密码

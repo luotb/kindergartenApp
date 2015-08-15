@@ -219,6 +219,8 @@
 		4D5CE7941B7E531C002F1088 /* libMobClickLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D5CE7911B7E531C002F1088 /* libMobClickLibrary.a */; };
 		4DE3844A1B7EF324009F12E4 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DE384491B7EF324009F12E4 /* ImageIO.framework */; };
 		4DE3844E1B7F06DF009F12E4 /* libUMessage_Sdk_1.1.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DE3844C1B7F06DF009F12E4 /* libUMessage_Sdk_1.1.0.a */; };
+		4DE384551B7F728A009F12E4 /* MyCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DE384531B7F728A009F12E4 /* MyCollectionViewController.m */; };
+		4DE384561B7F728A009F12E4 /* MyCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DE384541B7F728A009F12E4 /* MyCollectionViewController.xib */; };
 		F45EABD11B563F9F003C367C /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F45EABD01B563F9F003C367C /* BaseViewController.m */; };
 		F463E6451B66106D00AB92B9 /* DianZanDomain.m in Sources */ = {isa = PBXBuildFile; fileRef = F463E6441B66106D00AB92B9 /* DianZanDomain.m */; };
 		F463E6481B6613D500AB92B9 /* GroupDomain.m in Sources */ = {isa = PBXBuildFile; fileRef = F463E6471B6613D500AB92B9 /* GroupDomain.m */; };
@@ -753,6 +755,9 @@
 		4DE384491B7EF324009F12E4 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		4DE3844C1B7F06DF009F12E4 /* libUMessage_Sdk_1.1.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libUMessage_Sdk_1.1.0.a; sourceTree = "<group>"; };
 		4DE3844D1B7F06DF009F12E4 /* UMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMessage.h; sourceTree = "<group>"; };
+		4DE384521B7F728A009F12E4 /* MyCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCollectionViewController.h; sourceTree = "<group>"; };
+		4DE384531B7F728A009F12E4 /* MyCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCollectionViewController.m; sourceTree = "<group>"; };
+		4DE384541B7F728A009F12E4 /* MyCollectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyCollectionViewController.xib; sourceTree = "<group>"; };
 		F45EABCF1B563F9F003C367C /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		F45EABD01B563F9F003C367C /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		F463E6431B66106D00AB92B9 /* DianZanDomain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DianZanDomain.h; sourceTree = "<group>"; };
@@ -1639,6 +1644,7 @@
 				24C46B4B1B5A2B8F00A58F92 /* Message */,
 				24C46B421B5A2B4100A58F92 /* Interact */,
 				4D5CE7581B7E4308002F1088 /* Setting */,
+				4DE384511B7F726C009F12E4 /* MyCollection */,
 				24C46B391B5A2AC200A58F92 /* Me */,
 			);
 			name = Module;
@@ -2308,6 +2314,40 @@
 				4DE3844D1B7F06DF009F12E4 /* UMessage.h */,
 			);
 			path = UMessage_Sdk_1.1.0;
+			sourceTree = "<group>";
+		};
+		4DE384511B7F726C009F12E4 /* MyCollection */ = {
+			isa = PBXGroup;
+			children = (
+				4DE384591B7F756C009F12E4 /* View */,
+				4DE384581B7F7566009F12E4 /* Model */,
+				4DE384571B7F7558009F12E4 /* Controller */,
+			);
+			name = MyCollection;
+			sourceTree = "<group>";
+		};
+		4DE384571B7F7558009F12E4 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				4DE384521B7F728A009F12E4 /* MyCollectionViewController.h */,
+				4DE384531B7F728A009F12E4 /* MyCollectionViewController.m */,
+				4DE384541B7F728A009F12E4 /* MyCollectionViewController.xib */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		4DE384581B7F7566009F12E4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		4DE384591B7F756C009F12E4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 		C925B64CB131B415E0126F11 /* Frameworks */ = {
@@ -3081,6 +3121,7 @@
 				248B6A6D1B19A39200FCB98F /* LaunchScreen.xib in Resources */,
 				F4C4D1C41B69CDE600335443 /* chat_cell_1.jpeg in Resources */,
 				F4C4D1C21B69CDDF00335443 /* chat_cell_0.jpeg in Resources */,
+				4DE384561B7F728A009F12E4 /* MyCollectionViewController.xib in Resources */,
 				2491BB531B6E27F00052532B /* RecipesStudentInfoTableViewCell.xib in Resources */,
 				4D5CE76E1B7E4333002F1088 /* ModifyPasswordViewController.xib in Resources */,
 				24DE91B51B67C78700D3FFCE /* TeacherJudgeViewController.xib in Resources */,
@@ -3346,6 +3387,7 @@
 				2489B6671B5AB49E00039E70 /* UIImageView+WebCache.m in Sources */,
 				24DE91A81B67B94500D3FFCE /* MessageTableViewCell.m in Sources */,
 				248B6AD21B19B58D00FCB98F /* MLNavigationController.m in Sources */,
+				4DE384551B7F728A009F12E4 /* MyCollectionViewController.m in Sources */,
 				24AA0B471B690F4300DAC03B /* UUMessageFrame.m in Sources */,
 				F4E6B23C1B6B53DD0087EAEB /* SpecialtyCoursesViewController.m in Sources */,
 				F48783DE1B58EB1900CDC1A8 /* ReFreshTableViewController.m in Sources */,

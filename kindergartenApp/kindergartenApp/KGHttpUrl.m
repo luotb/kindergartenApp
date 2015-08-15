@@ -69,6 +69,7 @@
 #define saveFavoritesURL      @"rest/favorites/save.json"      //保存收藏
 #define favoritesListURL      @"rest/favorites/query.json"     //收藏列表
 #define modifyPWDURL          @"rest/userinfo/updatepassword.json" //修改密码
+#define delFavoritesURL @"rest/favorites/delete.json"   //取消收藏
 
 
 @implementation KGHttpUrl
@@ -323,6 +324,11 @@
 //保存收藏
 + (NSString *)getsaveFavoritesUrl {
     return URL(baseServiceURL, saveFavoritesURL);
+}
+
+//取消收藏
++ (NSString *)getDelFavoritesUrl{
+    return URL(baseServiceURL, delFavoritesURL);
 }
 
 //修改密码

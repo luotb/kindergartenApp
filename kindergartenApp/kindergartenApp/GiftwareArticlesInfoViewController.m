@@ -71,12 +71,12 @@
     
     if(announcementDomain.dianzan && !announcementDomain.dianzan.canDianzan) {
         dzImageView.image = [UIImage imageNamed:@"zan2"];
-        dzBtn.userInteractionEnabled = NO;
+        dzBtn.selected = YES;
     }
     
     if(!announcementDomain.isFavor) {
         favImageView.image = [UIImage imageNamed:@"shoucang2"];
-        favBtn.userInteractionEnabled = NO;
+        favBtn.selected = YES;
     }
 }
 
@@ -86,7 +86,11 @@
     switch (sender.tag) {
         case 10:
             //赞
-            [self savwDZ];
+            if (sender.selected == YES) {
+                [self delDZ:sender];
+            }else{
+                [self savwDZ:sender];
+            }
             break;
         case 11: {
             //分享
@@ -95,7 +99,11 @@
         }
         case 12:
             //收藏
-            [self saveFavorites];
+            if (sender.selected == YES) {
+                [self delFavorites:sender];
+            }else{
+                [self saveFavorites:sender];
+            }
             break;
         case 13: {
             //评论
@@ -108,14 +116,31 @@
 }
 
 //保存点赞
-- (void)savwDZ {
+- (void)savwDZ:(UIButton *)sender {
     [[KGHUD sharedHud] show:self.contentView];
-    
+    sender.enabled = NO;
     [[KGHttpService sharedService] saveDZ:announcementDomain.uuid type:Topic_Articles success:^(NSString *msgStr) {
         [[KGHUD sharedHud] show:self.contentView onlyMsg:msgStr];
         dzImageView.image = [UIImage imageNamed:@"zan2"];
-        dzBtn.userInteractionEnabled = NO;
+        sender.selected = !sender.selected;
+        sender.enabled = YES;
     } faild:^(NSString *errorMsg) {
+        sender.enabled = YES;
+        [[KGHUD sharedHud] show:self.contentView onlyMsg:errorMsg];
+    }];
+}
+
+//取消点赞
+- (void)delDZ:(UIButton *)sender{
+    [[KGHUD sharedHud] show:self.contentView];
+    sender.enabled = NO;
+    [[KGHttpService sharedService] delDZ:announcementDomain.uuid success:^(NSString *msgStr) {
+        [[KGHUD sharedHud] show:self.contentView onlyMsg:msgStr];
+        dzImageView.image = [UIImage imageNamed:@"zan1"];
+        sender.selected = !sender.selected;
+        sender.enabled = YES;
+    } faild:^(NSString *errorMsg) {
+        sender.enabled = YES;
         [[KGHUD sharedHud] show:self.contentView onlyMsg:errorMsg];
     }];
 }
@@ -141,7 +166,7 @@
 }
 
 //保存收藏
-- (void)saveFavorites {
+- (void)saveFavorites:(UIButton *)button {
     [[KGHUD sharedHud] show:self.contentView];
     
     FavoritesDomain * domain = [[FavoritesDomain alloc] init];
@@ -149,12 +174,31 @@
     domain.type  = Topic_Articles;
     domain.reluuid = announcementDomain.uuid;
     domain.createtime = [KGDateUtil presentTime];
-    
+    button.enabled = NO;
     [[KGHttpService sharedService] saveFavorites:domain success:^(NSString *msgStr) {
         favImageView.image = [UIImage imageNamed:@"shoucang2"];
-        favBtn.userInteractionEnabled = NO;
         [[KGHUD sharedHud] show:self.contentView onlyMsg:msgStr];
+        button.selected = !button.selected;
+        button.enabled = YES;
     } faild:^(NSString *errorMsg) {
+        button.selected = !button.selected;
+        button.enabled = YES;
+        [[KGHUD sharedHud] show:self.contentView onlyMsg:errorMsg];
+    }];
+}
+
+//取消收藏
+- (void)delFavorites:(UIButton *)button{
+    [[KGHUD sharedHud] show:self.contentView];
+    button.enabled = NO;
+    [[KGHttpService sharedService] delFavorites:announcementDomain.uuid success:^(NSString *msgStr) {
+        button.selected = !button.selected;
+        button.enabled = YES;
+        [[KGHUD sharedHud] show:self.contentView onlyMsg:msgStr];
+        favImageView.image = [UIImage imageNamed:@"shoucang1"];
+    } failed:^(NSString *errorMsg) {
+        button.enabled = YES;
+        button.selected = !button.selected;
         [[KGHUD sharedHud] show:self.contentView onlyMsg:errorMsg];
     }];
 }

@@ -164,4 +164,7 @@
 //修改密码
 + (NSString *)getModidyPWDUrl;
 
+//取消收藏
++ (NSString *)getDelFavoritesUrl;
+
 @end

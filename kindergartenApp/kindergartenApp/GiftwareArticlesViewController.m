@@ -44,6 +44,10 @@
     }
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [reFreshView reloadRefreshTable];
+}
 
 //获取数据加载表格
 - (void)getTableData{
