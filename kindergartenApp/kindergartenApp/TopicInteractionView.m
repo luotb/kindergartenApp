@@ -131,7 +131,7 @@
     
     _replyView = [[HBVLinkedTextView alloc] init];
     _replyView.backgroundColor = CLEARCOLOR;
-    _replyView.backgroundColor = [UIColor greenColor];
+//    _replyView.backgroundColor = [UIColor greenColor];
     _replyView.font = TopicCellDateFont;
     [self addSubview:_replyView];
     
@@ -165,7 +165,7 @@
         
         NSLog(@"frame:%@, bou:%@", NSStringFromCGRect(_replyView.frame), NSStringFromCGRect(_replyView.bounds));
         
-//        _replyView.backgroundColor = [UIColor brownColor];
+        _replyView.backgroundColor = [UIColor brownColor];
         self.replyView.text = replyStr;
         //设置回复人名字体颜色
         [self resetReplyFont:arrayOfStrings];
@@ -189,7 +189,7 @@
         CGRect frame = CGRectMake(x, CGRectGetMaxY(self.replyView.frame) - 20, w, 20);
         _moreBtn = [[UIButton alloc] initWithFrame:frame];
         [_moreBtn setText:@"显示更多"];
-//        _moreBtn.backgroundColor = [UIColor brownColor];
+        _moreBtn.backgroundColor = [UIColor brownColor];
         _moreBtn.titleLabel.font = [UIFont systemFontOfSize:Number_Ten];
         [_moreBtn setTextColor:[UIColor blueColor] sel:[UIColor blueColor]];
         [_moreBtn addTarget:self action:@selector(moreBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
@@ -203,10 +203,10 @@
     if(_replyTextField) {
         [_replyTextField removeFromSuperview];
     }
-    _replyTextField = [[KGTextField alloc] initWithFrame:CGRectMake(CELLPADDING, self.topicInteractHeight + TopicCellBorderW, CELLCONTENTWIDTH, 30)];
+    _replyTextField = [[KGTextField alloc] initWithFrame:CGRectMake(CELLPADDING, self.topicInteractHeight, CELLCONTENTWIDTH, 30)];
     _replyTextField.placeholder = @"我来说一句...";
     _replyTextField.returnKeyType = UIReturnKeySend;
-    _replyTextField.backgroundColor = [UIColor brownColor];
+//    _replyTextField.backgroundColor = [UIColor brownColor];
     _replyTextField.delegate = self;
     [self addSubview:_replyTextField];
     [_replyTextField setBorderWithWidth:1 color:[UIColor blackColor] radian:5.0];
@@ -349,17 +349,17 @@
 }
 
 - (void)resetReplyFont:(NSArray *)replyNameArray {
-//    for(NSString * str in replyNameArray) {
-//        [self.replyView linkString:str
-//                  defaultAttributes:[self exampleAttributes]
-//              highlightedAttributes:[self exampleAttributes]
-//                         tapHandler:nil];
-//    }
+    for(NSString * str in replyNameArray) {
+        [self.replyView linkString:str
+                  defaultAttributes:[self exampleAttributes]
+              highlightedAttributes:[self exampleAttributes]
+                         tapHandler:nil];
+    }
     
-    [self.replyView linkStrings:replyNameArray
-             defaultAttributes:[self exampleAttributes]
-         highlightedAttributes:[self exampleAttributes]
-                    tapHandler:nil];
+//    [self.replyView linkStrings:replyNameArray
+//             defaultAttributes:[self exampleAttributes]
+//         highlightedAttributes:[self exampleAttributes]
+//                    tapHandler:nil];
 
 }
 

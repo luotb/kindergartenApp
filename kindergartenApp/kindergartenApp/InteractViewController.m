@@ -87,8 +87,6 @@
 - (void)initReFreshView{
     reFreshView = [[ReFreshTableViewController alloc] initRefreshView];
     reFreshView._delegate = self;
-    reFreshView.tableParam.cellHeight       = Number_Fifty;
-    reFreshView.tableParam.cellClassNameStr = @"TestTableViewCell";
     reFreshView.tableView.backgroundColor = KGColorFrom16(0xEBEBF2);
     [reFreshView appendToView:self.contentView];
     [reFreshView beginRefreshing];
