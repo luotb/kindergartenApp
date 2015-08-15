@@ -231,9 +231,9 @@
                            @"device_type": @"ios"};
     
     [self getServerJson:[KGHttpUrl getPushTokenUrl] params:dic success:^(KGBaseDomain *baseDomain) {
-        
+        success(baseDomain.ResMsg.message);
     } faild:^(NSString *errorMessage) {
-        
+        NSLog(@"errorMsg:%@", errorMessage);
     }];
 }
 

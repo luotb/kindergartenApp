@@ -65,7 +65,7 @@
 -(void)initUserView{
     UIView * userview = [[UIView alloc] init];
     userview.backgroundColor = CLEARCOLOR;
-    userview.backgroundColor = [UIColor yellowColor];
+//    userview.backgroundColor = [UIColor yellowColor];
     [self addSubview:userview];
     _userView = userview;
     
@@ -105,7 +105,7 @@
     _topicTextView = topicTextView;
     
     UIView  * topicImgsView = [[UIView alloc] init];
-    topicImgsView.backgroundColor = [UIColor greenColor];
+//    topicImgsView.backgroundColor = [UIColor greenColor];
     [self addSubview:topicImgsView];
     
     _topicImgsView = topicImgsView;
@@ -119,7 +119,7 @@
     }
     TopicInteractionView  * topicInteractionView = [[TopicInteractionView alloc] init];
     [self addSubview:topicInteractionView];
-    topicInteractionView.backgroundColor = [UIColor blueColor];
+//    topicInteractionView.backgroundColor = [UIColor blueColor];
     _topicInteractionView = topicInteractionView;
 }
 
