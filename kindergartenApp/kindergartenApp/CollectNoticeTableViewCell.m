@@ -15,18 +15,27 @@
 }
 
 //设置数据更新界面
-- (void)setData:(AnnouncementDomain *)data{
+- (void)setData:(FavoritesDomain *)data{
     _data = data;
     
     _myTitleLabel.text = data.title;
-    _subLabel.text = [[KGHttpService sharedService] getGroupNameByUUID:data.groupuuid];
-    _contentLabel.text = data.message;
+    _fromLabel.text = data.show_name;
     
-    if(data.create_time) {
-        NSDate * date = [KGDateUtil getDateByDateStr:data.create_time format:dateFormatStr2];
+    if(data.createtime) {
+        NSDate * date = [KGDateUtil getDateByDateStr:data.createtime format:dateFormatStr2];
         _timeLabel.text = [KGNSStringUtil compareCurrentTime:date];
     }
-    [_flagImageView sd_setImageWithURL:[NSURL URLWithString:[KGHttpService sharedService].groupDomain.img] placeholderImage:[UIImage imageNamed:@"group_head_def"] options:SDWebImageLowPriority completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+    UIImage * defaultImage;
+    if (data.type == Topic_Articles) {
+        NSMutableAttributedString * attString = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"来自%@",_fromLabel.text]];
+        [attString addAttribute:NSForegroundColorAttributeName value:KGColorFrom16(0xff4966) range:NSMakeRange(2, attString.length-2)];
+        _fromLabel.attributedText = attString;
+        defaultImage = [UIImage imageNamed:@"group_head_def"];
+    }else if (data.type == Topic_XYGG){
+        defaultImage = [UIImage imageNamed:@"wenzhang"];
+    }
+    
+    [_flagImageView sd_setImageWithURL:[NSURL URLWithString:data.show_img] placeholderImage:defaultImage completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         [_flagImageView setBorderWithWidth:Number_Zero color:[UIColor clearColor] radian:_flagImageView.width / Number_Two];
     }];
     

@@ -91,7 +91,6 @@
 {
     self.chatModel = [[ChatModel alloc]init];
     self.chatModel.isGroupChat = NO;
-//    [self.chatModel populateRandomDataSource];
    
 }
 

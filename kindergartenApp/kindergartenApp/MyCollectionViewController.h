@@ -8,14 +8,17 @@
 
 #import "BaseViewController.h"
 
-#import "AnnouncementDomain.h"
 #import "UIColor+Extension.h"
 #import "ACMacros.h"
-#import "CollectArticleTableViewCell.h"
 #import "CollectNoticeTableViewCell.h"
 #import "KGHttpService.h"
 #import "MJRefresh.h"
 #import "KGHUD.h"
+#import "FavoritesDomain.h"
+
+#import "GiftwareArticlesInfoViewController.h"
+#import "AnnouncementInfoViewController.h"
+#import "IntroductionViewController.h"
 
 @interface MyCollectionViewController : BaseViewController
 

@@ -14,10 +14,12 @@
 #import "UUInputFunctionView.h"
 #import "Masonry.h"
 #import "KGEmojiManage.h"
+#import "OnlyEmojiView.h"
 
 @interface BaseTopicInteractViewController () <UUInputFunctionViewDelegate, UIGestureRecognizerDelegate> {
     TopicInteractionView * topicInteractionView; //点赞回复视图
     UUInputFunctionView  * IFView;
+    OnlyEmojiView * onlyEmojiView;//只存在表情视图
     CGFloat emojiInputY;
 }
 
@@ -164,6 +166,11 @@
     }
 }
 
+//加载底部只有表情的视图
+- (void)loadOnlyEnojiInputView{
+    onlyEmojiView = [[[NSBundle mainBundle] loadNibNamed:@"OnlyEmojiView" owner:nil options:nil] lastObject];
+    
+}
 
 //加载底部输入功能View
 - (void)loadInputFuniView {
