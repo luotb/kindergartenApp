@@ -11,6 +11,7 @@
 #import "KGHttpService.h"
 #import "KGHttpUrl.h"
 #import "UIButton+Extension.h"
+#import "ItemTitleButton.h"
 
 @interface IntroductionViewController () <UIGestureRecognizerDelegate> {
     
@@ -66,12 +67,16 @@
 
 
 - (void)loadNavTitle {
-    
-    titleBtn = [[ItemTitleButton alloc] initWithFrame:CGRectMake(0, 0, 200, 30)];
+    titleBtn = [[ItemTitleButton alloc] initWithFrame:CGRectMake(0, 0, 100, 30)];
     [titleBtn setImage:@"xiajiantou" selImg:@"sjiantou"];
+    
     // 设置图片和文字
-    [titleBtn setTitle:@"校园相关"
-              forState:UIControlStateNormal];
+    if(_isNoXYXG) {
+        [titleBtn setText:@"校园介绍"];
+    } else {
+        [titleBtn setText:@"招生计划"];
+    }
+
     // 监听标题点击
     [titleBtn addTarget:self
                  action:@selector(titleFunBtnClicked:)

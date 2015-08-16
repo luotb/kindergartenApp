@@ -54,16 +54,14 @@
     
     //内容
     CGFloat topicContentW = cellW - nameX - CELLPADDING;
-    CGFloat topicTextViewH = Number_Zero;
     CGFloat topicContentX = nameX;
     CGFloat topicTextViewY = CGRectGetMaxY(self.userViewF) + TopicCellBorderW;
     
     if(_topic.content && ![_topic.content isEqualToString:String_DefValue_Empty]) {
         //内容 文本+表情
-        CGSize size = [MLEmojiLabel boundingRectWithSize:_topic.content w:topicContentW font:12];
-        topicTextViewH = size.height;
+        CGSize size = [MLEmojiLabel boundingRectWithSize:_topic.content w:topicContentW font:APPUILABELFONTNO14];
         
-        self.topicTextViewF = CGRectMake(topicContentX, topicTextViewY, topicContentW, topicTextViewH);
+        self.topicTextViewF = CGRectMake(topicContentX, topicTextViewY, topicContentW, size.height);
         /* cell的高度 */
         self.cellHeight = CGRectGetMaxY(self.topicTextViewF);
     }
@@ -121,20 +119,12 @@
         for(ReplyDomain * reply in _topic.replyPage.data) {
             
             if(count < Number_Five) {
-                [replyStr appendFormat:@"%@:%@ \n", reply.create_user, reply.content ? reply.title : @""];
+                [replyStr appendFormat:@"%@:%@\n", reply.create_user, reply.content ? reply.title : @""];
             }
             count++;
         }
-        
-        CGSize size = [replyStr sizeWithFont:[UIFont systemFontOfSize:APPUILABELFONTNO12]
-                           constrainedToSize:CGSizeMake(CELLCONTENTWIDTH, 2000)
-                               lineBreakMode:NSLineBreakByWordWrapping];
-        
+        CGSize size = [MLEmojiLabel boundingRectWithSize:replyStr w:CELLCONTENTWIDTH font:APPUILABELFONTNO12];
         height += (size.height + TopicCellBorderW);
-        
-//        if(_topic.replyPage.totalCount>_topic.replyPage.pageSize || [_topic.replyPage.data count]>Number_Five) {
-//            height += 30;
-//        }
         
         if(count > Number_Four) {
             height += 30; //显示更多 按钮项

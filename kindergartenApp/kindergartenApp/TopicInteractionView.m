@@ -11,6 +11,7 @@
 #import "UIView+Extension.h"
 #import "UIButton+Extension.h"
 #import "KGNSStringUtil.h"
+#import "KGRange.h"
 
 @implementation TopicInteractionView 
 
@@ -129,10 +130,13 @@
         [_replyView removeFromSuperview];
     }
     
-    _replyView = [[HBVLinkedTextView alloc] init];
-    _replyView.backgroundColor = CLEARCOLOR;
-//    _replyView.backgroundColor = [UIColor greenColor];
-    _replyView.font = TopicCellDateFont;
+    _replyView = [MLEmojiLabel new];
+    _replyView.backgroundColor = [UIColor brownColor];
+    _replyView.numberOfLines = Number_Zero;
+    _replyView.font = [UIFont systemFontOfSize:APPUILABELFONTNO12];
+    _replyView.textColor = [UIColor blackColor];
+    _replyView.customEmojiRegex = String_DefValue_EmojiRegex;
+    
     [self addSubview:_replyView];
     
     [self addReplyData];
@@ -144,31 +148,37 @@
         
         self.replyView.text = String_DefValue_Empty;
         
-        NSMutableArray  * arrayOfStrings = [[NSMutableArray alloc] initWithCapacity:[_replyPage.data count]];
-        NSMutableString * replyStr       = [[NSMutableString alloc] init];
+        NSMutableString  * replyStr = [[NSMutableString alloc] init];
+        NSMutableArray   * attributedStrArray = [[NSMutableArray alloc] init];
         NSInteger count = Number_Zero;
         for(ReplyDomain * reply in _replyPage.data) {
             if(count < Number_Five) {
                 [replyStr appendFormat:@"%@:%@ \n", reply.create_user, reply.content ? reply.content : @""];
-                [arrayOfStrings addObject:[NSString stringWithFormat:@"%@:", reply.create_user]];
+                
+                NSRange  range = [replyStr rangeOfString:reply.create_user];
+                KGRange * tempRange = [KGRange new];
+                tempRange.location = range.location;
+                tempRange.length   = range.length;
+                
+                [attributedStrArray addObject:tempRange];
             }
-            
             count++;
         }
         
-        CGSize size = [replyStr sizeWithFont:[UIFont systemFontOfSize:APPUILABELFONTNO12]
-                           constrainedToSize:CGSizeMake(CELLCONTENTWIDTH, 2000)
-                               lineBreakMode:NSLineBreakByWordWrapping];
+        NSMutableAttributedString *attString = [[NSMutableAttributedString alloc] initWithString:replyStr];
+        [self.replyView setText:attString afterInheritingLabelAttributesAndConfiguringWithBlock:^NSMutableAttributedString *(NSMutableAttributedString *mutableAttributedString) {
+            
+            for(KGRange * tempRange in attributedStrArray) {
+                [mutableAttributedString addAttribute:(NSString *)kCTForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(tempRange.location, tempRange.length)];
+            }
+            
+            return mutableAttributedString;
+        }];
         
-        _replyView.frame = CGRectMake(CELLPADDING, CGRectGetMaxY(_dianzanView.frame)
+        CGSize size = [self.replyView preferredSizeWithMaxWidth:CELLCONTENTWIDTH];
+        
+        _replyView.frame = CGRectMake(CELLPADDING, CGRectGetMaxY(_dianzanView.frame) + TopicCellBorderW
                                       , CELLCONTENTWIDTH, size.height);
-        
-        NSLog(@"frame:%@, bou:%@", NSStringFromCGRect(_replyView.frame), NSStringFromCGRect(_replyView.bounds));
-        
-        _replyView.backgroundColor = [UIColor brownColor];
-        self.replyView.text = replyStr;
-        //设置回复人名字体颜色
-        [self resetReplyFont:arrayOfStrings];
         
         /* cell的高度 */
         self.topicInteractHeight = CGRectGetMaxY(_replyView.frame);
@@ -349,12 +359,12 @@
 }
 
 - (void)resetReplyFont:(NSArray *)replyNameArray {
-    for(NSString * str in replyNameArray) {
-        [self.replyView linkString:str
-                  defaultAttributes:[self exampleAttributes]
-              highlightedAttributes:[self exampleAttributes]
-                         tapHandler:nil];
-    }
+//    for(NSString * str in replyNameArray) {
+//        [self.replyView linkString:str
+//                  defaultAttributes:[self exampleAttributes]
+//              highlightedAttributes:[self exampleAttributes]
+//                         tapHandler:nil];
+//    }
     
 //    [self.replyView linkStrings:replyNameArray
 //             defaultAttributes:[self exampleAttributes]
@@ -362,6 +372,8 @@
 //                    tapHandler:nil];
 
 }
+
+
 
 @end
 

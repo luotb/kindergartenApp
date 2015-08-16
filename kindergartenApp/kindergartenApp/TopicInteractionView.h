@@ -12,6 +12,7 @@
 #import "HBVLinkedTextView.h"
 #import "KGTextField.h"
 #import "ReplyDomain.h"
+#import "MLEmojiLabel.h"
 
 @interface TopicInteractionView : UIView <UITextFieldDelegate>
 
@@ -38,7 +39,7 @@
 @property (strong, nonatomic) UILabel  * dianzanLabel;
 
 /** 回复列表视图 */
-@property (strong, nonatomic) HBVLinkedTextView  * replyView;
+@property (strong, nonatomic) MLEmojiLabel  * replyView;
 
 /** 显示更多*/
 @property (strong, nonatomic) UIButton * moreBtn;

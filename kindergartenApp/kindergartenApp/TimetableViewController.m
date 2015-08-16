@@ -69,7 +69,7 @@
 
 - (void)loadFlowScrollView {
     contentScrollView = [[UIScrollView alloc] init];
-    contentScrollView.backgroundColor = [UIColor brownColor];
+//    contentScrollView.backgroundColor = [UIColor brownColor];
     contentScrollView.delegate = self;
     contentScrollView.pagingEnabled = YES;
     contentScrollView.clipsToBounds = NO;
@@ -100,10 +100,10 @@
     int currentIndex = floor((scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
     
     if(lastIndex!=currentIndex) {
+        [self getQueryDate:currentIndex];
         TimetableItemView * itemView = [itemViewArray objectAtIndex:currentIndex];
         if(!itemView.tableDataSource || [itemView.tableDataSource count]==Number_Zero) {
             
-            [self getQueryDate:currentIndex];
             [self loadRecipesInfoByData:itemView];
         }
         isFirstReq = NO;

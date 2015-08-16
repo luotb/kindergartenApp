@@ -32,10 +32,8 @@
     [super viewDidLoad];
     
     myWebView.backgroundColor = [UIColor clearColor];
-    myWebView.backgroundColor = [UIColor brownColor];
     myWebView.opaque = NO;
     myWebView.delegate = self;
-//    myWebView.scalesPageToFit = YES;
     [self getAnnouncementDomainInfo];
     
     self.contentView.width = KGSCREEN.size.width;
@@ -102,6 +100,10 @@
     CGSize fittingSize = [webView sizeThatFits:CGSizeZero];
     frame.size = fittingSize;
     webView.frame = CGRectMake(Number_Zero, CGRectGetMaxY(titleLabel.frame), KGSCREEN.size.width, fittingSize.height);
+    groupLabel.y = CGRectGetMaxY(webView.frame) + Number_Ten;
+    createTimeLabel.y = CGRectGetMaxY(groupLabel.frame) + Number_Ten;
+    topicView.y = CGRectGetMaxY(groupLabel.frame) + 30;
+    contentScrollView.contentSize = CGSizeMake(KGSCREEN.size.width, topicView.height + topicView.y + CELLPADDING);
 }
 
 - (void)alttextFieldDidEndEditing:(UITextField *)textField {

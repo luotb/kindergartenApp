@@ -16,8 +16,9 @@
 #import "FavoritesDomain.h"
 #import "KGDateUtil.h"
 
-@interface GiftwareArticlesInfoViewController () {
+@interface GiftwareArticlesInfoViewController () <UIWebViewDelegate> {
     
+    IBOutlet UIScrollView *contentScrollView;
     IBOutlet UILabel * titleLabel;
     IBOutlet UIWebView * myWebView;
     IBOutlet UILabel * createUserLabel;
@@ -44,6 +45,7 @@
     
     myWebView.backgroundColor = [UIColor clearColor];
     myWebView.opaque = NO;
+    myWebView.delegate = self;
     [self getArticlesInfo];
 }
 
@@ -201,6 +203,19 @@
         button.selected = !button.selected;
         [[KGHUD sharedHud] show:self.contentView onlyMsg:errorMsg];
     }];
+}
+
+- (void)webViewDidFinishLoad:(UIWebView *)webView {
+    //webview 自适应高度
+    CGRect frame = webView.frame;
+    CGSize fittingSize = [webView sizeThatFits:CGSizeZero];
+    frame.size = fittingSize;
+    webView.frame = CGRectMake(Number_Zero, CGRectGetMaxY(titleLabel.frame), KGSCREEN.size.width, fittingSize.height);
+    createUserLabel.y = CGRectGetMaxY(webView.frame) + Number_Ten;
+    createUserLabel.x = KGSCREEN.size.width - createUserLabel.width - CELLPADDING;
+    timeLabel.y = CGRectGetMaxY(createUserLabel.frame) + Number_Ten;
+    timeLabel.x = KGSCREEN.size.width - timeLabel.width - CELLPADDING;
+    contentScrollView.contentSize = CGSizeMake(KGSCREEN.size.width, timeLabel.height + timeLabel.y + CELLPADDING);
 }
 
 @end
