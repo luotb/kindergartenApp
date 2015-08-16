@@ -149,6 +149,8 @@
 		24E4D9531B64EEB10088745A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 24E4D9521B64EEB10088745A /* libz.dylib */; };
 		24E634811B6FB9CC00A23A66 /* RecipesHeadTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24E6347F1B6FB9CC00A23A66 /* RecipesHeadTableViewCell.m */; };
 		24E634821B6FB9CC00A23A66 /* RecipesHeadTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24E634801B6FB9CC00A23A66 /* RecipesHeadTableViewCell.xib */; };
+		4D077B1D1B8038BE00FFD5CB /* CollectNoticeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D077B1B1B8038BE00FFD5CB /* CollectNoticeTableViewCell.m */; };
+		4D077B1E1B8038BE00FFD5CB /* CollectNoticeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D077B1C1B8038BE00FFD5CB /* CollectNoticeTableViewCell.xib */; };
 		4D5CE6C81B7E3F76002F1088 /* FavoritesListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D5CE6C61B7E3F76002F1088 /* FavoritesListViewController.m */; };
 		4D5CE6C91B7E3F76002F1088 /* FavoritesListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D5CE6C71B7E3F76002F1088 /* FavoritesListViewController.xib */; };
 		4D5CE6F41B7E42CE002F1088 /* UMFeedbackLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4D5CE6CB1B7E42CE002F1088 /* UMFeedbackLocalizable.strings */; };
@@ -222,6 +224,8 @@
 		4DE3844E1B7F06DF009F12E4 /* libUMessage_Sdk_1.1.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DE3844C1B7F06DF009F12E4 /* libUMessage_Sdk_1.1.0.a */; };
 		4DE384551B7F728A009F12E4 /* MyCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DE384531B7F728A009F12E4 /* MyCollectionViewController.m */; };
 		4DE384561B7F728A009F12E4 /* MyCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DE384541B7F728A009F12E4 /* MyCollectionViewController.xib */; };
+		4DE3845D1B7FAFAF009F12E4 /* CollectArticleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DE3845B1B7FAFAF009F12E4 /* CollectArticleTableViewCell.m */; };
+		4DE3845E1B7FAFAF009F12E4 /* CollectArticleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DE3845C1B7FAFAF009F12E4 /* CollectArticleTableViewCell.xib */; };
 		F45EABD11B563F9F003C367C /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F45EABD01B563F9F003C367C /* BaseViewController.m */; };
 		F463E6451B66106D00AB92B9 /* DianZanDomain.m in Sources */ = {isa = PBXBuildFile; fileRef = F463E6441B66106D00AB92B9 /* DianZanDomain.m */; };
 		F463E6481B6613D500AB92B9 /* GroupDomain.m in Sources */ = {isa = PBXBuildFile; fileRef = F463E6471B6613D500AB92B9 /* GroupDomain.m */; };
@@ -635,6 +639,9 @@
 		24E6347E1B6FB9CC00A23A66 /* RecipesHeadTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipesHeadTableViewCell.h; sourceTree = "<group>"; };
 		24E6347F1B6FB9CC00A23A66 /* RecipesHeadTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipesHeadTableViewCell.m; sourceTree = "<group>"; };
 		24E634801B6FB9CC00A23A66 /* RecipesHeadTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecipesHeadTableViewCell.xib; sourceTree = "<group>"; };
+		4D077B1A1B8038BE00FFD5CB /* CollectNoticeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectNoticeTableViewCell.h; sourceTree = "<group>"; };
+		4D077B1B1B8038BE00FFD5CB /* CollectNoticeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectNoticeTableViewCell.m; sourceTree = "<group>"; };
+		4D077B1C1B8038BE00FFD5CB /* CollectNoticeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectNoticeTableViewCell.xib; sourceTree = "<group>"; };
 		4D5CE6C51B7E3F76002F1088 /* FavoritesListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoritesListViewController.h; sourceTree = "<group>"; };
 		4D5CE6C61B7E3F76002F1088 /* FavoritesListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoritesListViewController.m; sourceTree = "<group>"; };
 		4D5CE6C71B7E3F76002F1088 /* FavoritesListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FavoritesListViewController.xib; sourceTree = "<group>"; };
@@ -761,6 +768,9 @@
 		4DE384521B7F728A009F12E4 /* MyCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCollectionViewController.h; sourceTree = "<group>"; };
 		4DE384531B7F728A009F12E4 /* MyCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCollectionViewController.m; sourceTree = "<group>"; };
 		4DE384541B7F728A009F12E4 /* MyCollectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyCollectionViewController.xib; sourceTree = "<group>"; };
+		4DE3845A1B7FAFAF009F12E4 /* CollectArticleTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectArticleTableViewCell.h; sourceTree = "<group>"; };
+		4DE3845B1B7FAFAF009F12E4 /* CollectArticleTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectArticleTableViewCell.m; sourceTree = "<group>"; };
+		4DE3845C1B7FAFAF009F12E4 /* CollectArticleTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectArticleTableViewCell.xib; sourceTree = "<group>"; };
 		F45EABCF1B563F9F003C367C /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		F45EABD01B563F9F003C367C /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		F463E6431B66106D00AB92B9 /* DianZanDomain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DianZanDomain.h; sourceTree = "<group>"; };
@@ -1658,7 +1668,6 @@
 			children = (
 				248B6AA71B19AD4700FCB98F /* Controller */,
 				248B6AA61B19AD4000FCB98F /* Model */,
-				248B6AA51B19AD3800FCB98F /* View */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -1695,6 +1704,7 @@
 				24C46B341B5A2A9900A58F92 /* HomeViewController.h */,
 				24C46B351B5A2A9900A58F92 /* HomeViewController.m */,
 				24C46B361B5A2A9900A58F92 /* HomeViewController.xib */,
+				248B6AA51B19AD3800FCB98F /* View */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -2349,6 +2359,12 @@
 		4DE384591B7F756C009F12E4 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4DE3845A1B7FAFAF009F12E4 /* CollectArticleTableViewCell.h */,
+				4DE3845B1B7FAFAF009F12E4 /* CollectArticleTableViewCell.m */,
+				4DE3845C1B7FAFAF009F12E4 /* CollectArticleTableViewCell.xib */,
+				4D077B1A1B8038BE00FFD5CB /* CollectNoticeTableViewCell.h */,
+				4D077B1B1B8038BE00FFD5CB /* CollectNoticeTableViewCell.m */,
+				4D077B1C1B8038BE00FFD5CB /* CollectNoticeTableViewCell.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -3083,6 +3099,7 @@
 				4D5CE7701B7E4333002F1088 /* PushNotificationViewController.xib in Resources */,
 				F4EA538C1B60C6DF0044BE7A /* MeFunTableViewCell.xib in Resources */,
 				F4E61B7A1B73438F00E5851A /* ShareViewController.xib in Resources */,
+				4DE3845E1B7FAFAF009F12E4 /* CollectArticleTableViewCell.xib in Resources */,
 				24AA0B4D1B690FA800DAC03B /* ChatViewController.xib in Resources */,
 				4D5CE76C1B7E4333002F1088 /* AdvanceViewController.xib in Resources */,
 				24A175FF1B5550B000295997 /* LoginViewController.xib in Resources */,
@@ -3145,6 +3162,7 @@
 				4D5CE76A1B7E4333002F1088 /* AboutWeViewController.xib in Resources */,
 				24C46B381B5A2A9900A58F92 /* HomeViewController.xib in Resources */,
 				F4EC988E1B6211AC00F5721F /* StudentNoteInfoViewController.xib in Resources */,
+				4D077B1E1B8038BE00FFD5CB /* CollectNoticeTableViewCell.xib in Resources */,
 				4D5CE7451B7E42E1002F1088 /* baidumobadsdk.bundle in Resources */,
 				4D5CE6C91B7E3F76002F1088 /* FavoritesListViewController.xib in Resources */,
 				F4EA53871B60BD390044BE7A /* MeTableViewCell.xib in Resources */,
@@ -3391,6 +3409,7 @@
 				F48783A41B58DA1700CDC1A8 /* MASViewConstraint.m in Sources */,
 				F487839D1B58DA1700CDC1A8 /* UIWebView+AFNetworking.m in Sources */,
 				2489B6671B5AB49E00039E70 /* UIImageView+WebCache.m in Sources */,
+				4D077B1D1B8038BE00FFD5CB /* CollectNoticeTableViewCell.m in Sources */,
 				24DE91A81B67B94500D3FFCE /* MessageTableViewCell.m in Sources */,
 				248B6AD21B19B58D00FCB98F /* MLNavigationController.m in Sources */,
 				4DE384551B7F728A009F12E4 /* MyCollectionViewController.m in Sources */,
@@ -3398,6 +3417,7 @@
 				F4E6B23C1B6B53DD0087EAEB /* SpecialtyCoursesViewController.m in Sources */,
 				F48783DE1B58EB1900CDC1A8 /* ReFreshTableViewController.m in Sources */,
 				F48783991B58DA1700CDC1A8 /* UIButton+AFNetworking.m in Sources */,
+				4DE3845D1B7FAFAF009F12E4 /* CollectArticleTableViewCell.m in Sources */,
 				F48783E11B58EC8C00CDC1A8 /* ReFreshBaseCell.m in Sources */,
 				24C46B401B5A2B1100A58F92 /* MeViewController.m in Sources */,
 				248B6AC71B19B54500FCB98F /* KGTextField.m in Sources */,

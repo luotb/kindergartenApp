@@ -76,12 +76,13 @@
     } else {
         [titleBtn setText:@"招生计划"];
     }
-    
+
     // 监听标题点击
     [titleBtn addTarget:self
                  action:@selector(titleFunBtnClicked:)
        forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.titleView = titleBtn;
+    
 }
 
 - (void)titleFunBtnClicked:(UIButton *)sender {

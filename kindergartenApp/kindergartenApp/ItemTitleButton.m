@@ -40,9 +40,12 @@
     [super layoutSubviews];
     // 如果仅仅是调整按钮内部titleLabel和imageView的位置，那么在layoutSubviews中单独设置位置即可
     
+    //防止按钮在touchdown消息的时候进行非正常布局
+    if (self.titleLabel.x < self.imageView.x) {
+        return;
+    }
     // 1.计算titleLabel的frame
     self.titleLabel.x = self.imageView.x;
-    
     // 2.计算imageView的frame
     self.imageView.x = CGRectGetMaxX(self.titleLabel.frame) + HWMargin;
 }
