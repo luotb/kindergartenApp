@@ -38,6 +38,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [headImageView setBorderWithWidth:Number_Zero color:[UIColor clearColor] radian:headImageView.width / Number_Two];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -64,7 +65,6 @@
 - (IBAction)savePwdBtnClicked:(UIButton *)sender {
     savePwdBtn.selected = !sender.selected;
     savePwdImageView.image = [UIImage imageNamed:savePwdBtn.selected ? @"jizhu" : @"bujizhu"];
-//    savePwdBtn.backgroundColor = [UIColor clearColor];
 }
 
 
@@ -76,9 +76,6 @@
 
 
 - (IBAction)loginBtnClicked:(UIButton *)sender {
-    
-//    [self loginSuccess];
-//    return;
     
     if([self validateInputInView]) {
         [[KGHUD sharedHud] show:self.view msg:@"登录中..."];
