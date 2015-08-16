@@ -29,6 +29,7 @@
 @property (strong, nonatomic) MJRefreshHeaderView  * head;
 @property (strong, nonatomic) ChatModel * chatModel;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomConstraint;
+@property (assign, nonatomic) NSUInteger pageNo;
 
 @end
 
@@ -39,11 +40,18 @@
     
     _chatTableView.delegate = self;
     _chatTableView.dataSource = self;
+    _chatTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    _pageNo = 0;
+    self.title = _addressbookDomain.name;
     
-    [self getChatInfoList];
-    [self addRefreshViews];
     [self loadBaseViewsAndData];
     [self loadInputFuniView];
+    
+    __weak typeof(self) weakSelf = self;
+    [_chatTableView addHeaderWithCallback:^{
+        [weakSelf getChatInfoList:weakSelf.pageNo+1];
+    }];
+    [_chatTableView headerBeginRefreshing];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -63,31 +71,6 @@
 }
 
 
-- (void)addRefreshViews
-{
-    __weak typeof(self) weakSelf = self;
-    
-    //load more
-    int pageNum = 3;
-    
-    _head = [MJRefreshHeaderView header];
-    
-    _head.beginRefreshingCallback = ^(MJRefreshBaseView *refreshView) {
-        
-        [weakSelf.chatModel addRandomItemsToDataSource:pageNum];
-        
-        if (weakSelf.chatModel.dataSource.count > pageNum) {
-            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:pageNum inSection:0];
-            
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                [weakSelf.chatTableView reloadData];
-                [weakSelf.chatTableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:NO];
-            });
-        }
-        [weakSelf.head endRefreshing];
-    };
-}
-
 //加载底部输入功能View
 - (void)loadInputFuniView {
     IFView = [[UUInputFunctionView alloc]initWithSuperVC:self isShow:YES];
@@ -96,10 +79,12 @@
 }
 
 - (void)loadChatListData:(NSArray *)chatsArray {
-    
+    self.chatModel.isTeacher = _addressbookDomain.type;
     [self.chatModel addChatInfosToDataSource:chatsArray];
     [self.chatTableView reloadData];
-    [self tableViewScrollToBottom];
+    if (_pageNo == 1) {
+        [self tableViewScrollToBottom];
+    }
 }
 
 - (void)loadBaseViewsAndData
@@ -150,7 +135,7 @@
         return;
     
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:self.chatModel.dataSource.count-1 inSection:0];
-    [self.chatTableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+    [self.chatTableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionBottom animated:NO];
 }
 
 
@@ -234,17 +219,20 @@
     }];
 }
 
-- (void)getChatInfoList {
+- (void)getChatInfoList:(NSUInteger)pageNo {
     QueryChatsVO * queryVO = [[QueryChatsVO alloc] init];
     queryVO.isTeacher = _addressbookDomain.type;
     queryVO.uuid = _addressbookDomain.teacher_uuid;
-    queryVO.pageNo = 1;
+    queryVO.pageNo = pageNo;
     
     [[KGHttpService sharedService] getTeacherOrLeaderMsgList:queryVO success:^(NSArray *msgArray) {
-        
+        if (msgArray && msgArray.count != 0) {
+            ++_pageNo;
+        }
         [self loadChatListData:msgArray];
-        
+        [_chatTableView headerEndRefreshing];
     } faild:^(NSString *errorMsg) {
+        [_chatTableView headerEndRefreshing];
         [[KGHUD sharedHud] show:self.contentView onlyMsg:errorMsg];
     }];
 }

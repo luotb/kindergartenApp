@@ -169,7 +169,7 @@
     self.btnHeadImage.frame = CGRectMake(2, 2, ChatIconWH-4, ChatIconWH-4);
     [self.btnHeadImage setBackgroundImageForState:UIControlStateNormal
                                           withURL:[NSURL URLWithString:message.strIcon]
-                                 placeholderImage:[UIImage imageNamed:@"headImage.jpeg"]];
+                                 placeholderImage:[UIImage imageNamed:message.strIcon]];
     
     // 3、设置下标
     self.labelNum.text = message.strName;
@@ -204,11 +204,11 @@
     //背景气泡图
     UIImage *normal;
     if (message.from == UUMessageFromMe) {
-        normal = [UIImage imageNamed:@"chatto_bg_normal"];
+        normal = [UIImage imageNamed:@"massage_box"];
         normal = [normal resizableImageWithCapInsets:UIEdgeInsetsMake(35, 10, 10, 22)];
     }
     else{
-        normal = [UIImage imageNamed:@"chatfrom_bg_normal"];
+        normal = [UIImage imageNamed:@"massage2_box"];
         normal = [normal resizableImageWithCapInsets:UIEdgeInsetsMake(35, 22, 10, 10)];
     }
     [self.btnContent setBackgroundImage:normal forState:UIControlStateNormal];
