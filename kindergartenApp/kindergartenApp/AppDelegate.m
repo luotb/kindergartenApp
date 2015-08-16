@@ -154,7 +154,7 @@
     
     if(![key isEqualToString:wrapperToken] || [key isEqualToString:String_DefValue_Empty]){
         
-        [KGHttpService sharedService].pushToken = wrapperToken;
+        [KGHttpService sharedService].pushToken = key;
         
         [[KGHttpService sharedService] submitPushToken:^(NSString *msgStr) {
             [wrapper setObject:key forKey:(__bridge id)kSecAttrAccount];

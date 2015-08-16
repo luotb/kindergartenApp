@@ -18,6 +18,7 @@
 @interface BaseTopicInteractViewController () <UUInputFunctionViewDelegate, UIGestureRecognizerDelegate> {
     TopicInteractionView * topicInteractionView; //点赞回复视图
     UUInputFunctionView  * IFView;
+    CGFloat emojiInputY;
 }
 
 @end
@@ -129,17 +130,36 @@
 
 //键盘通知
 - (void)keyboardWillShowOrHide:(BOOL)isShow inputY:(CGFloat)y {
+    CGFloat wH  = KGSCREEN.size.height;
+    
     if(![KGEmojiManage sharedManage].isSwitchEmoji) {
-        CGFloat wH  = KGSCREEN.size.height;
         if(isShow) {
             IFView.y = y;
             [IFView resetTextEmojiInput];
             [IFView.TextViewInput becomeFirstResponder];
             IFView.hidden = NO;
+            emojiInputY = IFView.y;
         } else {
             IFView.y = wH;
             IFView.hidden = YES;
+            IFView.TextViewInput.text = String_DefValue_Empty;
+            [KGEmojiManage sharedManage].chatHTMLInfo = [[NSMutableString alloc] initWithString:String_DefValue_Empty];
             [IFView.TextViewInput resignFirstResponder];
+        }
+    } else {
+        
+        if(IFView.TextViewInput.inputView) {
+            //表情键盘
+//            CGFloat inputH = 216;
+//            CGFloat inputY = wH - inputH - 40;
+//            IFView.y = inputY;
+//            CGFloat tempY = emojiInputY;
+//            IFView.y = tempY + 45;
+        } else {
+//            CGFloat inputH = self.keyBoardController.kboardHeight;
+//            CGFloat inputY = wH - inputH - 40;
+//            IFView.y = inputY;
+//            IFView.y = emojiInputY;
         }
     }
 }
