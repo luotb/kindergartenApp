@@ -71,7 +71,6 @@
 		2489B67D1B5ABAAB00039E70 /* AddressBooksViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2489B67B1B5ABAAB00039E70 /* AddressBooksViewController.xib */; };
 		248B6A5F1B19A39200FCB98F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 248B6A5E1B19A39200FCB98F /* main.m */; };
 		248B6A621B19A39200FCB98F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 248B6A611B19A39200FCB98F /* AppDelegate.m */; };
-		248B6A6A1B19A39200FCB98F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 248B6A691B19A39200FCB98F /* Images.xcassets */; };
 		248B6A6D1B19A39200FCB98F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 248B6A6B1B19A39200FCB98F /* LaunchScreen.xib */; };
 		248B6A921B19A9D900FCB98F /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 248B6A8B1B19A9D900FCB98F /* UIBarButtonItem+Extension.m */; };
 		248B6A931B19A9D900FCB98F /* UIColor+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 248B6A8D1B19A9D900FCB98F /* UIColor+Extension.m */; };
@@ -491,7 +490,6 @@
 		248B6A5E1B19A39200FCB98F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		248B6A601B19A39200FCB98F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		248B6A611B19A39200FCB98F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		248B6A691B19A39200FCB98F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		248B6A6C1B19A39200FCB98F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		248B6A771B19A39200FCB98F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		248B6A781B19A39200FCB98F /* kindergartenAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = kindergartenAppTests.m; sourceTree = "<group>"; };
@@ -1457,7 +1455,6 @@
 		248B6A5C1B19A39200FCB98F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				248B6A691B19A39200FCB98F /* Images.xcassets */,
 				248B6A6B1B19A39200FCB98F /* LaunchScreen.xib */,
 				248B6A9E1B19ABB700FCB98F /* pchFile.pch */,
 				248B6A5D1B19A39200FCB98F /* Info.plist */,
@@ -3148,7 +3145,6 @@
 				4D5CE7011B7E42CE002F1088 /* umeng_fb_audio_play_01@2x.png in Resources */,
 				24C46B531B5A2BC800A58F92 /* MessageViewController.xib in Resources */,
 				F4E61BE01B734A0300E5851A /* UMSCommentInputControlleriPad.xib in Resources */,
-				248B6A6A1B19A39200FCB98F /* Images.xcassets in Resources */,
 				F4E61BE61B734A0300E5851A /* UMSocialSDKResourcesNew.bundle in Resources */,
 				248B6A9D1B19AAEA00FCB98F /* KGMessageView.xib in Resources */,
 				F4E635FF1B675EB700800924 /* AnnouncementTableViewCell.xib in Resources */,

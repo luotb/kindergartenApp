@@ -904,9 +904,9 @@
 //查询和老师或者园长的信息列表
 - (void)getTeacherOrLeaderMsgList:(QueryChatsVO *)queryChatsVO success:(void (^)(NSArray * msgArray))success faild:(void (^)(NSString * errorMsg))faild {
     
-    NSString * url = [KGHttpUrl getSaveLeaderUrl];
+    NSString * url = [KGHttpUrl getQueryLeaderUrl];
     if(queryChatsVO.isTeacher) {
-        url = [KGHttpUrl getSaveTeacherUrl];
+        url = [KGHttpUrl getQueryByTeacherUrl];
     }
     
     [[AFAppDotNetAPIClient sharedClient] GET:url
@@ -916,7 +916,7 @@
                                          KGListBaseDomain * baseDomain = [KGListBaseDomain objectWithKeyValues:responseObject];
                                          
                                          if([baseDomain.ResMsg.status isEqualToString:String_Success]) {
-                                             NSArray * tempResp = [ChatInfoDomain objectArrayWithKeyValuesArray:baseDomain.data];
+                                             NSArray * tempResp = [ChatInfoDomain objectArrayWithKeyValuesArray:baseDomain.list.data];
                                              
                                              success(tempResp);
                                          } else {

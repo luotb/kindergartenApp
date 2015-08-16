@@ -19,6 +19,7 @@
     
     IBOutlet UITableView * addressbookTableView;
     AddressBookResp * addressBookList;
+    UIWebView * telWebView;
 }
 
 
@@ -49,6 +50,14 @@
     
     if(type == Number_Ten) {
         //打电话
+        if (!telWebView) {
+            telWebView = [[UIWebView alloc] init];
+        }
+        if (telWebView.superview) {
+            [telWebView removeFromSuperview];
+        }
+        [telWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel://%@",domain.tel]]]];
+        [self.view addSubview:telWebView];
     } else {
         //发消息
         ChatViewController * chatVC = [[ChatViewController alloc] init];
@@ -97,11 +106,10 @@
 {
 //    AddressbookTableViewCell * cell = [AddressbookTableViewCell cellWithTableView:tableView];
     AddressbookTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"AddressbookTableViewCell"];
-    cell.width = APPWINDOWWIDTH;
     if(indexPath.section == Number_Zero) {
         [cell resetValue:[addressBookList.listKD objectAtIndex:indexPath.row] parame:nil];
     } else {
-        AddressBookDomain * domain = [addressBookList.listKD objectAtIndex:indexPath.row];
+        AddressBookDomain * domain = [addressBookList.list objectAtIndex:indexPath.row];
         [cell resetValue:domain parame:nil];
     }
     
