@@ -66,13 +66,18 @@
 
 
 - (void)loadNavTitle {
-    titleBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 100, 30)];
-    titleBtn.titleLabel.textAlignment = NSTextAlignmentLeft;
-//    [titleBtn setText:@"校园相关"];
-//    [titleBtn setImage:@"xiajiantou" selImg:@"sjiantou"];
-    [titleBtn setImageEdgeInsets:UIEdgeInsetsMake(10, 90, 10, 0)];
-    [titleBtn addTarget:self action:@selector(titleFunBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+    
+    titleBtn = [[ItemTitleButton alloc] initWithFrame:CGRectMake(0, 0, 200, 30)];
+    [titleBtn setImage:@"xiajiantou" selImg:@"sjiantou"];
+    // 设置图片和文字
+    [titleBtn setTitle:@"校园相关"
+              forState:UIControlStateNormal];
+    // 监听标题点击
+    [titleBtn addTarget:self
+                 action:@selector(titleFunBtnClicked:)
+       forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.titleView = titleBtn;
+    
 }
 
 - (void)titleFunBtnClicked:(UIButton *)sender {

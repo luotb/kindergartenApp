@@ -29,6 +29,7 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -47,10 +48,7 @@
     nameLabel.text = domain.name;
     if(!domain.tel || [domain.tel isEqualToString:String_DefValue_Empty]) {
         telBtn.hidden = YES;
-        
-        [nameLabel mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.right.equalTo(self.mas_right).offset(55);
-        }];
+        spaceWidth.constant -= 55;
     }
     
     NSString * imgUrl = domain.img;

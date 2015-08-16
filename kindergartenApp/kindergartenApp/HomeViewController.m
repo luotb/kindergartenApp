@@ -59,9 +59,9 @@
     [super viewDidAppear:animated];
     
     [self requestGroupDate];
-    if(!groupListView) {
-        [self loadGroupListView];
-    }
+//    if(!groupListView) {
+//        [self loadGroupListView];
+//    }
 }
 
 - (void)viewDidLoad {
@@ -74,7 +74,6 @@
 - (void)loadNavTitle {
     titleBtn = [[ItemTitleButton alloc] initWithFrame:CGRectMake(0, 0, 200, 30)];
     [titleBtn setImage:@"xiajiantou" selImg:@"sjiantou"];
-    
     // 设置图片和文字
     [titleBtn setTitle:@"首页"
                  forState:UIControlStateNormal];
@@ -169,22 +168,6 @@
 }
 
 - (void)loadPhotoView {
-//    NSMutableArray * list = [[NSMutableArray alloc] initWithObjects:@"http://f.hiphotos.baidu.com/image/pic/item/a08b87d6277f9e2fa2e847f21c30e924b999f36f.jpg", @"http://a.hiphotos.baidu.com/image/pic/item/342ac65c10385343eb8dfdb69013b07ecb8088e2.jpg", @"http://h.hiphotos.baidu.com/image/pic/item/cefc1e178a82b901e592a725708da9773912efed.jpg", @"http://g.hiphotos.baidu.com/image/pic/item/dbb44aed2e738bd40df8d727a28b87d6267ff9cf.jpg", @"http://f.hiphotos.baidu.com/image/pic/item/3801213fb80e7beca940b6b12d2eb9389a506bcc.jpg", nil];
-//    
-//    ImageCollectionView * imgcollview = [[ImageCollectionView alloc] initWithFrame:CGRectMake(Number_Zero, Number_Zero, CGRectGetWidth(self.view.frame), CGRectGetHeight(photosView.frame))];
-//    imgcollview.dataSource = list;
-//    imgcollview._delegate = self;
-//    
-//    [photosView addSubview:imgcollview];
-//    imgcollview.backgroundColor = [UIColor grayColor];
-//    [imgcollview mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.top.equalTo(photosView.mas_top);
-//        make.left.equalTo(photosView.mas_left);
-//        make.right.equalTo(photosView.mas_right);
-//        make.bottom.equalTo(photosView.mas_bottom);
-//    }];
-//    
-//    [imgcollview showImageCollectionView];
     
     sharedAdView = [[BaiduMobAdView alloc] init];
     sharedAdView.AdType = BaiduMobAdViewTypeBanner;
@@ -193,6 +176,13 @@
     [photosView addSubview:sharedAdView];
     [sharedAdView start];
 }
+
+- (void)viewWillAppear:(BOOL)animated{
+    if (sharedAdView) {
+        [sharedAdView start];
+    }
+}
+
 
 #pragma mark - 百度广告代理方法
 - (NSString *)publisherId{

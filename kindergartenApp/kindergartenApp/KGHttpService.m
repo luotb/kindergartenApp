@@ -997,7 +997,7 @@
                                          KGListBaseDomain * baseDomain = [KGListBaseDomain objectWithKeyValues:responseObject];
                                          
                                          if([baseDomain.ResMsg.status isEqualToString:String_Success]) {
-                                             NSArray * tempResp = [FavoritesDomain objectArrayWithKeyValuesArray:[responseObject objectForKey:baseDomain.list.data]];
+                                             NSArray * tempResp = [FavoritesDomain objectArrayWithKeyValuesArray:baseDomain.list.data];
                                              
                                              success(tempResp);
                                          } else {

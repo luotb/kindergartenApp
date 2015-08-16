@@ -33,6 +33,7 @@
     addressbookTableView.separatorColor = [UIColor clearColor];
     addressbookTableView.delegate   = self;
     addressbookTableView.dataSource = self;
+    [addressbookTableView registerNib:[UINib nibWithNibName:@"AddressbookTableViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"AddressbookTableViewCell"];
     
     [self getTableData];
     
@@ -94,7 +95,9 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    AddressbookTableViewCell * cell = [AddressbookTableViewCell cellWithTableView:tableView];
+//    AddressbookTableViewCell * cell = [AddressbookTableViewCell cellWithTableView:tableView];
+    AddressbookTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"AddressbookTableViewCell"];
+    cell.width = APPWINDOWWIDTH;
     if(indexPath.section == Number_Zero) {
         [cell resetValue:[addressBookList.listKD objectAtIndex:indexPath.row] parame:nil];
     } else {
