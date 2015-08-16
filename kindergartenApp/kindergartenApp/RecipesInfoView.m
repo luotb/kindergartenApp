@@ -109,16 +109,13 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if(section==Number_Zero || section==[self.tableDataSource count]-Number_One) {
-        
-    }
     return Number_One;
 }
 
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     if(section == Number_Zero) {
-        return 0;
+        return 15;
     } else {
         return 30;
     }
@@ -154,7 +151,7 @@
 
 - (UITableViewCell *)loadStudentInfoCell:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     RecipesStudentInfoTableViewCell * cell = [RecipesStudentInfoTableViewCell cellWithTableView:tableView];
-    cell.backgroundColor = [UIColor clearColor];
+    cell.backgroundColor = KGColorFrom16(0xff4966);
     [cell resetCellParam:_recipesDomain];
     return cell;
 }
@@ -206,6 +203,7 @@
     for(CookbookDomain * cookbook in recipesVO.cookbookArray) {
         
         imageView = [[UIImageView alloc] initWithFrame:CGRectMake(CELLPADDING + index * w, row * h, w, h)];
+        imageView.backgroundColor = [UIColor clearColor];
         [recipesImgsView addSubview:imageView];
         
         [imageView sd_setImageWithURL:[NSURL URLWithString:cookbook.img] placeholderImage:nil options:SDWebImageLowPriority completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
