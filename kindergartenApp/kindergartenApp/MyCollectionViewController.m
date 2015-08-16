@@ -39,7 +39,6 @@
 
 //根据页数获取 数据
 - (void)getListWithPage:(NSUInteger)pageNo{
-    NSLog(@"requset%ld",pageNo);
     [[KGHttpService sharedService] getFavoritesList:pageNo success:^(NSArray *favoritesArray) {
         if (favoritesArray && favoritesArray.count != 0) {
             [_dataArray addObjectsFromArray:favoritesArray];
@@ -66,7 +65,6 @@
     _tableView.dataSource = self;
     _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     _tableView.backgroundColor = KGColorFrom16(0xE7E7EE);
-    [_tableView registerNib:[UINib nibWithNibName:@"CollectArticleTableViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"CollectArticleTableViewCell"];
     [_tableView registerNib:[UINib nibWithNibName:@"CollectNoticeTableViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"CollectNoticeTableViewCell"];
     [self.view addSubview:_tableView];
 }
@@ -82,33 +80,45 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    AnnouncementDomain * data = _dataArray[indexPath.row];
-    UITableViewCell * cell;
-    if (data.topicType == Topic_Articles) {
-        cell = [tableView dequeueReusableCellWithIdentifier:@"CollectArticleTableViewCell"];
-        CollectArticleTableViewCell * newCell = (CollectArticleTableViewCell *)cell;
-        newCell.data = data;
-
-    }else if (data.topicType == Topic_XYGG){
-        cell = [tableView dequeueReusableCellWithIdentifier:@"CollectNoticeTableViewCell"];
-        CollectNoticeTableViewCell * newCell = (CollectNoticeTableViewCell *)cell;
-        newCell.data = data;
-    }
+    FavoritesDomain * data = _dataArray[indexPath.row];
+    CollectNoticeTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"CollectNoticeTableViewCell"];
+    cell.data = data;
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    AnnouncementDomain * data = _dataArray[indexPath.row];
-    if (data.topicType == Topic_XYGG) {
-        return 78;
-    }else if (data.topicType == Topic_Articles){
-        return 133;
-    }
-    return 0;
+    return 65;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    FavoritesDomain * data = _dataArray[indexPath.row];
+    switch (data.type) {
+        case Topic_Articles:{
+        GiftwareArticlesInfoViewController * vc = [[GiftwareArticlesInfoViewController alloc] init];
+            vc.annuuid = data.reluuid;
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+            break;
+        case Topic_XYGG:{
+            AnnouncementInfoViewController * vc = [[AnnouncementInfoViewController alloc] init];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+            break;
+        case Topic_ZSJH:{
+            IntroductionViewController * vc = [[IntroductionViewController alloc] init];
+            vc.isNoXYXG = YES;
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+            break;
+        case Topic_HTML:{
+            if (data.url) {
+                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:data.url]];
+            }
+        }
+        default:
+            break;
+    }
 }
 
 

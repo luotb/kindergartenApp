@@ -7,21 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "AnnouncementDomain.h"
+#import "FavoritesDomain.h"
 #import "KGHttpService.h"
 #import "KGNSStringUtil.h"
 #import "KGDateUtil.h"
 #import "UIImageView+WebCache.h"
 #import "UIView+Extension.h"
+#import "UIColor+Extension.h"
 
 @interface CollectNoticeTableViewCell : UITableViewCell
 
 @property (strong, nonatomic) IBOutlet UIImageView *flagImageView;
 @property (strong, nonatomic) IBOutlet UILabel *myTitleLabel;
-@property (strong, nonatomic) IBOutlet UILabel *contentLabel;
-@property (strong, nonatomic) IBOutlet UILabel *subLabel;
 @property (strong, nonatomic) IBOutlet UILabel *timeLabel;
+@property (strong, nonatomic) IBOutlet UILabel *fromLabel;
 
-@property (strong, nonatomic) AnnouncementDomain * data;
+@property (strong, nonatomic) FavoritesDomain * data;
 
 @end
