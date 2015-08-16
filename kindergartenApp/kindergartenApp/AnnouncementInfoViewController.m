@@ -31,6 +31,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.title = announcementDomain.title;
+    
     myWebView.backgroundColor = [UIColor clearColor];
     myWebView.opaque = NO;
     myWebView.delegate = self;
