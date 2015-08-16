@@ -94,12 +94,12 @@
 //加载帖子内容
 - (void)initContentView {
     
-    MLEmojiLabel  * topicTextView = [[MLEmojiLabel alloc] init];
+    MLEmojiLabel  * topicTextView = [MLEmojiLabel new];
     topicTextView.numberOfLines = 0;
     topicTextView.font = [UIFont systemFontOfSize:12.0f];
     topicTextView.lineBreakMode = NSLineBreakByCharWrapping;
-    topicTextView.isNeedAtAndPoundSign = YES;
-    topicTextView.customEmojiRegex = @"\\[[a-zA-Z0-9\\u4e00-\\u9fa5]+\\]";
+    [topicTextView setBackgroundColor:[UIColor brownColor]];
+    topicTextView.customEmojiRegex = String_DefValue_EmojiRegex;
     [self addSubview:topicTextView];
     
     _topicTextView = topicTextView;
@@ -159,8 +159,7 @@
     if(topic.content && [topic.content length]>Number_Zero) {
         self.topicTextView.frame = self.topicFrame.topicTextViewF;
 //        self.topicTextView.text = topic.content;
-        [self.topicTextView setEmojiText:topic.content];
-        [self.topicTextView sizeToFit];
+        [self.topicTextView setText:topic.content];
     }
     
     if(topic.imgs && topic.imgs.length > Number_Zero) {

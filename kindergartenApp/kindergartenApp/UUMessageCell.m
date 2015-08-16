@@ -73,7 +73,7 @@
         
         [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(UUAVAudioPlayerDidFinishPlay) name:@"VoicePlayHasInterrupt" object:nil];
         
-        self.contentTextView = [[MLEmojiLabel alloc] init];
+        self.contentTextView = [MLEmojiLabel new];
         self.contentTextView.numberOfLines = 0;
         self.contentTextView.font = [UIFont systemFontOfSize:14.0f];
         self.contentTextView.lineBreakMode = NSLineBreakByCharWrapping;

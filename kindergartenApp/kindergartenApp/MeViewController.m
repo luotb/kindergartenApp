@@ -47,12 +47,6 @@
 }
 
 
-
-- (void)logoutBtnClicked {
-    UIAlertView * alert = [[UIAlertView alloc] initWithTitle:@"提示" message:@"确认退出" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
-    [alert show];
-}
-
 #pragma UIAlertView delegate
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
@@ -82,7 +76,7 @@
 
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return [studentMArray count] + Number_Three;
+    return [studentMArray count] + Number_Two;
 }
 
 
@@ -132,9 +126,6 @@
         case Number_One:
             [cell resetCellParam:@"设置" img:@"meshezhi"];
             break;
-        case Number_Two:
-            [cell resetCellParam:@"退出登录" img:nil];
-            break;
     }
     
     return cell;
@@ -178,9 +169,6 @@
             SettingViewController * vc = [[SettingViewController alloc] init];
             [self.navigationController pushViewController:vc animated:YES];
         }
-            break;
-        case Number_Two:
-            [self logoutBtnClicked];
             break;
     }
 }

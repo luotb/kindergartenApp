@@ -11,6 +11,7 @@
 #import "KGHttpService.h"
 #import "KGHttpUrl.h"
 #import "UIButton+Extension.h"
+#import "ItemTitleButton.h"
 
 @interface IntroductionViewController () <UIGestureRecognizerDelegate> {
     
@@ -66,12 +67,20 @@
 
 
 - (void)loadNavTitle {
-    titleBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 100, 30)];
-    titleBtn.titleLabel.textAlignment = NSTextAlignmentLeft;
-//    [titleBtn setText:@"校园相关"];
-//    [titleBtn setImage:@"xiajiantou" selImg:@"sjiantou"];
-    [titleBtn setImageEdgeInsets:UIEdgeInsetsMake(10, 90, 10, 0)];
-    [titleBtn addTarget:self action:@selector(titleFunBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+    titleBtn = [[ItemTitleButton alloc] initWithFrame:CGRectMake(0, 0, 100, 30)];
+    [titleBtn setImage:@"xiajiantou" selImg:@"sjiantou"];
+    
+    // 设置图片和文字
+    if(_isNoXYXG) {
+        [titleBtn setText:@"校园介绍"];
+    } else {
+        [titleBtn setText:@"招生计划"];
+    }
+    
+    // 监听标题点击
+    [titleBtn addTarget:self
+                 action:@selector(titleFunBtnClicked:)
+       forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.titleView = titleBtn;
 }
 
