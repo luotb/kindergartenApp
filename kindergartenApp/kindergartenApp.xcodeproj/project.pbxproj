@@ -149,6 +149,7 @@
 		24E634821B6FB9CC00A23A66 /* RecipesHeadTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24E634801B6FB9CC00A23A66 /* RecipesHeadTableViewCell.xib */; };
 		4D077B1D1B8038BE00FFD5CB /* CollectNoticeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D077B1B1B8038BE00FFD5CB /* CollectNoticeTableViewCell.m */; };
 		4D077B1E1B8038BE00FFD5CB /* CollectNoticeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D077B1C1B8038BE00FFD5CB /* CollectNoticeTableViewCell.xib */; };
+		4D077B211B8081BC00FFD5CB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D077B201B8081BC00FFD5CB /* Images.xcassets */; };
 		4D5CE6C81B7E3F76002F1088 /* FavoritesListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D5CE6C61B7E3F76002F1088 /* FavoritesListViewController.m */; };
 		4D5CE6C91B7E3F76002F1088 /* FavoritesListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D5CE6C71B7E3F76002F1088 /* FavoritesListViewController.xib */; };
 		4D5CE6F41B7E42CE002F1088 /* UMFeedbackLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4D5CE6CB1B7E42CE002F1088 /* UMFeedbackLocalizable.strings */; };
@@ -506,7 +507,6 @@
 		248B6A991B19AAD200FCB98F /* KGMessageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KGMessageView.h; sourceTree = "<group>"; };
 		248B6A9A1B19AAD200FCB98F /* KGMessageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KGMessageView.m; sourceTree = "<group>"; };
 		248B6A9C1B19AAEA00FCB98F /* KGMessageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KGMessageView.xib; sourceTree = "<group>"; };
-		248B6A9E1B19ABB700FCB98F /* pchFile.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = pchFile.pch; sourceTree = "<group>"; };
 		248B6AA81B19AD7A00FCB98F /* KGBaseDomain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KGBaseDomain.h; sourceTree = "<group>"; };
 		248B6AA91B19AD7A00FCB98F /* KGBaseDomain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KGBaseDomain.m; sourceTree = "<group>"; };
 		248B6AAB1B19B07500FCB98F /* SystemClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SystemClass.h; sourceTree = "<group>"; };
@@ -637,6 +637,8 @@
 		4D077B1A1B8038BE00FFD5CB /* CollectNoticeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectNoticeTableViewCell.h; sourceTree = "<group>"; };
 		4D077B1B1B8038BE00FFD5CB /* CollectNoticeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectNoticeTableViewCell.m; sourceTree = "<group>"; };
 		4D077B1C1B8038BE00FFD5CB /* CollectNoticeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectNoticeTableViewCell.xib; sourceTree = "<group>"; };
+		4D077B1F1B8081A600FFD5CB /* pchFile.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pchFile.pch; sourceTree = "<group>"; };
+		4D077B201B8081BC00FFD5CB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		4D5CE6C51B7E3F76002F1088 /* FavoritesListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoritesListViewController.h; sourceTree = "<group>"; };
 		4D5CE6C61B7E3F76002F1088 /* FavoritesListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoritesListViewController.m; sourceTree = "<group>"; };
 		4D5CE6C71B7E3F76002F1088 /* FavoritesListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FavoritesListViewController.xib; sourceTree = "<group>"; };
@@ -1455,8 +1457,9 @@
 		248B6A5C1B19A39200FCB98F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4D077B201B8081BC00FFD5CB /* Images.xcassets */,
+				4D077B1F1B8081A600FFD5CB /* pchFile.pch */,
 				248B6A6B1B19A39200FCB98F /* LaunchScreen.xib */,
-				248B6A9E1B19ABB700FCB98F /* pchFile.pch */,
 				248B6A5D1B19A39200FCB98F /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -3095,6 +3098,7 @@
 				24AA0B4D1B690FA800DAC03B /* ChatViewController.xib in Resources */,
 				4D5CE76C1B7E4333002F1088 /* AdvanceViewController.xib in Resources */,
 				24A175FF1B5550B000295997 /* LoginViewController.xib in Resources */,
+				4D077B211B8081BC00FFD5CB /* Images.xcassets in Resources */,
 				4D5CE6FF1B7E42CE002F1088 /* umeng_fb_audio_dialog_cancel@2x.png in Resources */,
 				4D5CE7021B7E42CE002F1088 /* umeng_fb_audio_play_02@2x.png in Resources */,
 				F4EC98891B61F64400F5721F /* StudentMomOrDodInfoViewController.xib in Resources */,

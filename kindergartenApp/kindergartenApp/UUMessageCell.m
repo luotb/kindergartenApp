@@ -204,11 +204,11 @@
     //背景气泡图
     UIImage *normal;
     if (message.from == UUMessageFromMe) {
-        normal = [UIImage imageNamed:@"chatto_bg_normal"];
+        normal = [UIImage imageNamed:@"massage_box"];
         normal = [normal resizableImageWithCapInsets:UIEdgeInsetsMake(35, 10, 10, 22)];
     }
     else{
-        normal = [UIImage imageNamed:@"chatfrom_bg_normal"];
+        normal = [UIImage imageNamed:@"massage2_box"];
         normal = [normal resizableImageWithCapInsets:UIEdgeInsetsMake(35, 22, 10, 10)];
     }
     [self.btnContent setBackgroundImage:normal forState:UIControlStateNormal];
