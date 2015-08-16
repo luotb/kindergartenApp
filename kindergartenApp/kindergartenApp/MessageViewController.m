@@ -20,6 +20,7 @@
 #import "RecipesViewController.h"
 #import "GiftwareArticlesInfoViewController.h"
 #import "AnnouncementInfoViewController.h"
+#import "MessageTableViewCell.h"
 
 @interface MessageViewController () <KGReFreshViewDelegate> {
     ReFreshTableViewController * reFreshView;
@@ -126,9 +127,24 @@
     }
     
     if(vc) {
+        MessageTableViewCell * cell = (MessageTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
+        [self readMessage:domain cell:cell];
+        
         vc.title = domain.title;
         [self.navigationController pushViewController:vc animated:YES];
     }
+}
+
+//readMsg
+- (void)readMessage:(MessageDomain *)domain cell:(MessageTableViewCell *)cell {
+    [[KGHttpService sharedService] readMessage:domain.uuid success:^(NSString *msgStr) {
+        domain.isread = YES;
+        
+        cell.unReadIconImageView.hidden = YES;
+        
+    } faild:^(NSString *errorMsg) {
+        
+    }];
 }
 
 

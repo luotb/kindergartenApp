@@ -692,6 +692,24 @@
                                      }];
 }
 
+//读取消息
+- (void)readMessage:(NSString *)msguuid success:(void (^)(NSString * msgStr))success faild:(void (^)(NSString * errorMsg))faild {
+    
+    NSDictionary * dic = @{@"uuid" : msguuid};
+    
+    [self getServerJson:[KGHttpUrl getReadMsgUrl] params:dic success:^(KGBaseDomain *baseDomain) {
+        
+        if([baseDomain.ResMsg.status isEqualToString:String_Success]) {
+            success(baseDomain.ResMsg.message);
+        } else {
+            faild(baseDomain.ResMsg.message);
+        }
+        
+    } faild:^(NSString *errorMessage) {
+        faild(errorMessage);
+    }];
+}
+
 
 #pragma 评价老师 begin
 

@@ -15,6 +15,7 @@
     UITableView    * timetableTableView;
     NSMutableArray * timetableDataSourceMArray;
     TopicInteractionView * topicView;
+    UITableViewCell * topicViewCell;
 }
 
 @property (strong, nonatomic) NSMutableArray   * tableDataSource; //<TimetableItemVO>

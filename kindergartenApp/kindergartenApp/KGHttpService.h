@@ -152,6 +152,8 @@
 //分页获取消息列表
 - (void)getMessageList:(PageInfoDomain *)pageInfo success:(void (^)(NSArray * messageArray))success faild:(void (^)(NSString * errorMsg))faild;
 
+//读取消息
+- (void)readMessage:(NSString *)msguuid success:(void (^)(NSString * msgStr))success faild:(void (^)(NSString * errorMsg))faild;
 
 
 // 评价老师 begin

@@ -80,7 +80,7 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k3R-ZI-PAP">
                             <rect key="frame" x="0.0" y="520" width="320" height="48"/>
                             <subviews>
-                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nTv-rw-KYu" userLabel="View1">
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nTv-rw-KYu" userLabel="View1">
                                     <rect key="frame" x="0.0" y="0.0" width="80" height="48"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="zan1" translatesAutoresizingMaskIntoConstraints="NO" id="Nqq-zx-brt">
@@ -104,8 +104,11 @@
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="48" id="Cre-yF-jwk"/>
+                                    </constraints>
                                 </view>
-                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5ip-Vd-oVI" userLabel="View2">
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5ip-Vd-oVI" userLabel="View2">
                                     <rect key="frame" x="80" y="0.0" width="80" height="48"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="fengxiang1" translatesAutoresizingMaskIntoConstraints="NO" id="xQ7-US-5Uq">
@@ -128,8 +131,11 @@
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="48" id="R6i-m1-etz"/>
+                                    </constraints>
                                 </view>
-                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aaZ-NJ-RAV" userLabel="View3">
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aaZ-NJ-RAV" userLabel="View3">
                                     <rect key="frame" x="160" y="0.0" width="80" height="48"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="shoucang1" translatesAutoresizingMaskIntoConstraints="NO" id="yNZ-Ye-nrD">
@@ -153,8 +159,11 @@
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="48" id="DtM-TY-OPl"/>
+                                    </constraints>
                                 </view>
-                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bj4-1P-tLi" userLabel="View4">
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bj4-1P-tLi" userLabel="View4">
                                     <rect key="frame" x="240" y="0.0" width="80" height="48"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pinglun1" translatesAutoresizingMaskIntoConstraints="NO" id="AUi-wI-pVN">
@@ -177,11 +186,30 @@
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="48" id="S1O-E1-Oos"/>
+                                    </constraints>
                                 </view>
                             </subviews>
                             <color key="backgroundColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
+                                <constraint firstItem="5ip-Vd-oVI" firstAttribute="top" secondItem="k3R-ZI-PAP" secondAttribute="top" id="1jj-WD-2g6"/>
+                                <constraint firstItem="5ip-Vd-oVI" firstAttribute="leading" secondItem="nTv-rw-KYu" secondAttribute="trailing" id="2ls-mf-Ykh"/>
+                                <constraint firstItem="aaZ-NJ-RAV" firstAttribute="top" secondItem="k3R-ZI-PAP" secondAttribute="top" id="4Cv-w0-ifc"/>
+                                <constraint firstItem="bj4-1P-tLi" firstAttribute="leading" secondItem="aaZ-NJ-RAV" secondAttribute="trailing" id="65E-Cx-p5d"/>
+                                <constraint firstItem="aaZ-NJ-RAV" firstAttribute="width" secondItem="5ip-Vd-oVI" secondAttribute="width" id="8lS-eH-FQA"/>
+                                <constraint firstItem="nTv-rw-KYu" firstAttribute="width" secondItem="5ip-Vd-oVI" secondAttribute="width" id="BVa-30-O3p"/>
+                                <constraint firstItem="aaZ-NJ-RAV" firstAttribute="leading" secondItem="5ip-Vd-oVI" secondAttribute="trailing" id="F9p-xB-000"/>
+                                <constraint firstItem="nTv-rw-KYu" firstAttribute="leading" secondItem="k3R-ZI-PAP" secondAttribute="leading" id="RMx-7o-Fbu"/>
+                                <constraint firstAttribute="bottom" secondItem="nTv-rw-KYu" secondAttribute="bottom" id="T5H-YV-bng"/>
+                                <constraint firstItem="bj4-1P-tLi" firstAttribute="width" secondItem="aaZ-NJ-RAV" secondAttribute="width" id="XYH-TN-P61"/>
+                                <constraint firstAttribute="bottom" secondItem="5ip-Vd-oVI" secondAttribute="bottom" id="fEX-mT-8GE"/>
+                                <constraint firstAttribute="bottom" secondItem="aaZ-NJ-RAV" secondAttribute="bottom" id="fFl-SN-lXY"/>
                                 <constraint firstAttribute="height" constant="48" id="q0X-SC-kHx"/>
+                                <constraint firstItem="nTv-rw-KYu" firstAttribute="top" secondItem="k3R-ZI-PAP" secondAttribute="top" id="tkU-KE-nLe"/>
+                                <constraint firstAttribute="trailing" secondItem="bj4-1P-tLi" secondAttribute="trailing" id="tod-oz-Lqa"/>
+                                <constraint firstAttribute="bottom" secondItem="bj4-1P-tLi" secondAttribute="bottom" id="xPs-VF-PiY"/>
+                                <constraint firstItem="bj4-1P-tLi" firstAttribute="top" secondItem="k3R-ZI-PAP" secondAttribute="top" id="yi2-vA-5SP"/>
                             </constraints>
                         </view>
                     </subviews>

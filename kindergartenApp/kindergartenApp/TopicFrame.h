@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "TopicDomain.h"
+#import "TopicInteractionFrame.h"
 
 @interface TopicFrame : NSObject
 
@@ -30,6 +31,7 @@
 
 /** 帖子互动视图 */
 @property (nonatomic,assign) CGRect topicInteractionViewF;
+@property (nonatomic,strong) TopicInteractionFrame * topicInteractionFrame;
 
 /** 分割线 */
 @property (nonatomic,assign) CGRect levelabF;

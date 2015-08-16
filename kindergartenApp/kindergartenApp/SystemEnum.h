@@ -24,6 +24,7 @@ typedef enum {
 }APPConfigType;
 
 
+//模块类型
 typedef enum {
     Topic_XYGG        = 0,  //校园公告
     Topic_Announcement= 1,  //老师公告
@@ -38,5 +39,15 @@ typedef enum {
     Topic_SignRecord  = 13, //与孩子的签到记录
     Topic_HTML        = 10  //html类型,直接去url地址,调用浏览器显示
 } KGTopicType;
+
+
+//浏览类型
+typedef enum {
+    BrowseType_Empty = 0,  //空
+    BrowseType_Time  = 1,  //发帖时间
+    BrowseType_Count = 2   //浏览次数
+} KGTopicBrowseType;
+
+
 
 

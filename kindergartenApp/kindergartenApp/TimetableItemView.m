@@ -50,7 +50,6 @@
     if(_tableDataSource && [_tableDataSource count]>Number_Zero) {
         [timetableTableView reloadData];
     }
-    NSLog(@"table:%@", NSStringFromCGRect(timetableTableView.frame));
 }
 
 
@@ -91,7 +90,7 @@
     if(_tableDataSource && [_tableDataSource count]>Number_Zero) {
         [cell resetTimetable:[_tableDataSource objectAtIndex:indexPath.row]];
         cell.TimetableItemCellBlock = ^(TimetableDomain * domain){
-            [self resetDZReply:domain];
+            [self loadDZReply:domain];
         };
     }
     return cell;
@@ -111,11 +110,9 @@
         
         if(timetableItemVO.timetableMArray && [timetableItemVO.timetableMArray count]>Number_Zero) {
             TimetableDomain * domain = [timetableItemVO.timetableMArray objectAtIndex:Number_Zero];
+            topicViewCell = cell;
             
-            CGRect frame = CGRectMake(Number_Zero, Number_Fifteen, KGSCREEN.size.width, cell.height);
-            topicView = [[TopicInteractionView alloc] initWithFrame:frame];
-            [cell addSubview:topicView];
-            [self resetDZReply:domain];
+            [self loadDZReply:domain];
         }
     }
     
@@ -123,15 +120,35 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if([_tableDataSource count]>Number_Zero && indexPath.row == [_tableDataSource count]) {
+        return 160;
+    }
     return 148;
 }
 
 //设置点赞回复数据
-- (void)resetDZReply:(TimetableDomain *)domain {
-    [topicView loadFunView:domain.dianzan reply:domain.replyPage];
-    topicView.topicType = Topic_Recipes;
-    topicView.topicUUID = domain.uuid;
-    [topicView loadFunView:domain.dianzan reply:domain.replyPage];
+- (void)loadDZReply:(TimetableDomain *)domain {
+    if(topicView) {
+        [topicView removeFromSuperview];
+    }
+    
+    if(domain) {
+        TopicInteractionDomain * topicInteractionDomain = [TopicInteractionDomain new];
+        topicInteractionDomain.dianzan   = domain.dianzan;
+        topicInteractionDomain.replyPage = domain.replyPage;
+        topicInteractionDomain.topicType = Topic_JPKC;
+        topicInteractionDomain.topicUUID = domain.uuid;
+        
+        TopicInteractionFrame * topicFrame = [TopicInteractionFrame new];
+        topicFrame.topicInteractionDomain  = topicInteractionDomain;
+        
+        CGRect frame = CGRectMake(Number_Zero, Number_Fifteen, KGSCREEN.size.width, topicFrame.topicInteractHeight);
+        topicView = [[TopicInteractionView alloc] initWithFrame:frame];
+        [topicViewCell addSubview:topicView];
+        topicView.topicInteractionFrame = topicFrame;
+        
+        //续约刷新cell的height
+    }
 }
 
 

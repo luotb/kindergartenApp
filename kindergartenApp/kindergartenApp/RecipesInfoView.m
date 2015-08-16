@@ -204,6 +204,8 @@
         
         imageView = [[UIImageView alloc] initWithFrame:CGRectMake(CELLPADDING + index * w, row * h, w, h)];
         imageView.backgroundColor = [UIColor clearColor];
+        [imageView setClipsToBounds:YES];
+        [imageView setContentMode:UIViewContentModeScaleToFill];
         [recipesImgsView addSubview:imageView];
         
         [imageView sd_setImageWithURL:[NSURL URLWithString:cookbook.img] placeholderImage:nil options:SDWebImageLowPriority completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
@@ -247,15 +249,20 @@
         textView.editable = NO;
         [cell addSubview:textView];
         
+        TopicInteractionDomain * topicInteractionDomain = [TopicInteractionDomain new];
+        topicInteractionDomain.dianzan   = _recipesDomain.dianzan;
+        topicInteractionDomain.replyPage = _recipesDomain.replyPage;
+        topicInteractionDomain.topicType = Topic_Recipes;
+        topicInteractionDomain.topicUUID = _recipesDomain.uuid;
+        
+        TopicInteractionFrame * topicFrame = [TopicInteractionFrame new];
+        topicFrame.topicInteractionDomain  = topicInteractionDomain;
         
         CGFloat y = CGRectGetMaxY(textView.frame) + Number_Ten;
-        CGRect frame = CGRectMake(Number_Zero, y, KGSCREEN.size.width, 56);
+        CGRect frame = CGRectMake(Number_Zero, y, KGSCREEN.size.width, topicFrame.topicInteractHeight);
         TopicInteractionView * topicView = [[TopicInteractionView alloc] initWithFrame:frame];
-        [topicView loadFunView:_recipesDomain.dianzan reply:_recipesDomain.replyPage];
-        topicView.topicType = Topic_Recipes;
-        topicView.topicUUID = _recipesDomain.uuid;
         [cell addSubview:topicView];
-        [topicView loadFunView:_recipesDomain.dianzan reply:_recipesDomain.replyPage];
+        topicView.topicInteractionFrame = topicFrame;
     }
     
     return cell;

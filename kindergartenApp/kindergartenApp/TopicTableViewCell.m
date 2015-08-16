@@ -51,7 +51,7 @@
         [self initContentView];
         
         //加载帖子互动视图
-//        [self initTopicInteractionView];
+        [self initTopicInteractionView];
         
         //分割线
         [self initLeve];
@@ -95,10 +95,10 @@
 - (void)initContentView {
     
     MLEmojiLabel  * topicTextView = [MLEmojiLabel new];
-    topicTextView.numberOfLines = 0;
-    topicTextView.font = [UIFont systemFontOfSize:12.0f];
+    topicTextView.numberOfLines = Number_Zero;
+    topicTextView.font = [UIFont systemFontOfSize:APPUILABELFONTNO12];
     topicTextView.lineBreakMode = NSLineBreakByCharWrapping;
-    [topicTextView setBackgroundColor:[UIColor brownColor]];
+//    [topicTextView setBackgroundColor:[UIColor brownColor]];
     topicTextView.customEmojiRegex = String_DefValue_EmojiRegex;
     [self addSubview:topicTextView];
     
@@ -128,7 +128,7 @@
 -(void)initLeve{
     UILabel * levelab = [[UILabel alloc] init];
     levelab.backgroundColor = KGColor(225, 225, 225, 1);
-    levelab.backgroundColor = [UIColor redColor];
+//    levelab.backgroundColor = [UIColor redColor];
     [self addSubview:levelab];
     
     _levelab = levelab;
@@ -171,15 +171,10 @@
     }
     
     //帖子互动视图
-    [self initTopicInteractionView];
-    [self.topicInteractionView loadFunView:self.topicFrame.topic.dianzan reply:self.topicFrame.topic.replyPage];
-    self.topicInteractionView.topicUUID = self.topicFrame.topic.uuid;
-    self.topicInteractionView.topicType = Topic_Interact;
     self.topicInteractionView.frame = self.topicFrame.topicInteractionViewF;
+    self.topicInteractionView.topicInteractionFrame = self.topicFrame.topicInteractionFrame;
     
     //分割线
-    CGRect levelabFrame = self.topicFrame.levelabF;
-    self.topicFrame.levelabF = CGRectMake(levelabFrame.origin.x, CGRectGetMaxY(self.topicInteractionView.frame), levelabFrame.size.width, 0.5);
     self.levelab.frame = self.topicFrame.levelabF;
 }
 

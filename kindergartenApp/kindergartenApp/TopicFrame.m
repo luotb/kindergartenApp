@@ -9,6 +9,7 @@
 #import "TopicFrame.h"
 #import "TopicDomain.h"
 #import "MLEmojiLabel.h"
+#import "TopicInteractionDomain.h"
 
 @implementation TopicFrame
 
@@ -61,7 +62,7 @@
         //内容 文本+表情
         CGSize size = [MLEmojiLabel boundingRectWithSize:_topic.content w:topicContentW font:APPUILABELFONTNO14];
         
-        self.topicTextViewF = CGRectMake(topicContentX, topicTextViewY, topicContentW, size.height);
+        self.topicTextViewF = CGRectMake(topicContentX, topicTextViewY, topicContentW, size.height + 5);
         /* cell的高度 */
         self.cellHeight = CGRectGetMaxY(self.topicTextViewF);
     }
@@ -93,51 +94,26 @@
     //帖子互动
     [self setTopicInterActionRect];
     
-    self.levelabF = CGRectMake(0, self.cellHeight, cellW, 0.5);
+    self.levelabF = CGRectMake(0, self.cellHeight + TopicCellBorderW, cellW, 0.5);
     
-    self.cellHeight = CGRectGetMaxY(self.levelabF);
+    self.cellHeight = CGRectGetMaxY(self.levelabF) + TopicCellBorderW;
 }
 
-//计算点赞回复的rect
+//点赞回复的rect
 - (void)setTopicInterActionRect {
-    // cell的宽度
-    CGFloat cellW = KGSCREEN.size.width;
-    CGFloat height = Number_Zero;
+    TopicInteractionDomain * domain = [TopicInteractionDomain new];
+    domain.dianzan = _topic.dianzan;
+    domain.replyPage = _topic.replyPage;
+    domain.topicType = Topic_Interact;
+    domain.topicUUID = _topic.uuid;
+    domain.borwseType = BrowseType_Time;
+    domain.createTime = _topic.create_time;
     
-    //点赞回复功能H
-    height += CELLPADDING;
+    self.topicInteractionFrame = [TopicInteractionFrame new];
+    self.topicInteractionFrame.topicInteractionDomain  = domain;
     
-    //点赞列表
-    if(_topic.dianzan) {
-        height += TopicCellBorderW + TopicCellBorderW;
-    }
+    self.topicInteractionViewF = CGRectMake(Number_Zero, self.cellHeight + TopicCellBorderW, KGSCREEN.size.width, self.topicInteractionFrame.topicInteractHeight);
     
-    if(_topic.replyPage && _topic.replyPage.data && [_topic.replyPage.data count]>Number_Zero) {
-        NSMutableString * replyStr = [[NSMutableString alloc] init];
-        
-        NSInteger count = Number_Zero;
-        for(ReplyDomain * reply in _topic.replyPage.data) {
-            
-            if(count < Number_Five) {
-                [replyStr appendFormat:@"%@:%@\n", reply.create_user, reply.content ? reply.title : @""];
-            }
-            count++;
-        }
-        CGSize size = [MLEmojiLabel boundingRectWithSize:replyStr w:CELLCONTENTWIDTH font:APPUILABELFONTNO12];
-        height += (size.height + TopicCellBorderW);
-        
-        if(count > Number_Four) {
-            height += 30; //显示更多 按钮项
-        }
-    }
-    
-    //回复输入框
-    height += 40;
-    
-    
-    self.topicInteractionViewF = CGRectMake(Number_Zero, self.cellHeight + TopicCellBorderW, cellW, height);
-    
-    /* cell的高度 */
     self.cellHeight = CGRectGetMaxY(self.topicInteractionViewF);
 }
 

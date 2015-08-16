@@ -12,6 +12,7 @@
 
 @interface MessageTableViewCell : ReFreshBaseCell
 
+@property (strong, nonatomic) IBOutlet UIImageView * unReadIconImageView;
 @property (strong, nonatomic) IBOutlet UIImageView * headImageView;
 @property (strong, nonatomic) IBOutlet UILabel * titleLabel;
 @property (strong, nonatomic) IBOutlet UILabel * subTitleLabel;
