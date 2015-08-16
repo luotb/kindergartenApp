@@ -13,6 +13,9 @@
 #import "KGHUD.h"
 #import "TopicDomain.h"
 #import "KGTextView.h"
+#import "KGHttpService.h"
+#import "ClassDomain.h"
+#import "GroupDomain.h"
 
 #define contentTextViewDefText   @"说点什么吧..."
 
@@ -24,6 +27,8 @@
     NSMutableArray * imagesMArray;
     NSInteger  count;
     NSMutableString * replyContent;
+    NSString * classuuid;//班级id
+    NSMutableArray * dataMArray;//数据数组 用于构建班级信息
 }
 
 @end
@@ -32,6 +37,25 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self.contentView bringSubviewToFront:contentTextView];
+    for (UIView * view in _btnArray) {
+        [self.contentView bringSubviewToFront:view];
+    }
+    
+    dataMArray = [[NSMutableArray alloc] init];
+    for (GroupDomain * gmodel in [KGHttpService sharedService].loginRespDomain.group_list) {
+        for (ClassDomain * cmodel in [KGHttpService sharedService].loginRespDomain.class_list) {
+            if ([gmodel.uuid isEqualToString:cmodel.groupuuid]) {
+                NSString * name = [NSString stringWithFormat:@"%@%@",gmodel.company_name,cmodel.name];
+                [dataMArray addObject:@{@"name":name,@"id":cmodel.uuid}];
+            }
+        }
+    }
+    
+    [_selectBtn setTitle:[dataMArray[0] objectForKey:@"name"] forState:UIControlStateNormal];
+    classuuid = [dataMArray[0] objectForKey:@"id"];
+    
     self.automaticallyAdjustsScrollViewInsets = NO;
     self.title = @"发表互动";
     
@@ -44,14 +68,85 @@
     imagesMArray   = [[NSMutableArray alloc] init];
     replyContent   = [[NSMutableString alloc] init];
     contentTextView.placeholder = contentTextViewDefText;
-    [contentTextView setBorderWithWidth:Number_One color:[UIColor grayColor] radian:5.0];
     [contentTextView setContentOffset:CGPointZero];
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
 
+//下拉选择菜单
+- (IBAction)selectBtnPressed:(UIButton *)sender {
+    if (!_selectTableView) {
+        _selectTableView = [[UITableView alloc] init];
+        _selectTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        _selectTableView.backgroundColor = [UIColor whiteColor];
+        _selectTableView.delegate = self;
+        _selectTableView.dataSource = self;
+        _selectTableView.rowHeight = 40;
+        [_selectTableView registerNib:[UINib nibWithNibName:@"SelectClassCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"SelectClassCell"];
+        _selectTableView.size = CGSizeMake(APPWINDOWWIDTH, dataMArray.count<4?dataMArray.count*40:40*4);
+    }
+    if (_selectTableView.superview) {
+        return;
+    }
+    _selectTableView.origin = CGPointMake(0, CGRectGetMaxY(_bgView.frame));
+    [self.contentView addSubview:_selectTableView];
+    [self showSelectTableViewAnimation];
+}
+
+//显示选择动画
+- (void)showSelectTableViewAnimation{
+    _selectTableView.height = 0;
+    _arrowImageView.image = [UIImage imageNamed:@"shangjiantou"];
+    [UIView animateWithDuration:0.3 animations:^{
+        _selectTableView.height = dataMArray.count<4?dataMArray.count*40:40*4;
+    } completion:^(BOOL finished) {
+    }];
+}
+
+//隐藏选择动画
+- (void)hiddenSelectTableViewAnimation{
+    _arrowImageView.image = [UIImage imageNamed:@"xiajiantou-1"];
+    [UIView animateWithDuration:0.3 animations:^{
+        _selectTableView.height = 0;
+    } completion:^(BOOL finished) {
+        [_selectTableView removeFromSuperview];
+        [_selectTableView reloadData];
+    }];
+}
+
+#pragma mark - UITableViewDataSource,UITableViewDelegate
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return dataMArray.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    SelectClassCell * cell = [tableView dequeueReusableCellWithIdentifier:@"SelectClassCell"];
+    cell.selectImageView.hidden = ![[dataMArray[indexPath.row] objectForKey:@"id"] isEqualToString:classuuid];
+    cell.nameLabel.text = [dataMArray[indexPath.row] objectForKey:@"name"];
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    int i = 0;
+    for (; i < dataMArray.count; ++ i) {
+        NSDictionary * dic = dataMArray[i];
+        if ([[dic objectForKey:@"id"] isEqualToString:classuuid]) {
+            break;
+        }
+    }
+    SelectClassCell * cell = (SelectClassCell *)[tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
+    cell.selectImageView.hidden = YES;
+    classuuid = [dataMArray[indexPath.row] objectForKey:@"id"];
+    [_selectBtn setTitle:[dataMArray[indexPath.row] objectForKey:@"name"] forState:UIControlStateNormal];
+    [self hiddenSelectTableViewAnimation];
+}
 
 //发表动态
 - (void)pustTopicBtnClicked {
@@ -63,7 +158,7 @@
 - (void)loadImg {
     if([imagesMArray count] > Number_Zero) {
         [[KGHUD sharedHud] show:self.contentView msg:@"上传图片中..."];
-        [[KGHttpService sharedService] uploadImg:[imagesMArray objectAtIndex:count] withName:@"file" type:_topicType success:^(NSString *msgStr) {
+        [[KGHttpService sharedService] uploadImg:[imagesMArray objectAtIndex:count] withName:@"file" type:self.topicType success:^(NSString *msgStr) {
             
             if(![replyContent isEqualToString:String_DefValue_EmptyStr]) {
                 [replyContent appendString:String_DefValue_SpliteStr];
@@ -93,7 +188,7 @@
     [[KGHUD sharedHud] changeText:self.contentView text:@"发表中..."];
     
     TopicDomain * domain = [[TopicDomain alloc] init];
-//    domain.classuuid = 
+    domain.classuuid = classuuid;
     domain.content = [KGNSStringUtil trimString:contentTextView.text];
     domain.imgs = replyContent;
     

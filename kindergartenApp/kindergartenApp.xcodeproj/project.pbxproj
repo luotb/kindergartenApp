@@ -151,6 +151,8 @@
 		4D077B1D1B8038BE00FFD5CB /* CollectNoticeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D077B1B1B8038BE00FFD5CB /* CollectNoticeTableViewCell.m */; };
 		4D077B1E1B8038BE00FFD5CB /* CollectNoticeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D077B1C1B8038BE00FFD5CB /* CollectNoticeTableViewCell.xib */; };
 		4D077B211B8081BC00FFD5CB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D077B201B8081BC00FFD5CB /* Images.xcassets */; };
+		4D077B251B80A00300FFD5CB /* SelectClassCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D077B231B80A00300FFD5CB /* SelectClassCell.m */; };
+		4D077B261B80A00300FFD5CB /* SelectClassCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D077B241B80A00300FFD5CB /* SelectClassCell.xib */; };
 		4D5CE6C81B7E3F76002F1088 /* FavoritesListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D5CE6C61B7E3F76002F1088 /* FavoritesListViewController.m */; };
 		4D5CE6C91B7E3F76002F1088 /* FavoritesListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D5CE6C71B7E3F76002F1088 /* FavoritesListViewController.xib */; };
 		4D5CE6F41B7E42CE002F1088 /* UMFeedbackLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4D5CE6CB1B7E42CE002F1088 /* UMFeedbackLocalizable.strings */; };
@@ -642,6 +644,9 @@
 		4D077B1C1B8038BE00FFD5CB /* CollectNoticeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectNoticeTableViewCell.xib; sourceTree = "<group>"; };
 		4D077B1F1B8081A600FFD5CB /* pchFile.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pchFile.pch; sourceTree = "<group>"; };
 		4D077B201B8081BC00FFD5CB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		4D077B221B80A00300FFD5CB /* SelectClassCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectClassCell.h; sourceTree = "<group>"; };
+		4D077B231B80A00300FFD5CB /* SelectClassCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectClassCell.m; sourceTree = "<group>"; };
+		4D077B241B80A00300FFD5CB /* SelectClassCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectClassCell.xib; sourceTree = "<group>"; };
 		4D5CE6C51B7E3F76002F1088 /* FavoritesListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoritesListViewController.h; sourceTree = "<group>"; };
 		4D5CE6C61B7E3F76002F1088 /* FavoritesListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoritesListViewController.m; sourceTree = "<group>"; };
 		4D5CE6C71B7E3F76002F1088 /* FavoritesListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FavoritesListViewController.xib; sourceTree = "<group>"; };
@@ -1946,6 +1951,9 @@
 				F4E61B6D1B73372500E5851A /* ReplyTableViewCell.h */,
 				F4E61B6E1B73372500E5851A /* ReplyTableViewCell.m */,
 				F4E61B6F1B73372500E5851A /* ReplyTableViewCell.xib */,
+				4D077B221B80A00300FFD5CB /* SelectClassCell.h */,
+				4D077B231B80A00300FFD5CB /* SelectClassCell.m */,
+				4D077B241B80A00300FFD5CB /* SelectClassCell.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -3090,6 +3098,7 @@
 				4D5CE7811B7E4368002F1088 /* PushNotificationTableViewCell.xib in Resources */,
 				F4E61BE31B734A0300E5851A /* UMSLoginViewController.xib in Resources */,
 				F47AFEAF1B5E22EA00D43F38 /* AnnouncementListViewController.xib in Resources */,
+				4D077B261B80A00300FFD5CB /* SelectClassCell.xib in Resources */,
 				244F74931B62A4630078D30D /* PostTopicViewController.xib in Resources */,
 				4D5CE7001B7E42CE002F1088 /* umeng_fb_audio_dialog_content@2x.png in Resources */,
 				F4CF7A931B79C5B400BFAA1E /* TimetableItemTableViewCell.xib in Resources */,
@@ -3304,6 +3313,7 @@
 				2489B6231B5A40E200039E70 /* RegViewController.m in Sources */,
 				F48783921B58DA1700CDC1A8 /* AFURLResponseSerialization.m in Sources */,
 				24E0636F1B6D4502001F3283 /* TestCollectionViewCell.m in Sources */,
+				4D077B251B80A00300FFD5CB /* SelectClassCell.m in Sources */,
 				F48783AD1B58DA1700CDC1A8 /* MJConst.m in Sources */,
 				4D5CE7551B7E42E1002F1088 /* unzip.c in Sources */,
 				F471EDF61B70AA0E00EEBA1D /* QueryChatsVO.m in Sources */,
