@@ -90,6 +90,11 @@ static CGFloat viewFrameY = 10;
 	CGSize kbSize = [[[notification userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size;
     self.kboardHeight = kbSize.height;
 	BOOL isShow = [[notification name] isEqualToString:UIKeyboardWillShowNotification] ? YES : NO;
+    if (_isShowKeyBoard) {
+        [self animateView:isShow textField:[self firstResponder:objectView]
+        heightforkeyboard:self.kboardHeight];
+        return;
+    }
 	if ([self firstResponder:objectView]) {
 		[self animateView:isShow textField:[self firstResponder:objectView]
 		heightforkeyboard:self.kboardHeight];

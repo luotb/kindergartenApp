@@ -38,6 +38,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.weakTextView = contentTextView;
+    self.keyboardTopType = OnlyEmojiMode;
+    
     [self.contentView bringSubviewToFront:contentTextView];
     for (UIView * view in _btnArray) {
         [self.contentView bringSubviewToFront:view];

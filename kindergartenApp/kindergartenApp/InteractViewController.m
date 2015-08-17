@@ -32,6 +32,8 @@
     [super viewDidLoad];
     
     self.title = @"互动";
+    self.keyBoardController.isShowKeyBoard = YES;
+    self.keyboardTopType = EmojiAndTextMode;
     
     UIBarButtonItem * rightBarItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"xiangji"] style:UIBarButtonItemStyleDone target:self action:@selector(postNewTopic)];
     [rightBarItem setTintColor:[UIColor whiteColor]];
