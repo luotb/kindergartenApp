@@ -45,6 +45,12 @@
 - (void)postNewTopic {
     PostTopicViewController * postVC = [[PostTopicViewController alloc] init];
     postVC.topicType = Topic_Interact;
+    
+    postVC.PostTopicBlock = ^(TopicDomain * domain) {
+        //发表互动成功
+        [reFreshView beginRefreshing];
+    };
+    
     [self.navigationController pushViewController:postVC animated:YES];
 }
 
