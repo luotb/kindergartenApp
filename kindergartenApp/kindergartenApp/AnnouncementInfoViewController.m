@@ -12,6 +12,8 @@
 #import "TopicInteractionView.h"
 #import "Masonry.h"
 #import "KGNSStringUtil.h"
+#import "TopicInteractionDomain.h"
+#import "TopicInteractionFrame.h"
 
 @interface AnnouncementInfoViewController () <UIWebViewDelegate> {
     
@@ -52,24 +54,31 @@
    
     self.topicType = announcementDomain.topicType;
     
+    TopicInteractionDomain * domain = [TopicInteractionDomain new];
+    domain.dianzan = announcementDomain.dianzan;
+    domain.replyPage = announcementDomain.replyPage;
+    domain.topicType = announcementDomain.topicType;
+    domain.topicUUID = announcementDomain.uuid;
+    domain.borwseType = BrowseType_Count;
+    
+    TopicInteractionFrame * topicFrame = [TopicInteractionFrame new];
+    topicFrame.topicInteractionDomain  = domain;
+    
     CGFloat y = CGRectGetMaxY(createTimeLabel.frame) + Number_Ten;
     topicView = [[TopicInteractionView alloc] init];
-    topicView.topicType = self.topicType;
-    topicView.topicUUID = announcementDomain.uuid;
-    [topicView loadFunView:announcementDomain.dianzan reply:announcementDomain.replyPage];
     [contentScrollView addSubview:topicView];
+    
+    topicView.topicInteractionFrame = topicFrame;
     
     [topicView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(@(y));
         make.left.equalTo(@(0));
         make.right.equalTo(@(0));
         make.width.equalTo(@(CELLCONTENTWIDTH));
-        make.height.equalTo(@(topicView.topicInteractHeight));
+        make.height.equalTo(@(topicFrame.topicInteractHeight));
     }];
     
-//    [self.keyBoardController buildDelegate];
-    
-    CGFloat contentHeight = y + topicView.topicInteractHeight + 64;
+    CGFloat contentHeight = y + topicFrame.topicInteractHeight + 64;
     CGFloat contentWidth  = KGSCREEN.size.width;
     contentScrollView.contentSize = CGSizeMake(contentWidth, contentHeight);
 }
@@ -103,9 +112,12 @@
     frame.size = fittingSize;
     webView.frame = CGRectMake(Number_Zero, CGRectGetMaxY(titleLabel.frame), KGSCREEN.size.width, fittingSize.height);
     groupLabel.y = CGRectGetMaxY(webView.frame) + Number_Ten;
+    groupLabel.x = KGSCREEN.size.width - groupLabel.width - CELLPADDING;
     createTimeLabel.y = CGRectGetMaxY(groupLabel.frame) + Number_Ten;
+    createTimeLabel.x = KGSCREEN.size.width - createTimeLabel.width - CELLPADDING;
     topicView.y = CGRectGetMaxY(groupLabel.frame) + 30;
     contentScrollView.contentSize = CGSizeMake(KGSCREEN.size.width, topicView.height + topicView.y + CELLPADDING);
+    
 }
 
 - (void)alttextFieldDidEndEditing:(UITextField *)textField {

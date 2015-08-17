@@ -69,7 +69,6 @@
 
 - (void)loadFlowScrollView {
     contentScrollView = [[UIScrollView alloc] init];
-//    contentScrollView.backgroundColor = [UIColor brownColor];
     contentScrollView.delegate = self;
     contentScrollView.pagingEnabled = YES;
     contentScrollView.clipsToBounds = NO;
@@ -151,8 +150,6 @@
         beginDataStr = [KGDateUtil getBeginWeek:today];
         endDataStr = [KGDateUtil getEndWeek:today];
     }
-    
-    NSLog(@"beg:%@;end:%@", beginDataStr, endDataStr);
 }
 
 //请求之后的处理 需要判断是否还需要再次请求

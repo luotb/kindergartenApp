@@ -93,6 +93,8 @@
 		2491BB521B6E27F00052532B /* RecipesStudentInfoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2491BB501B6E27F00052532B /* RecipesStudentInfoTableViewCell.m */; };
 		2491BB531B6E27F00052532B /* RecipesStudentInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2491BB511B6E27F00052532B /* RecipesStudentInfoTableViewCell.xib */; };
 		249926E01B80545A0071DFB3 /* KGRange.m in Sources */ = {isa = PBXBuildFile; fileRef = 249926DF1B80545A0071DFB3 /* KGRange.m */; };
+		249926E31B8093BD0071DFB3 /* TopicInteractionDomain.m in Sources */ = {isa = PBXBuildFile; fileRef = 249926E21B8093BD0071DFB3 /* TopicInteractionDomain.m */; };
+		249926E61B8093FB0071DFB3 /* TopicInteractionFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 249926E51B8093FB0071DFB3 /* TopicInteractionFrame.m */; };
 		24A175E71B5541BF00295997 /* KGDBHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A175E41B5541BF00295997 /* KGDBHelper.m */; };
 		24A175E81B5541BF00295997 /* KGDBHelperHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A175E61B5541BF00295997 /* KGDBHelperHandle.m */; };
 		24A175F31B55430600295997 /* KGTableParam.m in Sources */ = {isa = PBXBuildFile; fileRef = 24A175F11B55430600295997 /* KGTableParam.m */; };
@@ -549,6 +551,10 @@
 		2491BB511B6E27F00052532B /* RecipesStudentInfoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecipesStudentInfoTableViewCell.xib; sourceTree = "<group>"; };
 		249926DE1B80545A0071DFB3 /* KGRange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KGRange.h; sourceTree = "<group>"; };
 		249926DF1B80545A0071DFB3 /* KGRange.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KGRange.m; sourceTree = "<group>"; };
+		249926E11B8093BD0071DFB3 /* TopicInteractionDomain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopicInteractionDomain.h; sourceTree = "<group>"; };
+		249926E21B8093BD0071DFB3 /* TopicInteractionDomain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopicInteractionDomain.m; sourceTree = "<group>"; };
+		249926E41B8093FB0071DFB3 /* TopicInteractionFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopicInteractionFrame.h; sourceTree = "<group>"; };
+		249926E51B8093FB0071DFB3 /* TopicInteractionFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopicInteractionFrame.m; sourceTree = "<group>"; };
 		24A175E31B5541BF00295997 /* KGDBHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KGDBHelper.h; sourceTree = "<group>"; };
 		24A175E41B5541BF00295997 /* KGDBHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KGDBHelper.m; sourceTree = "<group>"; };
 		24A175E51B5541BF00295997 /* KGDBHelperHandle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KGDBHelperHandle.h; sourceTree = "<group>"; };
@@ -2740,6 +2746,10 @@
 				F4C4D1C71B69F05C00335443 /* TopicInteractionView.m */,
 				249926DE1B80545A0071DFB3 /* KGRange.h */,
 				249926DF1B80545A0071DFB3 /* KGRange.m */,
+				249926E11B8093BD0071DFB3 /* TopicInteractionDomain.h */,
+				249926E21B8093BD0071DFB3 /* TopicInteractionDomain.m */,
+				249926E41B8093FB0071DFB3 /* TopicInteractionFrame.h */,
+				249926E51B8093FB0071DFB3 /* TopicInteractionFrame.m */,
 			);
 			name = TopicInteraction;
 			sourceTree = "<group>";
@@ -3243,6 +3253,7 @@
 				248B6A951B19A9D900FCB98F /* UIWindow+Extension.m in Sources */,
 				4D5CE7691B7E4333002F1088 /* AboutWeViewController.m in Sources */,
 				24AA0B4C1B690FA800DAC03B /* ChatViewController.m in Sources */,
+				249926E61B8093FB0071DFB3 /* TopicInteractionFrame.m in Sources */,
 				F47AFEB51B5E2BF800D43F38 /* PageInfoDomain.m in Sources */,
 				24AA0B421B690F4300DAC03B /* UUImageAvatarBrowser.m in Sources */,
 				4D5CE7511B7E42E1002F1088 /* CJSONScanner.m in Sources */,
@@ -3288,6 +3299,7 @@
 				F48783B51B58DA1700CDC1A8 /* README.md in Sources */,
 				2469E2161B5B6039004888A4 /* ResMsgDomain.m in Sources */,
 				2474DFC01B6CCE460021506F /* RecipesViewController.m in Sources */,
+				249926E31B8093BD0071DFB3 /* TopicInteractionDomain.m in Sources */,
 				2489B6381B5AB32F00039E70 /* ImageCollectionViewCell.m in Sources */,
 				F48783D61B58E46000CDC1A8 /* MJRefreshConst.m in Sources */,
 				F4EC98911B62305700F5721F /* TopicTableViewCell.m in Sources */,

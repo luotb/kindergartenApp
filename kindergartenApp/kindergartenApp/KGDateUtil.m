@@ -144,5 +144,25 @@
     return dateEndPrev;
 }
 
+//输入参数是日期字符串，输出结果是星期几的数字。
++ (NSInteger)weekdayStringFromDate:(NSString *)inputDateStr {
+    NSDate * inputDate = [KGDateUtil getDateByDateStr:inputDateStr format:dateFormatStr2];
+    
+//    NSArray *weekdays = [NSArray arrayWithObjects: [NSNull null], @"Sunday", @"周一", @"周二", @"周三", @"周四", @"周五", @"周六", nil];
+    
+    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    
+    NSTimeZone *timeZone = [[NSTimeZone alloc] initWithName:@"Asia/Shanghai"];
+    
+    [calendar setTimeZone: timeZone];
+    
+    NSCalendarUnit calendarUnit = NSWeekdayCalendarUnit;
+    
+    NSDateComponents *theComponents = [calendar components:calendarUnit fromDate:inputDate];
+    
+//    return [weekdays objectAtIndex:theComponents.weekday];
+    return theComponents.weekday - 1;
+}
+
 
 @end

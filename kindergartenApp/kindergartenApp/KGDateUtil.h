@@ -42,4 +42,7 @@
 //获取指定日期的周五
 + (NSString *)getEndWeek:(NSString *)dateStr;
 
+//输入参数是日期字符串，输出结果是星期几的数字。
++ (NSInteger)weekdayStringFromDate:(NSString *)inputDateStr;
+
 @end
