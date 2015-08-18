@@ -32,6 +32,7 @@
     [super viewDidLoad];
     
     self.title = @"互动";
+    
     self.keyBoardController.isShowKeyBoard = YES;
     self.keyboardTopType = EmojiAndTextMode;
     
