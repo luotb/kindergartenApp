@@ -7,6 +7,8 @@
 //
 
 #import "EmojiAndTextView.h"
+#import "UIButton+Extension.h"
+#import "KGNSStringUtil.h"
 
 @implementation EmojiAndTextView
 
@@ -27,15 +29,22 @@
     
     if(sender.selected) {
         _contentTextView.inputView = _faceBoard;
+        [sender setImage:@"jianpan" selImg:@"jianpan"];
+        
     } else {
         _contentTextView.inputView = nil;
+        [sender setImage:@"biaoqing1" selImg:@"biaoqing1"];
     }
     
     [_contentTextView becomeFirstResponder];
 }
 
 - (IBAction)postBtnPressed:(UIButton *)sender {
-    
+    NSString * replyText = [KGNSStringUtil trimString:_contentTextView.text];
+    if(replyText && ![replyText isEqualToString:String_DefValue_Empty]) {
+        NSDictionary *dic = @{Key_TopicTypeReplyText : replyText};
+        [[NSNotificationCenter defaultCenter] postNotificationName:Key_Notification_TopicReply object:self userInfo:dic];
+    }
 }
 
 @end

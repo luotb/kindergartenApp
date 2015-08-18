@@ -7,11 +7,19 @@
 //
 
 #import "OnlyEmojiView.h"
+#import "UIButton+Extension.h"
 
 @implementation OnlyEmojiView
 
 
 - (IBAction)emojiBtnPressed:(UIButton *)sender {
+    sender.selected = !sender.selected;
+    if(sender.selected) {
+        [sender setImage:@"jianpan" selImg:@"jianpan"];
+        
+    } else {
+        [sender setImage:@"biaoqing1" selImg:@"biaoqing1"];
+    }
     if (_pressedBlock) {
         _pressedBlock(sender);
     }

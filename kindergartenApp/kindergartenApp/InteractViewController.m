@@ -59,11 +59,12 @@
 - (void)resetTopicReplyContent:(ReplyDomain *)domain {
     
     for (TopicDomain * topic in interactArray) {
-        if([topic.uuid isEqualToString:self.topicUUID]) {
-            if(!topic.replyPage.data) {
-                topic.replyPage.data = [[NSMutableArray alloc] init];
+        if([topic.uuid isEqualToString:self.topicInteractionDomain.topicUUID]) {
+            if(!topic.replyPage) {
+                topic.replyPage = [[ReplyPageDomain alloc] init];
             }
             [topic.replyPage.data insertObject:domain atIndex:Number_Zero];
+            break;
         }
     }
     reFreshView.tableParam.dataSourceMArray = [self topicFramesWithtopics];
