@@ -158,8 +158,9 @@
     //内容表情文本混合
     if(topic.content && [topic.content length]>Number_Zero) {
         self.topicTextView.frame = self.topicFrame.topicTextViewF;
-//        self.topicTextView.text = topic.content;
         [self.topicTextView setText:topic.content];
+    } else {
+        [self.topicTextView setText:String_DefValue_Empty];
     }
     
     if(topic.imgs && topic.imgs.length > Number_Zero) {
@@ -200,6 +201,11 @@
 
 //多张帖子图片
 - (void)loadMoreTopicImgs:(NSArray *)imgUrlArray {
+    
+    for(UIView * imgView in self.topicImgsView.subviews) {
+        [imgView removeFromSuperview];
+    }
+    
     UIImageView * imageView = nil;
     CGFloat y = Number_Zero;
     CGFloat wh = self.topicFrame.topicImgsViewF.size.width / Number_Three;
