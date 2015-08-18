@@ -247,7 +247,6 @@
     __weak typeof(self) weakSelf = self;
     [_onlyEmojiView setPressedBlock:^(UIButton * button){
         [KGEmojiManage sharedManage].isChatEmoji = YES;
-        button.selected = !button.selected;
         [KGEmojiManage sharedManage].isSwitchEmoji = YES;
         [weakSelf.weakTextView resignFirstResponder];
         if (button.selected) {

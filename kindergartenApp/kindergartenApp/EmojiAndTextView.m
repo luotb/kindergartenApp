@@ -7,6 +7,7 @@
 //
 
 #import "EmojiAndTextView.h"
+#import "UIButton+Extension.h"
 
 @implementation EmojiAndTextView
 
@@ -27,8 +28,11 @@
     
     if(sender.selected) {
         _contentTextView.inputView = _faceBoard;
+        [sender setImage:@"chat_ipunt_message" selImg:@"chat_ipunt_message"];
+        
     } else {
         _contentTextView.inputView = nil;
+        [sender setImage:@"biaoqing1" selImg:@"biaoqing1"];
     }
     
     [_contentTextView becomeFirstResponder];
