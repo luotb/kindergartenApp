@@ -13,17 +13,20 @@
 @interface TimetableItemView : UIView <UITableViewDataSource, UITableViewDelegate> {
     
     UITableView    * timetableTableView;
+    NSMutableDictionary * sourceTimetableMDict;
     NSMutableArray * timetableDataSourceMArray;
     TopicInteractionView * topicView;
     UITableViewCell * topicViewCell;
-    TimetableDomain * timetableDomain;
+    
+    UIScrollView * timetableItemScrollView;
+    UIView       * scrollectContentView;
 }
 
 @property (strong, nonatomic) NSMutableArray   * tableDataSource; //<TimetableItemVO>
 @property (strong, nonatomic) NSString         * queryDate;
 
 //加载课程表数据
-- (void)loadTimetableData:(NSMutableArray *)timetableMArray date:(NSString *)queryDate;
+- (void)loadTimetableData:(NSMutableDictionary *)timetableMDict date:(NSString *)queryDate;
 
 //重置回复内容
 - (void)resetTopicReplyContent:(ReplyDomain *)domain;
