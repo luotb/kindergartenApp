@@ -90,7 +90,7 @@
             count++;
         }
         
-        CGSize size = [MLEmojiLabel boundingRectWithSize:replyStr w:CELLWIDTH font:APPUILABELFONTNO14];
+        CGSize size = [MLEmojiLabel boundingRectWithSize:replyStr w:CELLWIDTH font:APPUILABELFONTNO12];
         
         _replyViewF = CGRectMake(CELLPADDING, CGRectGetMaxY(_dianzanViewF) + TopicCellBorderW
                                       , CELLCONTENTWIDTH, size.height);

@@ -29,6 +29,6 @@
 - (void)loadTimetableData:(NSMutableDictionary *)timetableMDict date:(NSString *)queryDate;
 
 //重置回复内容
-- (void)resetTopicReplyContent:(ReplyDomain *)domain;
+- (void)resetTopicReplyContent:(ReplyDomain *)domain topicInteraction:(TopicInteractionDomain *)topicInteractionDomain;
 
 @end
