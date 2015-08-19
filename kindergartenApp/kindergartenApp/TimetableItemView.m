@@ -113,8 +113,8 @@
     UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:TopicInteractionCellIdentifier];
     if(!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:TopicInteractionCellIdentifier];
-        cell.selectionStyle = UITableViewRowActionStyleNormal;
     }
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     for(UIView * view in cell.subviews) {
         [view removeFromSuperview];
@@ -136,23 +136,25 @@
 //数据封装
 - (void)packageItemViewData{
     NSArray * users = [KGHttpService sharedService].loginRespDomain.list;
+    NSInteger index = Number_Zero;
     for(KGUser * user in users) {
         TimetableItemVO * itemVO = [[TimetableItemVO alloc] init];
-        itemVO.cellHeight = 148;
+        itemVO.cellHeight = 150;
         itemVO.classuuid = user.classuuid;
         itemVO.headUrl   = user.headimg;
         itemVO.weekday = Number_One;
         itemVO.timetableMArray = [sourceTimetableMDict objectForKey:user.classuuid];
         [self.tableDataSource addObject:itemVO];
-        
+        index++;
         TimetableDomain * domain = [self getTimetableDomainByWeek:itemVO.timetableMArray week:Number_One];
-        UIView * view = [self loadDZReply:domain];
+        UIView * view = [self loadDZReply:domain index:index - Number_One week:Number_One];
         
         TimetableItemVO * itemVO2 = [[TimetableItemVO alloc] init];
         itemVO2.isDZReply = YES;
         itemVO2.cellHeight = CGRectGetMaxY(view.frame);
         itemVO2.dzReplyView = view;
         [self.tableDataSource addObject:itemVO2];
+        index++;
     }
 }
 
@@ -161,7 +163,7 @@
     TimetableItemVO * itemVO = [self.tableDataSource objectAtIndex:cellIndex];
     itemVO.weekday = weekday;
     TimetableDomain * domain = [self getTimetableDomainByWeek:itemVO.timetableMArray week:weekday];
-    UIView * view = [self loadDZReply:domain];
+    UIView * view = [self loadDZReply:domain index:cellIndex week:weekday];
     
     TimetableItemVO * itemVO2 = [self.tableDataSource objectAtIndex:cellIndex+Number_One];
     itemVO2.cellHeight  = view.height;
@@ -187,21 +189,23 @@
 
 
 //设置点赞回复View
-- (UIView *)loadDZReply:(TimetableDomain *)timetableDomain {
+- (UIView *)loadDZReply:(TimetableDomain *)timetableDomain index:(NSInteger)cellIndex week:(NSInteger)weekday {
     if(timetableDomain) {
-        return [self loadDZReplyView:timetableDomain];
+        return [self loadDZReplyView:timetableDomain index:cellIndex week:weekday];
     } else {
         return [self loadNoDZReply];
     }
 }
 
-//加载点赞回复view到指定view
-- (UIView *)loadDZReplyView:(TimetableDomain *)timetableDomain{
+//加载点赞回复view
+- (UIView *)loadDZReplyView:(TimetableDomain *)timetableDomain index:(NSInteger)cellIndex week:(NSInteger)weekday{
     TopicInteractionDomain * topicInteractionDomain = [TopicInteractionDomain new];
     topicInteractionDomain.dianzan   = timetableDomain.dianzan;
     topicInteractionDomain.replyPage = timetableDomain.replyPage;
     topicInteractionDomain.topicType = Topic_JPKC;
     topicInteractionDomain.topicUUID = timetableDomain.uuid;
+    topicInteractionDomain.cellIndex = cellIndex;
+    topicInteractionDomain.weekday   = weekday;
     
     TopicInteractionFrame * topicFrame = [TopicInteractionFrame new];
     topicFrame.topicInteractionDomain  = topicInteractionDomain;
@@ -227,17 +231,25 @@
 
 
 //重置回复内容
-- (void)resetTopicReplyContent:(ReplyDomain *)domain {
+- (void)resetTopicReplyContent:(ReplyDomain *)domain topicInteraction:(TopicInteractionDomain *)topicInteractionDomain {
     
     //1.对应课程增加回复
-    //    ReplyPageDomain * replyPageDomain = timetableDomain.replyPage;
-    //    if(!replyPageDomain) {
-    //        replyPageDomain = [[ReplyPageDomain alloc] init];
-    //    }
-    //    [replyPageDomain.data insertObject:domain atIndex:Number_Zero];
-    //
-    //    //2.重新加载点赞回复view
-    //    [self loadDZReply];
+    TimetableItemVO * itemVO = [self.tableDataSource objectAtIndex:topicInteractionDomain.cellIndex];
+    ReplyPageDomain * replyPageDomain = nil;
+    for(TimetableDomain * timetableDomain in itemVO.timetableMArray) {
+        if([timetableDomain.uuid isEqualToString:domain.newsuuid]) {
+            replyPageDomain = timetableDomain.replyPage;
+            break;
+        }
+    }
+    
+    if(!replyPageDomain) {
+        replyPageDomain = [[ReplyPageDomain alloc] init];
+    }
+    [replyPageDomain.data insertObject:domain atIndex:Number_Zero];
+    
+    //2.重置对应数据源刷新table
+    [self resetPackageItemViewData:topicInteractionDomain.cellIndex week:topicInteractionDomain.weekday];
 }
 
 @end

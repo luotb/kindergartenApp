@@ -52,9 +52,9 @@
     
     [self reqTotal];
     [self loadFlowScrollView];
-//    [self loadRecipesInfoViewToScrollView];
-    [self getQueryDate:lastIndex];
-    [self loadRecipesInfoByData];
+    [self loadRecipesInfoViewToScrollView];
+//    [self getQueryDate:lastIndex];
+//    [self loadRecipesInfoByData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -85,10 +85,10 @@
     contentScrollView.origin = CGPointZero;
     contentScrollView.contentSize = CGSizeMake(APPWINDOWWIDTH * totalCount, contentScrollView.height);
     
-    TimetableItemView * itemView = [[TimetableItemView alloc] initWithFrame:CGRectMake(0, Number_Zero, APPWINDOWWIDTH, contentScrollView.height)];
-    [contentScrollView addSubview:itemView];
-    
-    lastSelItemView = itemView;
+//    TimetableItemView * itemView = [[TimetableItemView alloc] initWithFrame:CGRectMake(0, Number_Zero, APPWINDOWWIDTH, contentScrollView.height)];
+//    [contentScrollView addSubview:itemView];
+//    
+//    lastSelItemView = itemView;
 }
 
 - (void)loadRecipesInfoViewToScrollView {
@@ -113,7 +113,7 @@
         [self getQueryDate:currentIndex];
         lastSelItemView = [itemViewArray objectAtIndex:currentIndex];
         if(!lastSelItemView.tableDataSource || [lastSelItemView.tableDataSource count]==Number_Zero) {
-            
+            [[KGHUD sharedHud] show:self.contentView];
             [self loadRecipesInfoByData];
         }
         isFirstReq = NO;
@@ -124,7 +124,7 @@
 
 //加载课程表数据
 - (void)loadRecipesInfoByData {
-    [[KGHUD sharedHud] show:self.contentView];
+    
     [[KGHttpService sharedService] getTeachingPlanList:beginDataStr endDate:endDataStr cuid:[classuuidMArray objectAtIndex:reqIndex] success:^(NSArray *teachPlanArray) {
         
         [[KGHUD sharedHud] hide:self.contentView];
@@ -179,7 +179,7 @@
 
 //重置回复内容
 - (void)resetTopicReplyContent:(ReplyDomain *)domain {
-//    [lastSelItemView resetTopicReplyContent:domain];
+    [lastSelItemView resetTopicReplyContent:domain topicInteraction:self.topicInteractionDomain];
 }
 
 

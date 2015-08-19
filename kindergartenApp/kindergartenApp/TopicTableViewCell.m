@@ -191,11 +191,11 @@
     if(topic.imgs && ![topic.imgs isEqualToString:String_DefValue_Empty]) {
         NSArray * imgArray = topic.imgsList;
         
-//        if([imgArray count] > Number_One) {
+        if([imgArray count] > Number_One) {
             [self loadMoreTopicImgs:imgArray];
-//        } else {
-//            [self onlyOneTopicImg:[imgArray objectAtIndex:Number_Zero]];
-//        }
+        } else {
+            [self onlyOneTopicImg:[imgArray objectAtIndex:Number_Zero]];
+        }
     }
 }
 
@@ -208,12 +208,12 @@
     
     UIImageView * imageView = nil;
     CGFloat y = Number_Zero;
-    CGFloat wh = self.topicFrame.topicImgsViewF.size.width / Number_Three;
+    CGFloat wh = (self.topicFrame.topicImgsViewF.size.width-Number_Ten) / Number_Three;
     CGFloat index = Number_Zero;
     
     for(NSString * imgUrl in imgUrlArray) {
         
-        imageView = [[UIImageView alloc] initWithFrame:CGRectMake(index * wh, y, wh, wh)];
+        imageView = [[UIImageView alloc] initWithFrame:CGRectMake(index * wh + index*Number_Five, y, wh, wh)];
         [self.topicImgsView addSubview:imageView];
         
         [imageView sd_setImageWithURL:[NSURL URLWithString:imgUrl] placeholderImage:nil options:SDWebImageLowPriority completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
@@ -224,7 +224,6 @@
         btn.targetObj = imageView;
         objc_setAssociatedObject(btn, "imgUrl", imgUrl, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
         [btn addTarget:self action:@selector(showTopicImgClicked:) forControlEvents:UIControlEventTouchUpInside];
-//        btn.backgroundColor = [UIColor brownColor];
         [self.topicImgsView addSubview:btn];
         
         if(index == Number_Two) {
@@ -240,9 +239,17 @@
 
 //只有一张帖子图片
 - (void)onlyOneTopicImg:(NSString *)imgUrl {
+    CGRect imgFrame = self.topicFrame.topicImgsViewF;
     UIImageView * imageView = [[UIImageView alloc] init];
+    imageView.frame = (CGRect){Number_Zero, Number_Zero, imgFrame.size};
     imageView.contentMode = UIViewContentModeScaleToFill;
     [self.topicImgsView addSubview:imageView];
+    
+    UIButton * btn = [[UIButton alloc] initWithFrame:imageView.frame];
+    btn.targetObj = imageView;
+    objc_setAssociatedObject(btn, "imgUrl", imgUrl, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    [btn addTarget:self action:@selector(showTopicImgClicked:) forControlEvents:UIControlEventTouchUpInside];
+    [self.topicImgsView addSubview:btn];
     
     [imageView sd_setImageWithURL:[NSURL URLWithString:imgUrl] placeholderImage:nil options:SDWebImageLowPriority completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         
