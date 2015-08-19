@@ -89,7 +89,8 @@
     [_submitBtn setText:@"已评价"];
     [_submitBtn setBackgroundImage:@"" selImg:@""];
     UIImageView * imageView = (UIImageView *)[self viewWithTag:_teachVO.type * 100];
-    imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"judge_yes_%ld", (long)_teachVO.type * Number_Ten]];
+    NSUInteger flag = _teachVO.type==0?10:_teachVO.type*Number_Ten;
+    imageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"judge_yes_%ld", flag]];
 }
 
 @end

@@ -156,14 +156,18 @@
 }
 
 - (void)requestGroupDate {
-    [[KGHttpService sharedService] getGroupList:^(NSArray *groupArray) {
-        
-        groupDataArray = groupArray;
-        [self loadNavTitle];
-        [self loadGroupListView];
-    } faild:^(NSString *errorMsg) {
-        
-    }];
+    groupDataArray = [KGHttpService sharedService].loginRespDomain.group_list;
+    [self loadNavTitle];
+    [self loadGroupListView];
+    
+//    [[KGHttpService sharedService] getGroupList:^(NSArray *groupArray) {
+//        
+//        groupDataArray = groupArray;
+//        [self loadNavTitle];
+//        [self loadGroupListView];
+//    } faild:^(NSString *errorMsg) {
+//        
+//    }];
 }
 
 

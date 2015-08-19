@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "BaseViewController.h"
+//#import "BaseViewController.h"
+#import "BaseKeyboardViewController.h"
 
-@interface TeacherJudgeViewController : BaseViewController
+@interface TeacherJudgeViewController : BaseKeyboardViewController
 
 @end
