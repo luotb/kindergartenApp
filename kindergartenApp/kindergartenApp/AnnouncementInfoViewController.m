@@ -47,6 +47,7 @@
     contentScrollView.width = KGSCREEN.size.width;
 }
 
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
