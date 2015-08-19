@@ -19,7 +19,7 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    
+    _isClicked = YES;
     _judgeTextView.placeholder = judgeTeacherDefText;
     [_judgeTextView setBorderWithWidth:1 color:[UIColor blackColor] radian:10.0];
 }
@@ -57,7 +57,7 @@
 
 - (IBAction)judgeBtnClicked:(UIButton *)sender {
     
-    if(!_teachVO.teacheruuid) {
+    if (_isClicked) {
         if(lastSelTag > Number_Zero && lastSelTag!=sender.tag) {
             UIImageView * imageView = (UIImageView *)[self viewWithTag:lastSelTag * Number_Ten];
             NSString * imgName = [NSString stringWithFormat:@"judge_no_%ld", (long)lastSelTag];
@@ -86,6 +86,7 @@
     _judgeTextView.editable = NO;
     _submitBtn.enabled = YES;
     _submitBtn.userInteractionEnabled = NO;
+    _isClicked = NO;
     [_submitBtn setText:@"已评价"];
     [_submitBtn setBackgroundImage:@"" selImg:@""];
     UIImageView * imageView = (UIImageView *)[self viewWithTag:_teachVO.type * 100];

@@ -74,6 +74,10 @@
     
 }
 
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
@@ -172,7 +176,7 @@
             [self uploadImgSuccessHandler];
         }];
     } else {
-        [[KGHUD sharedHud] show:self.contentView onlyMsg:@"请添加图片"];
+        [self sendReplyInfo];
     }
 }
 
