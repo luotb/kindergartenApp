@@ -84,9 +84,10 @@
             NSInteger page = ([imgArray count] + Number_Three - Number_One) / Number_Three;
             
             topicImgsViewH = page * imgCellH;
-        } else if ([imgArray count] == Number_One) {
-            topicImgsViewH = topicContentW;
         }
+//        else if ([imgArray count] == Number_One) {
+//            topicImgsViewH = topicContentW;
+//        }
         
         self.topicImgsViewF = CGRectMake(topicContentX, topicImgsViewY, topicContentW, topicImgsViewH);
         

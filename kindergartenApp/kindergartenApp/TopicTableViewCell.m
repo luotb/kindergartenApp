@@ -191,11 +191,13 @@
     if(topic.imgs && ![topic.imgs isEqualToString:String_DefValue_Empty]) {
         NSArray * imgArray = topic.imgsList;
         
-        if([imgArray count] > Number_One) {
+//        if([imgArray count] > Number_One) {
+        if([imgArray count] > Number_Zero) {
             [self loadMoreTopicImgs:imgArray];
-        } else {
-            [self onlyOneTopicImg:[imgArray objectAtIndex:Number_Zero]];
         }
+//            else {
+//            [self onlyOneTopicImg:[imgArray objectAtIndex:Number_Zero]];
+//        }
     }
 }
 
