@@ -232,6 +232,11 @@
 		4DE3844E1B7F06DF009F12E4 /* libUMessage_Sdk_1.1.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DE3844C1B7F06DF009F12E4 /* libUMessage_Sdk_1.1.0.a */; };
 		4DE384551B7F728A009F12E4 /* MyCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DE384531B7F728A009F12E4 /* MyCollectionViewController.m */; };
 		4DE384561B7F728A009F12E4 /* MyCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DE384541B7F728A009F12E4 /* MyCollectionViewController.xib */; };
+		4DF056CC1B877E5000ED3840 /* PhotoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DF056CA1B877E5000ED3840 /* PhotoVC.m */; };
+		4DF056CD1B877E5000ED3840 /* PhotoVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DF056CB1B877E5000ED3840 /* PhotoVC.xib */; };
+		4DF056D01B877F0200ED3840 /* FuniAttachment.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DF056CF1B877F0200ED3840 /* FuniAttachment.m */; };
+		4DF056D51B877F3A00ED3840 /* FuniImageBrowseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DF056D21B877F3A00ED3840 /* FuniImageBrowseView.m */; };
+		4DF056D61B877F3A00ED3840 /* FuniPhotoScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DF056D41B877F3A00ED3840 /* FuniPhotoScrollView.m */; };
 		F45EABD11B563F9F003C367C /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F45EABD01B563F9F003C367C /* BaseViewController.m */; };
 		F463E6451B66106D00AB92B9 /* DianZanDomain.m in Sources */ = {isa = PBXBuildFile; fileRef = F463E6441B66106D00AB92B9 /* DianZanDomain.m */; };
 		F463E6481B6613D500AB92B9 /* GroupDomain.m in Sources */ = {isa = PBXBuildFile; fileRef = F463E6471B6613D500AB92B9 /* GroupDomain.m */; };
@@ -796,6 +801,15 @@
 		4DE384521B7F728A009F12E4 /* MyCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCollectionViewController.h; sourceTree = "<group>"; };
 		4DE384531B7F728A009F12E4 /* MyCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCollectionViewController.m; sourceTree = "<group>"; };
 		4DE384541B7F728A009F12E4 /* MyCollectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyCollectionViewController.xib; sourceTree = "<group>"; };
+		4DF056C91B877E5000ED3840 /* PhotoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoVC.h; sourceTree = "<group>"; };
+		4DF056CA1B877E5000ED3840 /* PhotoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoVC.m; sourceTree = "<group>"; };
+		4DF056CB1B877E5000ED3840 /* PhotoVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotoVC.xib; sourceTree = "<group>"; };
+		4DF056CE1B877F0200ED3840 /* FuniAttachment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FuniAttachment.h; sourceTree = "<group>"; };
+		4DF056CF1B877F0200ED3840 /* FuniAttachment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FuniAttachment.m; sourceTree = "<group>"; };
+		4DF056D11B877F3A00ED3840 /* FuniImageBrowseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FuniImageBrowseView.h; sourceTree = "<group>"; };
+		4DF056D21B877F3A00ED3840 /* FuniImageBrowseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FuniImageBrowseView.m; sourceTree = "<group>"; };
+		4DF056D31B877F3A00ED3840 /* FuniPhotoScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FuniPhotoScrollView.h; sourceTree = "<group>"; };
+		4DF056D41B877F3A00ED3840 /* FuniPhotoScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FuniPhotoScrollView.m; sourceTree = "<group>"; };
 		F45EABCF1B563F9F003C367C /* BaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		F45EABD01B563F9F003C367C /* BaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		F463E6431B66106D00AB92B9 /* DianZanDomain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DianZanDomain.h; sourceTree = "<group>"; };
@@ -1601,6 +1615,7 @@
 		248B6A881B19A95000FCB98F /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				4DF056C81B877E3D00ED3840 /* PhotoVC */,
 				F4E36D4A1B85B48F009BD909 /* DoImagePicker */,
 				4D5CE70D1B7E42E1002F1088 /* Baidu_Union_SDK */,
 				F4DDEBB71B7DFD6900470D76 /* MLEmojiLabel */,
@@ -2415,6 +2430,22 @@
 			name = View;
 			sourceTree = "<group>";
 		};
+		4DF056C81B877E3D00ED3840 /* PhotoVC */ = {
+			isa = PBXGroup;
+			children = (
+				4DF056D11B877F3A00ED3840 /* FuniImageBrowseView.h */,
+				4DF056D21B877F3A00ED3840 /* FuniImageBrowseView.m */,
+				4DF056D31B877F3A00ED3840 /* FuniPhotoScrollView.h */,
+				4DF056D41B877F3A00ED3840 /* FuniPhotoScrollView.m */,
+				4DF056CE1B877F0200ED3840 /* FuniAttachment.h */,
+				4DF056CF1B877F0200ED3840 /* FuniAttachment.m */,
+				4DF056C91B877E5000ED3840 /* PhotoVC.h */,
+				4DF056CA1B877E5000ED3840 /* PhotoVC.m */,
+				4DF056CB1B877E5000ED3840 /* PhotoVC.xib */,
+			);
+			name = PhotoVC;
+			sourceTree = "<group>";
+		};
 		C925B64CB131B415E0126F11 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -3204,6 +3235,7 @@
 				245474DA1B5FDD6C00D49D40 /* StudentInfoViewController.xib in Resources */,
 				F48783A91B58DA1700CDC1A8 /* LICENSE in Resources */,
 				F4DF3BA51B78AC75001D9DF7 /* TimetableViewController.xib in Resources */,
+				4DF056CD1B877E5000ED3840 /* PhotoVC.xib in Resources */,
 				24C46B4A1B5A2B7A00A58F92 /* InteractViewController.xib in Resources */,
 				4D5CE7031B7E42CE002F1088 /* umeng_fb_audio_play_03@2x.png in Resources */,
 				4D5CE6F91B7E42CE002F1088 /* save@2x.png in Resources */,
@@ -3421,12 +3453,15 @@
 				F4DCD0EC1B1C2932007D61CA /* UIView+Shadow.m in Sources */,
 				2474DFAF1B6CB7D90021506F /* StudentSignRecordViewController.m in Sources */,
 				F48783D91B58E46000CDC1A8 /* UIScrollView+Extension.m in Sources */,
+				4DF056D61B877F3A00ED3840 /* FuniPhotoScrollView.m in Sources */,
 				248B6A931B19A9D900FCB98F /* UIColor+Extension.m in Sources */,
 				24A175F31B55430600295997 /* KGTableParam.m in Sources */,
 				24850B141B7B860E003C442E /* ClassDomain.m in Sources */,
 				2489B6651B5AB49E00039E70 /* UIImage+WebP.m in Sources */,
+				4DF056D51B877F3A00ED3840 /* FuniImageBrowseView.m in Sources */,
 				2489B6371B5AB32F00039E70 /* ImageCollectionView.m in Sources */,
 				F471EDEA1B709E6300EEBA1D /* EmojiDomain.m in Sources */,
+				4DF056CC1B877E5000ED3840 /* PhotoVC.m in Sources */,
 				F4EC989A1B62306800F5721F /* TopicFrame.m in Sources */,
 				4D5CE7081B7E42CE002F1088 /* UMChatToolBar.m in Sources */,
 				4D5CE7571B7E42E1002F1088 /* ZipArchive.mm in Sources */,
@@ -3484,6 +3519,7 @@
 				F4E36D5C1B85B49D009BD909 /* DoImagePickerController.m in Sources */,
 				24AA0B531B69134400DAC03B /* NSDate+Utils.m in Sources */,
 				F48783B11B58DA1700CDC1A8 /* NSObject+MJCoding.m in Sources */,
+				4DF056D01B877F0200ED3840 /* FuniAttachment.m in Sources */,
 				F4E61B791B73438F00E5851A /* ShareViewController.m in Sources */,
 				24E634811B6FB9CC00A23A66 /* RecipesHeadTableViewCell.m in Sources */,
 				2474DFCC1B6CD4240021506F /* RecipesDomain.m in Sources */,
