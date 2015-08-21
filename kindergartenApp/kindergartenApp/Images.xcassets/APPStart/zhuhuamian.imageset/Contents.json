@@ -7,11 +7,12 @@
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "Icon-180@2x.png"
+      "filename" : "zhuhuamian@2x.png"
     },
     {
       "idiom" : "universal",
-      "scale" : "3x"
+      "scale" : "3x",
+      "filename" : "zhuhuamian@3x.png"
     }
   ],
   "info" : {
