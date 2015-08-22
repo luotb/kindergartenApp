@@ -20,6 +20,7 @@
 #import "UMessage.h"
 
 #define UMSYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
+#define RemoveHUDNotification @"RemoveHUD"
 
 @interface AppDelegate ()
 
@@ -239,6 +240,10 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     [UMSocialSnsService  applicationDidBecomeActive];
+}
+
+- (void)applicationDidEnterBackground:(UIApplication *)application{
+    [[NSNotificationCenter defaultCenter] postNotificationName:RemoveHUDNotification object:nil];
 }
 
 #pragma mark - 注册友盟的消息推送
