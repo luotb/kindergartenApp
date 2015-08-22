@@ -52,11 +52,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "kindergartenApp/KGHttpService.m"
-            timestampString = "461607232.935909"
+            timestampString = "461950548.04401"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1047"
-            endingLineNumber = "1047"
+            startingLineNumber = "1051"
+            endingLineNumber = "1051"
             landmarkName = "-saveFavorites:success:faild:"
             landmarkType = "5">
          </BreakpointContent>
@@ -68,11 +68,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "kindergartenApp/KGHttpService.m"
-            timestampString = "461915119.864927"
+            timestampString = "461950548.04401"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "719"
-            endingLineNumber = "719"
+            startingLineNumber = "723"
+            endingLineNumber = "723"
             landmarkName = "-readMessage:success:faild:"
             landmarkType = "5">
          </BreakpointContent>
@@ -90,22 +90,6 @@
             startingLineNumber = "196"
             endingLineNumber = "196"
             landmarkName = "-sendTextInfo:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "kindergartenApp/BaseTopicInteractViewController.m"
-            timestampString = "461949444.957262"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
-            landmarkName = "-setKeyboardTopType:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

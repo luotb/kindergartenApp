@@ -354,8 +354,10 @@
             break;
         }
         
-        if(![[nameArray objectAtIndex:i] isEqualToString:name]) {
-            [tempNames appendString:[nameArray objectAtIndex:i]];
+        if(![[nameArray objectAtIndex:i] isEqualToString:name] && ![[nameArray objectAtIndex:i] isEqualToString:String_DefValue_Empty]) {
+            if(![tempNames isEqualToString:String_DefValue_Empty])
+                [tempNames appendString:@","];
+            [tempNames appendFormat:@"%@", [nameArray objectAtIndex:i]];
         }
     }
     

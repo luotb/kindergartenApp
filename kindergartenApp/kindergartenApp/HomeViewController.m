@@ -68,14 +68,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     scrollView.contentSize = CGSizeMake(self.view.width, funiView.y + funiView.height + Number_Ten);
-    [self loadNavTitle];
+//    [self loadNavTitle];
     [self loadPhotoView];
     [self autoLogin];
 }
 
 - (void)loadNavTitle {
     titleBtn = [[ItemTitleButton alloc] initWithFrame:CGRectMake(0, 0, 200, 30)];
-    [titleBtn setImage:@"xiajiantou" selImg:@"sjiantou"];
+    if([[KGHttpService sharedService].loginRespDomain.group_list count] > Number_Zero) {
+        [titleBtn setImage:@"xiajiantou" selImg:@"sjiantou"];
+    }
+    
     // 设置图片和文字
     NSString * title = @"首页";
     if([KGHttpService sharedService].groupDomain) {
@@ -260,7 +263,7 @@
  *  - 用户城市
  */
 -(NSString*) userCity{
-    return @"上海";
+    return @"成都";
 }
 
 
@@ -268,7 +271,7 @@
  *  - 用户邮编
  */
 -(NSString*) userPostalCode{
-    return @"435200";
+    return @"610000";
 }
 
 
