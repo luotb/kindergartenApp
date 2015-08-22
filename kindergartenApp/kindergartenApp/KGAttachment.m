@@ -6,9 +6,9 @@
 //  Copyright (c) 2013年 you. All rights reserved.
 //
 
-#import "FuniAttachment.h"
+#import "KGAttachment.h"
 
-@implementation FuniAttachment
+@implementation KGAttachment
 
 
 - (id)initAttachment:(NSString *)cover{

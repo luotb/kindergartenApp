@@ -44,6 +44,8 @@
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         self.backgroundColor = KGColorFrom16(0xEBEBF2);
 //        self.backgroundColor = [UIColor purpleColor];
+        
+        imagesMArray = [NSMutableArray new];
         //用户信息加载
         [self initUserView];
         
@@ -219,7 +221,6 @@
         [self.topicImgsView addSubview:imageView];
         
         [imageView sd_setImageWithURL:[NSURL URLWithString:imgUrl] placeholderImage:nil options:SDWebImageLowPriority completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-            
         }];
         
         UIButton * btn = [[UIButton alloc] initWithFrame:CGRectMake(index * wh, y, wh, wh)];
@@ -266,10 +267,14 @@
 }
 
 - (void)showTopicImgClicked:(UIButton *)sender{
-    UIImageView * imageView = (UIImageView *)sender.targetObj;
-    NSString * imgUrl = objc_getAssociatedObject(sender, "imgUrl");
-    [UUImageAvatarBrowser showImage:imageView url:imgUrl];
+//    UIImageView * imageView = (UIImageView *)sender.targetObj;
+//    NSString * imgUrl = objc_getAssociatedObject(sender, "imgUrl");
+//    [UUImageAvatarBrowser showImage:imageView url:imgUrl];
+    
+    NSDictionary * dic = @{Key_ImagesArray : imagesMArray};
+    [[NSNotificationCenter defaultCenter] postNotificationName:Key_Notification_BrowseImages object:self userInfo:dic];
 }
+
 
 
 @end
