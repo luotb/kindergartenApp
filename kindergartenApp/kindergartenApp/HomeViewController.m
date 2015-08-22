@@ -305,7 +305,7 @@
     return other;
 }
 
-#pragma ImageCollectionViewDelegate
+#pragma mark - ImageCollectionViewDelegate
 
 //单击回调
 -(void)singleTapEvent:(NSString *)pType {
@@ -313,7 +313,7 @@
 }
 
 
-
+#pragma mark - 功能按钮点击
 - (IBAction)funBtnClicked:(UIButton *)sender {
     BaseViewController * baseVC = nil;
     switch (sender.tag) {
