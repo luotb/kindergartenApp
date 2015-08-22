@@ -174,7 +174,7 @@
     //帖子互动视图
     self.topicInteractionView.frame = self.topicFrame.topicInteractionViewF;
     self.topicInteractionView.topicInteractionFrame = self.topicFrame.topicInteractionFrame;
-    
+    NSLog(@"bbbbb=%@", NSStringFromCGRect(self.topicFrame.topicInteractionViewF));
     //分割线
     self.levelab.frame = self.topicFrame.levelabF;
 }
@@ -230,10 +230,10 @@
         
         if(index == Number_Two) {
             index = Number_Zero;
-            y += wh;
+            y += wh + Number_Five;
+        } else {
+            index++;
         }
-        
-        index++;
     }
 }
 

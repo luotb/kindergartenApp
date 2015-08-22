@@ -20,7 +20,6 @@
 #import "SpecialtyCoursesViewController.h"
 #import "GiftwareArticlesViewController.h"
 #import "StudentSignRecordViewController.h"
-#import "RecipesViewController.h"
 #import "MoreMenuView.h"
 #import "PopupView.h"
 #import "RecipesListViewController.h"
@@ -335,6 +334,7 @@
             break;
         case 15:
             baseVC = [[RecipesListViewController alloc] init];
+            ((RecipesListViewController *)baseVC).groupuuid = [KGHttpService sharedService].groupDomain.uuid;
             break;
         case 16:
             baseVC = [[GiftwareArticlesViewController alloc] init];

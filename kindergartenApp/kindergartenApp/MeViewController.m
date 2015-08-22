@@ -133,7 +133,6 @@
 - (void)funCellSelected:(NSIndexPath *)indexPath {
     NSInteger index = indexPath.section - [studentMArray count];
     
-//    BaseViewController * vc = nil;
     switch (index) {
         case Number_Zero:{
             MyCollectionViewController * vc = [[MyCollectionViewController alloc] init];

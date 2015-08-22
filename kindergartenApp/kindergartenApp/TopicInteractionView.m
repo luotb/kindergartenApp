@@ -74,6 +74,7 @@
     [_replyBtn setBackgroundImage:@"pinglun" selImg:@"pinglun"];
     _replyBtn.tag = Number_Eleven;
     [_replyBtn addTarget:self action:@selector(replyBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+//    _replyBtn.backgroundColor = [UIColor brownColor];
     [_funView addSubview:_replyBtn];
 }
 

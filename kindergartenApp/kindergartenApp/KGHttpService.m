@@ -870,11 +870,11 @@
 #pragma 食谱 begin
 
 //食谱列表
-- (void)getRecipesList:(NSString *)beginDate endDate:(NSString *)endDate success:(void (^)(NSArray * recipesArray))success faild:(void (^)(NSString * errorMsg))faild {
+- (void)getRecipesList:(NSString *)groupuuid beginDate:(NSString *)beginDate endDate:(NSString *)endDate success:(void (^)(NSArray * recipesArray))success faild:(void (^)(NSString * errorMsg))faild {
     
     NSDictionary * dic = @{@"begDateStr" : beginDate,
                            @"endDateStr" : endDate ? endDate : beginDate,
-                           @"groupuuid"  : _groupDomain.uuid};
+                           @"groupuuid"  : groupuuid};
     
 //    NSDictionary * dic = @{@"begDateStr" : @"2015-07-01",
 //                           @"endDateStr" : @"2015-08-01",

@@ -51,13 +51,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "kindergartenApp/RecipesViewController.m"
-            timestampString = "461263132.22156"
+            filePath = "kindergartenApp/KGHttpService.m"
+            timestampString = "461607232.935909"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "116"
-            endingLineNumber = "116"
-            landmarkName = "-getQueryDate:"
+            startingLineNumber = "1047"
+            endingLineNumber = "1047"
+            landmarkName = "-saveFavorites:success:faild:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -68,11 +68,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "kindergartenApp/KGHttpService.m"
-            timestampString = "461605793.643456"
+            timestampString = "461915119.864927"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "708"
-            endingLineNumber = "708"
+            startingLineNumber = "719"
+            endingLineNumber = "719"
             landmarkName = "-readMessage:success:faild:"
             landmarkType = "5">
          </BreakpointContent>
@@ -83,13 +83,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "kindergartenApp/GiftwareArticlesInfoViewController.m"
-            timestampString = "461607221.634687"
+            filePath = "kindergartenApp/UIKeyboardViewController.m"
+            timestampString = "461930951.50995"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "179"
-            endingLineNumber = "179"
-            landmarkName = "-saveFavorites:"
+            startingLineNumber = "189"
+            endingLineNumber = "189"
+            landmarkName = "-firstResponderMove:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -99,13 +99,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "kindergartenApp/KGHttpService.m"
-            timestampString = "461607232.935909"
+            filePath = "kindergartenApp/UIKeyboardViewController.m"
+            timestampString = "461931462.073764"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1047"
-            endingLineNumber = "1047"
-            landmarkName = "-delFavorites:success:failed:"
+            startingLineNumber = "225"
+            endingLineNumber = "225"
+            landmarkName = "-textFieldShouldReturn:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
