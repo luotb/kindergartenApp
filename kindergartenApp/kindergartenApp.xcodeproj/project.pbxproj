@@ -222,6 +222,8 @@
 		4D5CE78D1B7E453B002F1088 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D5CE78C1B7E453B002F1088 /* StoreKit.framework */; };
 		4D5CE78F1B7E4540002F1088 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D5CE78E1B7E4540002F1088 /* AdSupport.framework */; };
 		4D5CE7941B7E531C002F1088 /* libMobClickLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D5CE7911B7E531C002F1088 /* libMobClickLibrary.a */; };
+		4DC018CF1B88D9390097984E /* PromptView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC018CE1B88D9390097984E /* PromptView.m */; };
+		4DC018D11B88D9470097984E /* PromptView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DC018D01B88D9470097984E /* PromptView.xib */; };
 		4DE3844A1B7EF324009F12E4 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DE384491B7EF324009F12E4 /* ImageIO.framework */; };
 		4DE3844E1B7F06DF009F12E4 /* libUMessage_Sdk_1.1.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DE3844C1B7F06DF009F12E4 /* libUMessage_Sdk_1.1.0.a */; };
 		4DE384551B7F728A009F12E4 /* MyCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DE384531B7F728A009F12E4 /* MyCollectionViewController.m */; };
@@ -780,6 +782,9 @@
 		4D5CE7911B7E531C002F1088 /* libMobClickLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libMobClickLibrary.a; sourceTree = "<group>"; };
 		4D5CE7921B7E531C002F1088 /* MobClick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClick.h; sourceTree = "<group>"; };
 		4D5CE7931B7E531C002F1088 /* MobClickSocialAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MobClickSocialAnalytics.h; sourceTree = "<group>"; };
+		4DC018CD1B88D9390097984E /* PromptView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PromptView.h; sourceTree = "<group>"; };
+		4DC018CE1B88D9390097984E /* PromptView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PromptView.m; sourceTree = "<group>"; };
+		4DC018D01B88D9470097984E /* PromptView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PromptView.xib; sourceTree = "<group>"; };
 		4DE384491B7EF324009F12E4 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		4DE3844C1B7F06DF009F12E4 /* libUMessage_Sdk_1.1.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libUMessage_Sdk_1.1.0.a; sourceTree = "<group>"; };
 		4DE3844D1B7F06DF009F12E4 /* UMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMessage.h; sourceTree = "<group>"; };
@@ -1208,6 +1213,9 @@
 				24E634801B6FB9CC00A23A66 /* RecipesHeadTableViewCell.xib */,
 				24B0D9DC1B763B790030B73C /* RecipesInfoView.h */,
 				24B0D9DD1B763B790030B73C /* RecipesInfoView.m */,
+				4DC018CD1B88D9390097984E /* PromptView.h */,
+				4DC018CE1B88D9390097984E /* PromptView.m */,
+				4DC018D01B88D9470097984E /* PromptView.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -3164,6 +3172,7 @@
 				F4885C6C1B7C78C400AF97CF /* BrowseURLViewController.xib in Resources */,
 				24C46B411B5A2B1100A58F92 /* MeViewController.xib in Resources */,
 				4D5CE7831B7E4368002F1088 /* SettingViewCell.xib in Resources */,
+				4DC018D11B88D9470097984E /* PromptView.xib in Resources */,
 				4D5CE7721B7E4333002F1088 /* SettingViewController.xib in Resources */,
 				F4E36D5B1B85B49D009BD909 /* DoAlbumCell.xib in Resources */,
 				4D5CE7811B7E4368002F1088 /* PushNotificationTableViewCell.xib in Resources */,
@@ -3388,6 +3397,7 @@
 				F4E36D5E1B85B49D009BD909 /* DoPhotoCell.m in Sources */,
 				2489B6231B5A40E200039E70 /* RegViewController.m in Sources */,
 				F48783921B58DA1700CDC1A8 /* AFURLResponseSerialization.m in Sources */,
+				4DC018CF1B88D9390097984E /* PromptView.m in Sources */,
 				4D077B251B80A00300FFD5CB /* SelectClassCell.m in Sources */,
 				F48783AD1B58DA1700CDC1A8 /* MJConst.m in Sources */,
 				4D5CE7551B7E42E1002F1088 /* unzip.c in Sources */,
