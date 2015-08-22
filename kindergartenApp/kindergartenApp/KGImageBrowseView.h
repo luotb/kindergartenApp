@@ -7,21 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "FuniPhotoScrollView.h"
-#import "FuniAttachment.h"
+#import "KGPhotoScrollView.h"
+#import "KGAttachment.h"
 
 @protocol FuniImageBrowseViewDelegate <NSObject>
 
 //单击回调
--(void)singleTapEvent:(FuniAttachment *)attachment;
+-(void)singleTapEvent:(KGAttachment *)attachment;
 
 //当前浏览的图片index
 @optional
-- (void)browseIndex:(NSInteger)index attach:(FuniAttachment *)attach;
+- (void)browseIndex:(NSInteger)index attach:(KGAttachment *)attach;
 
 @end
 
-@interface FuniImageBrowseView : UIView<FuniPhotoScrollViewDelegate, UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource>{
+@interface KGImageBrowseView : UIView<FuniPhotoScrollViewDelegate, UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource>{
     
     id<FuniImageBrowseViewDelegate> _delegate;
     UITableView      * photoTableView; //图片表格

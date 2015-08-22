@@ -10,7 +10,7 @@
 #import <UIKit/UIKit.h>
 #import "KGBaseDomain.h"
 
-@interface FuniAttachment : KGBaseDomain
+@interface KGAttachment : KGBaseDomain
 
 @property(strong, nonatomic) NSString * name;
 @property(strong, nonatomic) NSString * relType;        //所属分类 大写

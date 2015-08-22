@@ -44,6 +44,7 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
 //    [reFreshView beginRefreshing];
 //    [self performSelector:@selector(lazyRefresh) withObject:self afterDelay:1];
 }

@@ -186,9 +186,18 @@
     
     sharedAdView = [[BaiduMobAdView alloc] init];
     sharedAdView.AdType = BaiduMobAdViewTypeBanner;
-    sharedAdView.frame = CGRectMake(0, 0, photosView.width, photosView.height);
+//    sharedAdView.frame = CGRectMake(0, 0, photosView.width, photosView.height);
     sharedAdView.delegate = self;
     [photosView addSubview:sharedAdView];
+    
+    [sharedAdView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(@(Number_Zero));
+        make.left.equalTo(@(Number_Zero));
+        make.right.equalTo(@(Number_Zero));
+        make.width.equalTo(@(KGSCREEN.size.width));
+        make.height.equalTo(@(photosView.height));
+    }];
+    
     [sharedAdView start];
 }
 

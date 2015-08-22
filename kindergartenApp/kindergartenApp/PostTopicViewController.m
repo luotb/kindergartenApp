@@ -120,6 +120,7 @@
     }else{
         PhotoVC * vc = [[PhotoVC alloc] init];
         vc.imgMArray = imagesMArray;
+        vc.isShowDel = YES;
         __weak typeof(self) weakSelf = self;
         [vc setMyBlock:^(NSArray * array){
             imagesMArray = [NSMutableArray arrayWithArray:array];
