@@ -83,29 +83,45 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "kindergartenApp/UIKeyboardViewController.m"
-            timestampString = "461930951.50995"
+            filePath = "kindergartenApp/ChatViewController.m"
+            timestampString = "461941877.829977"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "189"
-            endingLineNumber = "189"
-            landmarkName = "-firstResponderMove:"
+            startingLineNumber = "196"
+            endingLineNumber = "196"
+            landmarkName = "-sendTextInfo:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "kindergartenApp/UIKeyboardViewController.m"
-            timestampString = "461931462.073764"
+            filePath = "kindergartenApp/BaseTopicInteractViewController.m"
+            timestampString = "461949444.957262"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "225"
-            endingLineNumber = "225"
-            landmarkName = "-textFieldShouldReturn:"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
+            landmarkName = "-setKeyboardTopType:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "kindergartenApp/BaseTopicInteractViewController.m"
+            timestampString = "461949487.224536"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "193"
+            endingLineNumber = "193"
+            landmarkName = "-keyboardWillShowOrHide:inputY:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

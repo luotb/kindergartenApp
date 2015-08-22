@@ -7,7 +7,7 @@
 //
 
 #import "BaseViewController.h"
-#import "FuniAttachment.h"
+#import "KGAttachment.h"
 
 typedef void(^CallBack)(NSArray*);
 
@@ -16,7 +16,7 @@ typedef void(^CallBack)(NSArray*);
 @property(strong, nonatomic) NSMutableArray * imgMArray;
 @property (strong, nonatomic) NSMutableArray * attachemnMArray;
 @property (assign, nonatomic) NSInteger curentPage;
-
+@property (assign, nonatomic) BOOL  isShowDel;
 @property (strong, nonatomic) CallBack myBlock;
 
 @end

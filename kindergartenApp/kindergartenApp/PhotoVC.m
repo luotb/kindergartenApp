@@ -8,8 +8,8 @@
 
 #import "PhotoVC.h"
 #import "SystemResource.h"
-#import "FuniImageBrowseView.h"
-#import "FuniImageBrowseView.h"
+#import "KGImageBrowseView.h"
+#import "KGImageBrowseView.h"
 
 @interface PhotoVC ()<UIActionSheetDelegate,FuniImageBrowseViewDelegate>
 
@@ -32,7 +32,7 @@
     [super viewDidDisappear:animated];
     if (_myBlock) {
         NSMutableArray * imgArray = [[NSMutableArray alloc] init];
-        for (FuniAttachment * model in _attachemnMArray) {
+        for (KGAttachment * model in _attachemnMArray) {
             [imgArray addObject:model.image];
         }
         _myBlock(imgArray);
@@ -62,12 +62,12 @@
 }
 
 #pragma mark - FuniImageBrowseViewDelegate
-- (void)singleTapEvent:(FuniAttachment *)attachment{
+- (void)singleTapEvent:(KGAttachment *)attachment{
 
     [self.navigationController setNavigationBarHidden:!self.navigationController.navigationBarHidden animated:YES];
 }
 
-- (void)browseIndex:(NSInteger)index attach:(FuniAttachment *)attach{
+- (void)browseIndex:(NSInteger)index attach:(KGAttachment *)attach{
     _curentPage = index;
     self.title = [NSString stringWithFormat:@"%ld/%ld",(long)(index + 1), (long)_attachemnMArray.count];
 }
@@ -77,7 +77,7 @@
  */
 - (void)initAttachemnMArray{
     for (int i = 0; i < _imgMArray.count; ++ i) {
-        FuniAttachment * attachemnt = [[FuniAttachment alloc] init];
+        KGAttachment * attachemnt = [[KGAttachment alloc] init];
         attachemnt.image = _imgMArray[i];
         [_attachemnMArray addObject:attachemnt];
     }
@@ -87,7 +87,7 @@
  *  初始化图片浏览视图
  */
 - (void)initContentView{
-    FuniImageBrowseView * imgBrowseView = [[FuniImageBrowseView alloc] initImageBrowse:CGRectMake(0, 0, APPWINDOWWIDTH, APPWINDOWHEIGHT - 64) attach:_attachemnMArray size:@"12" isPageing:YES];
+    KGImageBrowseView * imgBrowseView = [[KGImageBrowseView alloc] initImageBrowse:CGRectMake(0, 0, APPWINDOWWIDTH, APPWINDOWHEIGHT - 64) attach:_attachemnMArray size:@"12" isPageing:YES];
     imgBrowseView._delegate = self;
     imgBrowseView.backgroundColor = [UIColor blackColor];
     [self.contentView addSubview:imgBrowseView];
@@ -98,9 +98,11 @@
     self.contentView.backgroundColor = [UIColor blackColor];
     self.view.backgroundColor = [UIColor blackColor];
     
-    UIBarButtonItem * rightBarItem = [[UIBarButtonItem alloc] initWithTitle:@"删除" style:UIBarButtonItemStyleDone target:self action:@selector(funViewClicked)];
-    rightBarItem.tintColor = [UIColor whiteColor];
-    self.navigationItem.rightBarButtonItem = rightBarItem;
+    if(_isShowDel) {
+        UIBarButtonItem * rightBarItem = [[UIBarButtonItem alloc] initWithTitle:@"删除" style:UIBarButtonItemStyleDone target:self action:@selector(funViewClicked)];
+        rightBarItem.tintColor = [UIColor whiteColor];
+        self.navigationItem.rightBarButtonItem = rightBarItem;
+    }
     
     self.title = [NSString stringWithFormat:@"1/%ld", (long)_imgMArray.count];
     

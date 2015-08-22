@@ -6,7 +6,7 @@
 //  Copyright (c) 2013年 you. All rights reserved.
 //
 
-#import "FuniImageBrowseView.h"
+#import "KGImageBrowseView.h"
 #import "KGHUD.h"
 #import "UIImageView+WebCache.h"
 //#import "FuniNSStringUtil.h"
@@ -18,7 +18,7 @@
 #define pageControlY      50
 #define pageControlHeight 100
 
-@implementation FuniImageBrowseView
+@implementation KGImageBrowseView
 
 @synthesize _delegate;
 
@@ -127,7 +127,7 @@
         [view removeFromSuperview];
     }
     if(isSingle){
-        FuniPhotoScrollView * photoScrollView = [[FuniPhotoScrollView alloc] initWithSingleImage:CGRectMake(Number_Zero, Number_Zero, self.frame.size.width, self.frame.size.height) image:singleImage defImg:defImgName];
+        KGPhotoScrollView * photoScrollView = [[KGPhotoScrollView alloc] initWithSingleImage:CGRectMake(Number_Zero, Number_Zero, self.frame.size.width, self.frame.size.height) image:singleImage defImg:defImgName];
         photoScrollView.photoScrollViewDelegate = self;
         photoScrollView.delegate = self;
         //顺时针旋转90度
@@ -140,7 +140,7 @@
         [cell.contentView addSubview:photoScrollView];
     }
     else if(attachArray && [attachArray count]>Number_Zero){
-        FuniPhotoScrollView * photoScrollView = [[FuniPhotoScrollView alloc] initWithPath:CGRectMake(Number_Zero, Number_Zero, self.frame.size.width, self.frame.size.height)
+        KGPhotoScrollView * photoScrollView = [[KGPhotoScrollView alloc] initWithPath:CGRectMake(Number_Zero, Number_Zero, self.frame.size.width, self.frame.size.height)
                  attach:[attachArray objectAtIndex:indexPath.row]
                  size:downImgSize defImg:defImgName];
         photoScrollView.photoScrollViewDelegate = self;
@@ -190,13 +190,13 @@
 }
 
 //单击回调
--(void)singleTapEvent:(FuniPhotoScrollView *)photoScrollView{
+-(void)singleTapEvent:(KGPhotoScrollView *)photoScrollView{
     if(_delegate)
         [_delegate singleTapEvent:photoScrollView.attachment];
 }
 
 // 双击回调
--(void)doubleTapEvent:(FuniPhotoScrollView *)photoScrollView{
+-(void)doubleTapEvent:(KGPhotoScrollView *)photoScrollView{
     if (photoScrollView.zoomScale == photoScrollView.maximumZoomScale) {
         // Zoom out
         [photoScrollView setZoomScale:photoScrollView.minimumZoomScale animated:YES];
@@ -208,14 +208,14 @@
 }
 
 //实现图片在缩放过程中居中
-- (void)scrollViewDidZoom:(FuniPhotoScrollView *)scrollView{
+- (void)scrollViewDidZoom:(KGPhotoScrollView *)scrollView{
      CGFloat offsetX = (scrollView.bounds.size.width > scrollView.contentSize.width)?(scrollView.bounds.size.width - scrollView.contentSize.width)/Number_Two : Number_Zero;
      CGFloat offsetY = (scrollView.bounds.size.height > scrollView.contentSize.height)?(scrollView.bounds.size.height - scrollView.contentSize.height)/Number_Two : Number_Zero;
      scrollView.photoImageView.center = CGPointMake(scrollView.contentSize.width/Number_Two + offsetX,scrollView.contentSize.height/Number_Two + offsetY);
 }
 
 
-- (UIView *)viewForZoomingInScrollView:(FuniPhotoScrollView *)scrollView {
+- (UIView *)viewForZoomingInScrollView:(KGPhotoScrollView *)scrollView {
     return scrollView.photoImageView;
 }
 

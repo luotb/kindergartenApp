@@ -6,13 +6,13 @@
 //  Copyright (c) 2013年 you. All rights reserved.
 //
 
-#import "FuniPhotoScrollView.h"
+#import "KGPhotoScrollView.h"
 #import "KGHUD.h"
 //#import "FuniNSStringUtil.h"
 #import "UIImageView+WebCache.h"
 #import "SystemResource.h"
 
-@implementation FuniPhotoScrollView
+@implementation KGPhotoScrollView
 
 @synthesize photoScrollViewDelegate;
 @synthesize photoImageView;
@@ -28,7 +28,7 @@
     return self;
 }
 
--(FuniPhotoScrollView *)initWithPath:(CGRect)frame attach:(FuniAttachment *)attach size:(NSString *)size{
+-(KGPhotoScrollView *)initWithPath:(CGRect)frame attach:(KGAttachment *)attach size:(NSString *)size{
     self = [self initWithFrame:frame];
     if(self){
         attachment      = attach;
@@ -39,13 +39,13 @@
     return self;
 }
 
--(FuniPhotoScrollView *)initWithPath:(CGRect)frame attach:(FuniAttachment *)attach size:(NSString *)size defImg:(NSString *)defImg{
+-(KGPhotoScrollView *)initWithPath:(CGRect)frame attach:(KGAttachment *)attach size:(NSString *)size defImg:(NSString *)defImg{
     defImgName = defImg;
     return [self initWithPath:frame attach:attach size:size];
 }
 
 //加载单张图片
--(FuniPhotoScrollView *)initWithSingleImage:(CGRect)frame image:(UIImage *)image defImg:(NSString *)defImg{
+-(KGPhotoScrollView *)initWithSingleImage:(CGRect)frame image:(UIImage *)image defImg:(NSString *)defImg{
     self = [self initWithFrame:frame];
     if(self){
         isSingle    = YES;
@@ -186,7 +186,7 @@
     }
 }
 
-- (UIView *)viewForZoomingInScrollView:(FuniPhotoScrollView *)scrollView
+- (UIView *)viewForZoomingInScrollView:(KGPhotoScrollView *)scrollView
 {
     return scrollView.photoImageView;
 }

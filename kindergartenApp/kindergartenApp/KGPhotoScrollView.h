@@ -7,16 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "FuniAttachment.h"
+#import "KGAttachment.h"
 
 @protocol FuniPhotoScrollViewDelegate;
 
-@interface FuniPhotoScrollView : UIScrollView<UIScrollViewDelegate, UIGestureRecognizerDelegate>{
+@interface KGPhotoScrollView : UIScrollView<UIScrollViewDelegate, UIGestureRecognizerDelegate>{
     id<FuniPhotoScrollViewDelegate>  photoScrollViewDelegate;
     UIImageView    * photoImageView;
     NSString       * photoPath;
     NSString       * downPhotoSize;
-    FuniAttachment * attachment;
+    KGAttachment * attachment;
     NSString       * defImgName;
     BOOL             isSingle;      //是否显示单张图片
     UIImage        * singleImage;   //单张图片
@@ -24,20 +24,20 @@
 
 @property(retain, nonatomic) id<FuniPhotoScrollViewDelegate>  photoScrollViewDelegate;
 @property(retain, nonatomic) UIImageView    * photoImageView;
-@property(retain, nonatomic) FuniAttachment * attachment;
+@property(retain, nonatomic) KGAttachment * attachment;
 
--(FuniPhotoScrollView *)initWithPath:(CGRect)frame attach:(FuniAttachment *)attach size:(NSString *)size;
--(FuniPhotoScrollView *)initWithPath:(CGRect)frame attach:(FuniAttachment *)attach size:(NSString *)size defImg:(NSString *)defImg;
--(FuniPhotoScrollView *)initWithSingleImage:(CGRect)frame image:(UIImage *)image defImg:(NSString *)defImg;
+-(KGPhotoScrollView *)initWithPath:(CGRect)frame attach:(KGAttachment *)attach size:(NSString *)size;
+-(KGPhotoScrollView *)initWithPath:(CGRect)frame attach:(KGAttachment *)attach size:(NSString *)size defImg:(NSString *)defImg;
+-(KGPhotoScrollView *)initWithSingleImage:(CGRect)frame image:(UIImage *)image defImg:(NSString *)defImg;
 @end
 
 
 @protocol FuniPhotoScrollViewDelegate <NSObject>
 
 //图片单击
--(void)singleTapEvent:(FuniPhotoScrollView *)photoScrollView;
+-(void)singleTapEvent:(KGPhotoScrollView *)photoScrollView;
 
 //图片双击
--(void)doubleTapEvent:(FuniPhotoScrollView *)photoScrollView;
+-(void)doubleTapEvent:(KGPhotoScrollView *)photoScrollView;
 
 @end
