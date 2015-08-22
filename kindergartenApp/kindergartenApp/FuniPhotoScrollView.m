@@ -62,6 +62,7 @@
 //加载图片
 - (void)loadPhoto{
     CGSize photosize = self.frame.size;
+
     photoImageView = [[UIImageView alloc] initWithFrame:CGRectMake(photosize.width/Number_Four, photosize.height/Number_Four, photosize.width/Number_Two, photosize.height/Number_Two)];
     photoImageView.contentMode = UIViewContentModeScaleAspectFit;
     photoImageView.backgroundColor = [UIColor blackColor];
