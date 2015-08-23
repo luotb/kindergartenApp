@@ -47,12 +47,8 @@
     
     [self loadBaseViewsAndData];
     [self loadInputFuniView];
-    
-    __weak typeof(self) weakSelf = self;
-    [_chatTableView addHeaderWithCallback:^{
-        [weakSelf getChatInfoList:weakSelf.pageNo+1];
-    }];
-    [_chatTableView headerBeginRefreshing];
+    [self getTeacherInfo];
+    [self loadTableView];
     
     //注册消息未发送成功点击第二次发送通知
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(chatSecondSendNotification:) name:Key_Notification_ChatSecondSend object:nil];
@@ -88,6 +84,16 @@
         WriteVO * domain = (WriteVO *)[dic objectForKey:Key_WriteVO];
         [self sendChatInfo:domain];
     }
+}
+
+//table加载
+- (void)loadTableView {
+    __weak typeof(self) weakSelf = self;
+    [_chatTableView addHeaderWithCallback:^{
+        [weakSelf getChatInfoList:weakSelf.pageNo+1];
+    }];
+    [_chatTableView headerBeginRefreshing];
+
 }
 
 
@@ -233,6 +239,16 @@
     }];
 }
 
+
+//获得老师信息
+- (void)getTeacherInfo {
+    [[KGHttpService sharedService] getUserInfo:_addressbookDomain.teacher_uuid success:^(KGUser *userInfo) {
+        self.title = userInfo.name;
+    } faild:^(NSString *errorMsg) {
+        
+    }];
+}
+
 - (void)getChatInfoList:(NSUInteger)pageNo {
     QueryChatsVO * queryVO = [[QueryChatsVO alloc] init];
     queryVO.isTeacher = _addressbookDomain.type;
@@ -243,7 +259,7 @@
         if (msgArray && msgArray.count != 0) {
             ++_pageNo;
         }
-        [self resetChatNameToTitle:msgArray];
+//        [self resetChatNameToTitle:msgArray];
         [self loadChatListData:msgArray];
         [_chatTableView headerEndRefreshing];
     } faild:^(NSString *errorMsg) {

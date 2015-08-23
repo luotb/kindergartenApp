@@ -438,6 +438,30 @@
                                      }];
 }
 
+//获取用户信息
+- (void)getUserInfo:(NSString *)useruuid success:(void (^)(KGUser * userInfo))success faild:(void (^)(NSString * errorMsg))faild {
+    
+    NSString * url = [KGHttpUrl getUserInfoUrl:useruuid];
+    [[AFAppDotNetAPIClient sharedClient] GET:url
+                                  parameters:nil
+                                     success:^(NSURLSessionDataTask* task, id responseObject) {
+                                         
+                                         KGBaseDomain * baseDomain = [KGBaseDomain objectWithKeyValues:responseObject];
+                                         
+                                         if([baseDomain.ResMsg.status isEqualToString:String_Success]) {
+                                             
+                                             KGUser * user = [KGUser objectWithKeyValues:baseDomain.data];
+                                             
+                                             success(user);
+                                         } else {
+                                             faild(baseDomain.ResMsg.message);
+                                         }
+                                     }
+                                     failure:^(NSURLSessionDataTask* task, NSError* error) {
+                                         [self requestErrorCode:error faild:faild];
+                                     }];
+}
+
 
 - (void)getPhoneVlCode:(NSString *)phone type:(NSInteger)type success:(void (^)(NSString * msgStr))success faild:(void (^)(NSString * errorMsg))faild {
     
