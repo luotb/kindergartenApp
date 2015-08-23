@@ -63,7 +63,6 @@
         singleImage    = image;
         [self initImageBrowseTableView];
     }
-    self.backgroundColor = [UIColor redColor];
     return self;
 }
 

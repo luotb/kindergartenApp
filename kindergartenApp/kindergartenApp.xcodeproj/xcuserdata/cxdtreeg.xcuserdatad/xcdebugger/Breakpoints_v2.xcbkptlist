@@ -17,6 +17,38 @@
             endingLineNumber = "58"
             landmarkName = "-singleTap"
             landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[IntroductionViewController singleTap]"
+                  moduleName = "&#x95ee;&#x754c;&#x4e92;&#x52a8;&#x5bb6;&#x56ed;"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/cxdtreeg/kindergartenApp/kindergartenApp/kindergartenApp/IntroductionViewController.m"
+                  timestampString = "462030999.870839"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "58"
+                  endingLineNumber = "58"
+                  offsetFromSymbolStart = "51">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__39-[IntroductionViewController singleTap]_block_invoke"
+                  moduleName = "&#x95ee;&#x754c;&#x4e92;&#x52a8;&#x5bb6;&#x56ed;"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/cxdtreeg/kindergartenApp/kindergartenApp/kindergartenApp/IntroductionViewController.m"
+                  timestampString = "462030999.870986"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "58"
+                  endingLineNumber = "58"
+                  offsetFromSymbolStart = "23">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy

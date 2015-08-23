@@ -55,7 +55,8 @@
 //处理分享操作
 - (void)handelShareWithShareType:(NSString *)shareType{
     
-    NSString * contentString = [NSString stringWithFormat:@"%@",_announcementDomain.title];
+    NSString * contentString = _announcementDomain.title;
+
     NSString * shareurl = _announcementDomain.share_url;
     if(!shareurl || [shareurl length]==Number_Zero) {
         shareurl = webUrl;
