@@ -83,13 +83,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "kindergartenApp/ChatViewController.m"
-            timestampString = "461941877.829977"
+            filePath = "kindergartenApp/ShareViewController.m"
+            timestampString = "462009058.195779"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "196"
-            endingLineNumber = "196"
-            landmarkName = "-sendTextInfo:"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
+            landmarkName = "-handelShareWithShareType:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -99,13 +99,45 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "kindergartenApp/BaseTopicInteractViewController.m"
-            timestampString = "461949487.224536"
+            filePath = "kindergartenApp/UUMessageCell.m"
+            timestampString = "462016651.22684"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "193"
-            endingLineNumber = "193"
-            landmarkName = "-keyboardWillShowOrHide:inputY:"
+            startingLineNumber = "148"
+            endingLineNumber = "148"
+            landmarkName = "-btnContentClick"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "kindergartenApp/UUMessageCell.m"
+            timestampString = "462016652.29645"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "147"
+            endingLineNumber = "147"
+            landmarkName = "-btnContentClick"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "kindergartenApp/BaseTopicInteractViewController.m"
+            timestampString = "462018796.727731"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "297"
+            endingLineNumber = "297"
+            landmarkName = "-UUInputFunctionView:sendMessage:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
