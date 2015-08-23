@@ -102,7 +102,8 @@
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return isPagngEnabled ? self.frame.size.width : self.frame.size.width+PhotoBrowseSpace;
+//    return isPagngEnabled ? self.frame.size.width : self.frame.size.width+PhotoBrowseSpace;
+    return APPWINDOWWIDTH;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -153,6 +154,7 @@
         photoScrollView.minimumZoomScale = Number_One;
         photoScrollView.maximumZoomScale = Number_Eight;
         [cell.contentView addSubview:photoScrollView];
+        
     }
     return cell;
 }

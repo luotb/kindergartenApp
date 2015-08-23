@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>23C90A04-515C-492A-8679-DA378D2ED199</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>kindergartenApp</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>3036EB97F6371D7F0E2847FBE801DFD8CA9A318A</key>
 		<string>https://github.com/luotb/kindergartenApp</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>kindergartenApp/kindergartenApp.xcodeproj/project.xcworkspace</string>
+	<string>kindergartenApp/kindergartenApp.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>3036EB97F6371D7F0E2847FBE801DFD8CA9A318A</key>

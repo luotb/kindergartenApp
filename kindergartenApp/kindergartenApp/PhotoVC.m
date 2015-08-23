@@ -87,10 +87,10 @@
  *  初始化图片浏览视图
  */
 - (void)initContentView{
-    KGImageBrowseView * imgBrowseView = [[KGImageBrowseView alloc] initImageBrowse:CGRectMake(0, 0, APPWINDOWWIDTH, APPWINDOWHEIGHT - 64) attach:_attachemnMArray size:@"12" isPageing:YES];
+    KGImageBrowseView * imgBrowseView = [[KGImageBrowseView alloc] initImageBrowse:CGRectMake(0, 64, APPWINDOWWIDTH, APPWINDOWHEIGHT - 64) attach:_attachemnMArray size:@"12" isPageing:YES];
     imgBrowseView._delegate = self;
     imgBrowseView.backgroundColor = [UIColor blackColor];
-    [self.contentView addSubview:imgBrowseView];
+    [self.view addSubview:imgBrowseView];
 }
 
 - (void)viewDidLoad {
