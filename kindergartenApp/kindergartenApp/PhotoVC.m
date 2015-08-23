@@ -78,7 +78,12 @@
 - (void)initAttachemnMArray{
     for (int i = 0; i < _imgMArray.count; ++ i) {
         KGAttachment * attachemnt = [[KGAttachment alloc] init];
-        attachemnt.image = _imgMArray[i];
+        if([_imgMArray[i] isKindOfClass:[UIImage class]]) {
+            attachemnt.image = _imgMArray[i];
+        } else {
+            attachemnt.imageUrl = _imgMArray[i];
+        }
+        
         [_attachemnMArray addObject:attachemnt];
     }
 }
