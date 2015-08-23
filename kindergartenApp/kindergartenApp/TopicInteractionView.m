@@ -235,13 +235,14 @@
         for(ReplyDomain * reply in _replyPage.data) {
             if(count < Number_Five) {
                 [replyStr appendFormat:@"%@:%@\n", reply.create_user, reply.content ? reply.content : @""];
+                NSString * createUser = [NSString stringWithFormat:@"%@:", reply.create_user];
                 
-                NSRange  range = [replyStr rangeOfString:[NSString stringWithFormat:@"%@:", reply.create_user]];
-                KGRange * tempRange = [KGRange new];
-                tempRange.location = range.location;
-                tempRange.length   = range.length;
-                
-                [attributedStrArray addObject:tempRange];
+//                NSRange  range = [replyStr rangeOfString:[NSString stringWithFormat:@"%@:", reply.create_user]];
+//                KGRange * tempRange = [KGRange new];
+//                tempRange.location = range.location;
+//                tempRange.length   = range.length;
+//                [attributedStrArray addObject:tempRange];
+                [attributedStrArray addObjectsFromArray:[self getSubStringShowNumsInStringBy:replyStr andSubstring:createUser]];
             }
             count++;
         }
@@ -365,6 +366,38 @@
     _dianzan.names = tempNames;
     
     [self resetDZText];
+}
+
+#pragma mark - 获取字符串中所有指定字符出现的range
+- (NSMutableArray *)getSubStringShowNumsInStringBy:(NSString*)string andSubstring:(NSString*)Substring
+{
+    int count = Number_Zero;
+    NSMutableArray * array = [[NSMutableArray alloc] init];
+    NSRange range = [string rangeOfString:Substring];
+    if(range.length > Number_Zero)
+    {
+        count++;
+        [array addObject:[self packageRange:range]];
+        while (range.length > Number_Zero) {
+            NSInteger startIndex = range.location+range.length;
+            NSInteger endIndex = string.length -startIndex;
+            string= [string substringWithRange:NSMakeRange(startIndex, endIndex)];
+            range = [string rangeOfString:Substring];
+            if(range.length > Number_Zero)
+            {
+//                [array addObject:[NSValue valueWithRange:range]];
+                [array addObject:[self packageRange:range]];
+            }
+        }
+    }
+    return array;
+}
+
+- (KGRange *)packageRange:(NSRange)range {
+    KGRange * tempRange = [KGRange new];
+    tempRange.location = range.location;
+    tempRange.length   = range.length;
+    return tempRange;
 }
 
 
