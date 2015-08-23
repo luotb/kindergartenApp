@@ -189,7 +189,7 @@
     
     sharedAdView = [[BaiduMobAdView alloc] init];
     sharedAdView.AdType = BaiduMobAdViewTypeBanner;
-    sharedAdView.frame = CGRectMake(0, 0, APPWINDOWWIDTH, photosView.height);
+//    sharedAdView.frame = CGRectMake(0, 0, APPWINDOWWIDTH, photosView.height);
     sharedAdView.delegate = self;
     [photosView addSubview:sharedAdView];
     

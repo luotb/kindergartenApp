@@ -221,6 +221,8 @@
         [self.topicImgsView addSubview:imageView];
         
         [imageView sd_setImageWithURL:[NSURL URLWithString:imgUrl] placeholderImage:nil options:SDWebImageLowPriority completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+            if(image)
+                [imagesMArray addObject:image];
         }];
         
         UIButton * btn = [[UIButton alloc] initWithFrame:CGRectMake(index * wh, y, wh, wh)];
@@ -267,12 +269,12 @@
 }
 
 - (void)showTopicImgClicked:(UIButton *)sender{
-//    UIImageView * imageView = (UIImageView *)sender.targetObj;
-//    NSString * imgUrl = objc_getAssociatedObject(sender, "imgUrl");
-//    [UUImageAvatarBrowser showImage:imageView url:imgUrl];
+    UIImageView * imageView = (UIImageView *)sender.targetObj;
+    NSString * imgUrl = objc_getAssociatedObject(sender, "imgUrl");
+    [UUImageAvatarBrowser showImage:imageView url:imgUrl];
     
-    NSDictionary * dic = @{Key_ImagesArray : imagesMArray};
-    [[NSNotificationCenter defaultCenter] postNotificationName:Key_Notification_BrowseImages object:self userInfo:dic];
+//    NSDictionary * dic = @{Key_ImagesArray : imagesMArray};
+//    [[NSNotificationCenter defaultCenter] postNotificationName:Key_Notification_BrowseImages object:self userInfo:dic];
 }
 
 
