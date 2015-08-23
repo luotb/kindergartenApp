@@ -53,7 +53,7 @@
 - (void)uploadImg:(UIImage *)img withName:(NSString *)imgName type:(NSInteger)imgType success:(void (^)(NSString * msgStr))success faild:(void (^)(NSString * errorMsg))faild;
 
 //提交推送token
-- (void)submitPushToken:(void (^)(NSString * msgStr))success faild:(void (^)(NSString * errorMsg))faild;
+- (void)submitPushTokenWithStatus:(NSString *)status success:(void (^)(NSString * msgStr))success faild:(void (^)(NSString * errorMsg))faild;
 
 //获取表情
 - (void)getEmojiList:(void (^)(NSString * msgStr))success faild:(void (^)(NSString * errorMsg))faild;
