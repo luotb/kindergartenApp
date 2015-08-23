@@ -189,7 +189,7 @@
     
     sharedAdView = [[BaiduMobAdView alloc] init];
     sharedAdView.AdType = BaiduMobAdViewTypeBanner;
-//    sharedAdView.frame = CGRectMake(0, 0, photosView.width, photosView.height);
+    sharedAdView.frame = CGRectMake(0, 0, APPWINDOWWIDTH, photosView.height);
     sharedAdView.delegate = self;
     [photosView addSubview:sharedAdView];
     
@@ -317,7 +317,7 @@
     return other;
 }
 
-#pragma ImageCollectionViewDelegate
+#pragma mark - ImageCollectionViewDelegate
 
 //单击回调
 -(void)singleTapEvent:(NSString *)pType {
@@ -325,7 +325,7 @@
 }
 
 
-
+#pragma mark - 功能按钮点击
 - (IBAction)funBtnClicked:(UIButton *)sender {
     BaseViewController * baseVC = nil;
     switch (sender.tag) {

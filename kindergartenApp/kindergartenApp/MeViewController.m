@@ -42,6 +42,12 @@
     meTableView.dataSource = self;
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    studentMArray = [KGHttpService sharedService].loginRespDomain.list;
+    [meTableView reloadData];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
