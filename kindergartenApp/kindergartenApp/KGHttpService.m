@@ -347,6 +347,10 @@
                                               [self setupCookie];
 //                                              [self userCookie:cookies];
                                               
+                                              //默热门选中第一个机构
+                                              if([_loginRespDomain.group_list count] > Number_Zero) {
+                                                  _groupDomain = [_loginRespDomain.group_list objectAtIndex:Number_Zero];
+                                              }
                                               
                                               //获取首页动态菜单
                                               [self getDynamicMenu:^(NSArray *menuArray) {
