@@ -106,6 +106,7 @@
         [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
         [UIApplication sharedApplication].applicationIconBadgeNumber = Number_Zero;
     }else{
+        [[UIApplication sharedApplication] registerForRemoteNotificationTypes:UIUserNotificationTypeBadge|UIUserNotificationTypeSound|UIUserNotificationTypeAlert];
         [UIApplication sharedApplication].applicationIconBadgeNumber = Number_Zero;
     }
 }

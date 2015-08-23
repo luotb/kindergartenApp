@@ -62,8 +62,6 @@
         shareurl = webUrl;
     }
     
-//    [[KGHUD sharedHud] show:self.view.superview];
-    
     //微信title设置方法：
     [UMSocialData defaultData].extConfig.wechatSessionData.title = _announcementDomain.title;
     //朋友圈title设置方法：
@@ -71,6 +69,11 @@
     [UMSocialWechatHandler setWXAppId:ShareKey_WeChat appSecret:ShareKey_WeChatSecret url:shareurl];
     [UMSocialData defaultData].extConfig.qqData.title = _announcementDomain.title;
     [UMSocialData defaultData].extConfig.qqData.url = shareurl;
+    if (shareType == UMShareToSina) {
+        [UMSocialData defaultData].extConfig.sinaData.shareText = [NSString stringWithFormat:@"%@ %@",contentString,shareurl];
+        [UMSocialData defaultData].extConfig.sinaData.urlResource = [[UMSocialUrlResource alloc] initWithSnsResourceType:UMSocialUrlResourceTypeDefault url:shareurl];
+    }
+    
     
     //设置分享内容，和回调对象
     [[UMSocialControllerService defaultControllerService] setShareText:contentString shareImage:[UIImage imageNamed:@"jiazhang_180"] socialUIDelegate:self];
