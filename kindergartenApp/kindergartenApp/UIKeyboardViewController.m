@@ -222,11 +222,7 @@ static CGFloat viewFrameY = 10;
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
-//	[textField resignFirstResponder];
     [self firstResponderMove:2];
-//    if([allInputFields count] == Number_One) {
-//        [self textFieldDidEndEditing:textField];
-//    }
 	return YES;
 }
 

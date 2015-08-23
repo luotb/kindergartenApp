@@ -48,6 +48,8 @@
 }
 
 - (void)regNotification {
+    [super regNotification];
+    
     self.keyBoardController.isEmojiInput = YES;
     
     //注册点赞通知

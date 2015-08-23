@@ -217,15 +217,7 @@
     {
         //先把图片转成NSData
         UIImage * image = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
-        NSData * data;
-        if (UIImagePNGRepresentation(image) == nil)
-        {
-            data = UIImageJPEGRepresentation(image, 1.0);
-        }
-        else
-        {
-            data = UIImagePNGRepresentation(image);
-        }
+        NSData * data = UIImageJPEGRepresentation(image, 0.1);
         
         //图片保存的路径
         //这里将图片放在沙盒的documents文件夹中
