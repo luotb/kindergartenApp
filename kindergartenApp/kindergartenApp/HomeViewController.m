@@ -344,7 +344,6 @@
             break;
         case 15:
             baseVC = [[RecipesListViewController alloc] init];
-            ((RecipesListViewController *)baseVC).groupuuid = [KGHttpService sharedService].groupDomain.uuid;
             break;
         case 16:
             baseVC = [[GiftwareArticlesViewController alloc] init];

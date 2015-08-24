@@ -114,22 +114,22 @@
 
 
 - (void)dzOperationHandler:(BOOL)isSelected {
-    [[KGHUD sharedHud] show:self.contentView];
+//    [[KGHUD sharedHud] show:self.contentView];
     if(isSelected) {
         //点赞
         [[KGHttpService sharedService] saveDZ:_topicInteractionDomain.topicUUID type:_topicInteractionDomain.topicType success:^(NSString *msgStr) {
-            [[KGHUD sharedHud] show:self.contentView onlyMsg:msgStr];
+//            [[KGHUD sharedHud] show:self.contentView onlyMsg:msgStr];
             [topicInteractionView resetDZName:YES name:[KGHttpService sharedService].loginRespDomain.userinfo.name];
         } faild:^(NSString *errorMsg) {
-            [[KGHUD sharedHud] show:self.contentView onlyMsg:errorMsg];
+//            [[KGHUD sharedHud] show:self.contentView onlyMsg:errorMsg];
         }];
     } else {
         //取消点赞
         [[KGHttpService sharedService] delDZ:_topicInteractionDomain.topicUUID success:^(NSString *msgStr) {
-            [[KGHUD sharedHud] show:self.contentView onlyMsg:msgStr];
+//            [[KGHUD sharedHud] show:self.contentView onlyMsg:msgStr];
             [topicInteractionView resetDZName:NO name:[KGHttpService sharedService].loginRespDomain.userinfo.name];
         } faild:^(NSString *errorMsg) {
-            [[KGHUD sharedHud] show:self.contentView onlyMsg:errorMsg];
+//            [[KGHUD sharedHud] show:self.contentView onlyMsg:errorMsg];
         }];
     }
 }

@@ -23,6 +23,9 @@
     BOOL      isFirstReq;
     UIScrollView * contentScrollView;
     RecipesInfoView * lastSelItemView;
+    NSInteger   reqIndex; //记录请求的inex
+    NSMutableArray *  allRecipesMArray; //所有食谱
+    NSArray        *  groupArray;
 }
 
 @end
@@ -43,6 +46,8 @@
     lastIndex  = Number_Fifteen;
     totalCount = Number_Thirtyt;
     isFirstReq = YES;
+    groupArray = [KGHttpService sharedService].loginRespDomain.group_list;
+    allRecipesMArray = [NSMutableArray new];
     
     [self loadFlowScrollView];
     [self loadRecipesInfoViewToScrollView];
@@ -73,7 +78,7 @@
         [contentScrollView addSubview:itemView];
         [itemViewArray addObject:itemView];
     }
-    [contentScrollView setContentOffset:CGPointMake(APPWINDOWWIDTH *  (totalCount / Number_Twelve), Number_Zero) animated:NO];
+    [contentScrollView setContentOffset:CGPointMake(APPWINDOWWIDTH *  lastIndex, Number_Zero) animated:NO];
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
@@ -84,7 +89,7 @@
     
     if(lastIndex!=currentIndex) {
         lastSelItemView = [itemViewArray objectAtIndex:currentIndex];
-        if(!lastSelItemView.recipesDomain) {
+        if(!lastSelItemView.allRecipesArray || [lastSelItemView.allRecipesArray count]==Number_Zero) {
             [self getQueryDate:currentIndex];
             [self loadRecipesInfoByData];
         }
@@ -96,24 +101,28 @@
 
 //加载食谱数据
 - (void)loadRecipesInfoByData {
-    [[KGHUD sharedHud] show:self.contentView];
-    
-    [[KGHttpService sharedService] getRecipesList:_groupuuid beginDate:lastDateStr endDate:nil success:^(NSArray *recipesArray) {
+    if(groupArray && [groupArray count] > Number_Zero) {
+        [[KGHUD sharedHud] show:self.contentView];
         
-        [[KGHUD sharedHud] hide:self.contentView];
-        
-        RecipesDomain * tempDomain = [[RecipesDomain alloc] init];
-        tempDomain.plandate = lastDateStr;
-        if(recipesArray && [recipesArray count]>Number_Zero) {
-            tempDomain = [recipesArray objectAtIndex:Number_Zero];
-            tempDomain.isReqSuccessData = YES;
-        }
-        
-        [lastSelItemView loadRecipesData:tempDomain];
-        
-    } faild:^(NSString *errorMsg) {
-        [[KGHUD sharedHud] show:self.contentView onlyMsg:errorMsg];
-    }];
+        GroupDomain * groupDmain = [groupArray objectAtIndex:reqIndex];
+        [[KGHttpService sharedService] getRecipesList:groupDmain.uuid beginDate:lastDateStr endDate:nil success:^(NSArray *recipesArray) {
+            
+            [[KGHUD sharedHud] hide:self.contentView];
+            
+            RecipesDomain * tempDomain = [[RecipesDomain alloc] init];
+            if(recipesArray && [recipesArray count]>Number_Zero) {
+                tempDomain = [recipesArray objectAtIndex:Number_Zero];
+                tempDomain.isReqSuccessData = YES;
+            }
+            tempDomain.plandate = lastDateStr;
+            
+            [allRecipesMArray addObject:tempDomain];
+            [self responseHandler];
+            
+        } faild:^(NSString *errorMsg) {
+            [[KGHUD sharedHud] show:self.contentView onlyMsg:errorMsg];
+        }];
+    }
 }
 
 
@@ -127,9 +136,21 @@
     }
 }
 
+//请求之后的处理 需要判断是否还需要再次请求
+- (void)responseHandler {
+    reqIndex++;
+    if(reqIndex < [groupArray count]) {
+        [self loadRecipesInfoByData];
+    } else {
+        [lastSelItemView loadRecipesData:allRecipesMArray];
+        [allRecipesMArray removeAllObjects];
+        reqIndex = Number_Zero;
+    }
+}
+
 //重置回复内容
 - (void)resetTopicReplyContent:(ReplyDomain *)domain {
-    [lastSelItemView resetTopicReplyContent:domain];
+    [lastSelItemView resetTopicReplyContent:domain topicInteraction:self.topicInteractionDomain];
 }
 
 
