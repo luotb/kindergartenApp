@@ -43,7 +43,7 @@
     self.keyBoardController.isShowKeyBoard = YES;
     self.keyboardTopType = EmojiAndTextMode;
     
-    lastIndex  = Number_Fifteen;
+    lastIndex  = Number_Fourteen;
     totalCount = Number_Thirtyt;
     isFirstReq = YES;
     groupArray = [KGHttpService sharedService].loginRespDomain.group_list;
@@ -51,6 +51,10 @@
     
     [self loadFlowScrollView];
     [self loadRecipesInfoViewToScrollView];
+    
+    lastSelItemView = [itemViewArray objectAtIndex:lastIndex];
+    [self getQueryDate:lastIndex];
+    [self loadRecipesInfoByData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -78,7 +82,7 @@
         [contentScrollView addSubview:itemView];
         [itemViewArray addObject:itemView];
     }
-    [contentScrollView setContentOffset:CGPointMake(APPWINDOWWIDTH *  lastIndex, Number_Zero) animated:NO];
+    [contentScrollView setContentOffset:CGPointMake(APPWINDOWWIDTH * lastIndex, Number_Zero) animated:NO];
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
@@ -89,11 +93,11 @@
     
     if(lastIndex!=currentIndex) {
         lastSelItemView = [itemViewArray objectAtIndex:currentIndex];
+        [self getQueryDate:currentIndex];
         if(!lastSelItemView.allRecipesArray || [lastSelItemView.allRecipesArray count]==Number_Zero) {
-            [self getQueryDate:currentIndex];
             [self loadRecipesInfoByData];
         }
-        isFirstReq = NO;
+        
         lastIndex = currentIndex;
     }
 }
@@ -103,7 +107,7 @@
 - (void)loadRecipesInfoByData {
     if(groupArray && [groupArray count] > Number_Zero) {
         [[KGHUD sharedHud] show:self.contentView];
-        
+        isFirstReq = NO;
         GroupDomain * groupDmain = [groupArray objectAtIndex:reqIndex];
         [[KGHttpService sharedService] getRecipesList:groupDmain.uuid beginDate:lastDateStr endDate:nil success:^(NSArray *recipesArray) {
             
