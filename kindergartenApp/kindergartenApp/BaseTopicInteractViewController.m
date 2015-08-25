@@ -246,6 +246,7 @@
                 _emojiInputY = _emojiAndTextView.y;
             }else{
                 _emojiAndTextView.y = wH;
+                [_emojiAndTextView.contentTextView setText:String_DefValue_Empty];
             }
             return;
         }

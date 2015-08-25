@@ -120,9 +120,9 @@
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
-//    for(UIView * view in cell.subviews) {
-//        [view removeFromSuperview];
-//    }
+    for(UIView * view in cell.subviews) {
+        [view removeFromSuperview];
+    }
     if(_tableDataSource && [_tableDataSource count]>Number_Zero) {
         TimetableItemVO   * timetableItemVO = [_tableDataSource objectAtIndex:indexPath.row];
         [cell addSubview:timetableItemVO.dzReplyView];
@@ -150,8 +150,8 @@
         itemVO.timetableMArray = [sourceTimetableMDict objectForKey:user.classuuid];
         [self.tableDataSource addObject:itemVO];
         index++;
-        TimetableDomain * domain = [self getTimetableDomainByWeek:itemVO.timetableMArray week:Number_One];
-        UIView * view = [self loadDZReply:domain index:index - Number_One week:Number_One];
+        TimetableDomain * domain = [self getTimetableDomainByWeek:itemVO.timetableMArray week:nowwWeekday];
+        UIView * view = [self loadDZReply:domain index:index - Number_One week:nowwWeekday];
         
         TimetableItemVO * itemVO2 = [[TimetableItemVO alloc] init];
         itemVO2.isDZReply = YES;

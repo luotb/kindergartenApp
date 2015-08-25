@@ -242,13 +242,13 @@
         }
         
         NSMutableArray * attributedStrArray = [self replySendNameRangeArray:replyDataMArray];
-        
+        __weak NSMutableArray *  tempRangeArray =  attributedStrArray;
         NSMutableAttributedString * attString = [[NSMutableAttributedString alloc] initWithString:replyStr];
         [self.replyView setText:attString afterInheritingLabelAttributesAndConfiguringWithBlock:^NSMutableAttributedString *(NSMutableAttributedString *mutableAttributedString) {
             
-//            for(KGRange * tempRange in attributedStrArray) {
-//                [mutableAttributedString addAttribute:(NSString *)kCTForegroundColorAttributeName value:KGColorFrom16(0xff4966) range:NSMakeRange(tempRange.location, tempRange.length)];
-//            }
+            for(KGRange * tempRange in tempRangeArray) {
+                [mutableAttributedString addAttribute:(NSString *)kCTForegroundColorAttributeName value:KGColorFrom16(0xff4966) range:NSMakeRange(tempRange.location, tempRange.length)];
+            }
             
             return mutableAttributedString;
         }];
