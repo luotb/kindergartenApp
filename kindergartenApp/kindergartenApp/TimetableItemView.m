@@ -120,9 +120,9 @@
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
-    for(UIView * view in cell.subviews) {
-        [view removeFromSuperview];
-    }
+//    for(UIView * view in cell.subviews) {
+//        [view removeFromSuperview];
+//    }
     if(_tableDataSource && [_tableDataSource count]>Number_Zero) {
         TimetableItemVO   * timetableItemVO = [_tableDataSource objectAtIndex:indexPath.row];
         [cell addSubview:timetableItemVO.dzReplyView];
