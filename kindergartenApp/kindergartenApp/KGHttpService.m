@@ -295,10 +295,6 @@
                                                  
                                                  _groupArray = groupArrayResp;
                                                  
-                                                 if(groupArrayResp && [groupArrayResp count]>Number_Zero) {
-                                                     _groupDomain = [groupArrayResp objectAtIndex:Number_Zero];
-                                                 }
-                                                 
                                                  success(groupArrayResp);
                                              } else {
                                                  faild(baseDomain.ResMsg.message);

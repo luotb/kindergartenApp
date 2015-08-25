@@ -52,12 +52,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "kindergartenApp/KGHttpService.m"
-            timestampString = "462030377.371771"
+            timestampString = "462201163.320725"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1075"
-            endingLineNumber = "1075"
-            landmarkName = "-saveFavorites:success:faild:"
+            startingLineNumber = "1071"
+            endingLineNumber = "1071"
+            landmarkName = "-getTeachingPlanList:endDate:cuid:success:faild:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
