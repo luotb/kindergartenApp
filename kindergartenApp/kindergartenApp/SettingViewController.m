@@ -27,7 +27,7 @@
     _tableView.delegate = self;
     _tableView.dataSource = self;
     [_tableView registerNib:[UINib nibWithNibName:@"SettingViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"SettingViewCell"];
-    _dataArray = @[@[@"修改密码",@"推送通知"],@[@"意见反馈",@"关于我们",@"检查更新"],@[@"退出"]];
+    _dataArray = @[@[@"修改密码",@"推送通知"],@[@"意见反馈",@"关于我们"],@[@"退出"]];
 }
 
 #pragma mark - UITableViewDataSource,UITableViewDelegate
@@ -70,10 +70,10 @@
                 vc = [[AboutWeViewController alloc] init];
             }
                 break;
-            case 2:
-                [[KGHUD sharedHud] show:self.view];
-                [MobClick checkUpdateWithDelegate:self selector:@selector(handleUpdate:)];
-                return;
+//            case 2:
+//                [[KGHUD sharedHud] show:self.view];
+//                [MobClick checkUpdateWithDelegate:self selector:@selector(handleUpdate:)];
+//                return;
         }
     }else if (indexPath.section == 2){
         [self logoutBtnClicked];
